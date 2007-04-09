@@ -1,0 +1,48 @@
+.codecolorer {
+	white-space: nowrap;
+}
+
+.codecolorer-container {
+	overflow: auto;
+	width: 435px;
+	font-family: monospace;
+	white-space: nowrap;
+}
+
+OL .codecolorer-container, UL .codecolorer-container {
+	width: 390px;
+}
+
+.commentlist .codecolorer-container {
+	width: 420px;
+}
+
+.commentlist blockquote .codecolorer-container {
+	width: 380px;
+}
+
+/* Color scheme */
+
+.codecolorer .de1, .codecolorer .de2 {font-family: 'Courier New', Courier, monospace; font-weight: normal;}
+.codecolorer .imp {font-weight: bold; color: red;}
+.codecolorer .ln-xtra {color: #cc0; background-color: #ffc;}
+.codecolorer li {font-family: 'Courier New', Courier, monospace; color: black; font-weight: normal; font-style: normal;}
+.codecolorer li.li2 {font-weight: bold;}
+.codecolorer .kw1 {color: #b1b100;}
+.codecolorer .kw2 {color: #000000; font-weight: bold;}
+.codecolorer .kw3 {color: #000066;}
+.codecolorer .co1 {color: #808080; font-style: italic;}
+.codecolorer .co2 {color: #808080; font-style: italic;}
+.codecolorer .coMULTI {color: #808080; font-style: italic;}
+.codecolorer .es0 {color: #000099; font-weight: bold;}
+.codecolorer .br0 {color: #66cc66;}
+.codecolorer .st0 {color: #ff0000;}
+.codecolorer .nu0 {color: #cc66cc;}
+.codecolorer .me1 {color: #006600;}
+.codecolorer .me2 {color: #006600;}
+.codecolorer .sc0 {}
+.codecolorer .sc1 {}
+.codecolorer .sc2 {}
+.codecolorer .sc3 {}
+.codecolorer .re0 {color: #0000ff;}
+.codecolorer .re1 {color: #ff0000}
