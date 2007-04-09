@@ -1,0 +1,50 @@
+# CodeColorer Wordpress Plugin v0.5.0
+# Copyright (C) 2007 Dmytro Shteflyuk
+# This file is distributed under the same license as the CodeColorer package.
+# Dmytro Shteflyuk <kpumuk@kpumuk.info>, 2007.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: CodeColorer Wordpress Plugin v0.5.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2007-03-31 19:30+0300\n"
+"PO-Revision-Date: 2007-03-31 21:22+0200\n"
+"Last-Translator: Dmytro Shteflyuk <kpumuk@kpumuk.info>\n"
+"Language-Team: Dmytro Shteflyuk <kpumuk@kpumuk.info>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Russian\n"
+"X-Poedit-Country: UKRAINE\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Code Highlighting Options"
+msgstr "Настройки подсветки синтаксиса"
+
+msgid "CSS Style"
+msgstr "Стиль CSS"
+
+msgid "Show line numbers"
+msgstr "Показывать номера строк"
+
+msgid "Lines to scroll"
+msgstr "Строк без прокрутки"
+
+msgid "Line height"
+msgstr "Высота строки"
+
+msgid "Preview"
+msgstr "Предварительный просмотр"
+
+msgid "Save Options"
+msgstr "Сохранить настройки"
+
+msgid "Disable keyword linking"
+msgstr "Отключить ссылки на ключевые слова"
+
+msgid "If your code lines number is less than this value, block height would not be fixed."
+msgstr "Если количество строк меньше этого значения, высота блока не будет фиксированной."
+
+msgid "Used to calculate block height when lines number is more than &quot;Lines to scroll&quot; value."
+msgstr "Используется для вычисления высоты блока, когда количество строк больше значения &quot;Строк без прокрутки&quot;"
+
