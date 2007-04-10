@@ -30,7 +30,7 @@ Plugin based on GeSHi library, which supports most languages. CodeColorer has va
 
 == Screenshots ==
 
-1. PHP syntax highlighting without scrollbars.
+1. Ruby syntax highlighting without scrollbars.
 2. CSS syntax highlighting with scrollbars.
 
 == Supported languages ==
@@ -49,7 +49,7 @@ Syntax coloring is highly customizable: you could change color scheme for all la
 * *nu0* - numbers
 * *me0* - methods
 
-To change colors for specific language copy default values and add language name with a period before it. For example, in this blog I'm using following color scheme for PHP:
+To change colors for specific language copy default values and add language name with a period before it. For example, you could use following color scheme for PHP:
 
 	.php .codecolorer .kw1 { color: #FF6600; font-weight: bolder; }
 	.php .codecolorer .kw2 { color: #339999; }
