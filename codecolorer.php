@@ -238,7 +238,6 @@ class CodeColorer {
   	$before = '<div>[cc lang="' . $lang . '"]';
   	$after = '[/cc]</div>';
     $blockID = $this->getBlockID($content, true, $before, $after);
-    var_dump($blockID);
     $this->comments[$blockID] = addslashes('[cc lang="' . $lang . '"]' . $text . '[/cc]');
 
     return $blockID;
