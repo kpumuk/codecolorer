@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: CodeColorer Wordpress Plugin v0.5.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-03-31 19:30+0300\n"
-"PO-Revision-Date: 2007-03-31 21:22+0200\n"
+"PO-Revision-Date: 2007-05-12 00:44+0200\n"
 "Last-Translator: Dmytro Shteflyuk <kpumuk@kpumuk.info>\n"
 "Language-Team: Dmytro Shteflyuk <kpumuk@kpumuk.info>\n"
 "MIME-Version: 1.0\n"
@@ -47,4 +47,7 @@ msgstr "Если количество строк меньше этого зна�
 
 msgid "Used to calculate block height when lines number is more than &quot;Lines to scroll&quot; value."
 msgstr "Используется для вычисления высоты блока, когда количество строк больше значения &quot;Строк без прокрутки&quot;"
+
+msgid "Tab size"
+msgstr "Размер табуляции"
 

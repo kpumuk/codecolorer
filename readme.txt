@@ -3,7 +3,7 @@ Contributors: kpumuk
 Tags: code, snippet, syntax, highlight, color, geshi
 Requires at least: 2.0.2
 Tested up to: 2.1
-Stable tag: 0.5.1
+Stable tag: 0.6.0
 
 CodeColorer is the plugin which allows you to insert code snippets into the post with nice syntax highlighting.
 
@@ -18,6 +18,27 @@ Plugin based on GeSHi library, which supports most languages. CodeColorer has va
 * syntax colors customization in CSS file
 * syntax highlighting of the code in comments
 * code protect from mangling by Wordpress (for example, quotes, double-dashes, etc would look just right as you entered)
+
+= Syntax =
+
+To insert code snippet into your post (or comment) you should use <tt>[cc lang=&quot;lang&quot;]code[/cc]</tt> or <tt>&lt;code lang=&quot;lang&quot;&gt;code&lt;/cc&gt;</tt> syntax. Starting from version 0.6.0 you could specify additional CodeColorer options inside <tt>[cc]</tt> tag:
+
+	[cc lang="php" tab_size="2" lines="40"]
+	// some code
+	[/cc]
+
+Note: You should always use double quotes or single quotes around the parameter value. Boolean values could be passed using string <tt>true</tt> or <tt>false</tt>, number <tt>1</tt> or <tt>0</tt>.
+
+Possible parameters:
+
+* <tt>lang</tt> (string) -- source language.
+* <tt>tab_size</tt> (integer) -- how many spaces would represent TAB symbol.
+* <tt>line_numbers</tt> (boolean) -- when <tt>true</tt> line numbers will be added.
+* <tt>no_links</tt> (boolean) -- when <tt>false</tt> keywords will be represented as links to manual.
+* <tt>lines</tt> (integer) -- how many lines would be block height without scroll.
+* <tt>line_height</tt> (integer) -- line height in pixels to calculate block size.
+
+All of these parameters could be configured via the CodeColorer options page. 
 
 == Installation ==
 
