@@ -3,7 +3,7 @@
 Plugin Name: CodeColorer
 Plugin URI: http://kpumuk.info/projects/wordpress-plugins/codecolorer
 Description: Syntax highlighting plugin, based on <a href="http://www.chroder.com/archives/2005/04/16/wordpress-codehighlight-plugin/">CodeHighlight</a>, <a href="http://blog.enargi.com/codesnippet/">Code Snippet</a> and <a href="http://qbnz.com/highlighter/">GeSHi</a> library. Use plugin options (In menu Options>CodeColorer) to configure code style.
-Version: 0.5.3
+Version: 0.6.0
 Author: Dmytro Shteflyuk
 Author URI: http://kpumuk.info/
 */
@@ -88,7 +88,7 @@ class CodeColorer {
   }
 
   /** Add css references to page head */
-  function addCSS($id) {
+  function addCSS() {
     $this->init();
     $this->addCssStyle();
   }
@@ -115,9 +115,10 @@ class CodeColorer {
 
   function sampleCodeFactory() {
     $this->init();
-    $html = $this->highlight_geshi($this->samplePhpCode, 'php-brief');
+    $options = $this->parseOptions('lang="php"');
+    $html = $this->highlight_geshi($this->samplePhpCode, $options);
     $num_lines = count(explode("\n", $this->samplePhpCode));
-    return $this->addContainer($html, 'php', $num_lines);
+    return $this->addContainer($html, $options, $num_lines);
   }
 
   function addPluginOptionsPage() {
@@ -127,8 +128,8 @@ class CodeColorer {
   }
 
   /** Perform code highlighting using GESHi engine */
-  function highlight_geshi($content, $lang) {
-    $lang = $this->filterLang($lang);
+  function highlight_geshi($content, $options) {
+    $lang = $this->filterLang($options['lang']);
     if (!class_exists('geshi')) $this->init();
     
     /* Geshi configuration */
@@ -136,12 +137,13 @@ class CodeColorer {
     $geshi->enable_classes();
     $geshi->set_overall_class('codecolorer');
     $geshi->set_overall_style('');
-    if (stripslashes(get_option('codecolorer_line_numbers'))) {
+    $geshi->set_tab_width($options['tab_size']);
+    if ($options['line_numbers']) {
       $geshi->enable_line_numbers(GESHI_NORMAL_LINE_NUMBERS, 1);
     } else {
       $geshi->enable_line_numbers(GESHI_NO_LINE_NUMBERS, 1);
     }
-    if (stripslashes(get_option('codecolorer_disable_keyword_linking'))) {
+    if ($options['no_links']) {
       $geshi->enable_keyword_links(false); 
     }
     $geshi->set_header_type(GESHI_HEADER_DIV);
@@ -156,10 +158,8 @@ class CodeColorer {
 
   /** Search content for code tags and replace it */
   function highlightCode1($content) {
-    $content = preg_replace('#\[cc\](.*?)\[/cc\]#sie', '$this->performHighlight(\'\\1\', \'text\', $content);', $content);
-    $content = preg_replace('#\[cc lang=["\'](.*?)["\']\](.*?)\[/cc\]#sie', '$this->performHighlight(\'\\2\', \'\\1\', $content);', $content);
-    $content = preg_replace('#\<code\>(.*?)\</code\>#sie', '$this->performHighlight(\'\\1\', \'text\', $content);', $content);
-    $content = preg_replace('#\<code lang=["\'](.*?)["\']\>(.*?)\</code\>#sie', '$this->performHighlight(\'\\2\', \'\\1\', $content);', $content);
+    $content = preg_replace('#\s*\[cc(.*?)\](.*?)\[/cc\]\s*#sie', '$this->performHighlight(\'\\2\', \'\\1\', $content);', $content);
+    $content = preg_replace('#\s*\<code(.*?)\>(.*?)\</code\>\s*#sie', '$this->performHighlight(\'\\2\', \'\\1\', $content);', $content);
 
     return $content;
   }
@@ -172,17 +172,13 @@ class CodeColorer {
   }
 
   function protectCommentContent1($content) {
-  	$content = stripslashes($content);
-    $content = preg_replace('#\[cc\](.*?)\[/cc\]#sie', '$this->performProtect(\'\\1\', \'text\', $content);', $content);
-    $content = preg_replace('#\[cc lang=["\'](.*?)["\']\](.*?)\[/cc\]#sie', '$this->performProtect(\'\\2\', \'\\1\', $content);', $content);
-    $content = preg_replace('#\<code\>(.*?)\</code\>#sie', '$this->performProtect(\'\\1\', \'text\', $content);', $content);
-    $content = preg_replace('#\<code lang=["\'](.*?)["\']\>(.*?)\</code\>#sie', '$this->performProtect(\'\\2\', \'\\1\', $content);', $content);
+    $content = preg_replace('#\s*(\[cc.*?\].*?\[/cc\])\s*#sie', '$this->performProtect(\'\\1\', $content);', $content);
+    $content = preg_replace('#\s*(\<code.*?\>.*?\</code\>)\s*#sie', '$this->performProtect(\'\\1\', $content);', $content);
 
     return $content;
   }
 
   function protectCommentContent2($content) {
-  	$content = stripslashes($content);
     $content = str_replace(array_keys($this->comments), array_values($this->comments), $content);
     $this->comments = array();
 
@@ -211,47 +207,48 @@ class CodeColorer {
   }
 
   /** Perform code highlightning */
-  function performHighlight($text, $lang, $content) {
+  function performHighlight($text, $opts, $content) {
     $text = str_replace(array("\\\"", "\\\'"), array ("\"", "\'"), $text);
     $text = preg_replace('/(< \?php)/i', '<?php', $text);
     $text = trim($text);
 
+    $options = $this->parseOptions($opts);
+
     // See if we should force a height
     $num_lines = count(explode("\n", $text));
 
-    if ($lang) {
-      $result = $this->highlight_geshi($text, $lang);
+    if ($options['lang'] != 'text') {
+      $result = $this->highlight_geshi($text, $options);
     } else {
       $result = $text;
     }
 
-    $result = $this->addContainer($result, $lang, $num_lines);
+    $result = $this->addContainer($result, $options, $num_lines);
     $blockID = $this->getBlockID($content);
     $this->blocks[$blockID] = $result;
 
-    return $blockID;
+    return "\n\n" . $blockID . "\n\n";
   }
   
   /** Perform code protecting from mangling by Wordpress (used in Comments) */
-  function performProtect($text, $lang, $content) {
-  	$text = str_replace(array("\\\"", "\\\'"), array ("\"", "\'"), $text);
-  	$before = '<div>[cc lang="' . $lang . '"]';
-  	$after = '[/cc]</div>';
-    $blockID = $this->getBlockID($content, true, $before, $after);
-    $this->comments[$blockID] = addslashes('[cc lang="' . $lang . '"]' . $text . '[/cc]');
+  function performProtect($text, $content) {
+    $text = str_replace(array("\\\"", "\\\'"), array ("\"", "\'"), $text);
 
-    return $blockID;
+    $blockID = $this->getBlockID($content, true, '', '');
+    $this->comments[$blockID] = $text;
+
+    return "\n\n" . $blockID . "\n\n";
   }
 
-  function addContainer($html, $lang, $num_lines) {
-    if($num_lines > $this->getLinesToScroll())
-        $style = ' style="height:' . ($this->getLinesToScroll() * $this->getLineHeight()) . 'px;"';
+  function addContainer($html, $options, $num_lines) {
+    if($num_lines > $options['lines'])
+        $style = ' style="height:' . ($options['lines'] * $options['line_height']) . 'px;"';
     elseif($num_lines == 1)
-        $style = ' style="height:' . intval(2.5 * $this->getLineHeight()) . 'px;"';
+        $style = ' style="height:' . intval(2.5 * $options['line_height']) . 'px;"';
     else
         $style = '';
 
-    $result = '<div class="codecolorer-container' . ($lang ? ' ' . $lang : '') . '"' . $style . '>' . $html . '</div>';
+    $result = '<div class="codecolorer-container ' . $options['lang'] . '"' . $style . '>' . $html . '</div>';
     return $result;
   }
 
@@ -264,12 +261,48 @@ class CodeColorer {
     return $lang;
   }
   
-  function getLinesToScroll() {
-    return intval(get_option('codecolorer_lines_to_scroll'));
+  function parseOptions($opts) {
+    $opts = str_replace(array("\\\"", "\\\'"), array ("\"", "\'"), $opts);
+  	preg_match_all('#([a-z_-]*?)\s*=\s*(["\'])(.*?)\2#i', $opts, $matches, PREG_SET_ORDER);
+    $options = array();
+    for ($i = 0; $i < sizeof($matches); $i++) {
+      $options[$matches[$i][1]] = $matches[$i][3];
+    }
+    return $this->populateDefaultValues($options);
   }
   
-  function getLineHeight() {
-    return intval(get_option('codecolorer_line_height'));
+  function populateDefaultValues($options) {
+    if (!$options['lang']) $options['lang'] = 'text';
+    if (!$options['tab_size']) {
+      $options['tab_size'] = intval(get_option('codecolorer_tab_size'));
+    } else {
+      $options['tab_size'] = intval($options['tab_size']);
+    }
+    if (!$options['line_numbers']) {
+      $options['line_numbers'] = $this->parseBoolean(get_option('codecolorer_line_numbers'));
+    } else {
+        $options['line_numbers'] = $this->parseBoolean($options['line_numbers']);
+    }
+    if (!$options['no_links']) {
+        $options['no_links'] = $this->parseBoolean(get_option('codecolorer_disable_keyword_linking'));
+    } else {
+        $options['no_links'] = $this->parseBoolean($options['no_links']);
+    }
+    if (!$options['lines']) {
+        $options['lines'] = intval(get_option('codecolorer_lines_to_scroll'));
+    } else {
+        $options['lines'] = intval($options['lines']);
+    }
+    if (!$options['line_height']) {
+        $options['line_height'] = intval(get_option('codecolorer_line_height'));
+    } else {
+        $options['line_height'] = intval($options['line_height']);
+    }
+    return $options;
+  }
+  
+  function parseBoolean($val) {
+  	return $val === true || $val === 'true' || $val === '1' || (is_int($val) && $val !== 0);
   }
   
   function getDefaultStyle() {
