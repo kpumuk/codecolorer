@@ -56,19 +56,19 @@ All of these parameters could be configured via the CodeColorer options page.
 
 == Frequently Asked Questions ==
 
-= I have enabled plugin in Site Admin, but my code samples are not highlighted. =
+=== I have enabled plugin in Site Admin, but my code samples are not highlighted. ===
 You forgot to rename <tt>codecolorer.css.in</tt> to <tt>codecolorer.css</tt>. See step 2.
 
-= I see &amp;lt; instead of &lt; (or other HTML entities like &gt;, &amp;, &quot;) in my code. =
+=== I see &amp;lt; instead of &lt; (or other HTML entities like &gt;, &amp;, &quot;) in my code. ===
 You are should not use the visual editor when writing code into the post.
 
-= Does it highlights my code on server or client side? =
+=== Does it highlights my code on server or client side? ===
 CodeColorer performs code highlighting on the server, you could see HTML of the highlighted code in page source.
 
-= Is it produces valid XHTML source? =
+=== Is it produces valid XHTML source? ===
 Yes, resulting XHTML is completely valid.
 
-= Could my visitors insert their code snippets in comments? =
+=== Could my visitors insert their code snippets in comments? ===
 Yes, CodeColorer supports code highlighting in comments using the same syntax, as you use in your blog posts.
 
 == Supported languages ==
