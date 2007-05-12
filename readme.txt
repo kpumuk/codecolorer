@@ -3,7 +3,7 @@ Contributors: kpumuk
 Tags: code, snippet, syntax, highlight, color, geshi
 Requires at least: 2.0.2
 Tested up to: 2.1
-Stable tag: 0.5.3
+Stable tag: 0.5.1
 
 CodeColorer is the plugin which allows you to insert code snippets into the post with nice syntax highlighting.
 
@@ -32,6 +32,23 @@ Plugin based on GeSHi library, which supports most languages. CodeColorer has va
 
 1. Ruby syntax highlighting without scrollbars.
 2. CSS syntax highlighting with scrollbars.
+
+== Frequently Asked Questions ==
+
+Q. I have enabled plugin in Site Admin, but my code samples are not highlighted.
+A. You forgot to rename <tt>codecolorer.css.in</tt> to <tt>codecolorer.css</tt>. See step 2.
+
+Q. I see &amp;lt; instead of &lt; (or other HTML entities like &gt;, &amp;, &quot;) in my code.
+A. You are should not use the visual editor when writing code into the post.
+
+Q. Does it highlights my code on server or client side?
+A. CodeColorer performs code highlighting on the server, you could see HTML of the highlighted code in page source.
+
+Q. Is it produces valid XHTML source?
+A. Yes, resulting XHTML is completely valid.
+
+Q. Could my visitors insert their code snippets in comments?
+A. Yes, CodeColorer supports code highlighting in comments using the same syntax, as you use in your blog posts.
 
 == Supported languages ==
 
@@ -63,7 +80,10 @@ To change colors for specific language copy default values and add language name
 	.php .codecolorer .re0 { color: #339999; }
 	.php .codecolorer .re1 { color: #FFCC00; }
 	.php .codecolorer .re3 * { color: #FFFFFF; }
-	.php .codecolorer .re4, .php .codecolorer .re4 * { color: #64A2FF; }
-	.php .codecolorer .co1, .php .codecolorer .co2, .php .codecolorer .coMULTI { color: #9933CC; }
+	.php .codecolorer .re4, .php .codecolorer .re4 * {
+		color: #64A2FF;
+	}
+	.php .codecolorer .co1, .php .codecolorer .co2,
+		.php .codecolorer .coMULTI { color: #9933CC; }
 
 Also you could change width of the code block in the top of CSS file (there are different values for different situations, for example when you code is places under <tt>&lt;blockquote&gt;</tt>).
