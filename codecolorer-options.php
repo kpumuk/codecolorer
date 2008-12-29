@@ -30,13 +30,14 @@ $location = get_option('siteurl') . '/wp-admin/admin.php?page=codecolorer/codeco
 /* Add some default options if they don't exist */
 add_option('codecolorer_css_style', $CodeColorer->getDefaultStyle());
 add_option('codecolorer_lines_to_scroll', $CodeColorer->getDefaultLinesToScroll());
-// add_option('codecolorer_line_height', $CodeColorer->getDefaultLineHeight());
 add_option('codecolorer_width', $CodeColorer->getDefaultWidth());
 add_option('codecolorer_height', $CodeColorer->getDefaultHeight());
 add_option('codecolorer_line_numbers', false);
 add_option('codecolorer_disable_keyword_linking', false);
 add_option('codecolorer_tab_size', 4);
 add_option('codecolorer_theme', '');
+/* Obsolete options */
+// add_option('codecolorer_line_height', $CodeColorer->getDefaultLineHeight());
 
 /* Check form submission and update options */
 if ('process' == $_POST['stage']) {
