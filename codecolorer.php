@@ -64,7 +64,7 @@ class CodeColorer {
   var $pluginPath;
   var $libPath;
   
-  var $DEFAULT_STYLE = 'border: 1px solid #ccc; background: #eee; padding: 5px; margin: 10px;';
+  var $DEFAULT_STYLE = 'border: 1px solid #ccc; background: #eee;';
   var $DEFAULT_LINES_TO_SCROLL = 20;
   var $DEFAULT_LINE_HEIGHT = 14;
 
@@ -138,11 +138,7 @@ class CodeColorer {
     $geshi->set_overall_class('codecolorer');
     $geshi->set_overall_style('font-family:Monaco,Lucida Console,monospace');
     $geshi->set_tab_width($options['tab_size']);
-    if ($options['line_numbers']) {
-      $geshi->enable_line_numbers(GESHI_NORMAL_LINE_NUMBERS, 1);
-    } else {
-      $geshi->enable_line_numbers(GESHI_NO_LINE_NUMBERS, 1);
-    }
+    $geshi->enable_line_numbers(GESHI_NO_LINE_NUMBERS, 1);
     if ($options['no_links']) {
       $geshi->enable_keyword_links(false); 
     }
@@ -153,6 +149,14 @@ class CodeColorer {
     }
     
     $result = $geshi->parse_code();
+    if ($options['line_numbers']) {
+      $table = '<table cellspacing="0" cellpadding="0"><tr><td class="line-numbers"><div>';
+      for ($i = 1, $count = substr_count($result, '<br />') + 1; $i <= $count; $i++) {
+        $table .= $i . '<br />';
+      }
+      $result = $table . '</div></td><td>' . $result . '</td></table>';
+    }
+    
     return $result;
   }
 
@@ -239,9 +243,7 @@ class CodeColorer {
 
   function addContainer($html, $options, $num_lines) {
     if($num_lines > $options['lines'])
-        $style = ' style="height:' . ($options['lines'] * $options['line_height']) . 'px;"';
-    elseif($num_lines == 1)
-        $style = ' style="height:' . intval(2.5 * $options['line_height']) . 'px;"';
+        $style = ' style="height:' . ($options['lines'] * $options['line_height']) . 'px;overflow:auto;"';
     else
         $style = '';
 
@@ -254,6 +256,10 @@ class CodeColorer {
     $lang = strtolower($lang);
     if (strstr($lang, 'html')) {
       $lang = 'html4strict';
+    } elseif ($lang == 'c#') {
+      $lang = 'csharp';
+    } elseif ($lang == 'c++') {
+      $lang = 'cpp';
     }
     return $lang;
   }
