@@ -63,7 +63,7 @@ $codecolorer_theme = stripslashes(get_option('codecolorer_theme'));
 ?>
 
 <div class="wrap"> 
-  <h2><?php _e('Code Highlighting Options', 'codecolorer') ?></h2> 
+  <h2>CodeColorer: <?php _e('Code Highlighting Options', 'codecolorer') ?></h2> 
   <form name="form1" method="post" action="<?php echo $location ?>&amp;updated=true">
   	<input type="hidden" name="stage" value="process" />
 
@@ -95,7 +95,7 @@ $codecolorer_theme = stripslashes(get_option('codecolorer_theme'));
         <th scope="row"><label for="codecolorer_height"><?php _e('Height', 'codecolorer') ?> (px):</label></th>
         <td>
           <input name="codecolorer_height" type="text" class="small-text" size="60" id="codecolorer_height" value="<?php echo $codecolorer_height ?>"/>
-          <span class="setting-description"><?php _e('When code has more than "Lines to Scroll" lines, block height will be set to this value.', 'codecolorer') ?></span>
+          <span class="setting-description"><?php _e('When code has more than &quot;Lines to Scroll&quot; lines, block height will be set to this value.', 'codecolorer') ?></span>
   	    </td>
       </tr>
 
@@ -144,7 +144,7 @@ $codecolorer_theme = stripslashes(get_option('codecolorer_theme'));
     
     <table width="100%" cellpadding="5" class="form-table"> 
       <tr valign="top">
-        <th scope="row"><label for="codecolorer_css_style"><?php _e('Example', 'codecolorer') ?>:</label></th>
+        <th scope="row"><label for="codecolorer_css_style"><?php _e('Code Example', 'codecolorer') ?>:</label></th>
         <td>
           <?php echo $CodeColorer->sampleCodeFactory(); ?>
         </td>
