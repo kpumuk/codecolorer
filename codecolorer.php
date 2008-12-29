@@ -3,7 +3,7 @@
 Plugin Name: CodeColorer
 Plugin URI: http://kpumuk.info/projects/wordpress-plugins/codecolorer
 Description: Syntax highlighting plugin, based on <a href="http://www.chroder.com/archives/2005/04/16/wordpress-codehighlight-plugin/">CodeHighlight</a>, <a href="http://blog.enargi.com/codesnippet/">Code Snippet</a> and <a href="http://qbnz.com/highlighter/">GeSHi</a> library. Use plugin options (In menu Options>CodeColorer) to configure code style.
-Version: 0.6.1
+Version: 0.7.0
 Author: Dmytro Shteflyuk
 Author URI: http://kpumuk.info/
 */
@@ -64,9 +64,10 @@ class CodeColorer {
   var $pluginPath;
   var $libPath;
   
-  var $DEFAULT_STYLE = 'border: 1px solid #ccc; background: #eee;';
+  var $DEFAULT_STYLE = '';#border: 1px solid #ccc; background: #eee;';
   var $DEFAULT_LINES_TO_SCROLL = 20;
-  var $DEFAULT_LINE_HEIGHT = 14;
+  var $DEFAULT_WIDTH = 435;
+  var $DEFAULT_HEIGHT = 300;
 
   var $blocks = array();
   var $comments = array();
@@ -242,12 +243,13 @@ class CodeColorer {
   }
 
   function addContainer($html, $options, $num_lines) {
-    if($num_lines > $options['lines'])
-        $style = ' style="height:' . ($options['lines'] * $options['line_height']) . 'px;overflow:auto;"';
-    else
-        $style = '';
+    $style = 'style="overflow:auto;width:' . $options['width'] . 'px';
+    if($num_lines > $options['lines'] && $options['lines'] > 0) {
+      $style .= ';height:' . $options['height'] . 'px';
+    }
+    $style .= '"';
 
-    $result = '<div class="codecolorer-container ' . $options['lang'] . '"' . $style . '>' . $html . '</div>';
+    $result = '<div class="codecolorer-container ' . $options['lang'] . ' ' . $options['theme'] . '" ' . $style . '>' . $html . '</div>';
     return $result;
   }
 
@@ -296,10 +298,21 @@ class CodeColorer {
     } else {
         $options['lines'] = intval($options['lines']);
     }
-    if (!$options['line_height']) {
-        $options['line_height'] = intval(get_option('codecolorer_line_height'));
+    if (!$options['width']) {
+        $options['width'] = intval(get_option('codecolorer_width'));
     } else {
-        $options['line_height'] = intval($options['line_height']);
+        $options['width'] = intval($options['width']);
+    }
+    if (!$options['height']) {
+        $options['height'] = intval(get_option('codecolorer_height'));
+    } else {
+        $options['height'] = intval($options['height']);
+    }
+    if (!$options['theme']) {
+      $options['theme'] = get_option('codecolorer_theme');
+    }
+    if ($options['theme'] == 'default') {
+      $options['theme'] = '';
     }
     return $options;
   }
@@ -316,8 +329,12 @@ class CodeColorer {
     return $this->DEFAULT_LINES_TO_SCROLL;
   }
   
-  function getDefaultLineHeight() {
-    return $this->DEFAULT_LINE_HEIGHT;
+  function getDefaultWidth() {
+    return $this->DEFAULT_WIDTH;
+  }
+  
+  function getDefaultHeight() {
+    return $this->DEFAULT_HEIGHT;
   }
 }
 
