@@ -3,12 +3,12 @@
 Plugin Name: CodeColorer
 Plugin URI: http://kpumuk.info/projects/wordpress-plugins/codecolorer
 Description: Syntax highlighting plugin, based on <a href="http://www.chroder.com/archives/2005/04/16/wordpress-codehighlight-plugin/">CodeHighlight</a>, <a href="http://blog.enargi.com/codesnippet/">Code Snippet</a> and <a href="http://qbnz.com/highlighter/">GeSHi</a> library. Use plugin options (In menu Options>CodeColorer) to configure code style.
-Version: 0.6.0
+Version: 0.6.1
 Author: Dmytro Shteflyuk
 Author URI: http://kpumuk.info/
 */
 /*
-    Copyright 2006  Dmytro Shteflyuk <kpumuk@kpumuk.info>
+    Copyright 2006 - 2008  Dmytro Shteflyuk <kpumuk@kpumuk.info>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -116,7 +116,7 @@ class CodeColorer {
   function sampleCodeFactory() {
     $this->init();
     $options = $this->parseOptions('lang="php"');
-    $html = $this->highlight_geshi($this->samplePhpCode, $options);
+    $html = $this->highlightGeshi($this->samplePhpCode, $options);
     $num_lines = count(explode("\n", $this->samplePhpCode));
     return $this->addContainer($html, $options, $num_lines);
   }
@@ -128,7 +128,7 @@ class CodeColorer {
   }
 
   /** Perform code highlighting using GESHi engine */
-  function highlight_geshi($content, $options) {
+  function highlightGeshi($content, $options) {
     $lang = $this->filterLang($options['lang']);
     if (!class_exists('geshi')) $this->init();
     
@@ -136,7 +136,7 @@ class CodeColorer {
     $geshi = new GeSHi($content, $lang, $this->geshi_path);
     $geshi->enable_classes();
     $geshi->set_overall_class('codecolorer');
-    $geshi->set_overall_style('');
+    $geshi->set_overall_style('font-family:Monaco,Lucida Console,monospace');
     $geshi->set_tab_width($options['tab_size']);
     if ($options['line_numbers']) {
       $geshi->enable_line_numbers(GESHI_NORMAL_LINE_NUMBERS, 1);
@@ -192,9 +192,10 @@ class CodeColorer {
   function getBlockID($content, $comment = false, $before = '<div>', $after = '</div>') {
     static $num = 0;
 
-	$block = $comment ? 'COMMENT' : 'BLOCK';
-	$before = $before . '::CODECOLORER_' . $block . '_';
-	$after = '::' . $after;
+  	$block = $comment ? 'COMMENT' : 'BLOCK';
+  	$before = $before . '::CODECOLORER_' . $block . '_';
+  	$after = '::' . $after;
+  	
     // Just do a check to make sure the user
     // hasn't (however unlikely) input block replacements
     // as legit text
@@ -217,11 +218,7 @@ class CodeColorer {
     // See if we should force a height
     $num_lines = count(explode("\n", $text));
 
-    if ($options['lang'] != 'text') {
-      $result = $this->highlight_geshi($text, $options);
-    } else {
-      $result = $text;
-    }
+    $result = $this->highlightGeshi($text, $options);
 
     $result = $this->addContainer($result, $options, $num_lines);
     $blockID = $this->getBlockID($content);
