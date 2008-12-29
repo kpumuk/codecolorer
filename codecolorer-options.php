@@ -58,63 +58,70 @@ $codecolorer_tab_size = stripslashes(get_option('codecolorer_tab_size'));
   <h2><?php _e('Code Highlighting Options', 'codecolorer') ?></h2> 
   <form name="form1" method="post" action="<?php echo $location ?>&amp;updated=true">
   	<input type="hidden" name="stage" value="process" />
-  
-    <p class="submit">
-      <input type="submit" name="Submit" value="<?php _e('Save Options', 'codecolorer') ?> &raquo;" />
-    </p>
 
-    <table width="100%" cellpadding="5" class="optiontable"> 
+    <table width="100%" cellpadding="5" class="form-table"> 
       <tr valign="top">
         <th scope="row"><label for="codecolorer_css_style"><?php _e('CSS Style', 'codecolorer') ?>:</label></th>
         <td>
           <input name="codecolorer_css_style" type="text"  size="60" id="codecolorer_css_style" value="<?php echo $codecolorer_css_style ?>"/>
         </td>
       </tr>
+
       <tr valign="top">
         <th scope="row"><label for="codecolorer_lines_to_scroll"><?php _e('Lines to scroll', 'codecolorer') ?>:</label></th>
         <td>
-          <input name="codecolorer_lines_to_scroll" type="text"  size="60" id="codecolorer_lines_to_scroll" value="<?php echo $codecolorer_lines_to_scroll ?>"/><br />
-          <?php _e('If your code lines number is less than this value, block height would not be fixed.', 'codecolorer') ?>
+          <input name="codecolorer_lines_to_scroll" type="text" class="small-text" size="60" id="codecolorer_lines_to_scroll" value="<?php echo $codecolorer_lines_to_scroll ?>"/>
+          <span class="setting-description"><?php _e('If your code lines number is less than this value, block height would not be fixed.', 'codecolorer') ?></span>
   	    </td>
       </tr>
+
       <tr valign="top">
         <th scope="row"><label for="codecolorer_line_height"><?php _e('Line height', 'codecolorer') ?> (px):</label></th>
         <td>
-          <input name="codecolorer_line_height" type="text"  size="60" id="codecolorer_line_height" value="<?php echo $codecolorer_line_height ?>"/><br />
-          <?php _e('Used to calculate block height when lines number is more than &quot;Lines to scroll&quot; value.', 'codecolorer') ?>
+          <input name="codecolorer_line_height" type="text" class="small-text" size="60" id="codecolorer_line_height" value="<?php echo $codecolorer_line_height ?>"/>
+          <span class="setting-description"><?php _e('Used to calculate block height when lines number is more than &quot;Lines to scroll&quot; value.', 'codecolorer') ?></span>
   	    </td>
       </tr>
+
       <tr valign="top">
         <th scope="row"><label for="codecolorer_tab_size"><?php _e('Tab size', 'codecolorer') ?>:</label></th>
         <td>
-          <input name="codecolorer_tab_size" type="text"  size="60" id="codecolorer_tab_size" value="<?php echo $codecolorer_tab_size ?>"/><br />
+          <input name="codecolorer_tab_size" type="text" class="small-text" size="60" id="codecolorer_tab_size" value="<?php echo $codecolorer_tab_size ?>"/>
+          <span class="setting-description"><?php _e('how many spaces would represent TAB symbol.', 'codecolorer') ?></span>
+  	    </td>
+      </tr>
+
+      <tr valign="top">
+        <th scope="row"><?php _e('Formatting', 'codecolorer') ?>:</th>
+        <td>
+          <label for="codecolorer_line_numbers">
+            <input name="codecolorer_line_numbers" type="checkbox" id="codecolorer_line_numbers" value="codecolorer_line_numbers"
+              <?php if($codecolorer_line_numbers == TRUE) {?> checked="checked" <?php } ?> />
+              <?php _e('Show line numbers', 'codecolorer') ?>
+          </label><br />
+
+          <label for="codecolorer_disable_keyword_linking">
+            <input name="codecolorer_disable_keyword_linking" type="checkbox" id="codecolorer_disable_keyword_linking" value="codecolorer_disable_keyword_linking"
+              <?php if($codecolorer_disable_keyword_linking == TRUE) {?> checked="checked" <?php } ?> />
+            <?php _e('Disable keyword linking', 'codecolorer') ?>
+          </label>
   	    </td>
       </tr>
     </table>
-  	
-    <p>
-      <label for="codecolorer_line_numbers">
-        <input name="codecolorer_line_numbers" type="checkbox" id="codecolorer_line_numbers" value="codecolorer_line_numbers"
-          <?php if($codecolorer_line_numbers == TRUE) {?> checked="checked" <?php } ?> />
-        <?php _e('Show line numbers', 'codecolorer') ?>
-      </label>
-    </p>
     
-    <p>
-      <label for="codecolorer_disable_keyword_linking">
-        <input name="codecolorer_disable_keyword_linking" type="checkbox" id="codecolorer_disable_keyword_linking" value="codecolorer_disable_keyword_linking"
-          <?php if($codecolorer_disable_keyword_linking == TRUE) {?> checked="checked" <?php } ?> />
-        <?php _e('Disable keyword linking', 'codecolorer') ?>
-      </label>
-    </p>
-          
-  	<fieldset class="options">
-      <legend><?php _e('Preview', 'codecolorer') ?></legend>
-      <?php echo $CodeColorer->sampleCodeFactory(); ?>
-  	</fieldset>
+    <h3><?php _e('Preview', 'codecolorer') ?></h3>
+    
+    <table width="100%" cellpadding="5" class="form-table"> 
+      <tr valign="top">
+        <th scope="row"><label for="codecolorer_css_style"><?php _e('Example', 'codecolorer') ?>:</label></th>
+        <td>
+          <?php echo $CodeColorer->sampleCodeFactory(); ?>
+        </td>
+      </tr>
+    </table>
 	
     <p class="submit">
-      <input type="submit" name="Submit" value="<?php _e('Save Options', 'codecolorer') ?> &raquo;" />
+      <input type="submit" class="button-primary" name="Submit" value="<?php _e('Save Options', 'codecolorer') ?> &raquo;" />
     </p>
   </form> 
 </div>
