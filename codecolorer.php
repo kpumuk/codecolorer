@@ -55,7 +55,6 @@ add_filter('comment_text', array(&$CodeColorer, 'highlightCode2'), 1000);
 add_filter('pre_comment_content', array(&$CodeColorer, 'protectCommentContent1'), -1000);
 add_filter('pre_comment_content', array(&$CodeColorer, 'protectCommentContent2'), 1000);
 
-
 unset ($CodeColorer);
 
 /** CodeColorer plugin class */
@@ -64,7 +63,7 @@ class CodeColorer {
   var $pluginPath;
   var $libPath;
   
-  var $DEFAULT_STYLE = '';#border: 1px solid #ccc; background: #eee;';
+  var $DEFAULT_STYLE = '';
   var $DEFAULT_LINES_TO_SCROLL = 20;
   var $DEFAULT_WIDTH = 435;
   var $DEFAULT_HEIGHT = 300;
@@ -96,18 +95,20 @@ class CodeColorer {
 
   function addCssStyle() {
     echo '<link rel="stylesheet" href="' . get_option('siteurl') . $this->pluginLocation . 'codecolorer.css" type="text/css" />', "\n";
-    echo '<style type="text/css">', "\n";
-    echo '.codecolorer-container  {' . $this->getStyle() . '}', "\n";
-    echo '</style>', "\n";
+    $style = $this->getStyle();
+    if ($style) {
+      echo '<style type="text/css">', "\n";
+      echo '.codecolorer-container  {' . $style . '}', "\n";
+      echo '</style>', "\n";
+    }
   }
 
   function getStyle() {
     $style = stripslashes(get_option('codecolorer_css_style'));
 
     /** Workaround for preview */
-    if ('process' == $_POST['stage']) {
-      if ($_POST['codecolorer_css_style'])
-        $style = $_POST['codecolorer_css_style'];
+    if ('process' == $_POST['stage'] && $_POST['codecolorer_css_style']) {
+      $style = $_POST['codecolorer_css_style'];
     }
     if (empty($style)) $style = CodeColorer::getDefaultStyle();
 
@@ -130,11 +131,10 @@ class CodeColorer {
 
   /** Perform code highlighting using GESHi engine */
   function highlightGeshi($content, $options) {
-    $lang = $this->filterLang($options['lang']);
     if (!class_exists('geshi')) $this->init();
     
     /* Geshi configuration */
-    $geshi = new GeSHi($content, $lang, $this->geshi_path);
+    $geshi = new GeSHi($content, $options['lang'], $this->geshi_path);
     $geshi->enable_classes();
     $geshi->set_overall_class('codecolorer');
     $geshi->set_overall_style('font-family:Monaco,Lucida Console,monospace');
@@ -278,6 +278,8 @@ class CodeColorer {
   
   function populateDefaultValues($options) {
     if (!$options['lang']) $options['lang'] = 'text';
+    $options['lang'] = $this->filterLang($options['lang']);
+
     if (!$options['tab_size']) {
       $options['tab_size'] = intval(get_option('codecolorer_tab_size'));
     } else {
