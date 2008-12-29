@@ -28,30 +28,37 @@ $CodeColorer = new CodeColorer();
 $location = get_option('siteurl') . '/wp-admin/admin.php?page=codecolorer/codecolorer-options.php'; // Form Action URI
 
 /* Add some default options if they don't exist */
-add_option('codecolorer_line_numbers', false);
 add_option('codecolorer_css_style', $CodeColorer->getDefaultStyle());
 add_option('codecolorer_lines_to_scroll', $CodeColorer->getDefaultLinesToScroll());
-add_option('codecolorer_line_height', $CodeColorer->getDefaultLineHeight());
+// add_option('codecolorer_line_height', $CodeColorer->getDefaultLineHeight());
+add_option('codecolorer_width', $CodeColorer->getDefaultWidth());
+add_option('codecolorer_height', $CodeColorer->getDefaultHeight());
+add_option('codecolorer_line_numbers', false);
 add_option('codecolorer_disable_keyword_linking', false);
 add_option('codecolorer_tab_size', 4);
+add_option('codecolorer_theme', '');
 
 /* Check form submission and update options */
 if ('process' == $_POST['stage']) {
   update_option('codecolorer_css_style', $_POST['codecolorer_css_style']);
   update_option('codecolorer_lines_to_scroll', intval($_POST['codecolorer_lines_to_scroll']));
-  update_option('codecolorer_line_height', intval($_POST['codecolorer_line_height']));
+  update_option('codecolorer_width', intval($_POST['codecolorer_width']));
+  update_option('codecolorer_height', intval($_POST['codecolorer_height']));
   update_option('codecolorer_line_numbers', isset($_POST['codecolorer_line_numbers']));
   update_option('codecolorer_disable_keyword_linking', isset($_POST['codecolorer_disable_keyword_linking']));
   update_option('codecolorer_tab_site', intval($_POST['codecolorer_tab_size']));
+  update_option('codecolorer_theme', $_POST['codecolorer_theme']);
 }
 
 /* Get options for form fields */
-$codecolorer_line_numbers = stripslashes(get_option('codecolorer_line_numbers'));
 $codecolorer_css_style = stripslashes(get_option('codecolorer_css_style'));
 $codecolorer_lines_to_scroll = stripslashes(get_option('codecolorer_lines_to_scroll'));
-$codecolorer_line_height = stripslashes(get_option('codecolorer_line_height'));
+$codecolorer_width = stripslashes(get_option('codecolorer_width'));
+$codecolorer_height = stripslashes(get_option('codecolorer_height'));
+$codecolorer_line_numbers = stripslashes(get_option('codecolorer_line_numbers'));
 $codecolorer_disable_keyword_linking = stripslashes(get_option('codecolorer_disable_keyword_linking'));
 $codecolorer_tab_size = stripslashes(get_option('codecolorer_tab_size'));
+$codecolorer_theme = stripslashes(get_option('codecolorer_theme'));
 ?>
 
 <div class="wrap"> 
@@ -71,15 +78,23 @@ $codecolorer_tab_size = stripslashes(get_option('codecolorer_tab_size'));
         <th scope="row"><label for="codecolorer_lines_to_scroll"><?php _e('Lines to scroll', 'codecolorer') ?>:</label></th>
         <td>
           <input name="codecolorer_lines_to_scroll" type="text" class="small-text" size="60" id="codecolorer_lines_to_scroll" value="<?php echo $codecolorer_lines_to_scroll ?>"/>
-          <span class="setting-description"><?php _e('If your code lines number is less than this value, block height would not be fixed.', 'codecolorer') ?></span>
+          <span class="setting-description"><?php _e('If your code lines number is less than this value, block height would not be fixed. Set to <b>-1</b> to remove vertical scroll.', 'codecolorer') ?></span>
   	    </td>
       </tr>
 
       <tr valign="top">
-        <th scope="row"><label for="codecolorer_line_height"><?php _e('Line height', 'codecolorer') ?> (px):</label></th>
+        <th scope="row"><label for="codecolorer_width"><?php _e('Width', 'codecolorer') ?> (px):</label></th>
         <td>
-          <input name="codecolorer_line_height" type="text" class="small-text" size="60" id="codecolorer_line_height" value="<?php echo $codecolorer_line_height ?>"/>
-          <span class="setting-description"><?php _e('Used to calculate block height when lines number is more than &quot;Lines to scroll&quot; value.', 'codecolorer') ?></span>
+          <input name="codecolorer_width" type="text" class="small-text" size="60" id="codecolorer_width" value="<?php echo $codecolorer_width ?>"/>
+          <span class="setting-description"><?php _e('Default code block width.', 'codecolorer') ?></span>
+  	    </td>
+      </tr>
+
+      <tr valign="top">
+        <th scope="row"><label for="codecolorer_height"><?php _e('Height', 'codecolorer') ?> (px):</label></th>
+        <td>
+          <input name="codecolorer_height" type="text" class="small-text" size="60" id="codecolorer_height" value="<?php echo $codecolorer_height ?>"/>
+          <span class="setting-description"><?php _e('When code has more than "Lines to Scroll" lines, block height will be set to this value.', 'codecolorer') ?></span>
   	    </td>
       </tr>
 
@@ -87,7 +102,22 @@ $codecolorer_tab_size = stripslashes(get_option('codecolorer_tab_size'));
         <th scope="row"><label for="codecolorer_tab_size"><?php _e('Tab size', 'codecolorer') ?>:</label></th>
         <td>
           <input name="codecolorer_tab_size" type="text" class="small-text" size="60" id="codecolorer_tab_size" value="<?php echo $codecolorer_tab_size ?>"/>
-          <span class="setting-description"><?php _e('how many spaces would represent TAB symbol.', 'codecolorer') ?></span>
+          <span class="setting-description"><?php _e('Indicating how many spaces would represent TAB symbol.', 'codecolorer') ?></span>
+  	    </td>
+      </tr>
+
+      <tr valign="top">
+        <th scope="row"><label for="codecolorer_theme"><?php _e('Theme', 'codecolorer') ?>:</label></th>
+        <td>
+          <select name="codecolorer_theme" id="codecolorer_theme">
+            <option value=""<?php if ($codecolorer_theme == '') echo ' selected="selected"' ?>>Slush &amp; Poppies</option>
+            <option value="blackboard"<?php if ($codecolorer_theme == 'blackboard') echo ' selected="selected"' ?>>Blackboard</option>
+            <option value="dawn"<?php if ($codecolorer_theme == 'dawn') echo ' selected="selected"' ?>>Dawn</option>
+            <option value="mac-classic"<?php if ($codecolorer_theme == 'mac-classic') echo ' selected="selected"' ?>>Mac Classic</option>
+            <option value="twitlight"<?php if ($codecolorer_theme == 'twitlight') echo ' selected="selected"' ?>>Twitlight</option>
+            <option value="vibrant"<?php if ($codecolorer_theme == 'vibrant') echo ' selected="selected"' ?>>Vibrant Ink</option>
+          </select>
+          <span class="setting-description"><?php _e('Default color scheme.', 'codecolorer') ?></span>
   	    </td>
       </tr>
 

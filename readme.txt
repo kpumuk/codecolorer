@@ -3,7 +3,7 @@ Contributors: kpumuk
 Tags: code, snippet, syntax, highlight, color, geshi
 Requires at least: 2.0.2
 Tested up to: 2.7
-Stable tag: 0.6.1
+Stable tag: 0.7.0
 
 CodeColorer is the plugin which allows you to insert code snippets into the post with nice syntax highlighting.
 
@@ -46,7 +46,7 @@ Possible parameters:
 * <tt>tab_size</tt> (integer) -- how many spaces would represent TAB symbol.
 * <tt>line_numbers</tt> (boolean) -- when <tt>true</tt> line numbers will be added.
 * <tt>no_links</tt> (boolean) -- when <tt>false</tt> keywords will be represented as links to manual.
-* <tt>lines</tt> (integer) -- how many lines would be block height without scroll.
+* <tt>lines</tt> (integer) -- how many lines would be block height without scroll; could be set to <tt>-1</tt> to remove vertical scrollbar.
 * <tt>width</tt> (integer) -- block width.
 * <tt>height</tt> (integer) -- height in pixels; used when lines number is greater then "lines" value.
 * <tt>theme</tt> (string) -- color theme (default, blackboard, dawn, mac-classic, twitlight, vibrant).
