@@ -19,6 +19,15 @@ Plugin based on GeSHi library, which supports most languages. CodeColorer has va
 * syntax highlighting of the code in comments
 * code protect from mangling by Wordpress (for example, quotes, double-dashes, etc would look just right as you entered)
 
+== Installation ==
+
+1. Download and unpack plugin files to <tt>wp-content/plugins/codecolorer</tt> directory.
+2. If you have not used CodeColorer early, rename <tt>wp-content/plugins/codecolorer/codecolorer.css.in</tt> to <tt>wp-content/plugins/codecolorer/codecolorer.css</tt>.
+3. Enable "CodeColorer" plugin on your <em>Plugins</em> page in <em>Site Admin</em>.
+4. Go to the <em>Options/CodeColorer</em> page in <em>Site Admin</em> and change plugin's options as you wish.
+5. Use <tt>[cc lang=&quot;lang&quot;]code[/cc]</tt> or <tt>&lt;code lang=&quot;lang&quot;&gt;code&lt;/cc&gt;</tt> syntax to insert code snippet into the post (you could skip <tt>lang=&quot;lang&quot;</tt>, in this case code would be in <tt>codecolorer</tt> block, but without syntax highlighting).
+6. Have fun!
+
 = Syntax =
 
 To insert code snippet into your post (or comment) you should use <tt>[cc lang=&quot;lang&quot;]code[/cc]</tt> or <tt>&lt;code lang=&quot;lang&quot;&gt;code&lt;/cc&gt;</tt> syntax. Starting from version 0.6.0 you could specify additional CodeColorer options inside <tt>[cc]</tt> tag:
@@ -40,15 +49,6 @@ Possible parameters:
 
 All of these parameters could be configured via the CodeColorer options page. 
 
-== Installation ==
-
-1. Download and unpack plugin files to <tt>wp-content/plugins/codecolorer</tt> directory.
-2. If you have not used CodeColorer early, rename <tt>wp-content/plugins/codecolorer/codecolorer.css.in</tt> to <tt>wp-content/plugins/codecolorer/codecolorer.css</tt>.
-3. Enable "CodeColorer" plugin on your <em>Plugins</em> page in <em>Site Admin</em>.
-4. Go to the <em>Options/CodeColorer</em> page in <em>Site Admin</em> and change plugin's options as you wish.
-5. Use <tt>[cc lang=&quot;lang&quot;]code[/cc]</tt> or <tt>&lt;code lang=&quot;lang&quot;&gt;code&lt;/cc&gt;</tt> syntax to insert code snippet into the post (you could skip <tt>lang=&quot;lang&quot;</tt>, in this case code would be in <tt>codecolorer</tt> block, but without syntax highlighting).
-6. Have fun!
-
 == Screenshots ==
 
 1. Ruby syntax highlighting without scrollbars.
@@ -56,20 +56,20 @@ All of these parameters could be configured via the CodeColorer options page.
 
 == Frequently Asked Questions ==
 
-Q. I have enabled plugin in Site Admin, but my code samples are not highlighted.
-A. You forgot to rename <tt>codecolorer.css.in</tt> to <tt>codecolorer.css</tt>. See step 2.
+*Q*. I have enabled plugin in Site Admin, but my code samples are not highlighted.  
+*A*. You forgot to rename <tt>codecolorer.css.in</tt> to <tt>codecolorer.css</tt>. See step 2.
 
-Q. I see &amp;lt; instead of &lt; (or other HTML entities like &gt;, &amp;, &quot;) in my code.
-A. You are should not use the visual editor when writing code into the post.
+*Q*. I see &amp;lt; instead of &lt; (or other HTML entities like &gt;, &amp;, &quot;) in my code.  
+*A*. You are should not use the visual editor when writing code into the post.
 
-Q. Does it highlights my code on server or client side?
-A. CodeColorer performs code highlighting on the server, you could see HTML of the highlighted code in page source.
+*Q*. Does it highlights my code on server or client side?  
+*A*. CodeColorer performs code highlighting on the server, you could see HTML of the highlighted code in page source.
 
-Q. Is it produces valid XHTML source?
-A. Yes, resulting XHTML is completely valid.
+*Q*. Is it produces valid XHTML source?  
+*A*. Yes, resulting XHTML is completely valid.
 
-Q. Could my visitors insert their code snippets in comments?
-A. Yes, CodeColorer supports code highlighting in comments using the same syntax, as you use in your blog posts.
+*Q*. Could my visitors insert their code snippets in comments?  
+*A*. Yes, CodeColorer supports code highlighting in comments using the same syntax, as you use in your blog posts.
 
 == Supported languages ==
 
