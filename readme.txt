@@ -2,12 +2,14 @@
 Contributors: kpumuk
 Tags: code, snippet, syntax, highlight, color, geshi
 Requires at least: 2.0.2
-Tested up to: 2.1
-Stable tag: 0.6.0
+Tested up to: 2.7
+Stable tag: 0.6.1
 
 CodeColorer is the plugin which allows you to insert code snippets into the post with nice syntax highlighting.
 
 == Description ==
+
+CodeColorer is the plugin which allows you to insert code snippets into the post with nice syntax highlighting.
 
 Plugin based on GeSHi library, which supports most languages. CodeColorer has various nice features:
 

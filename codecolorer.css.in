@@ -9,6 +9,15 @@
 	white-space: nowrap;
 }
 
+.codecolorer-container table td {
+  margin: 0px;
+  padding: 5px;
+}
+
+.codecolorer-container table td.line-numbers {
+  text-align: center;
+}
+
 OL .codecolorer-container, UL .codecolorer-container {
 	width: 390px;
 }
@@ -31,6 +40,8 @@ OL .codecolorer-container, UL .codecolorer-container {
 .codecolorer .kw1 {color: #b1b100;}
 .codecolorer .kw2 {color: #000000; font-weight: bold;}
 .codecolorer .kw3 {color: #000066;}
+.codecolorer .kw4 {color: #FF0000;}
+.codecolorer .kw5 {color: #000000;}
 .codecolorer .co1 {color: #808080; font-style: italic;}
 .codecolorer .co2 {color: #808080; font-style: italic;}
 .codecolorer .coMULTI {color: #808080; font-style: italic;}
