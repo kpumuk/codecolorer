@@ -15,8 +15,8 @@ Plugin based on GeSHi library, which supports most languages. CodeColorer has va
 
 * line numbers
 * automatic links to the documentation inserting
-* code block size calculating (short code would have short block, for long one block height would be fixed and scrollbar would appear)
-* code block style customization on Site Admin
+* code block intelligent scroll detection (short code would have short block, for long one block height would be fixed and scrollbar would appear)
+* predefined color themes (Slush &amp; Poppies, Blackboard, Dawn, Mac Classic, Twitlight, Vibrant Ink)
 * syntax colors customization in CSS file
 * syntax highlighting of the code in comments
 * code protect from mangling by Wordpress (for example, quotes, double-dashes, etc would look just right as you entered)
@@ -47,7 +47,9 @@ Possible parameters:
 * <tt>line_numbers</tt> (boolean) -- when <tt>true</tt> line numbers will be added.
 * <tt>no_links</tt> (boolean) -- when <tt>false</tt> keywords will be represented as links to manual.
 * <tt>lines</tt> (integer) -- how many lines would be block height without scroll.
-* <tt>line_height</tt> (integer) -- line height in pixels to calculate block size.
+* <tt>width</tt> (integer) -- block width.
+* <tt>height</tt> (integer) -- height in pixels; used when lines number is greater then "lines" value.
+* <tt>theme</tt> (string) -- color theme (default, blackboard, dawn, mac-classic, twitlight, vibrant).
 
 All of these parameters could be configured via the CodeColorer options page. 
 
@@ -107,6 +109,6 @@ To change colors for specific language copy default values and add language name
 		color: #64A2FF;
 	}
 	.php .codecolorer .co1, .php .codecolorer .co2,
-		.php .codecolorer .coMULTI { color: #9933CC; }
+	.php .codecolorer .coMULTI { color: #9933CC; }
 
 Also you could change width of the code block in the top of CSS file (there are different values for different situations, for example when you code is places under <tt>&lt;blockquote&gt;</tt>).
