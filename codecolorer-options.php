@@ -69,14 +69,6 @@ $codecolorer_theme = stripslashes(get_option('codecolorer_theme'));
 
     <table width="100%" cellpadding="5" class="form-table"> 
       <tr valign="top">
-        <th scope="row"><label for="codecolorer_css_style"><?php _e('Custom CSS Styles', 'codecolorer') ?>:</label></th>
-        <td>
-          <textarea name="codecolorer_css_style" type="text" id="codecolorer_css_style" rows="5" cols=60><?php echo $codecolorer_css_style ?></textarea><br />
-          <span class="setting-description"><?php _e('These custom CSS rules will be appended to the CodeColorer default CSS file.', 'codecolorer') ?></span>
-        </td>
-      </tr>
-
-      <tr valign="top">
         <th scope="row"><label for="codecolorer_lines_to_scroll"><?php _e('Lines to scroll', 'codecolorer') ?>:</label></th>
         <td>
           <input name="codecolorer_lines_to_scroll" type="text" class="small-text" size="60" id="codecolorer_lines_to_scroll" value="<?php echo $codecolorer_lines_to_scroll ?>"/>
@@ -138,6 +130,14 @@ $codecolorer_theme = stripslashes(get_option('codecolorer_theme'));
             <?php _e('Disable keyword linking', 'codecolorer') ?>
           </label>
   	    </td>
+      </tr>
+
+      <tr valign="top">
+        <th scope="row"><label for="codecolorer_css_style"><?php _e('Custom CSS Styles', 'codecolorer') ?>:</label></th>
+        <td>
+          <textarea name="codecolorer_css_style" type="text" id="codecolorer_css_style" rows="5" cols=60><?php echo $codecolorer_css_style ?></textarea><br />
+          <span class="setting-description"><?php _e('These custom CSS rules will be appended to the CodeColorer default CSS file.', 'codecolorer') ?></span>
+        </td>
       </tr>
     </table>
     

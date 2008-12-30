@@ -21,8 +21,8 @@ msgstr ""
 msgid "Code Highlighting Options"
 msgstr "Настройки подсветки синтаксиса"
 
-msgid "CSS Style"
-msgstr "Стиль CSS"
+msgid "Custom CSS Styles"
+msgstr "Дополнительные стили CSS"
 
 msgid "Show line numbers"
 msgstr "Показывать номера строк"
@@ -57,6 +57,9 @@ msgstr "Сохранить настройки"
 msgid "Disable keyword linking"
 msgstr "Отключить ссылки на ключевые слова"
 
+msgid "These custom CSS rules will be appended to the CodeColorer default CSS file."
+msgstr "Эти стили CSS будут добавлены к стилям CodeColorer по умолчанию."
+
 msgid "If your code lines number is less than this value, block height would not be fixed. Set to <b>-1</b> to remove vertical scroll."
 msgstr "Если количество строк меньше этого значения, высота блока не будет фиксированной. Используйте <b>-1</b>, чтобы убрать вертикальную полосу прокрутки."
 
@@ -71,4 +74,3 @@ msgstr "Значение, указывающее сколько пробелов
 
 msgid "Default color scheme."
 msgstr "Цветовая схема по умолчанию."
-
