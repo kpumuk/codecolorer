@@ -4,7 +4,7 @@ CodeColorer plugin options part
 http://kpumuk.info/projects/wordpress-plugins/codecolorer
 */
 /*
-    Copyright 2006  Dmytro Shteflyuk <kpumuk@kpumuk.info>
+    Copyright 2006 - 2008  Dmytro Shteflyuk <kpumuk@kpumuk.info>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@ $CodeColorer = new CodeColorer();
 $location = get_option('siteurl') . '/wp-admin/admin.php?page=codecolorer/codecolorer-options.php'; // Form Action URI
 
 /* Add some default options if they don't exist */
-add_option('codecolorer_css_style', $CodeColorer->getDefaultStyle());
+add_option('codecolorer_css_style', '');
 add_option('codecolorer_lines_to_scroll', $CodeColorer->getDefaultLinesToScroll());
 add_option('codecolorer_width', $CodeColorer->getDefaultWidth());
 add_option('codecolorer_height', $CodeColorer->getDefaultHeight());
@@ -69,9 +69,10 @@ $codecolorer_theme = stripslashes(get_option('codecolorer_theme'));
 
     <table width="100%" cellpadding="5" class="form-table"> 
       <tr valign="top">
-        <th scope="row"><label for="codecolorer_css_style"><?php _e('CSS Style', 'codecolorer') ?>:</label></th>
+        <th scope="row"><label for="codecolorer_css_style"><?php _e('Custom CSS Styles', 'codecolorer') ?>:</label></th>
         <td>
-          <input name="codecolorer_css_style" type="text"  size="60" id="codecolorer_css_style" value="<?php echo $codecolorer_css_style ?>"/>
+          <textarea name="codecolorer_css_style" type="text" id="codecolorer_css_style" rows="5" cols=60><?php echo $codecolorer_css_style ?></textarea><br />
+          <span class="setting-description"><?php _e('These custom CSS rules will be appended to the CodeColorer default CSS file.', 'codecolorer') ?></span>
         </td>
       </tr>
 

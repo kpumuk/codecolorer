@@ -63,7 +63,6 @@ class CodeColorer {
   var $pluginPath;
   var $libPath;
   
-  var $DEFAULT_STYLE = '';
   var $DEFAULT_LINES_TO_SCROLL = 20;
   var $DEFAULT_WIDTH = 435;
   var $DEFAULT_HEIGHT = 300;
@@ -94,25 +93,7 @@ class CodeColorer {
   }
 
   function addCssStyle() {
-    echo '<link rel="stylesheet" href="' . get_option('siteurl') . $this->pluginLocation . 'codecolorer.css" type="text/css" />', "\n";
-    $style = $this->getStyle();
-    if ($style) {
-      echo '<style type="text/css">', "\n";
-      echo '.codecolorer-container  {' . $style . '}', "\n";
-      echo '</style>', "\n";
-    }
-  }
-
-  function getStyle() {
-    $style = stripslashes(get_option('codecolorer_css_style'));
-
-    /** Workaround for preview */
-    if ('process' == $_POST['stage'] && $_POST['codecolorer_css_style']) {
-      $style = $_POST['codecolorer_css_style'];
-    }
-    if (empty($style)) $style = CodeColorer::getDefaultStyle();
-
-    return $style;
+    echo '<link rel="stylesheet" href="' . get_option('siteurl') . $this->pluginLocation . 'styles.php" type="text/css" />', "\n";
   }
 
   function sampleCodeFactory() {
@@ -243,7 +224,7 @@ class CodeColorer {
   }
 
   function addContainer($html, $options, $num_lines) {
-    $style = 'style="overflow:auto;width:' . $options['width'] . 'px';
+    $style = 'style="overflow:auto;white-space:nowrap;width:' . $options['width'] . 'px';
     if($num_lines > $options['lines'] && $options['lines'] > 0) {
       $style .= ';height:' . $options['height'] . 'px';
     }
@@ -321,10 +302,6 @@ class CodeColorer {
   
   function parseBoolean($val) {
   	return $val === true || $val === 'true' || $val === '1' || (is_int($val) && $val !== 0);
-  }
-  
-  function getDefaultStyle() {
-    return $this->DEFAULT_STYLE;
   }
   
   function getDefaultLinesToScroll() {
