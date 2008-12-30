@@ -3,9 +3,9 @@ Contributors: kpumuk
 Tags: code, snippet, syntax, highlight, color, geshi
 Requires at least: 2.0.2
 Tested up to: 2.7
-Stable tag: 0.7.0
+Stable tag: 0.7.1
 
-CodeColorer is the plugin which allows you to insert code snippets into the post with nice syntax highlighting.
+CodeColorer is the plugin which allows you to insert code snippets to your posts with nice syntax highlighting powered by GeSHi library.
 
 == Description ==
 
@@ -21,14 +21,31 @@ Plugin based on GeSHi library, which supports most languages. CodeColorer has va
 * syntax highlighting of the code in comments
 * code protect from mangling by Wordpress (for example, quotes, double-dashes, etc would look just right as you entered)
 
+= Changelog =
+
+* v0.7.1 (Dec 30, 2008)
+  * Fixed color scheme for XML language.
+  * Added custom CSS styles block to the options page.
+  * Removed <tt>codecolorer.css.in</tt> file as deprecated.
+  * Fixed bug wich code block paddings when line numbers are disabled.
+* v0.7.0 (Dec 29, 2008)
+  * Added predefined color themes (Slush & Poppies, Blackboard, Dawn, Mac Classic, Twitlight, Vibrant Ink).
+  * Added block width and height options, removed line height.
+  * Fixed bug with plain text formatting.
+  * Added ability to remove vertical scrollbar.
+  * Line numbers will be rendered into the table, so they will not be copied to clipboard along with code.
+  * Options page layout updated to Wordpress 2.7 look&feel.
+  * GeSHi updated to version 1.0.8.2.
+
+You can find complete changelog on the <a href="http://kpumuk.info/projects/wordpress-plugins/codecolorer/">plugin home page</a>.
+
 == Installation ==
 
 1. Download and unpack plugin files to <tt>wp-content/plugins/codecolorer</tt> directory.
-2. If you have not used CodeColorer early, rename <tt>wp-content/plugins/codecolorer/codecolorer.css.in</tt> to <tt>wp-content/plugins/codecolorer/codecolorer.css</tt>.
-3. Enable "CodeColorer" plugin on your <em>Plugins</em> page in <em>Site Admin</em>.
-4. Go to the <em>Options/CodeColorer</em> page in <em>Site Admin</em> and change plugin's options as you wish.
-5. Use <tt>[cc lang=&quot;lang&quot;]code[/cc]</tt> or <tt>&lt;code lang=&quot;lang&quot;&gt;code&lt;/cc&gt;</tt> syntax to insert code snippet into the post (you could skip <tt>lang=&quot;lang&quot;</tt>, in this case code would be in <tt>codecolorer</tt> block, but without syntax highlighting).
-6. Have fun!
+2. Enable "CodeColorer" plugin on your <em>Plugins</em> page in <em>Site Admin</em>.
+3. Go to the <em>Options/CodeColorer</em> page in <em>Site Admin</em> and change plugin's options as you wish.
+4. Use <tt>[cc lang=&quot;lang&quot;]code[/cc]</tt> or <tt>&lt;code lang=&quot;lang&quot;&gt;code&lt;/cc&gt;</tt> syntax to insert code snippet into the post (you could skip <tt>lang=&quot;lang&quot;</tt>, in this case code would be in <tt>codecolorer</tt> block, but without syntax highlighting).
+5. Have fun!
 
 = Syntax =
 
@@ -60,8 +77,8 @@ All of these parameters could be configured via the CodeColorer options page.
 
 == Frequently Asked Questions ==
 
-*Q*. I have enabled plugin in Site Admin, but my code samples are not highlighted.  
-*A*. You forgot to rename <tt>codecolorer.css.in</tt> to <tt>codecolorer.css</tt>. See step 2.
+*Q*. How do I can customize CodeColorer CSS rules?  
+*A*. Go to the <em>Options/CodeColorer</em> page in <em>Site Admin</em> and change the "Custom CSS Styles" option.
 
 *Q*. I see &amp;lt; instead of &lt; (or other HTML entities like &gt;, &amp;, &quot;) in my code.  
 *A*. You are should not use the visual editor when writing code into the post.
