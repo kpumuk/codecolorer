@@ -29,6 +29,10 @@
 .codecolorer .re0, .codecolorer .re1 { color: #A08000; }
 /* Global color */
 .codecolorer .br0, .codecolorer .sy0 { color: #000000; }
+/* Storage */
+.twitlight .xml .re1 { color: #008080; }
+/* Constant */
+.twitlight .xml .re0 { color: #0080A0; }
 
 /* "Twitlight" color scheme */
 .twitlight { color: #F8F8F8; background-color: #141414; }
@@ -40,6 +44,8 @@
 .twitlight .codecolorer .kw3, .twitlight .codecolorer .kw4, .twitlight .codecolorer .kw5, .twitlight .codecolorer .re2 { color: #F9EE98; }
 .twitlight .codecolorer .re0, .twitlight .codecolorer .re1 { color: #7587A6; }
 .twitlight .codecolorer .br0, .twitlight .codecolorer .sy0 { color: #F8F8F8; }
+.twitlight .xml .re1 { color: #F9EE98; }
+.twitlight .xml .re0 { color: #CF6A4C; }
 
 /* "Dawn" color scheme */
 .dawn { color: #080808; background-color: #F9F9F9; }
@@ -51,6 +57,8 @@
 .dawn .codecolorer .kw3, .dawn .codecolorer .kw4, .dawn .codecolorer .kw5, .dawn .codecolorer .re2 { color: #A71D5D; }
 .dawn .codecolorer .re0, .dawn .codecolorer .re1 { color: #234A97; }
 .dawn .codecolorer .br0, .dawn .codecolorer .sy0 { color: #080808; }
+.dawn .xml .re1 { color: #A71D5D; }
+.dawn .xml .re0 { color: #811F24; }
 
 /* "Blackboard" color scheme */
 .blackboard { color: #F8F8F8; background-color: #0C1021; }
@@ -60,8 +68,10 @@
 .blackboard .codecolorer .me1, .blackboard .codecolorer .me2 { color: #FF6400; }
 .blackboard .codecolorer .kw1, .blackboard .codecolorer .kw2, .blackboard .codecolorer .sy1 { color: #FBDE2D; }
 .blackboard .codecolorer .kw3, .blackboard .codecolorer .kw4, .blackboard .codecolorer .kw5, .blackboard .codecolorer .re2 { color: #FBDE2D; }
-.blackboard .codecolorer .re0, .blackboard .codecolorer .re1 { color: inherit; }
+.blackboard .codecolorer .re0, .blackboard .codecolorer .re1 { color: #F8F8F8; }
 .blackboard .codecolorer .br0, .blackboard .codecolorer .sy0 { color: #F8F8F8; }
+.blackboard .xml .re1 { color: #FBDE2D; }
+.blackboard .xml .re0 { color: #D8FA3C; }
 
 /* "Mac Classic" color scheme */
 .mac-classic { color: #000000; background-color: #FFFFFF; }
@@ -73,6 +83,8 @@
 .mac-classic .codecolorer .kw3, .mac-classic .codecolorer .kw4, .mac-classic .codecolorer .kw5, .mac-classic .codecolorer .re2 { color: #0000FF; }
 .mac-classic .codecolorer .re0, .mac-classic .codecolorer .re1 { color: #318495; }
 .mac-classic .codecolorer .br0, .mac-classic .codecolorer .sy0 { color: #000000; }
+.mac-classic .xml .re1 { color: #0000FF; }
+.mac-classic .xml .re0 { color: #0000CD; }
 
 /* "Vibrant Ink" color scheme */
 .vibrant { color: #FFFFFF; background-color: #000000; }
@@ -84,3 +96,5 @@
 .vibrant .codecolorer .kw3, .vibrant .codecolorer .kw4, .vibrant .codecolorer .kw5, .vibrant .codecolorer .re2 { color: #FFCC00; }
 .vibrant .codecolorer .re0, .vibrant .codecolorer .re1 { color: #FFFFFF; }
 .vibrant .codecolorer .br0, .vibrant .codecolorer .sy0 { color: #FFFFFF; }
+.vibrant .xml .re1 { color: #FFCC00; }
+.vibrant .xml .re0 { color: #339999; }
