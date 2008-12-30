@@ -1,10 +1,10 @@
 /* Layout */
-.codecolorer { white-space: nowrap; }
-.codecolorer-container { overflow: auto; white-space: nowrap; margin-bottom: 10px; }
+.codecolorer { white-space: nowrap; padding: 5px; }
+.codecolorer-container { margin-bottom: 10px; }
 .codecolorer-container * { font-size: 13px; line-height: 1.4em; font-family: Monaco, Lucida Console, monospace; }
 
-.codecolorer-container table td { margin: 0px; padding: 5px; }
-.codecolorer-container table td.line-numbers { text-align: center; }
+.codecolorer-container table td { margin: 0px; padding: 0px; }
+.codecolorer-container table td.line-numbers { padding: 5px; text-align: center; }
 .codecolorer-container table td.line-numbers div { width: 23px; }
 
 /* Layout styles */
