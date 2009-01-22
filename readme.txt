@@ -23,7 +23,9 @@ Plugin based on GeSHi library, which supports most languages. CodeColorer has va
 
 = Changelog =
 
-* v0.7.1 (Dec 30, 2008)
+* v0.7.3 (in development)
+  * Fixed problem with XHTML validation when line numbers are on (thanks to <a href="http://designfortress.com/">dreame4</a>).
+* v0.7.2 (Dec 30, 2008)
   * Fixed color scheme for XML language.
   * Added custom CSS styles block to the options page.
   * Removed <tt>codecolorer.css.in</tt> file as deprecated.
