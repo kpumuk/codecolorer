@@ -3,12 +3,12 @@
 Plugin Name: CodeColorer
 Plugin URI: http://kpumuk.info/projects/wordpress-plugins/codecolorer
 Description: This plugin allows you to insert code snippets to your posts with nice syntax highlighting powered by <a href="http://qbnz.com/highlighter/">GeSHi</a> library. After enabling this plugin visit <a href="options-general.php?page=codecolorer-options.php">the options page</a> to configure code style.
-Version: 0.7.2
+Version: 0.7.3
 Author: Dmytro Shteflyuk
 Author URI: http://kpumuk.info/
 */
 /*
-    Copyright 2006 - 2008  Dmytro Shteflyuk <kpumuk@kpumuk.info>
+    Copyright 2006 - 2009  Dmytro Shteflyuk <kpumuk@kpumuk.info>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -201,16 +201,22 @@ class CodeColorer {
 
     $options = $this->parseOptions($opts);
 
-    // See if we should force a height
-    $num_lines = count(explode("\n", $text));
+    if ($options['no_cc']) {
+      $result = '<code>' . $text . '</code>';
+    } else {
+      // See if we should force a height
+      $num_lines = count(explode("\n", $text));
 
-    $result = $this->highlightGeshi($text, $options);
+      $result = $this->highlightGeshi($text, $options);
 
-    $result = $this->addContainer($result, $options, $num_lines);
-    $blockID = $this->getBlockID($content);
-    $this->blocks[$blockID] = $result;
+      $result = $this->addContainer($result, $options, $num_lines);
+      $blockID = $this->getBlockID($content);
+      $this->blocks[$blockID] = $result;
+      
+      $result = "\n\n" . $blockID . "\n\n";
+    }
 
-    return "\n\n" . $blockID . "\n\n";
+    return $result;
   }
   
   /** Perform code protecting from mangling by Wordpress (used in Comments) */
@@ -261,6 +267,12 @@ class CodeColorer {
     if (!$options['lang']) $options['lang'] = 'text';
     $options['lang'] = $this->filterLang($options['lang']);
 
+    if (!$options['no_cc']) {
+      $options['no_cc'] = false;
+    } else {
+      $options['no_cc'] = $this->parseBoolean($options['no_cc']);
+    }
+
     // Tab size (int)
     if (!$options['tab_size']) {
       $options['tab_size'] = intval(get_option('codecolorer_tab_size'));
@@ -272,7 +284,7 @@ class CodeColorer {
     if (!$options['line_numbers']) {
       $options['line_numbers'] = $this->parseBoolean(get_option('codecolorer_line_numbers'));
     } else {
-        $options['line_numbers'] = $this->parseBoolean($options['line_numbers']);
+      $options['line_numbers'] = $this->parseBoolean($options['line_numbers']);
     }
 
     // First line (int)
