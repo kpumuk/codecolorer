@@ -78,8 +78,8 @@ All of these parameters could be configured via the CodeColorer options page.
 
 == Screenshots ==
 
-1. Ruby syntax highlighting without scrollbars.
-2. CSS syntax highlighting with scrollbars.
+1. Ruby syntax highlighting without scrollbars (Vibrant theme).
+2. Ruby syntax highlighting with scrollbars (Twitlight theme).
 
 == Frequently Asked Questions ==
 
