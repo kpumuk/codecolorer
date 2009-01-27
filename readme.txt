@@ -3,7 +3,7 @@ Contributors: kpumuk
 Tags: code, snippet, syntax, highlight, color, geshi
 Requires at least: 2.0.2
 Tested up to: 2.7
-Stable tag: 0.7.2
+Stable tag: 0.7.3
 
 CodeColorer is the plugin which allows you to insert code snippets to your posts with nice syntax highlighting powered by GeSHi library.
 
@@ -23,9 +23,10 @@ Plugin based on GeSHi library, which supports most languages. CodeColorer has va
 
 = Changelog =
 
-* v0.7.3 (in development)
+* v0.7.3 (Jan 27, 2009)
   * Fixed problem with XHTML validation when line numbers are on (thanks to <a href="http://designfortress.com/">dreame4</a>).
   * Added first_line option to code blocks.
+  * Added no_cc option to disable CodeColorer for particular &lt;code&gt; blocks.
 * v0.7.2 (Dec 30, 2008)
   * Fixed color scheme for XML language.
   * Added custom CSS styles block to the options page.
@@ -71,6 +72,7 @@ Possible parameters:
 * <tt>width</tt> (integer) -- block width.
 * <tt>height</tt> (integer) -- height in pixels; used when lines number is greater then "lines" value.
 * <tt>theme</tt> (string) -- color theme (default, blackboard, dawn, mac-classic, twitlight, vibrant).
+* <tt>no_cc</tt> (boolean) -- when <tt>true</tt> the syntax in code block will not be highlighted, code will be rendered inside &lt;code&gt;&lt;/code&gt; tag.
 
 All of these parameters could be configured via the CodeColorer options page. 
 
@@ -95,6 +97,9 @@ All of these parameters could be configured via the CodeColorer options page.
 
 *Q*. Could my visitors insert their code snippets in comments?  
 *A*. Yes, CodeColorer supports code highlighting in comments using the same syntax, as you use in your blog posts.
+
+*Q*. How can I disable syntax highlighting for a particular &lt;code&gt; block?  
+*A*. Use <tt>no_cc="true"</tt> option for your code block.
 
 == Supported languages ==
 
