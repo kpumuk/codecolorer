@@ -25,6 +25,7 @@ Plugin based on GeSHi library, which supports most languages. CodeColorer has va
 
 * v0.7.3 (in development)
   * Fixed problem with XHTML validation when line numbers are on (thanks to <a href="http://designfortress.com/">dreame4</a>).
+  * Added first_line option to code blocks.
 * v0.7.2 (Dec 30, 2008)
   * Fixed color scheme for XML language.
   * Added custom CSS styles block to the options page.
@@ -64,6 +65,7 @@ Possible parameters:
 * <tt>lang</tt> (string) -- source language.
 * <tt>tab_size</tt> (integer) -- how many spaces would represent TAB symbol.
 * <tt>line_numbers</tt> (boolean) -- when <tt>true</tt> line numbers will be added.
+* <tt>first_line</tt> (integer) -- a number of the first line in the block.
 * <tt>no_links</tt> (boolean) -- when <tt>false</tt> keywords will be represented as links to manual.
 * <tt>lines</tt> (integer) -- how many lines would be block height without scroll; could be set to <tt>-1</tt> to remove vertical scrollbar.
 * <tt>width</tt> (integer) -- block width.

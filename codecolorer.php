@@ -3,12 +3,12 @@
 Plugin Name: CodeColorer
 Plugin URI: http://kpumuk.info/projects/wordpress-plugins/codecolorer
 Description: This plugin allows you to insert code snippets to your posts with nice syntax highlighting powered by <a href="http://qbnz.com/highlighter/">GeSHi</a> library. After enabling this plugin visit <a href="options-general.php?page=codecolorer-options.php">the options page</a> to configure code style.
-Version: 0.7.3
+Version: 0.7.2
 Author: Dmytro Shteflyuk
 Author URI: http://kpumuk.info/
 */
 /*
-    Copyright 2006 - 2009  Dmytro Shteflyuk <kpumuk@kpumuk.info>
+    Copyright 2006 - 2008  Dmytro Shteflyuk <kpumuk@kpumuk.info>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -133,8 +133,8 @@ class CodeColorer {
     $result = $geshi->parse_code();
     if ($options['line_numbers']) {
       $table = '<table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>';
-      for ($i = 1, $count = substr_count($result, '<br />') + 1; $i <= $count; $i++) {
-        $table .= $i . '<br />';
+      for ($i = 0, $count = substr_count($result, '<br />') + 1; $i < $count; $i++) {
+        $table .= ($i + $options['first_line']) . '<br />';
       }
       $result = $table . '</div></td><td>' . $result . '</td></tr></tbody></table>';
     }
@@ -261,42 +261,63 @@ class CodeColorer {
     if (!$options['lang']) $options['lang'] = 'text';
     $options['lang'] = $this->filterLang($options['lang']);
 
+    // Tab size (int)
     if (!$options['tab_size']) {
       $options['tab_size'] = intval(get_option('codecolorer_tab_size'));
     } else {
       $options['tab_size'] = intval($options['tab_size']);
     }
+
+    // Line numbers (bool)
     if (!$options['line_numbers']) {
       $options['line_numbers'] = $this->parseBoolean(get_option('codecolorer_line_numbers'));
     } else {
         $options['line_numbers'] = $this->parseBoolean($options['line_numbers']);
     }
+
+    // First line (int)
+    if (!$options['first_line'] && $options['first_line'] !== '0') {
+      $options['first_line'] = 1;
+    } else {
+      $options['first_line'] = intval($options['first_line']);
+    }
+
+    // Disable keyword linking (bool)
     if (!$options['no_links']) {
         $options['no_links'] = $this->parseBoolean(get_option('codecolorer_disable_keyword_linking'));
     } else {
         $options['no_links'] = $this->parseBoolean($options['no_links']);
     }
+    
+    // Lines to scroll (int)
     if (!$options['lines']) {
         $options['lines'] = intval(get_option('codecolorer_lines_to_scroll'));
     } else {
         $options['lines'] = intval($options['lines']);
     }
+    
+    // Block width (int)
     if (!$options['width']) {
         $options['width'] = intval(get_option('codecolorer_width'));
     } else {
         $options['width'] = intval($options['width']);
     }
+    
+    // Block height (int)
     if (!$options['height']) {
         $options['height'] = intval(get_option('codecolorer_height'));
     } else {
         $options['height'] = intval($options['height']);
     }
+    
+    // Theme (string)
     if (!$options['theme']) {
       $options['theme'] = get_option('codecolorer_theme');
     }
     if ($options['theme'] == 'default') {
       $options['theme'] = '';
     }
+    
     return $options;
   }
   
