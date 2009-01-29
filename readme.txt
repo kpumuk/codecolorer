@@ -101,9 +101,15 @@ All of these parameters could be configured via the CodeColorer options page.
 *Q*. How can I disable syntax highlighting for a particular &lt;code&gt; block?  
 *A*. Use <tt>no_cc="true"</tt> option for your code block.
 
+*Q*. I have updated the plugin to the newest version and now I keep getting following warnings:
+
+  Warning: array_keys() [function.array-keys]: The first argument should be an array in /home/wordpress/wp-content/plugins/codecolorer/lib/geshi.php on line 3599
+  
+*A*. Remove all files from codecolorer folder and unpack an archive with plugin again (thanks to <a href="http://blog.t-l-k.com/">Anatoliy Kolesnick</a>).
+
 == Supported languages ==
 
-Here is list of supported by CodeColorer languages: abap, actionscript, actionscript3, ada, apache, applescript, apt_sources, asm, asp, autoit, avisynth, bash, basic4gl, bf, blitzbasic, bnf, boo, c, c_mac, caddcl, cadlisp, cfdg, cfm, cil, cobol, cpp-qt, cpp, csharp, css-gen.cfg, css, d, delphi, diff, div, dos, dot, eiffel, email, fortran, freebasic, genero, gettext, glsl, gml, gnuplot, groovy, haskell, hq9plus, html4strict, idl, ini, inno, intercal, io, java, java5, javascript, kixtart, klonec, klonecpp, latex, lisp, lolcode, lotusformulas, lotusscript, lscript, lua, m68k, make, matlab, mirc, mpasm, mxml, mysql, nsis, objc, ocaml-brief, ocaml, oobas, oracle11, oracle8, pascal, per, perl, php-brief, php, pic16, pixelbender, plsql, povray, powershell, progress, prolog, providex, python, qbasic, rails, reg, robots, ruby, sas, scala, scheme, scilab, sdlbasic, smalltalk, smarty, sql, tcl, teraterm, text, thinbasic, tsql, typoscript, vb, vbnet, verilog, vhdl, vim, visualfoxpro, visualprolog, whitespace, winbatch, xml, xorg_conf, xpp, yaml, z80.
+Here is list of supported by CodeColorer languages: abap, actionscript, actionscript3, ada, apache, applescript, apt\_sources, asm, asp, autoit, avisynth, bash, basic4gl, bf, blitzbasic, bnf, boo, c, c\_mac, caddcl, cadlisp, cfdg, cfm, cil, cobol, cpp-qt, cpp, csharp, css-gen.cfg, css, d, delphi, diff, div, dos, dot, eiffel, email, fortran, freebasic, genero, gettext, glsl, gml, gnuplot, groovy, haskell, hq9plus, html4strict, idl, ini, inno, intercal, io, java, java5, javascript, kixtart, klonec, klonecpp, latex, lisp, lolcode, lotusformulas, lotusscript, lscript, lua, m68k, make, matlab, mirc, mpasm, mxml, mysql, nsis, objc, ocaml-brief, ocaml, oobas, oracle11, oracle8, pascal, per, perl, php-brief, php, pic16, pixelbender, plsql, povray, powershell, progress, prolog, providex, python, qbasic, rails, reg, robots, ruby, sas, scala, scheme, scilab, sdlbasic, smalltalk, smarty, sql, tcl, teraterm, text, thinbasic, tsql, typoscript, vb, vbnet, verilog, vhdl, vim, visualfoxpro, visualprolog, whitespace, winbatch, xml, xorg_conf, xpp, yaml, z80.
 
 == Customization ==
 
