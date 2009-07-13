@@ -64,7 +64,7 @@ class CodeColorer {
   var $pluginLocation = '/wp-content/plugins/codecolorer/';
   var $pluginPath;
   var $libPath;
-  
+
   var $DEFAULT_LINES_TO_SCROLL = 20;
   var $DEFAULT_WIDTH = 435;
   var $DEFAULT_HEIGHT = 300;
@@ -95,7 +95,11 @@ class CodeColorer {
   }
 
   function addCssStyle() {
-    echo '<link rel="stylesheet" href="' . get_option('siteurl') . $this->pluginLocation . 'styles.php" type="text/css" />', "\n";
+    $styles = stripslashes(get_option('codecolorer_css_style'));
+    if (!empty($styles)) {
+      echo '<link rel="stylesheet" href="' . get_option('siteurl') . $this->pluginLocation . 'codecolorer.css" type="text/css" />', "\n";
+      echo '<style type="text/css">' . $styles . "</style>\n";
+    }
   }
 
   function sampleCodeFactory() {
@@ -113,32 +117,40 @@ class CodeColorer {
   /** Perform code highlighting using GESHi engine */
   function highlightGeshi($content, $options) {
     if (!class_exists('geshi')) $this->init();
-    
+
     /* Geshi configuration */
     $geshi = new GeSHi($content, $options['lang'], $this->geshi_path);
-    $geshi->enable_classes();
     $geshi->set_overall_class('codecolorer');
-    $geshi->set_overall_style('font-family:Monaco,Lucida Console,monospace');
+    if (is_feed()) {
+      $geshi->set_overall_style('padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap');
+    } else {
+      $geshi->enable_classes();
+      $geshi->set_overall_style('font-family:Monaco,Lucida Console,monospace');
+    }
     $geshi->set_tab_width($options['tab_size']);
     $geshi->enable_line_numbers(GESHI_NO_LINE_NUMBERS, 1);
-    if ($options['no_links']) {
-      $geshi->enable_keyword_links(false); 
-    }
+    if ($options['no_links']) $geshi->enable_keyword_links(false);
     $geshi->set_header_type(GESHI_HEADER_DIV);
 
     if ($geshi->error()) {
       return $geshi->error();
     }
-    
+
     $result = $geshi->parse_code();
     if ($options['line_numbers']) {
-      $table = '<table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>';
+      $table = '<table cellspacing="0" cellpadding="0"><tbody><tr><td ';
+      if (is_feed()) {
+        $table .= 'style="padding:5px;text-align:center;color:#888888;background-color:#EEEEEE;border-right: 1px solid #9F9F9F;font: normal 12px/1.4em Monaco, Lucida Console, monospace;"';
+      } else {
+        $table .= 'class="line-numbers"';
+      }
+      $table .= '><div>';
       for ($i = 0, $count = substr_count($result, '<br />') + 1; $i < $count; $i++) {
         $table .= ($i + $options['first_line']) . '<br />';
       }
       $result = $table . '</div></td><td>' . $result . '</td></tr></tbody></table>';
     }
-    
+
     return $result;
   }
 
@@ -181,7 +193,7 @@ class CodeColorer {
   	$block = $comment ? 'COMMENT' : 'BLOCK';
   	$before = $before . '::CODECOLORER_' . $block . '_';
   	$after = '::' . $after;
-  	
+
     // Just do a check to make sure the user
     // hasn't (however unlikely) input block replacements
     // as legit text
@@ -212,13 +224,13 @@ class CodeColorer {
       $result = $this->addContainer($result, $options, $num_lines);
       $blockID = $this->getBlockID($content);
       $this->blocks[$blockID] = $result;
-      
+
       $result = "\n\n" . $blockID . "\n\n";
     }
 
     return $result;
   }
-  
+
   /** Perform code protecting from mangling by Wordpress (used in Comments) */
   function performProtect($text, $content) {
     $text = str_replace(array("\\\"", "\\\'"), array ("\"", "\'"), $text);
@@ -230,11 +242,11 @@ class CodeColorer {
   }
 
   function addContainer($html, $options, $num_lines) {
-    $width = empty($options['width']) ? '' : ('width:' . (is_int($options['width']) ? $options['width'] . 'px' : $options['width']));
-    $style = 'style="overflow:auto;white-space:nowrap;' . $width;
+    $style = 'style="overflow:auto;white-space:nowrap;';
+    if (is_feed()) $style .= 'border: 1px solid #9F9F9F;';
+    $style .= $this->getDimensionRule('width', is_feed() ? $options['rss_width'] : $options['width']);
     if($num_lines > $options['lines'] && $options['lines'] > 0) {
-      $height = empty($options['height']) ? '' : (';height:' . (is_int($options['height']) ? $options['height'] . 'px' : $options['height']));
-      $style .= $height;
+      $style .= $this->getDimensionRule('height', $options['height']);
     }
     $style .= '"';
 
@@ -254,7 +266,7 @@ class CodeColorer {
     }
     return $lang;
   }
-  
+
   function parseOptions($opts) {
     $opts = str_replace(array("\\\"", "\\\'"), array ("\"", "\'"), $opts);
   	preg_match_all('#([a-z_-]*?)\s*=\s*(["\'])(.*?)\2#i', $opts, $matches, PREG_SET_ORDER);
@@ -264,7 +276,13 @@ class CodeColorer {
     }
     return $this->populateDefaultValues($options);
   }
-  
+
+  function getDimensionRule($dimension, $value) {
+    $rule = '';
+    if (!empty($value)) $rule = "$dimension:$value" . (is_int($value) ? '' : 'px');
+    return $rule;
+  }
+
   function populateDefaultValues($options) {
     if (!$options['lang']) $options['lang'] = 'text';
     $options['lang'] = $this->filterLang($options['lang']);
@@ -302,28 +320,29 @@ class CodeColorer {
     } else {
         $options['no_links'] = $this->parseBoolean($options['no_links']);
     }
-    
+
     // Lines to scroll (int)
     if (!$options['lines']) {
         $options['lines'] = intval(get_option('codecolorer_lines_to_scroll'));
     } else {
         $options['lines'] = intval($options['lines']);
     }
-    
-    // Block width (int)
+
+    // Block width (int or string)
     if (!$options['width']) {
         $options['width'] = get_option('codecolorer_width');
-    } else {
-        $options['width'] = $options['width'];
     }
-    
-    // Block height (int)
+
+    // Block height (int or string)
     if (!$options['height']) {
         $options['height'] = get_option('codecolorer_height');
-    } else {
-        $options['height'] = $options['height'];
     }
-    
+
+    // Block width in RSS (int or string)
+    if (!$options['rss_width']) {
+        $options['rss_width'] = get_option('codecolorer_rss_width');
+    }
+
     // Theme (string)
     if (!$options['theme']) {
       $options['theme'] = get_option('codecolorer_theme');
@@ -331,22 +350,22 @@ class CodeColorer {
     if ($options['theme'] == 'default') {
       $options['theme'] = '';
     }
-    
+
     return $options;
   }
-  
+
   function parseBoolean($val) {
   	return $val === true || $val === 'true' || $val === '1' || (is_int($val) && $val !== 0);
   }
-  
+
   function getDefaultLinesToScroll() {
     return $this->DEFAULT_LINES_TO_SCROLL;
   }
-  
+
   function getDefaultWidth() {
     return $this->DEFAULT_WIDTH;
   }
-  
+
   function getDefaultHeight() {
     return $this->DEFAULT_HEIGHT;
   }
