@@ -105,7 +105,7 @@ All of these parameters could be configured via the CodeColorer options page.
 
   Warning: array_keys() [function.array-keys]: The first argument should be an array in /home/wordpress/wp-content/plugins/codecolorer/lib/geshi.php on line 3599
   
-*A*. Remove all files from codecolorer folder and unpack an archive with plugin again (thanks to <a href="http://blog.t-l-k.com/">Anatoliy Kolesnick</a>).
+*A*. Remove all files from codecolorer folder and unpack an archive with plugin again (thanks to <a href="http://blog.t-l-k.com/">Anatoliy 'TLK' Kolesnick</a>).
 
 == Supported languages ==
 
