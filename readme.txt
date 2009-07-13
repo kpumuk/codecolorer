@@ -79,7 +79,7 @@ Possible parameters:
 * <tt>lines</tt> (integer) -- how many lines would be block height without scroll; could be set to <tt>-1</tt> to remove vertical scrollbar.
 * <tt>width</tt> (integer or string) -- block width.
 * <tt>height</tt> (integer or string) -- height in pixels; used when lines number is greater then "lines" value.
-* <tt>width_rss</tt> (integer or string) -- block width in RSS feeds.
+* <tt>rss_width</tt> (integer or string) -- block width in RSS feeds.
 * <tt>theme</tt> (string) -- color theme (default, blackboard, dawn, mac-classic, twitlight, vibrant).
 * <tt>no_cc</tt> (boolean) -- when <tt>true</tt> the syntax in code block will not be highlighted, code will be rendered inside &lt;code&gt;&lt;/code&gt; tag.
 
