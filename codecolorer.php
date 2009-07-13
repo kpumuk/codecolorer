@@ -41,9 +41,11 @@ $CodeColorer = new CodeColorer();
 add_action('wp_head', array (&$CodeColorer, 'addCSS'), 1);
 
 /** Admin pages */
-add_action('admin_head', array(&$CodeColorer, 'init'), 1);
-add_action('admin_head', array(&$CodeColorer, 'addCssStyle'), 1);
-add_action('admin_head', array(&$CodeColorer, 'addPluginOptionsPage'), 1);
+if (is_admin()) {
+    add_action('admin_head', array(&$CodeColorer, 'init'), 1);
+    add_action('admin_head', array(&$CodeColorer, 'addCssStyle'), 1);
+    add_action('admin_menu', array(&$CodeColorer, 'addPluginOptionsPage'), 1);
+}
 
 /** Filters */
 add_filter('the_content', array(&$CodeColorer, 'highlightCode1'), -1000);
@@ -105,9 +107,7 @@ class CodeColorer {
   }
 
   function addPluginOptionsPage() {
-    if (function_exists('add_options_page')) {
-      add_options_page('CodeColorer', 'CodeColorer', 9, 'codecolorer/codecolorer-options.php');
-    }
+    add_options_page('CodeColorer', 'CodeColorer', 8, 'codecolorer/codecolorer-options.php');
   }
 
   /** Perform code highlighting using GESHi engine */
@@ -230,9 +230,11 @@ class CodeColorer {
   }
 
   function addContainer($html, $options, $num_lines) {
-    $style = 'style="overflow:auto;white-space:nowrap;width:' . $options['width'] . 'px';
+    $width = empty($options['width']) ? '' : ('width:' . (is_int($options['width']) ? $options['width'] . 'px' : $options['width']));
+    $style = 'style="overflow:auto;white-space:nowrap;' . $width;
     if($num_lines > $options['lines'] && $options['lines'] > 0) {
-      $style .= ';height:' . $options['height'] . 'px';
+      $height = empty($options['height']) ? '' : (';height:' . (is_int($options['height']) ? $options['height'] . 'px' : $options['height']));
+      $style .= $height;
     }
     $style .= '"';
 
@@ -310,16 +312,16 @@ class CodeColorer {
     
     // Block width (int)
     if (!$options['width']) {
-        $options['width'] = intval(get_option('codecolorer_width'));
+        $options['width'] = get_option('codecolorer_width');
     } else {
-        $options['width'] = intval($options['width']);
+        $options['width'] = $options['width'];
     }
     
     // Block height (int)
     if (!$options['height']) {
-        $options['height'] = intval(get_option('codecolorer_height'));
+        $options['height'] = get_option('codecolorer_height');
     } else {
-        $options['height'] = intval($options['height']);
+        $options['height'] = $options['height'];
     }
     
     // Theme (string)
