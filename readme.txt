@@ -13,6 +13,7 @@ CodeColorer is the plugin which allows you to insert code snippets into the post
 
 Plugin based on GeSHi library, which supports most languages. CodeColorer has various nice features:
 
+* syntax highlighting in RSS feeds
 * line numbers
 * automatic links to the documentation inserting
 * code block intelligent scroll detection (short code would have short block, for long one block height would be fixed and scrollbar would appear)
@@ -27,6 +28,8 @@ Plugin based on GeSHi library, which supports most languages. CodeColorer has va
   * Added more styles for comments.
   * Added ability to specify width and height in px, em, percents. Also values could be omitted to use whole width and height available.
   * Fixed problem which blocked the access to CodeColorer options page in WordPress 2.8.1.
+  * Use plain old CSS files instead of slow styles.php.
+  * Fixed code blocks formatting in RSS feeds. Added rss_width option.
 * v0.7.3 (Jan 27, 2009)
   * Fixed problem with XHTML validation when line numbers are on (thanks to <a href="http://designfortress.com/">dreame4</a>).
   * Added first_line option to code blocks.
@@ -73,8 +76,9 @@ Possible parameters:
 * <tt>first_line</tt> (integer) -- a number of the first line in the block.
 * <tt>no_links</tt> (boolean) -- when <tt>false</tt> keywords will be represented as links to manual.
 * <tt>lines</tt> (integer) -- how many lines would be block height without scroll; could be set to <tt>-1</tt> to remove vertical scrollbar.
-* <tt>width</tt> (integer) -- block width.
-* <tt>height</tt> (integer) -- height in pixels; used when lines number is greater then "lines" value.
+* <tt>width</tt> (integer or string) -- block width.
+* <tt>height</tt> (integer or string) -- height in pixels; used when lines number is greater then "lines" value.
+* <tt>width_rss</tt> (integer or string) -- block width in RSS feeds.
 * <tt>theme</tt> (string) -- color theme (default, blackboard, dawn, mac-classic, twitlight, vibrant).
 * <tt>no_cc</tt> (boolean) -- when <tt>true</tt> the syntax in code block will not be highlighted, code will be rendered inside &lt;code&gt;&lt;/code&gt; tag.
 

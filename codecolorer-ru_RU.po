@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: CodeColorer Wordpress Plugin v0.5.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-03-31 19:30+0300\n"
-"PO-Revision-Date: 2008-12-30 00:11+0300\n"
+"PO-Revision-Date: 2009-07-13 14:53+0300\n"
 "Last-Translator: Dmytro Shteflyuk <kpumuk@kpumuk.info>\n"
 "Language-Team: Dmytro Shteflyuk <kpumuk@kpumuk.info>\n"
 "MIME-Version: 1.0\n"
@@ -35,6 +35,9 @@ msgstr "Ширина блока"
 
 msgid "Height"
 msgstr "Высота блока"
+
+msgid "Width in RSS"
+msgstr "Ширина блока в RSS"
 
 msgid "Tab size"
 msgstr "Размер табуляции"
@@ -63,14 +66,18 @@ msgstr "Эти стили CSS будут добавлены к стилям Code
 msgid "If your code lines number is less than this value, block height would not be fixed. Set to <b>-1</b> to remove vertical scroll."
 msgstr "Если количество строк меньше этого значения, высота блока не будет фиксированной. Используйте <b>-1</b>, чтобы убрать вертикальную полосу прокрутки."
 
-msgid "Default code block width."
-msgstr "Ширина блока кода по умолчанию."
+msgid "Default code block width. Integer means pixels, also you can specify <tt>em</tt> or <tt>%</tt> suffix. Could be omitted to use whole width."
+msgstr "Ширина блока кода по умолчанию. Целое число означает пиксели, кроме того можно указать суффикс <tt>em</tt> или <tt>%</tt>. Если не указано - будет использоваться вся ширина страницы."
 
 msgid "When code has more than &quot;Lines to Scroll&quot; lines, block height will be set to this value."
 msgstr "Когда код содержит больше, чем &quot;Строк без прокрутки&quot; строк, высота будет зафиксирована до указанного значения."
+
+msgid "Default code block width in RSS. See Width option description."
+msgstr "Ширина блока кода по умолчанию в RSS. См. описание опции &laquo;Ширина блока&raquo;."
 
 msgid "Indicating how many spaces would represent TAB symbol."
 msgstr "Значение, указывающее сколько пробелов содержит символ табуляции."
 
 msgid "Default color scheme."
 msgstr "Цветовая схема по умолчанию."
+

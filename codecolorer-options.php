@@ -32,6 +32,7 @@ add_option('codecolorer_css_style', '');
 add_option('codecolorer_lines_to_scroll', $CodeColorer->getDefaultLinesToScroll());
 add_option('codecolorer_width', $CodeColorer->getDefaultWidth());
 add_option('codecolorer_height', $CodeColorer->getDefaultHeight());
+add_option('codecolorer_rss_width', $CodeColorer->getDefaultWidth());
 add_option('codecolorer_line_numbers', false);
 add_option('codecolorer_disable_keyword_linking', false);
 add_option('codecolorer_tab_size', 4);
@@ -45,6 +46,7 @@ if ('process' == $_POST['stage']) {
   update_option('codecolorer_lines_to_scroll', intval($_POST['codecolorer_lines_to_scroll']));
   update_option('codecolorer_width', $_POST['codecolorer_width']);
   update_option('codecolorer_height', $_POST['codecolorer_height']);
+  update_option('codecolorer_rss_width', $_POST['codecolorer_rss_width']);
   update_option('codecolorer_line_numbers', isset($_POST['codecolorer_line_numbers']));
   update_option('codecolorer_disable_keyword_linking', isset($_POST['codecolorer_disable_keyword_linking']));
   update_option('codecolorer_tab_site', intval($_POST['codecolorer_tab_size']));
@@ -56,18 +58,19 @@ $codecolorer_css_style = stripslashes(get_option('codecolorer_css_style'));
 $codecolorer_lines_to_scroll = stripslashes(get_option('codecolorer_lines_to_scroll'));
 $codecolorer_width = stripslashes(get_option('codecolorer_width'));
 $codecolorer_height = stripslashes(get_option('codecolorer_height'));
+$codecolorer_rss_width = stripslashes(get_option('codecolorer_rss_width'));
 $codecolorer_line_numbers = stripslashes(get_option('codecolorer_line_numbers'));
 $codecolorer_disable_keyword_linking = stripslashes(get_option('codecolorer_disable_keyword_linking'));
 $codecolorer_tab_size = stripslashes(get_option('codecolorer_tab_size'));
 $codecolorer_theme = stripslashes(get_option('codecolorer_theme'));
 ?>
 
-<div class="wrap"> 
-  <h2>CodeColorer: <?php _e('Code Highlighting Options', 'codecolorer') ?></h2> 
+<div class="wrap">
+  <h2>CodeColorer: <?php _e('Code Highlighting Options', 'codecolorer') ?></h2>
   <form name="form1" method="post" action="<?php echo $location ?>&amp;updated=true">
   	<input type="hidden" name="stage" value="process" />
 
-    <table width="100%" cellpadding="5" class="form-table"> 
+    <table width="100%" cellpadding="5" class="form-table">
       <tr valign="top">
         <th scope="row"><label for="codecolorer_lines_to_scroll"><?php _e('Lines to scroll', 'codecolorer') ?>:</label></th>
         <td>
@@ -77,18 +80,26 @@ $codecolorer_theme = stripslashes(get_option('codecolorer_theme'));
       </tr>
 
       <tr valign="top">
-        <th scope="row"><label for="codecolorer_width"><?php _e('Width', 'codecolorer') ?> (px):</label></th>
+        <th scope="row"><label for="codecolorer_width"><?php _e('Width', 'codecolorer') ?>:</label></th>
         <td>
           <input name="codecolorer_width" type="text" class="small-text" size="60" id="codecolorer_width" value="<?php echo $codecolorer_width ?>"/>
-          <span class="setting-description"><?php _e('Default code block width.', 'codecolorer') ?></span>
+          <span class="setting-description"><?php _e('Default code block width. Integer means pixels, also you can specify <tt>em</tt> or <tt>%</tt> suffix. Could be omitted to use whole width.', 'codecolorer') ?></span>
   	    </td>
       </tr>
 
       <tr valign="top">
-        <th scope="row"><label for="codecolorer_height"><?php _e('Height', 'codecolorer') ?> (px):</label></th>
+        <th scope="row"><label for="codecolorer_height"><?php _e('Height', 'codecolorer') ?>:</label></th>
         <td>
           <input name="codecolorer_height" type="text" class="small-text" size="60" id="codecolorer_height" value="<?php echo $codecolorer_height ?>"/>
           <span class="setting-description"><?php _e('When code has more than &quot;Lines to Scroll&quot; lines, block height will be set to this value.', 'codecolorer') ?></span>
+  	    </td>
+      </tr>
+
+      <tr valign="top">
+        <th scope="row"><label for="codecolorer_rss_width"><?php _e('Width in RSS', 'codecolorer') ?>:</label></th>
+        <td>
+          <input name="codecolorer_rss_width" type="text" class="small-text" size="60" id="codecolorer_rss_width" value="<?php echo $codecolorer_rss_width ?>"/>
+          <span class="setting-description"><?php _e('Default code block width in RSS. See Width option description.', 'codecolorer') ?></span>
   	    </td>
       </tr>
 
@@ -140,10 +151,10 @@ $codecolorer_theme = stripslashes(get_option('codecolorer_theme'));
         </td>
       </tr>
     </table>
-    
+
     <h3><?php _e('Preview', 'codecolorer') ?></h3>
-    
-    <table width="100%" cellpadding="5" class="form-table"> 
+
+    <table width="100%" cellpadding="5" class="form-table">
       <tr valign="top">
         <th scope="row"><label for="codecolorer_css_style"><?php _e('Code Example', 'codecolorer') ?>:</label></th>
         <td>
@@ -151,9 +162,9 @@ $codecolorer_theme = stripslashes(get_option('codecolorer_theme'));
         </td>
       </tr>
     </table>
-	
+
     <p class="submit">
       <input type="submit" class="button-primary" name="Submit" value="<?php _e('Save Options', 'codecolorer') ?> &raquo;" />
     </p>
-  </form> 
+  </form>
 </div>
