@@ -30,6 +30,7 @@ Plugin based on GeSHi library, which supports most languages. CodeColorer has va
   * Fixed problem which blocked the access to CodeColorer options page in WordPress 2.8.1.
   * Use plain old CSS files instead of slow styles.php.
   * Fixed code blocks formatting in RSS feeds. Added rss_width option.
+  * Added Chinese translation (thanks to <a href="http://ixiezi.com">liuxiangqian</a>).
 * v0.7.3 (Jan 27, 2009)
   * Fixed problem with XHTML validation when line numbers are on (thanks to <a href="http://designfortress.com/">dreame4</a>).
   * Added first_line option to code blocks.

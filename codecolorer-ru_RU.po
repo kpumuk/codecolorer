@@ -1,11 +1,11 @@
-# CodeColorer Wordpress Plugin v0.5.0
-# Copyright (C) 2007 Dmytro Shteflyuk
+# CodeColorer Wordpress Plugin v0.8.0
+# Copyright (c) 2006 - 2009 Dmytro Shteflyuk
 # This file is distributed under the same license as the CodeColorer package.
-# Dmytro Shteflyuk <kpumuk@kpumuk.info>, 2007.
+# Dmytro Shteflyuk <kpumuk@kpumuk.info>, 2009.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: CodeColorer Wordpress Plugin v0.5.0\n"
+"Project-Id-Version: CodeColorer Wordpress Plugin v0.8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-03-31 19:30+0300\n"
 "PO-Revision-Date: 2009-07-13 14:53+0300\n"
