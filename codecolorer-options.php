@@ -43,8 +43,8 @@ add_option('codecolorer_theme', '');
 if ('process' == $_POST['stage']) {
   update_option('codecolorer_css_style', $_POST['codecolorer_css_style']);
   update_option('codecolorer_lines_to_scroll', intval($_POST['codecolorer_lines_to_scroll']));
-  update_option('codecolorer_width', intval($_POST['codecolorer_width']));
-  update_option('codecolorer_height', intval($_POST['codecolorer_height']));
+  update_option('codecolorer_width', $_POST['codecolorer_width']);
+  update_option('codecolorer_height', $_POST['codecolorer_height']);
   update_option('codecolorer_line_numbers', isset($_POST['codecolorer_line_numbers']));
   update_option('codecolorer_disable_keyword_linking', isset($_POST['codecolorer_disable_keyword_linking']));
   update_option('codecolorer_tab_site', intval($_POST['codecolorer_tab_size']));

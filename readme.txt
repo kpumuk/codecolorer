@@ -2,8 +2,8 @@
 Contributors: kpumuk
 Tags: code, snippet, syntax, highlight, color, geshi
 Requires at least: 2.0.2
-Tested up to: 2.7
-Stable tag: 0.7.3
+Tested up to: 2.8.1
+Stable tag: 0.8.0
 
 CodeColorer is the plugin which allows you to insert code snippets to your posts with nice syntax highlighting powered by GeSHi library.
 
@@ -23,6 +23,10 @@ Plugin based on GeSHi library, which supports most languages. CodeColorer has va
 
 = Changelog =
 
+* v0.8.0 (Jul 13, 2009)
+  * Added more styles for comments.
+  * Added ability to specify width and height in px, em, percents. Also values could be omitted to use whole width and height available.
+  * Fixed problem which blocked the access to CodeColorer options page in WordPress 2.8.1.
 * v0.7.3 (Jan 27, 2009)
   * Fixed problem with XHTML validation when line numbers are on (thanks to <a href="http://designfortress.com/">dreame4</a>).
   * Added first_line option to code blocks.
