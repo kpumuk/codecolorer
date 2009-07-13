@@ -3,7 +3,7 @@
 Plugin Name: CodeColorer
 Plugin URI: http://kpumuk.info/projects/wordpress-plugins/codecolorer
 Description: This plugin allows you to insert code snippets to your posts with nice syntax highlighting powered by <a href="http://qbnz.com/highlighter/">GeSHi</a> library. After enabling this plugin visit <a href="options-general.php?page=codecolorer/codecolorer-options.php">the options page</a> to configure code style.
-Version: 0.8.0
+Version: 0.8.1
 Author: Dmytro Shteflyuk
 Author URI: http://kpumuk.info/
 */
@@ -83,8 +83,8 @@ class CodeColorer {
 
   /** Initialization of environment */
   function init() {
-  	$this->pluginPath = dirname(__FILE__) . DIRECTORY_SEPARATOR;
-  	$this->libPath = $this->pluginPath . 'lib' . DIRECTORY_SEPARATOR;
+    $this->pluginPath = dirname(__FILE__) . DIRECTORY_SEPARATOR;
+    $this->libPath = $this->pluginPath . 'lib' . DIRECTORY_SEPARATOR;
     require_once($this->libPath . 'geshi.php');
   }
 
@@ -96,8 +96,8 @@ class CodeColorer {
 
   function addCssStyle() {
     $styles = stripslashes(get_option('codecolorer_css_style'));
+    echo '<link rel="stylesheet" href="' . get_option('siteurl') . $this->pluginLocation . 'codecolorer.css" type="text/css" />', "\n";
     if (!empty($styles)) {
-      echo '<link rel="stylesheet" href="' . get_option('siteurl') . $this->pluginLocation . 'codecolorer.css" type="text/css" />', "\n";
       echo '<style type="text/css">' . $styles . "</style>\n";
     }
   }
@@ -190,9 +190,9 @@ class CodeColorer {
   function getBlockID($content, $comment = false, $before = '<div>', $after = '</div>') {
     static $num = 0;
 
-  	$block = $comment ? 'COMMENT' : 'BLOCK';
-  	$before = $before . '::CODECOLORER_' . $block . '_';
-  	$after = '::' . $after;
+    $block = $comment ? 'COMMENT' : 'BLOCK';
+    $before = $before . '::CODECOLORER_' . $block . '_';
+    $after = '::' . $after;
 
     // Just do a check to make sure the user
     // hasn't (however unlikely) input block replacements
@@ -269,7 +269,7 @@ class CodeColorer {
 
   function parseOptions($opts) {
     $opts = str_replace(array("\\\"", "\\\'"), array ("\"", "\'"), $opts);
-  	preg_match_all('#([a-z_-]*?)\s*=\s*(["\'])(.*?)\2#i', $opts, $matches, PREG_SET_ORDER);
+    preg_match_all('#([a-z_-]*?)\s*=\s*(["\'])(.*?)\2#i', $opts, $matches, PREG_SET_ORDER);
     $options = array();
     for ($i = 0; $i < sizeof($matches); $i++) {
       $options[$matches[$i][1]] = $matches[$i][3];
@@ -355,7 +355,7 @@ class CodeColorer {
   }
 
   function parseBoolean($val) {
-  	return $val === true || $val === 'true' || $val === '1' || (is_int($val) && $val !== 0);
+    return $val === true || $val === 'true' || $val === '1' || (is_int($val) && $val !== 0);
   }
 
   function getDefaultLinesToScroll() {
