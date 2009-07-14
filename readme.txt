@@ -25,6 +25,7 @@ Plugin based on GeSHi library, which supports most languages. CodeColorer has va
 = Changelog =
 
 * v0.9.0 (Development)
+  * Added a new option "strict" to enable strict mode.
   * Added Italian translation (thanks to <a href="http://codesnippet.altervista.org/">CodeSnippet</a>).
 * v0.8.2 (Jul 14, 2009)
   * Fixed problem with width and heigth specified at the same time.
@@ -91,6 +92,7 @@ Possible parameters:
 * <tt>height</tt> (integer or string) -- height in pixels; used when lines number is greater then "lines" value.
 * <tt>rss_width</tt> (integer or string) -- block width in RSS feeds.
 * <tt>theme</tt> (string) -- color theme (default, blackboard, dawn, mac-classic, twitlight, vibrant).
+* <tt>strict</tt> (boolean) -- when <tt>true</tt> <a href="http://qbnz.com/highlighter/geshi-doc.html#using-strict-mode">strict mode</a> will be enabled.
 * <tt>nowrap</tt> (boolean) -- when <tt>false</tt> no horizontal scrollbar will be shown; instead code will be wrapped in the end of code box.
 * <tt>noborder</tt> (boolean) -- when <tt>true</tt> no border will be shown around the code block.
 * <tt>no_cc</tt> (boolean) -- when <tt>true</tt> the syntax in code block will not be highlighted, code will be rendered inside &lt;code&gt;&lt;/code&gt; tag.
