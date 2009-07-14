@@ -24,6 +24,8 @@ Plugin based on GeSHi library, which supports most languages. CodeColorer has va
 
 = Changelog =
 
+* v0.9.0 (Development)
+  * Added Italian translation (thanks to <a href="http://codesnippet.altervista.org/">CodeSnippet</a>).
 * v0.8.2 (Jul 14, 2009)
   * Fixed problem with width and heigth specified at the same time.
   * Added a new option "nowrap" to disable horizontal scrollbar.
@@ -31,7 +33,7 @@ Plugin based on GeSHi library, which supports most languages. CodeColorer has va
   * Fixed inner table borders in some WordPress themes.
   * Geshi updated to 1.0.8.4.
 * v0.8.1 (Jul 13, 2009)
-  * Fixed problem with missing CodeColorer styles when no custom CSS entered (thanks to <a href="http://codesnippet.altervista.org/">codesnippet</a>).
+  * Fixed problem with missing CodeColorer styles when no custom CSS entered (thanks to <a href="http://codesnippet.altervista.org/">CodeSnippet</a>).
 * v0.8.0 (Jul 13, 2009)
   * Added more styles for comments.
   * Added ability to specify width and height in px, em, percents. Also values could be omitted to use whole width and height available.

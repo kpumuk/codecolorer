@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: CodeColorer Wordpress Plugin v0.8.0\n"
+"Project-Id-Version: CodeColorer Wordpress Plugin v0.8.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-03-31 19:30+0300\n"
-"PO-Revision-Date: 2009-07-13 14:53+0300\n"
+"PO-Revision-Date: 2009-07-14 12:12+0300\n"
 "Last-Translator: Dmytro Shteflyuk <kpumuk@kpumuk.info>\n"
 "Language-Team: Dmytro Shteflyuk <kpumuk@kpumuk.info>\n"
 "MIME-Version: 1.0\n"
