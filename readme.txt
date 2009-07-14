@@ -29,6 +29,7 @@ Plugin based on GeSHi library, which supports most languages. CodeColorer has va
   * Added a new option "nowrap" to disable horizontal scrollbar.
   * Added a new option "noborder" to disable a border around code block.
   * Fixed inner table borders in some WordPress themes.
+  * Geshi updated to 1.0.8.4.
 * v0.8.1 (Jul 13, 2009)
   * Fixed problem with missing CodeColorer styles when no custom CSS entered (thanks to <a href="http://codesnippet.altervista.org/">codesnippet</a>).
 * v0.8.0 (Jul 13, 2009)
@@ -127,7 +128,7 @@ All of these parameters could be configured via the CodeColorer options page.
 
 == Supported languages ==
 
-Here is list of supported by CodeColorer languages: abap, actionscript, actionscript3, ada, apache, applescript, apt\_sources, asm, asp, autoit, avisynth, bash, basic4gl, bf, blitzbasic, bnf, boo, c, c\_mac, caddcl, cadlisp, cfdg, cfm, cil, cobol, cpp-qt, cpp, csharp, css-gen.cfg, css, d, delphi, diff, div, dos, dot, eiffel, email, fortran, freebasic, genero, gettext, glsl, gml, gnuplot, groovy, haskell, hq9plus, html4strict, idl, ini, inno, intercal, io, java, java5, javascript, kixtart, klonec, klonecpp, latex, lisp, lolcode, lotusformulas, lotusscript, lscript, lua, m68k, make, matlab, mirc, mpasm, mxml, mysql, nsis, objc, ocaml-brief, ocaml, oobas, oracle11, oracle8, pascal, per, perl, php-brief, php, pic16, pixelbender, plsql, povray, powershell, progress, prolog, providex, python, qbasic, rails, reg, robots, ruby, sas, scala, scheme, scilab, sdlbasic, smalltalk, smarty, sql, tcl, teraterm, text, thinbasic, tsql, typoscript, vb, vbnet, verilog, vhdl, vim, visualfoxpro, visualprolog, whitespace, winbatch, xml, xorg_conf, xpp, yaml, z80.
+Here is list of supported by CodeColorer languages: abap, actionscript, actionscript3, ada, apache, applescript, apt\_sources, asm, asp, autoit, avisynth, bash, basic4gl, bf, bibtex, blitzbasic, bnf, boo, c, c\_mac, caddcl, cadlisp, cfdg, cfm, cil, cmake, cobol, cpp-qt, cpp, csharp, css, d, dcs, delphi, diff, div, dos, dot, eiffel, email, erlang, fo, fortran, freebasic, genero, gettext, glsl, gml, gnuplot, groovy, haskell, hq9plus, html4strict, idl, ini, inno, intercal, io, java, java5, javascript, kixtart, klonec, klonecpp, latex, lisp, locobasic, lolcode, lotusformulas, lotusscript, lscript, lsl2, lua, m68k, make, matlab, mirc, modula3, mpasm, mxml, mysql, nsis, oberon2, objc, ocaml-brief, ocaml, oobas, oracle11, oracle8, pascal, per, perl, php-brief, php, pic16, pixelbender, plsql, povray, powershell, progress, prolog, properties, providex, python, qbasic, rails, rebol, reg, robots, ruby, sas, scala, scheme, scilab, sdlbasic, smalltalk, smarty, sql, tcl, teraterm, text, thinbasic, tsql, typoscript, vb, vbnet, verilog, vhdl, vim, visualfoxpro, visualprolog, whitespace, whois, winbatch, xml, xorg\_conf, xpp, yaml, z80.
 
 == Customization ==
 
