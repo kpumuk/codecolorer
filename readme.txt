@@ -38,6 +38,7 @@ Thank you all guys, who submitted translations to your language. CodeColorer is 
 
 * v0.8.4 (Development)
   * Fixed inline code blocks formatting.
+  * Added special tag [cci] which works just like [cc], but with inline forced.
 * v0.8.3 (Jul 14, 2009)
   * Added a new option "strict" to enable or disable strict mode.
   * Added a new option "inline" which forces code block to render inside &lt;code&gt; tag. Used to paste a single line of code into the regular text.
@@ -60,23 +61,6 @@ Thank you all guys, who submitted translations to your language. CodeColorer is 
   * Use plain old CSS files instead of slow styles.php.
   * Fixed code blocks formatting in RSS feeds. Added rss_width option.
   * Added Chinese translation (thanks to <a href="http://ixiezi.com">liuxiangqian</a>).
-* v0.7.3 (Jan 27, 2009)
-  * Fixed problem with XHTML validation when line numbers are on (thanks to <a href="http://designfortress.com/">dreame4</a>).
-  * Added first_line option to code blocks.
-  * Added no_cc option to disable CodeColorer for particular &lt;code&gt; blocks.
-* v0.7.2 (Dec 30, 2008)
-  * Fixed color scheme for XML language.
-  * Added custom CSS styles block to the options page.
-  * Removed <tt>codecolorer.css.in</tt> file as deprecated.
-  * Fixed bug wich code block paddings when line numbers are disabled.
-* v0.7.0 (Dec 29, 2008)
-  * Added predefined color themes (Slush & Poppies, Blackboard, Dawn, Mac Classic, Twitlight, Vibrant Ink).
-  * Added block width and height options, removed line height.
-  * Fixed bug with plain text formatting.
-  * Added ability to remove vertical scrollbar.
-  * Line numbers will be rendered into the table, so they will not be copied to clipboard along with code.
-  * Options page layout updated to Wordpress 2.7 look&feel.
-  * GeSHi updated to version 1.0.8.2.
 
 You can find complete changelog on the <a href="http://kpumuk.info/projects/wordpress-plugins/codecolorer/">plugin home page</a>.
 
@@ -85,16 +69,16 @@ You can find complete changelog on the <a href="http://kpumuk.info/projects/word
 1. Download and unpack plugin files to <tt>wp-content/plugins/codecolorer</tt> directory.
 2. Enable "CodeColorer" plugin on your <em>Plugins</em> page in <em>Site Admin</em>.
 3. Go to the <em>Options/CodeColorer</em> page in <em>Site Admin</em> and change plugin's options as you wish.
-4. Use <tt>[cc lang=&quot;lang&quot;]code[/cc]</tt> or <tt>&lt;code lang=&quot;lang&quot;&gt;code&lt;/cc&gt;</tt> syntax to insert code snippet into the post (you could skip <tt>lang=&quot;lang&quot;</tt>, in this case code would be in <tt>codecolorer</tt> block, but without syntax highlighting).
+4. Use <tt>[cc lang=&quot;lang&quot;]code[/cc]</tt> or <tt>&lt;code lang=&quot;lang&quot;&gt;code&lt;/cc&gt;</tt> syntax to insert code snippet into the post (you could skip <tt>lang=&quot;lang&quot;</tt>, in this case code would be in <tt>codecolorer</tt> block, but without syntax highlighting). Also you can use <tt>[cci lang="lang"]code[/cci]</tt> to format inline code (see the "inline" option description).
 5. Have fun!
 
 = Syntax =
 
 To insert code snippet into your post (or comment) you should use <tt>[cc lang=&quot;lang&quot;]code[/cc]</tt> or <tt>&lt;code lang=&quot;lang&quot;&gt;code&lt;/cc&gt;</tt> syntax. Starting from version 0.6.0 you could specify additional CodeColorer options inside <tt>[cc]</tt> tag:
 
-	[cc lang="php" tab_size="2" lines="40"]
-	// some code
-	[/cc]
+  [cc lang="php" tab_size="2" lines="40"]
+  // some code
+  [/cc]
 
 Note: You should always use double quotes or single quotes around the parameter value. Boolean values could be passed using string <tt>true</tt> or <tt>false</tt>, <tt>on</tt> or <tt>off</tt>, number <tt>1</tt> or <tt>0</tt>.
 
@@ -116,7 +100,11 @@ Possible parameters:
 * <tt>noborder</tt> (boolean) -- when <tt>true</tt> no border will be shown around the code block.
 * <tt>no_cc</tt> (boolean) -- when <tt>true</tt> the syntax in code block will not be highlighted, code will be rendered inside &lt;code&gt;&lt;/code&gt; tag.
 
-All of these parameters could be configured via the CodeColorer options page. 
+You can use special tag [cci] instead of [cc] to force inline mode:
+
+  [cci lang="php"]some code[/cci]
+
+Most of these parameters could be configured via the CodeColorer options page.
 
 == Screenshots ==
 
