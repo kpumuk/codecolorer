@@ -3,7 +3,7 @@
 Plugin Name: CodeColorer
 Plugin URI: http://kpumuk.info/projects/wordpress-plugins/codecolorer
 Description: This plugin allows you to insert code snippets to your posts with nice syntax highlighting powered by <a href="http://qbnz.com/highlighter/">GeSHi</a> library. After enabling this plugin visit <a href="options-general.php?page=codecolorer/codecolorer-options.php">the options page</a> to configure code style.
-Version: 0.8.3
+Version: 0.8.4
 Author: Dmytro Shteflyuk
 Author URI: http://kpumuk.info/
 */
@@ -363,6 +363,7 @@ class CodeColorer {
     } else {
       $options['line_numbers'] = $this->parseBoolean($options['line_numbers']);
     }
+    // var_dump(get_option('codecolorer_line_numbers'));
 
     // First line (int)
     if (!$options['first_line'] && $options['first_line'] !== '0') {
@@ -416,7 +417,7 @@ class CodeColorer {
   }
 
   function parseBoolean($val) {
-    return $val === true || $val === 'true' || $val = 'on' || $val === '1' || (is_int($val) && $val !== 0);
+    return $val === true || $val === 'true' || $val === 'on' || $val === '1' || (is_int($val) && $val !== 0);
   }
 
   function getDefaultLinesToScroll() {
