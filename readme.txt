@@ -25,7 +25,7 @@ Plugin based on GeSHi library, which supports most languages. CodeColorer has va
 = Changelog =
 
 * v0.9.0 (Development)
-  * Added a new option "strict" to enable strict mode.
+  * Added a new option "strict" to enable or disable strict mode.
   * Trim only empty lines in the beginning of code, leave spaces untouched (thanks to FeepingCreature -- contact me please and I will add your link here).
   * Added Italian translation (thanks to <a href="http://codesnippet.altervista.org/">CodeSnippet</a>).
   * Added Belarusian translation (thanks to <a href="http://www.fatcow.com">И. Фадков</a>).
@@ -94,7 +94,7 @@ Possible parameters:
 * <tt>height</tt> (integer or string) -- height in pixels; used when lines number is greater then "lines" value.
 * <tt>rss_width</tt> (integer or string) -- block width in RSS feeds.
 * <tt>theme</tt> (string) -- color theme (default, blackboard, dawn, mac-classic, twitlight, vibrant).
-* <tt>strict</tt> (boolean) -- when <tt>true</tt> <a href="http://qbnz.com/highlighter/geshi-doc.html#using-strict-mode">strict mode</a> will be enabled.
+* <tt>strict</tt> (boolean) -- when <tt>true</tt> <a href="http://qbnz.com/highlighter/geshi-doc.html#using-strict-mode">strict mode</a> will be enabled. By default CodeColorer tries to guess whether strict mode is needed, so this option allows to force it on or off when automatic suggestion is wrong.
 * <tt>nowrap</tt> (boolean) -- when <tt>false</tt> no horizontal scrollbar will be shown; instead code will be wrapped in the end of code box.
 * <tt>noborder</tt> (boolean) -- when <tt>true</tt> no border will be shown around the code block.
 * <tt>no_cc</tt> (boolean) -- when <tt>true</tt> the syntax in code block will not be highlighted, code will be rendered inside &lt;code&gt;&lt;/code&gt; tag.

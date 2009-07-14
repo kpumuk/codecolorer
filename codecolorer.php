@@ -132,7 +132,7 @@ class CodeColorer {
       }
     }
     $geshi->set_tab_width($options['tab_size']);
-    if ($options['strict']) $geshi->enable_strict_mode(true);
+    if (!is_null($options['strict'])) $geshi->enable_strict_mode($options['strict']);
     $geshi->enable_line_numbers(GESHI_NO_LINE_NUMBERS, 1);
     if ($options['no_links']) $geshi->enable_keyword_links(false);
     $geshi->set_header_type(GESHI_HEADER_DIV);
@@ -318,7 +318,7 @@ class CodeColorer {
 
     // Whether strict mode should be enabled (bool)
     if (!$options['strict']) {
-      $options['strict'] = false;
+      $options['strict'] = NULL;
     } else {
       $options['strict'] = $this->parseBoolean($options['strict']);
     }
