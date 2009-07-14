@@ -125,7 +125,11 @@ class CodeColorer {
       $geshi->set_overall_style('padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap');
     } else {
       $geshi->enable_classes();
-      $geshi->set_overall_style('font-family:Monaco,Lucida Console,monospace');
+      if ($options['nowrap']) {
+        $geshi->set_overall_style('white-space:nowrap');
+      } else {
+        $geshi->set_overall_style('');
+      }
     }
     $geshi->set_tab_width($options['tab_size']);
     $geshi->enable_line_numbers(GESHI_NO_LINE_NUMBERS, 1);
@@ -242,7 +246,8 @@ class CodeColorer {
   }
 
   function addContainer($html, $options, $num_lines) {
-    $style = 'style="overflow:auto;white-space:nowrap;';
+    $style = 'style="';
+    if ($options['nowrap']) $style .= 'overflow:auto;white-space:nowrap;';
     if (is_feed()) $style .= 'border: 1px solid #9F9F9F;';
     $style .= $this->getDimensionRule('width', is_feed() ? $options['rss_width'] : $options['width']);
     if($num_lines > $options['lines'] && $options['lines'] > 0) {
@@ -291,6 +296,12 @@ class CodeColorer {
       $options['no_cc'] = false;
     } else {
       $options['no_cc'] = $this->parseBoolean($options['no_cc']);
+    }
+
+    if (!$options['nowrap']) {
+      $options['nowrap'] = true;
+    } else {
+      $options['nowrap'] = $this->parseBoolean($options['nowrap']);
     }
 
     // Tab size (int)

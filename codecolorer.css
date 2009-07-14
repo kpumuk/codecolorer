@@ -1,7 +1,7 @@
 /* Layout */
-.codecolorer { white-space: nowrap; padding: 5px; }
-.codecolorer-container { margin-bottom: 10px; }
-.codecolorer-container * { font-size: 13px; line-height: 1.4em; font-family: Monaco, Lucida Console, monospace; }
+.codecolorer { padding: 5px; }
+.codecolorer-container { margin-bottom: 10px; font: 13px/1.4em Monaco, Lucida Console, monospace }
+.codecolorer-container * { font: 13px/1.4em Monaco, Lucida Console, monospace; }
 
 .codecolorer-container table { border: 0px; }
 .codecolorer-container table td { margin: 0px; padding: 0px; border: 0px; }
