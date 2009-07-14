@@ -385,7 +385,7 @@ class CodeColorer {
   }
 
   function parseBoolean($val) {
-    return $val === true || $val === 'true' || $val === '1' || (is_int($val) && $val !== 0);
+    return $val === true || $val === 'true' || $val = 'on' || $val === '1' || (is_int($val) && $val !== 0);
   }
 
   function getDefaultLinesToScroll() {
