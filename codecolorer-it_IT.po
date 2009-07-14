@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: CodeColorer Wordpress Plugin v0.8.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-03-31 19:30+0300\n"
-"PO-Revision-Date: 2009-07-14 12:11+0300\n"
+"PO-Revision-Date: 2009-07-14 17:04+0300\n"
 "Last-Translator: Dmytro Shteflyuk <kpumuk@kpumuk.info>\n"
 "Language-Team: CodeSnippet <codesnippet88@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -45,6 +45,9 @@ msgstr "Dimensione del tab"
 msgid "Theme"
 msgstr "Tema"
 
+msgid "Inline Theme"
+msgstr "Tema inline"
+
 msgid "Formatting"
 msgstr "Formattazione"
 
@@ -80,4 +83,7 @@ msgstr "Specifica dopo quanti spazi vuoi che venga rappresentato il TAB."
 
 msgid "Default color scheme."
 msgstr "Seleziona il tema."
+
+msgid "Default color scheme for inline code blocks."
+msgstr "Seleziona il tema di default per il blocco di codice inline."
 
