@@ -232,10 +232,19 @@ class CodeColorer {
       $result = $this->highlightGeshi($text, $options);
 
       $result = $this->addContainer($result, $options, $num_lines);
-      $blockID = $this->getBlockID($content);
+      
+      if ($options['inline']) {
+        $blockID = $this->getBlockID($content, false, '<span>', '</span>');
+      } else {
+        $blockID = $this->getBlockID($content);
+      }
       $this->blocks[$blockID] = $result;
 
-      $result = "\n\n" . $blockID . "\n\n";
+      if ($options['inline']) {
+        $result = " $blockID ";
+      } else {
+        $result = "\n\n$blockID\n\n";
+      }
     }
 
     return $result;

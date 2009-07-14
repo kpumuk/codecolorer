@@ -36,6 +36,8 @@ Thank you all guys, who submitted translations to your language. CodeColorer is 
 
 = Changelog =
 
+* v0.8.4 (Development)
+  * Fixed inline code blocks formatting.
 * v0.8.3 (Jul 14, 2009)
   * Added a new option "strict" to enable or disable strict mode.
   * Added a new option "inline" which forces code block to render inside &lt;code&gt; tag. Used to paste a single line of code into the regular text.
