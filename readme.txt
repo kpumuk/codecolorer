@@ -3,7 +3,7 @@ Contributors: kpumuk
 Tags: code, snippet, syntax, highlight, color, geshi
 Requires at least: 2.0.2
 Tested up to: 2.8.1
-Stable tag: 0.8.3
+Stable tag: 0.8.4
 
 CodeColorer is the plugin which allows you to insert code snippets to your posts with nice syntax highlighting powered by GeSHi library.
 
@@ -39,6 +39,7 @@ Thank you all guys, who submitted translations to your language. CodeColorer is 
 * v0.8.4 (Development)
   * Fixed inline code blocks formatting.
   * Added special tag [cci] which works just like [cc], but with inline forced.
+  * Fixed problem when line numbers could not be disabled (thanks to miaow).
 * v0.8.3 (Jul 14, 2009)
   * Added a new option "strict" to enable or disable strict mode.
   * Added a new option "inline" which forces code block to render inside &lt;code&gt; tag. Used to paste a single line of code into the regular text.
