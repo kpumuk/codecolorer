@@ -26,6 +26,7 @@ Plugin based on GeSHi library, which supports most languages. CodeColorer has va
 
 * v0.9.0 (Development)
   * Added a new option "strict" to enable strict mode.
+  * Trim only empty lines in the beginning of code, leave spaces untouched (thanks to FeepingCreature -- contact me please and I will add your link here).
   * Added Italian translation (thanks to <a href="http://codesnippet.altervista.org/">CodeSnippet</a>).
 * v0.8.2 (Jul 14, 2009)
   * Fixed problem with width and heigth specified at the same time.

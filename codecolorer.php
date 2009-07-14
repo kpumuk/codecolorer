@@ -214,7 +214,7 @@ class CodeColorer {
   function performHighlight($text, $opts, $content) {
     $text = str_replace(array("\\\"", "\\\'"), array ("\"", "\'"), $text);
     $text = preg_replace('/(< \?php)/i', '<?php', $text);
-    $text = trim($text);
+    $text = preg_replace('/(?:^(?:\s*[\r\n])+|\s+$)/', '', $text);
 
     $options = $this->parseOptions($opts);
 
