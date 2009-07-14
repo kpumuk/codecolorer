@@ -5,7 +5,7 @@
 
 .codecolorer-container table { border: 0px; }
 .codecolorer-container table td { margin: 0px; padding: 0px; border: 0px; }
-.codecolorer-container table td.line-numbers { padding: 5px; text-align: center; }
+.codecolorer-container table td.line-numbers { padding: 5px; text-align: right; }
 .codecolorer-container table td.line-numbers div { width: 23px; }
 
 /* Layout styles */
