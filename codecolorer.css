@@ -11,6 +11,7 @@
 /* Layout styles */
 .codecolorer-container { border: 1px solid #9F9F9F; }
 .codecolorer-container table td.line-numbers { color: #888888; background-color: #EEEEEE; border-right: 1px solid #9F9F9F; }
+.codecolorer-noborder, .codecolorer-noborder table td.line-numbers { border: 0px; }
 
 /* "Slush & Poppies" color scheme (default) */
 .codecolorer-container { color: #000000; background-color: #F1F1F1; }

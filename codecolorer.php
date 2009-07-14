@@ -255,7 +255,9 @@ class CodeColorer {
     }
     $style .= '"';
 
-    $result = '<div class="codecolorer-container ' . $options['lang'] . ' ' . $options['theme'] . '" ' . $style . '>' . $html . '</div>';
+    $css_class = 'codecolorer-container ' . $options['lang'] . ' ' . $options['theme'];
+    if ($options['noborder']) $css_class .= ' codecolorer-noborder';
+    $result = '<div class="' . $css_class . '" ' . $style . '>' . $html . '</div>';
     return $result;
   }
 
@@ -298,10 +300,18 @@ class CodeColorer {
       $options['no_cc'] = $this->parseBoolean($options['no_cc']);
     }
 
+    // Whether horizontal wrapping should be disabled.
     if (!$options['nowrap']) {
       $options['nowrap'] = true;
     } else {
       $options['nowrap'] = $this->parseBoolean($options['nowrap']);
+    }
+
+    // Disable container border
+    if (!$options['noborder']) {
+      $options['noborder'] = false;
+    } else {
+      $options['noborder'] = $this->parseBoolean($options['noborder']);
     }
 
     // Tab size (int)

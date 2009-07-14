@@ -27,6 +27,7 @@ Plugin based on GeSHi library, which supports most languages. CodeColorer has va
 * v0.8.2 (Jul 14, 2009)
   * Fixed problem with width and heigth specified at the same time.
   * Added a new option "nowrap" to disable horizontal scrollbar.
+  * Added a new option "noborder" to disable a border around code block.
   * Fixed inner table borders in some WordPress themes.
 * v0.8.1 (Jul 13, 2009)
   * Fixed problem with missing CodeColorer styles when no custom CSS entered (thanks to <a href="http://codesnippet.altervista.org/">codesnippet</a>).
@@ -88,6 +89,7 @@ Possible parameters:
 * <tt>rss_width</tt> (integer or string) -- block width in RSS feeds.
 * <tt>theme</tt> (string) -- color theme (default, blackboard, dawn, mac-classic, twitlight, vibrant).
 * <tt>nowrap</tt> (boolean) -- when <tt>false</tt> no horizontal scrollbar will be shown; instead code will be wrapped in the end of code box.
+* <tt>noborder</tt> (boolean) -- when <tt>true</tt> no border will be shown around the code block.
 * <tt>no_cc</tt> (boolean) -- when <tt>true</tt> the syntax in code block will not be highlighted, code will be rendered inside &lt;code&gt;&lt;/code&gt; tag.
 
 All of these parameters could be configured via the CodeColorer options page. 
