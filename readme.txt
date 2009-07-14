@@ -3,7 +3,7 @@ Contributors: kpumuk
 Tags: code, snippet, syntax, highlight, color, geshi
 Requires at least: 2.0.2
 Tested up to: 2.8.1
-Stable tag: 0.8.2
+Stable tag: 0.8.3
 
 CodeColorer is the plugin which allows you to insert code snippets to your posts with nice syntax highlighting powered by GeSHi library.
 
@@ -14,17 +14,29 @@ CodeColorer is the plugin which allows you to insert code snippets into the post
 Plugin based on GeSHi library, which supports most languages. CodeColorer has various nice features:
 
 * syntax highlighting in RSS feeds
+* syntax highlighting of single line of code (inline)
+* syntax highlighting of code in comments
 * line numbers
 * automatic links to the documentation inserting
 * code block intelligent scroll detection (short code would have short block, for long one block height would be fixed and scrollbar would appear)
 * predefined color themes (Slush &amp; Poppies, Blackboard, Dawn, Mac Classic, Twitlight, Vibrant Ink)
 * syntax colors customization in CSS file
-* syntax highlighting of the code in comments
 * code protect from mangling by Wordpress (for example, quotes, double-dashes, etc would look just right as you entered)
+
+= Translations =
+
+Thank you all guys, who submitted translations to your language. CodeColorer is currently available in following languages:
+
+* English
+* Russian - Русский
+* Ukrainian - Українська
+* Italian - Italiano (thanks to <a href="http://codesnippet.altervista.org/">CodeSnippet</a>)
+* Belarusian - Беларуский (thanks to <a href="http://www.fatcow.com">И. Фадков</a>)
+* Simplified Chinese - 简化字 (thanks to <a href="http://ixiezi.com">liuxiangqian</a>)
 
 = Changelog =
 
-* v0.8.3 (Development)
+* v0.8.3 (Jul 14, 2009)
   * Added a new option "strict" to enable or disable strict mode.
   * Added a new option "inline" which forces code block to render inside &lt;code&gt; tag. Used to paste a single line of code into the regular text.
   * Trim only empty lines in the beginning of code, leave spaces untouched (thanks to FeepingCreature -- contact me please and I will add your link here).
