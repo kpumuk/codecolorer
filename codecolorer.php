@@ -132,6 +132,7 @@ class CodeColorer {
       }
     }
     $geshi->set_tab_width($options['tab_size']);
+    if ($options['strict']) $geshi->enable_strict_mode(true);
     $geshi->enable_line_numbers(GESHI_NO_LINE_NUMBERS, 1);
     if ($options['no_links']) $geshi->enable_keyword_links(false);
     $geshi->set_header_type(GESHI_HEADER_DIV);
@@ -294,24 +295,32 @@ class CodeColorer {
     if (!$options['lang']) $options['lang'] = 'text';
     $options['lang'] = $this->filterLang($options['lang']);
 
+    // Whether CodeColorer should be disabled (bool)
     if (!$options['no_cc']) {
       $options['no_cc'] = false;
     } else {
       $options['no_cc'] = $this->parseBoolean($options['no_cc']);
     }
 
-    // Whether horizontal wrapping should be disabled.
+    // Whether horizontal wrapping should be disabled (bool)
     if (!$options['nowrap']) {
       $options['nowrap'] = true;
     } else {
       $options['nowrap'] = $this->parseBoolean($options['nowrap']);
     }
 
-    // Disable container border
+    // Disable container border (bool)
     if (!$options['noborder']) {
       $options['noborder'] = false;
     } else {
       $options['noborder'] = $this->parseBoolean($options['noborder']);
+    }
+
+    // Whether strict mode should be enabled (bool)
+    if (!$options['strict']) {
+      $options['strict'] = false;
+    } else {
+      $options['strict'] = $this->parseBoolean($options['strict']);
     }
 
     // Tab size (int)
