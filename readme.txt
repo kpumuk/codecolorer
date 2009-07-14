@@ -24,9 +24,11 @@ Plugin based on GeSHi library, which supports most languages. CodeColorer has va
 
 = Changelog =
 
-* v0.9.0 (Development)
+* v0.8.3 (Development)
   * Added a new option "strict" to enable or disable strict mode.
+  * Added a new option "inline" which forces code block to render inside &lt;code&gt; tag. Used to paste a single line of code into the regular text.
   * Trim only empty lines in the beginning of code, leave spaces untouched (thanks to FeepingCreature -- contact me please and I will add your link here).
+  * Allow "on" and "off" as boolean parameter value.
   * Added Italian translation (thanks to <a href="http://codesnippet.altervista.org/">CodeSnippet</a>).
   * Added Belarusian translation (thanks to <a href="http://www.fatcow.com">И. Фадков</a>).
 * v0.8.2 (Jul 14, 2009)
@@ -80,7 +82,7 @@ To insert code snippet into your post (or comment) you should use <tt>[cc lang=&
 	// some code
 	[/cc]
 
-Note: You should always use double quotes or single quotes around the parameter value. Boolean values could be passed using string <tt>true</tt> or <tt>false</tt>, number <tt>1</tt> or <tt>0</tt>.
+Note: You should always use double quotes or single quotes around the parameter value. Boolean values could be passed using string <tt>true</tt> or <tt>false</tt>, <tt>on</tt> or <tt>off</tt>, number <tt>1</tt> or <tt>0</tt>.
 
 Possible parameters:
 
@@ -94,6 +96,7 @@ Possible parameters:
 * <tt>height</tt> (integer or string) -- height in pixels; used when lines number is greater then "lines" value.
 * <tt>rss_width</tt> (integer or string) -- block width in RSS feeds.
 * <tt>theme</tt> (string) -- color theme (default, blackboard, dawn, mac-classic, twitlight, vibrant).
+* <tt>inline</tt> (boolean) -- when <tt>true</tt> forces code block to render inside &lt;code&gt;. Used to paste a single line of code into the regular text.
 * <tt>strict</tt> (boolean) -- when <tt>true</tt> <a href="http://qbnz.com/highlighter/geshi-doc.html#using-strict-mode">strict mode</a> will be enabled. By default CodeColorer tries to guess whether strict mode is needed, so this option allows to force it on or off when automatic suggestion is wrong.
 * <tt>nowrap</tt> (boolean) -- when <tt>false</tt> no horizontal scrollbar will be shown; instead code will be wrapped in the end of code box.
 * <tt>noborder</tt> (boolean) -- when <tt>true</tt> no border will be shown around the code block.

@@ -135,14 +135,19 @@ class CodeColorer {
     if (!is_null($options['strict'])) $geshi->enable_strict_mode($options['strict']);
     $geshi->enable_line_numbers(GESHI_NO_LINE_NUMBERS, 1);
     if ($options['no_links']) $geshi->enable_keyword_links(false);
-    $geshi->set_header_type(GESHI_HEADER_DIV);
+    if ($options['inline']) {
+      $geshi->set_header_type(GESHI_HEADER_NONE);
+    } else {
+      $geshi->set_header_type(GESHI_HEADER_DIV);
+    }
 
     if ($geshi->error()) {
       return $geshi->error();
     }
 
     $result = $geshi->parse_code();
-    if ($options['line_numbers']) {
+    
+    if ($options['line_numbers'] && !$options['inline']) {
       $table = '<table cellspacing="0" cellpadding="0"><tbody><tr><td ';
       if (is_feed()) {
         $table .= 'style="padding:5px;text-align:center;color:#888888;background-color:#EEEEEE;border-right: 1px solid #9F9F9F;font: normal 12px/1.4em Monaco, Lucida Console, monospace;"';
@@ -247,18 +252,22 @@ class CodeColorer {
   }
 
   function addContainer($html, $options, $num_lines) {
-    $style = 'style="';
-    if ($options['nowrap']) $style .= 'overflow:auto;white-space:nowrap;';
-    if (is_feed()) $style .= 'border: 1px solid #9F9F9F;';
-    $style .= $this->getDimensionRule('width', is_feed() ? $options['rss_width'] : $options['width']);
-    if($num_lines > $options['lines'] && $options['lines'] > 0) {
-      $style .= $this->getDimensionRule('height', $options['height']);
-    }
-    $style .= '"';
+    if ($options['inline']) {
+      $result = '<code class="codecolorer ' . $options['lang'] . ' ' . $options['inline_theme'] . '">' . $html . '</code>';
+    } else {
+      $style = 'style="';
+      if ($options['nowrap']) $style .= 'overflow:auto;white-space:nowrap;';
+      if (is_feed()) $style .= 'border: 1px solid #9F9F9F;';
+      $style .= $this->getDimensionRule('width', is_feed() ? $options['rss_width'] : $options['width']);
+      if($num_lines > $options['lines'] && $options['lines'] > 0) {
+        $style .= $this->getDimensionRule('height', $options['height']);
+      }
+      $style .= '"';
 
-    $css_class = 'codecolorer-container ' . $options['lang'] . ' ' . $options['theme'];
-    if ($options['noborder']) $css_class .= ' codecolorer-noborder';
-    $result = '<div class="' . $css_class . '" ' . $style . '>' . $html . '</div>';
+      $css_class = 'codecolorer-container ' . $options['lang'] . ' ' . $options['theme'];
+      if ($options['noborder']) $css_class .= ' codecolorer-noborder';
+      $result = '<div class="' . $css_class . '" ' . $style . '>' . $html . '</div>';
+    }
     return $result;
   }
 
@@ -322,6 +331,13 @@ class CodeColorer {
     } else {
       $options['strict'] = $this->parseBoolean($options['strict']);
     }
+    
+    // Whether code should be rendered inline
+    if (!$options['inline']) {
+      $options['inline'] = false;
+    } else {
+      $option['inline'] = $this->parseBoolean($options['inline']);
+    }
 
     // Tab size (int)
     if (!$options['tab_size']) {
@@ -376,9 +392,13 @@ class CodeColorer {
     // Theme (string)
     if (!$options['theme']) {
       $options['theme'] = get_option('codecolorer_theme');
+      $options['inline_theme'] = get_option('codecolorer_inline_theme');
+    } else {
+      $options['inline_theme'] = $options['theme'];
     }
     if ($options['theme'] == 'default') {
       $options['theme'] = '';
+      $options['inline_theme'] = '';
     }
 
     return $options;

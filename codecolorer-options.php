@@ -37,6 +37,7 @@ add_option('codecolorer_line_numbers', false);
 add_option('codecolorer_disable_keyword_linking', false);
 add_option('codecolorer_tab_size', 4);
 add_option('codecolorer_theme', '');
+add_option('codecolorer_inline_theme', '');
 /* Obsolete options */
 // add_option('codecolorer_line_height', $CodeColorer->getDefaultLineHeight());
 
@@ -51,6 +52,7 @@ if ('process' == $_POST['stage']) {
   update_option('codecolorer_disable_keyword_linking', isset($_POST['codecolorer_disable_keyword_linking']));
   update_option('codecolorer_tab_site', intval($_POST['codecolorer_tab_size']));
   update_option('codecolorer_theme', $_POST['codecolorer_theme']);
+  update_option('codecolorer_inline_theme', $_POST['codecolorer_inline_theme']);
 }
 
 /* Get options for form fields */
@@ -63,6 +65,7 @@ $codecolorer_line_numbers = stripslashes(get_option('codecolorer_line_numbers'))
 $codecolorer_disable_keyword_linking = stripslashes(get_option('codecolorer_disable_keyword_linking'));
 $codecolorer_tab_size = stripslashes(get_option('codecolorer_tab_size'));
 $codecolorer_theme = stripslashes(get_option('codecolorer_theme'));
+$codecolorer_inline_theme = stripslashes(get_option('codecolorer_inline_theme'));
 ?>
 
 <div class="wrap">
@@ -123,7 +126,22 @@ $codecolorer_theme = stripslashes(get_option('codecolorer_theme'));
             <option value="vibrant"<?php if ($codecolorer_theme == 'vibrant') echo ' selected="selected"' ?>>Vibrant Ink</option>
           </select>
           <span class="setting-description"><?php _e('Default color scheme.', 'codecolorer') ?></span>
-  	    </td>
+        </td>
+      </tr>
+
+      <tr valign="top">
+        <th scope="row"><label for="codecolorer_inline_theme"><?php _e('Inline Theme', 'codecolorer') ?>:</label></th>
+        <td>
+          <select name="codecolorer_inline_theme" id="codecolorer_inline_theme">
+            <option value=""<?php if ($codecolorer_inline_theme == '') echo ' selected="selected"' ?>>Slush &amp; Poppies</option>
+            <option value="blackboard"<?php if ($codecolorer_inline_theme == 'blackboard') echo ' selected="selected"' ?>>Blackboard</option>
+            <option value="dawn"<?php if ($codecolorer_inline_theme == 'dawn') echo ' selected="selected"' ?>>Dawn</option>
+            <option value="mac-classic"<?php if ($codecolorer_inline_theme == 'mac-classic') echo ' selected="selected"' ?>>Mac Classic</option>
+            <option value="twitlight"<?php if ($codecolorer_inline_theme == 'twitlight') echo ' selected="selected"' ?>>Twitlight</option>
+            <option value="vibrant"<?php if ($codecolorer_inline_theme == 'vibrant') echo ' selected="selected"' ?>>Vibrant Ink</option>
+          </select>
+          <span class="setting-description"><?php _e('Default color scheme for inline code blocks.', 'codecolorer') ?></span>
+        </td>
       </tr>
 
       <tr valign="top">
