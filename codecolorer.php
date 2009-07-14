@@ -167,6 +167,7 @@ class CodeColorer {
   /** Search content for code tags and replace it */
   function highlightCode1($content) {
     $content = preg_replace('#\s*\[cc(.*?)\](.*?)\[/cc\]\s*#sie', '$this->performHighlight(\'\\2\', \'\\1\', $content);', $content);
+    $content = preg_replace('#\s*\[cci(.*?)\](.*?)\[/cci\]\s*#sie', '$this->performHighlight(\'\\2\', \'\\1\', $content, true);', $content);
     $content = preg_replace('#\s*\<code(.*?)\>(.*?)\</code\>\s*#sie', '$this->performHighlight(\'\\2\', \'\\1\', $content);', $content);
 
     return $content;
@@ -216,12 +217,13 @@ class CodeColorer {
   }
 
   /** Perform code highlightning */
-  function performHighlight($text, $opts, $content) {
+  function performHighlight($text, $opts, $content, $force_inline = false) {
     $text = str_replace(array("\\\"", "\\\'"), array ("\"", "\'"), $text);
     $text = preg_replace('/(< \?php)/i', '<?php', $text);
     $text = preg_replace('/(?:^(?:\s*[\r\n])+|\s+$)/', '', $text);
 
     $options = $this->parseOptions($opts);
+    if ($force_inline) $options['inline'] = true;
 
     if ($options['no_cc']) {
       $result = '<code>' . $text . '</code>';
