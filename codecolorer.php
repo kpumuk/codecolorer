@@ -166,8 +166,8 @@ class CodeColorer {
 
   /** Search content for code tags and replace it */
   function highlightCode1($content) {
-    $content = preg_replace('#\s*\[cc(.*?)\](.*?)\[/cc\]\s*#sie', '$this->performHighlight(\'\\2\', \'\\1\', $content);', $content);
     $content = preg_replace('#\s*\[cci(.*?)\](.*?)\[/cci\]\s*#sie', '$this->performHighlight(\'\\2\', \'\\1\', $content, true);', $content);
+    $content = preg_replace('#\s*\[cc(.*?)\](.*?)\[/cc\]\s*#sie', '$this->performHighlight(\'\\2\', \'\\1\', $content);', $content);
     $content = preg_replace('#\s*\<code(.*?)\>(.*?)\</code\>\s*#sie', '$this->performHighlight(\'\\2\', \'\\1\', $content);', $content);
 
     return $content;
