@@ -50,7 +50,7 @@ if ('process' == $_POST['stage']) {
   update_option('codecolorer_rss_width', $_POST['codecolorer_rss_width']);
   update_option('codecolorer_line_numbers', isset($_POST['codecolorer_line_numbers']));
   update_option('codecolorer_disable_keyword_linking', isset($_POST['codecolorer_disable_keyword_linking']));
-  update_option('codecolorer_tab_site', intval($_POST['codecolorer_tab_size']));
+  update_option('codecolorer_tab_size', intval($_POST['codecolorer_tab_size']));
   update_option('codecolorer_theme', $_POST['codecolorer_theme']);
   update_option('codecolorer_inline_theme', $_POST['codecolorer_inline_theme']);
 }
