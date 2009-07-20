@@ -36,7 +36,7 @@ Thank you all guys, who submitted translations to your language. CodeColorer is 
 
 = Changelog =
 
-* v0.8.4 (Development)
+* v0.8.4 (Jul 14, 2009)
   * Fixed inline code blocks formatting.
   * Added special tag [cci] which works just like [cc], but with inline forced.
   * Fixed problem when line numbers could not be disabled (thanks to miaow).
