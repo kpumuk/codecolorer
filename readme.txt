@@ -36,6 +36,8 @@ Thank you all guys, who submitted translations to your language. CodeColorer is 
 
 = Changelog =
 
+* v0.8.5 (Development)
+  * Fixed bug occured when [cc] block goes just right after the [cci].
 * v0.8.4 (Jul 14, 2009)
   * Fixed inline code blocks formatting.
   * Added special tag [cci] which works just like [cc], but with inline forced.
