@@ -38,6 +38,8 @@ Thank you all guys, who submitted translations to your language. CodeColorer is 
 
 * v0.8.6 (Development)
   * Added a new option "escaped" to process code blocks with special HTML chars escaped (&lt; -> &amp;lt;).
+  * Fixed regular expressions for PHP and some other languages.
+  * Use html_entity_decode instead of htmlspecialchars_decode if escaped="true"
 * v0.8.5 (Jul 20, 2009)
   * Fixed bug occured when [cc] block goes just right after the [cci].
   * Fixed bug with tab_size option saving (thanks to <a href="http://www.marclove.com/">Marc Love</a>).
@@ -123,7 +125,7 @@ Most of these parameters could be configured via the CodeColorer options page.
 *A*. Go to the <em>Options/CodeColorer</em> page in <em>Site Admin</em> and change the "Custom CSS Styles" option.
 
 *Q*. I see &amp;lt; instead of &lt; (or other HTML entities like &gt;, &amp;, &quot;) in my code.  
-*A*. You are should not use the visual editor when writing code into the post.
+*A*. You should use <tt>escaped="true"</tt> in the visual editor when inserting code into the post.
 
 *Q*. Does it highlights my code on server or client side?  
 *A*. CodeColorer performs code highlighting on the server, you could see HTML of the highlighted code in page source.
