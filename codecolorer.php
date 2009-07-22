@@ -170,8 +170,7 @@ class CodeColorer {
 
   /** Search content for code tags and replace it */
   function highlightCode1($content) {
-    $content = preg_replace('#\s*\[cci(.*?)\](.*?)\[/cci\]\s*#sie', '$this->performHighlight(\'\\2\', \'\\1\', $content, true);', $content);
-    $content = preg_replace('#\s*\[cc(.*?)\](.*?)\[/cc\]\s*#sie', '$this->performHighlight(\'\\2\', \'\\1\', $content);', $content);
+    $content = preg_replace('#\s*\[cc([^\s\]_]*)(_[^\s\]]*)?([^\]]*)\](.*?)\[/cc\1\]\s*#sie', '$this->performHighlight(\'\\4\', \'\\3\', $content, \'\\1\\2\');', $content);
     $content = preg_replace('#\s*\<code(.*?)\>(.*?)\</code\>\s*#sie', '$this->performHighlight(\'\\2\', \'\\1\', $content);', $content);
 
     return $content;
@@ -221,13 +220,12 @@ class CodeColorer {
   }
 
   /** Perform code highlightning */
-  function performHighlight($text, $opts, $content, $force_inline = false) {
+  function performHighlight($text, $opts, $content, $suffix = '') {
     $text = str_replace(array("\\\"", "\\\'"), array ("\"", "\'"), $text);
     $text = preg_replace('/(< \?php)/i', '<?php', $text);
     $text = preg_replace('/(?:^(?:\s*[\r\n])+|\s+$)/', '', $text);
 
-    $options = $this->parseOptions($opts);
-    if ($force_inline) $options['inline'] = true;
+    $options = $this->parseOptions($opts, $suffix);
 
     if ($options['no_cc']) {
       $result = '<code>' . $text . '</code>';
@@ -299,14 +297,43 @@ class CodeColorer {
     return $lang;
   }
 
-  function parseOptions($opts) {
+  function parseOptions($opts, $suffix) {
     $opts = str_replace(array("\\\"", "\\\'"), array ("\"", "\'"), $opts);
     preg_match_all('#([a-z_-]*?)\s*=\s*(["\'])(.*?)\2#i', $opts, $matches, PREG_SET_ORDER);
     $options = array();
     for ($i = 0; $i < sizeof($matches); $i++) {
       $options[$matches[$i][1]] = $matches[$i][3];
     }
-    return $this->populateDefaultValues($options);
+    $options = $this->populateDefaultValues($options);
+    
+    list($modes, $lang) = explode('_', $suffix, 2);
+    if (NULL !== ($mode = $this->parseMode($modes, 'i'))) {
+      $options['inline'] = $mode;
+    }
+    if (NULL !== ($mode = $this->parseMode($modes, 'e'))) {
+      $options['escaped'] = $mode;
+    }
+    if (NULL !== ($mode = $this->parseMode($modes, 's'))) {
+      $options['strict'] = $mode;
+    }
+    if (NULL !== ($mode = $this->parseMode($modes, 'n'))) {
+      $options['line_numbers'] = $mode;
+    }
+    if (NULL !== ($mode = $this->parseMode($modes, 'b'))) {
+      $options['noborder'] = $mode;
+    }
+    if (NULL !== ($mode = $this->parseMode($modes, 'w'))) {
+      $options['nowrap'] = $mode;
+    }
+    if (NULL !== ($mode = $this->parseMode($modes, 'l'))) {
+      $options['no_links'] = $mode;
+    }
+    
+    if (!empty($lang)) {
+      $options['lang'] = $lang;
+    }
+    
+    return $options;
   }
 
   function getDimensionRule($dimension, $value) {
@@ -374,7 +401,6 @@ class CodeColorer {
     } else {
       $options['line_numbers'] = $this->parseBoolean($options['line_numbers']);
     }
-    // var_dump(get_option('codecolorer_line_numbers'));
 
     // First line (int)
     if (!$options['first_line'] && $options['first_line'] !== '0') {
@@ -429,6 +455,16 @@ class CodeColorer {
 
   function parseBoolean($val) {
     return $val === true || $val === 'true' || $val === 'on' || $val === '1' || (is_int($val) && $val !== 0);
+  }
+  
+  function parseMode($modes, $mode) {
+    if (strpos($modes, $mode) !== FALSE) {
+      return TRUE;
+    }
+    if (strpos($modes, strtoupper($mode)) !== FALSE) {
+      return FALSE;
+    }
+    return NULL;
   }
 
   function getDefaultLinesToScroll() {
