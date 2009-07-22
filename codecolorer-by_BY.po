@@ -1,4 +1,4 @@
-# CodeColorer Wordpress Plugin v0.8.5
+# CodeColorer Wordpress Plugin v0.8.6
 # Copyright (c) 2006 - 2009 Dmytro Shteflyuk
 # This file is distributed under the same license as the CodeColorer package.
 # Dmytro Shteflyuk <kpumuk@kpumuk.info>, 2009.
