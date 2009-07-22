@@ -119,6 +119,10 @@ class CodeColorer {
     if (!class_exists('geshi')) $this->init();
 
     /* Geshi configuration */
+    if ($options['escaped']) {
+      $content = htmlspecialchars_decode($content);
+    }
+    
     $geshi = new GeSHi($content, $options['lang'], $this->geshi_path);
     $geshi->set_overall_class('codecolorer');
     if (is_feed()) {
@@ -320,6 +324,13 @@ class CodeColorer {
       $options['no_cc'] = false;
     } else {
       $options['no_cc'] = $this->parseBoolean($options['no_cc']);
+    }
+
+    // Whether code in block is already escaped (bool)
+    if (!$options['escaped']) {
+      $options['escaped'] = false;
+    } else {
+      $options['escaped'] = $this->parseBoolean($options['escaped']);
     }
 
     // Whether horizontal wrapping should be disabled (bool)
