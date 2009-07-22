@@ -120,7 +120,7 @@ class CodeColorer {
 
     /* Geshi configuration */
     if ($options['escaped']) {
-      $content = htmlspecialchars_decode($content);
+      $content = html_entity_decode($content);
     }
     
     $geshi = new GeSHi($content, $options['lang'], $this->geshi_path);
