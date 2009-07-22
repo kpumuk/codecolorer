@@ -40,6 +40,7 @@ Thank you all guys, who submitted translations to your language. CodeColorer is 
   * Added a new option "escaped" to process code blocks with special HTML chars escaped (&lt; -> &amp;lt;).
   * Fixed regular expressions for PHP and some other languages.
   * Use html_entity_decode instead of htmlspecialchars_decode if escaped="true"
+  * Added advanced syntax [ccMODE_LANG], where MODE is set of modes, and LAND is language.
 * v0.8.5 (Jul 20, 2009)
   * Fixed bug occured when [cc] block goes just right after the [cci].
   * Fixed bug with tab_size option saving (thanks to <a href="http://www.marclove.com/">Marc Love</a>).
