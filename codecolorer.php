@@ -3,7 +3,7 @@
 Plugin Name: CodeColorer
 Plugin URI: http://kpumuk.info/projects/wordpress-plugins/codecolorer
 Description: This plugin allows you to insert code snippets to your posts with nice syntax highlighting powered by <a href="http://qbnz.com/highlighter/">GeSHi</a> library. After enabling this plugin visit <a href="options-general.php?page=codecolorer/codecolorer-options.php">the options page</a> to configure code style.
-Version: 0.8.6
+Version: 0.8.7
 Author: Dmytro Shteflyuk
 Author URI: http://kpumuk.info/
 */
@@ -170,8 +170,8 @@ class CodeColorer {
 
   /** Search content for code tags and replace it */
   function highlightCode1($content) {
-    $content = preg_replace('#\s*\[cc([^\s\]_]*)(_[^\s\]]*)?([^\]]*)\](.*?)\[/cc\1\]\s*#sie', '$this->performHighlight(\'\\4\', \'\\3\', $content, \'\\1\\2\');', $content);
-    $content = preg_replace('#\s*\<code(.*?)\>(.*?)\</code\>\s*#sie', '$this->performHighlight(\'\\2\', \'\\1\', $content);', $content);
+    $content = preg_replace('#(\s*)\[cc([^\s\]_]*)(_[^\s\]]*)?([^\]]*)\](.*?)\[/cc\2\](\s*)#sie', '$this->performHighlight(\'\\5\', \'\\4\', $content, \'\\2\\1\', \'$1\', \'$6\');', $content);
+    $content = preg_replace('#(\s*)\<code(.*?)\>(.*?)\</code\>\s*#sie', '$this->performHighlight(\'\\3\', \'\\2\', $content, \'\', \'$1\', \'$4\');', $content);
 
     return $content;
   }
@@ -220,7 +220,7 @@ class CodeColorer {
   }
 
   /** Perform code highlightning */
-  function performHighlight($text, $opts, $content, $suffix = '') {
+  function performHighlight($text, $opts, $content, $suffix = '', $before = '', $after = '') {
     $text = str_replace(array("\\\"", "\\\'"), array ("\"", "\'"), $text);
     $text = preg_replace('/(< \?php)/i', '<?php', $text);
     $text = preg_replace('/(?:^(?:\s*[\r\n])+|\s+$)/', '', $text);
@@ -245,7 +245,7 @@ class CodeColorer {
       $this->blocks[$blockID] = $result;
 
       if ($options['inline']) {
-        $result = " $blockID ";
+        $result = $before . $blockID . $after;
       } else {
         $result = "\n\n$blockID\n\n";
       }
@@ -266,7 +266,10 @@ class CodeColorer {
 
   function addContainer($html, $options, $num_lines) {
     if ($options['inline']) {
-      $result = '<code class="codecolorer ' . $options['lang'] . ' ' . $options['inline_theme'] . '">' . $html . '</code>';
+      $result  = '<code class="codecolorer ' . $options['lang'] . ' ' . $options['inline_theme'] . '">';
+      $result .= '<span class="' . $options['lang'] . '">' . $html . '</span>';
+      $result .= '</code>';
+       
     } else {
       $style = 'style="';
       if ($options['nowrap']) $style .= 'overflow:auto;white-space:nowrap;';
@@ -297,7 +300,7 @@ class CodeColorer {
     return $lang;
   }
 
-  function parseOptions($opts, $suffix) {
+  function parseOptions($opts, $suffix = '') {
     $opts = str_replace(array("\\\"", "\\\'"), array ("\"", "\'"), $opts);
     preg_match_all('#([a-z_-]*?)\s*=\s*(["\'])(.*?)\2#i', $opts, $matches, PREG_SET_ORDER);
     $options = array();
