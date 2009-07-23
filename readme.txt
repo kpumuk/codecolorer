@@ -3,9 +3,9 @@ Contributors: kpumuk
 Tags: code, snippet, syntax, highlight, color, geshi
 Requires at least: 2.0.2
 Tested up to: 2.8.2
-Stable tag: 0.8.6
+Stable tag: 0.8.7
 
-CodeColorer is the plugin which allows you to insert code snippets to your posts with nice syntax highlighting powered by GeSHi library.
+CodeColorer is a syntax highlighting plugin which allows you to insert code snippets to your posts with nice syntax highlighting powered by GeSHi library.
 
 == Description ==
 
@@ -52,7 +52,36 @@ To insert code snippet into your post (or comment) you should use <tt>[cc lang=&
 
 Note: You should always use double quotes or single quotes around the parameter value. Boolean values could be passed using string <tt>true</tt> or <tt>false</tt>, <tt>on</tt> or <tt>off</tt>, number <tt>1</tt> or <tt>0</tt>.
 
-Possible parameters:
+= Short codes =
+
+Starting from CodeColorer 0.8.6 you can use short codes to insert code snippets. The short code in common looks like [ccM_LANG], where LANG is your language, and M is the one or more of following modes:
+
+* <tt>i</tt> -- inline
+* <tt>e</tt> -- escaped
+* <tt>s</tt> -- strict
+* <tt>n</tt> -- line_numbers
+* <tt>b</tt> -- no_border
+* <tt>w</tt> -- no_wrap
+* <tt>l</tt> -- no_links
+
+Small letter means "enabled", capital - "disabled". Examples:
+
+PHP code with links enabled and line numbers disabled:
+  [cclN_php]
+    echo "hello"
+  [/cclN_php]
+
+Already escaped HTML code:
+  [ccie_html]&lt;html&gt;[/ccie_html]
+
+Ruby code without wrapping having tab size equal to 4:
+  [ccW_ruby tab_size="4"]
+    attr_accessor :title
+  [/ccW_ruby]
+
+You can find modes explained below.
+
+= Possible parameters =
 
 * <tt>lang</tt> (string) -- source language.
 * <tt>tab_size</tt> (integer) -- how many spaces would represent TAB symbol.
@@ -75,6 +104,14 @@ You can use special tag [cci] instead of [cc] to force inline mode:
   [cci lang="php"]some code[/cci]
 
 Most of these parameters could be configured via the CodeColorer options page.
+
+To insert example of CodeColorer short codes you can use something like this:
+
+  [cce_bash]
+    &#91;cc lang="html"]
+      <title>CodeColorer short code colorized</title>
+    &#91;/cc]
+  [/cce_bash]
 
 == Frequently Asked Questions ==
 
@@ -106,14 +143,22 @@ Most of these parameters could be configured via the CodeColorer options page.
 
 1. Ruby syntax highlighting without scrollbars (Vibrant theme).
 2. Ruby syntax highlighting with scrollbars (Twitlight theme).
+3. Inline code syntax highlighting.
+4. Settings page.
 
 == Changelog ==
+
+= 0.8.7 (July 23, 2009) =
+* Fixed inline code blocks theming (thanks to <a href="http://blog.t-l-k.com/">Anatoliy 'TLK' Kolesnick</a>).
+* Fixed spaces before and after inline blocks (thanks to <a href="http://blog.t-l-k.com/">Anatoliy 'TLK' Kolesnick</a>).
+* Added section "Short codes" to readme.txt.
+* Added two more screenshots: inline code syntax highlighting and settings page.
 
 = 0.8.6 (July 22, 2009) =
 * Added a new option "escaped" to process code blocks with special HTML chars escaped (&lt; -> &amp;lt;).
 * Fixed regular expressions for PHP and some other languages.
 * Use html_entity_decode instead of htmlspecialchars_decode if escaped="true".
-* Added advanced syntax [ccMODE_LANG], where MODE is set of modes, and LAND is language.
+* Added advanced syntax [ccMODE_LANG], where MODE is set of modes, and LANG is language.
 
 = 0.8.5 (July 20, 2009) =
 * Fixed bug occured when [cc] block goes just right after the [cci].
@@ -147,34 +192,27 @@ Here is list of supported by CodeColorer languages: abap, actionscript, actionsc
 
 == Customization ==
 
-Syntax coloring is highly customizable: you could change color scheme for all languages or for specific language. You could find CodeColorer CSS in <tt>wp-content/plugins/codecolorer/codecolorer.css</tt> file. To change colors for all languages edit lines below <em>Color scheme</em> section. Usually you would use only following CSS classes:
+Syntax coloring is highly customizable: you could change color scheme for all languages or for specific language. You could find CodeColorer CSS in <tt>wp-content/plugins/codecolorer/codecolorer.css</tt> file. To change colors for all languages edit lines below <em>Color scheme</em> section.
 
-* *kw1*, *kw2*, *kw3* - keywords
-* *co1*, *co2*, *coMULTI* - comments
-* *es0* - escaped chars
-* *br0* - brackets
-* *st0* - strings
-* *nu0* - numbers
-* *me0* - methods
+There is simple mapping exists between Textmate color themes and CodeColorer ones:
 
-To change colors for specific language copy default values and add language name with a period before it. For example, you could use following color scheme for PHP:
+  /* "Slush & Poppies" color scheme (default) */
+  .codecolorer-container, .codecolorer { color: #000000; background-color: #F1F1F1; }
+  /* Comment */
+  .codecolorer .co0, .codecolorer .co1, .codecolorer .co2, .codecolorer .co3, .codecolorer .co4, .codecolorer .coMULTI { color: #406040; font-style: italic; }
+  /* Constant */
+  .codecolorer .nu0, .codecolorer .re3 { color: #0080A0; }
+  /* String */
+  .codecolorer .st0, .codecolorer .st_h, .codecolorer .es0, .codecolorer .es1 { color: #C03030; }
+  /* Entity */
+  .codecolorer .me1, .codecolorer .me2 { color: #0080FF; }
+  /* Keyword */
+  .codecolorer .kw1, .codecolorer .kw2, .codecolorer .sy1 { color: #2060A0; }
+  /* Storage */
+  .codecolorer .kw3, .codecolorer .kw4, .codecolorer .kw5, .codecolorer .re2 { color: #008080; }
+  /* Variable */
+  .codecolorer .re0, .codecolorer .re1 { color: #A08000; }
+  /* Global color */
+  .codecolorer .br0, .codecolorer .sy0 { color: #000000; }
 
-	.php .codecolorer .kw1 { color: #FF6600; font-weight: bolder; }
-	.php .codecolorer .kw2 { color: #339999; }
-	.php .codecolorer .kw3 { color: #FF6600; }
-	.php .codecolorer .kw4 { color: #DDE93D; }
-	.php .codecolorer .kw5 { color: #999966; }
-	.php .codecolorer .st0 { color: #66FF00; }
-	.php .codecolorer .es0 { color: #42A500; }
-	.php .codecolorer .br0 { color: Olive; }
-	.php .codecolorer .nu0 { color: #CCFF33; font-weight: bolder; }
-	.php .codecolorer .re0 { color: #339999; }
-	.php .codecolorer .re1 { color: #FFCC00; }
-	.php .codecolorer .re3 * { color: #FFFFFF; }
-	.php .codecolorer .re4, .php .codecolorer .re4 * {
-		color: #64A2FF;
-	}
-	.php .codecolorer .co1, .php .codecolorer .co2,
-	.php .codecolorer .coMULTI { color: #9933CC; }
-
-Also you could change width of the code block in the top of CSS file (there are different values for different situations, for example when you code is places under <tt>&lt;blockquote&gt;</tt>).
+Check the <tt>codecolorer.css</tt> file to get more examples.
