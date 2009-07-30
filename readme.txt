@@ -208,7 +208,7 @@ an archive with plugin again (thanks to
 
 == Changelog ==
 
-= 0.9.0 (Development) =
+= 0.9.0 (July 30, 2009) =
 * Great refactoring performed. CodeColorer requires WordPress at least 2.7 now.
 * Fixed 0 and 1 parsing for options.
 * Fixed disabled CodeColorer blocks rendering.
