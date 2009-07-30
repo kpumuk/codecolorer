@@ -41,6 +41,16 @@ is currently available in following languages:
 * Belarusian - Беларуский (thanks to <a href="http://www.fatcow.com">И. Фадков</a>)
 * Simplified Chinese - 简化字 (thanks to <a href="http://ixiezi.com">liuxiangqian</a>)
 
+= Support =
+
+If you have any suggestions, found a bug, wanted to contribute a
+translation to your language, or just wanted to say "thank
+you",– feel free to email me <a href="mailto:kpumuk@kpumuk.info">kpumuk@kpumuk.info</a>.
+Promise, I will answer every email I received.
+
+If you want to contribute your code, see the *Development* section under
+the *Other Notes* tab.
+
 == Installation ==
 
 1. Download and unpack plugin files to **wp-content/plugins/codecolorer**
@@ -244,6 +254,18 @@ You can find complete changelog on the <a href="http://kpumuk.info/projects/word
 == Supported languages ==
 
 Here is list of supported by CodeColorer languages: abap, actionscript, actionscript3, ada, apache, applescript, apt\_sources, asm, asp, autoit, avisynth, bash, basic4gl, bf, bibtex, blitzbasic, bnf, boo, c, c\_mac, caddcl, cadlisp, cfdg, cfm, cil, cmake, cobol, cpp-qt, cpp, csharp, css, d, dcs, delphi, diff, div, dos, dot, eiffel, email, erlang, fo, fortran, freebasic, genero, gettext, glsl, gml, gnuplot, groovy, haskell, hq9plus, html4strict, idl, ini, inno, intercal, io, java, java5, javascript, kixtart, klonec, klonecpp, latex, lisp, locobasic, lolcode, lotusformulas, lotusscript, lscript, lsl2, lua, m68k, make, matlab, mirc, modula3, mpasm, mxml, mysql, nsis, oberon2, objc, ocaml-brief, ocaml, oobas, oracle11, oracle8, pascal, per, perl, php-brief, php, pic16, pixelbender, plsql, povray, powershell, progress, prolog, properties, providex, python, qbasic, rails, rebol, reg, robots, ruby, sas, scala, scheme, scilab, sdlbasic, smalltalk, smarty, sql, tcl, teraterm, text, thinbasic, tsql, typoscript, vb, vbnet, verilog, vhdl, vim, visualfoxpro, visualprolog, whitespace, whois, winbatch, xml, xorg\_conf, xpp, yaml, z80.
+
+== Development ==
+
+Sources of this plugin are available both in SVN and Git:
+
+* <a href="http://svn.wp-plugins.org/codecolorer/">WordPress SVN repository</a>
+* <a href="http://github.com/kpumuk/codecolorer/">GitHub</a>
+
+Feel free to check them out, make your changes and send me patches.
+Promise, I will apply every patch (of course, if they add a value to the
+product). Email for patches, suggestions, or bug reports:
+<a href="mailto:kpumuk@kpumuk.info">kpumuk@kpumuk.info</a>.
 
 == Customization ==
 
