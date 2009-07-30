@@ -41,8 +41,8 @@ class CodeColorer {
 
   /** Search content for code tags and replace it */
   function BeforeHighlightCodeBlock($content) {
-    $content = preg_replace('#(\s*)\[cc([^\s\]_]*(?:_[^\s\]]*)?)([^\]]*)\](.*?)\[/cc\2\](\s*)#sie', '$this->PerformHighlightCodeBlock(\'\\4\', \'\\3\', $content, \'\\2\', \'\1\', \'\5\');', $content);
-    $content = preg_replace('#(\s*)\<code(.*?)\>(.*?)\</code\>(\s*)#sie', '$this->PerformHighlightCodeBlock(\'\\3\', \'\\2\', $content, \'\', \'1\', \'4\');', $content);
+    $content = preg_replace('#(\s*)\[cc([^\s\]_]*(?:_[^\s\]]*)?)([^\]]*)\](.*?)\[/cc\2\](\s*)#sie', '$this->PerformHighlightCodeBlock(\'\\4\', \'\\3\', $content, \'\\2\', \'\\1\', \'\\5\');', $content);
+    $content = preg_replace('#(\s*)\<code(.*?)\>(.*?)\</code\>(\s*)#sie', '$this->PerformHighlightCodeBlock(\'\\3\', \'\\2\', $content, \'\', \'\\1\', \'\\4\');', $content);
 
     return $content;
   }
@@ -84,8 +84,9 @@ class CodeColorer {
       $text = html_entity_decode($text);
     }
 
+    $result = '';
     // Check if CodeColorer has been disabled for this particular block
-    if ($options['no_cc']) {
+    if (!$options['enabled']) {
       $result = '<code>' . $text . '</code>';
     } else {
       // See if we should force a height
@@ -94,19 +95,19 @@ class CodeColorer {
       $result = $this->PerformHighlightGeshi($text, $options);
 
       $result = $this->AddContainer($result, $options, $num_lines);
+    }
 
-      if ($options['inline']) {
-        $blockID = $this->GetBlockID($content, false, '<span>', '</span>');
-      } else {
-        $blockID = $this->GetBlockID($content);
-      }
-      $this->blocks[$blockID] = $result;
+    if ($options['inline']) {
+      $blockID = $this->GetBlockID($content, false, '<span>', '</span>');
+    } else {
+      $blockID = $this->GetBlockID($content);
+    }
+    $this->blocks[$blockID] = $result;
 
-      if ($options['inline']) {
-        $result = $before . $blockID . $after;
-      } else {
-        $result = "\n\n$blockID\n\n";
-      }
+    if ($options['inline']) {
+      $result = $before . $blockID . $after;
+    } else {
+      $result = "\n\n$blockID\n\n";
     }
 
     return $result;
@@ -183,11 +184,12 @@ class CodeColorer {
 
   function AddContainer($html, $options, $num_lines) {
     if ($options['inline']) {
-      $result = '<code class="codecolorer ' . $options['lang'] . ' ' . $options['inline_theme'] . '">' . $html . '</code>';
-      $result  = '<code class="codecolorer ' . $options['lang'] . ' ' . $options['inline_theme'] . '">';
+      $theme = empty($options['inline_theme']) ? 'default' : $options['inline_theme'];
+      $result  = '<code class="codecolorer ' . $options['lang'] . ' ' . $theme . '">';
       $result .= '<span class="' . $options['lang'] . '">' . $html . '</span>';
       $result .= '</code>';
     } else {
+      $theme = empty($options['theme']) ? 'default' : $options['theme'];
       $style = 'style="';
       if ($options['nowrap']) $style .= 'overflow:auto;white-space:nowrap;';
       if (is_feed()) $style .= 'border: 1px solid #9F9F9F;';
@@ -197,7 +199,7 @@ class CodeColorer {
       }
       $style .= '"';
 
-      $css_class = 'codecolorer-container ' . $options['lang'] . ' ' . $options['theme'];
+      $css_class = 'codecolorer-container ' . $options['lang'] . ' ' . $theme;
       if ($options['noborder']) $css_class .= ' codecolorer-noborder';
       $result = '<div class="' . $css_class . '" ' . $style . '>' . $html . '</div>';
     }
@@ -228,7 +230,7 @@ class CodeColorer {
 
   function GetDimensionRule($dimension, $value) {
     $rule = '';
-    if (!empty($value)) $rule = "$dimension:$value" . (is_int($value) ? ';' : 'px;');
+    if (!empty($value)) $rule = "$dimension:$value" . (is_numeric($value) ? 'px;' : ';');
     return $rule;
   }
 
