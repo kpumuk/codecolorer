@@ -21,168 +21,207 @@ http://kpumuk.info/projects/wordpress-plugins/codecolorer
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-load_plugin_textdomain('codecolorer', 'wp-content/plugins/codecolorer'); // NLS
-include_once('codecolorer.php');
-$CodeColorer = new CodeColorer();
+class CodeColorerOptions {
+  function GetThemes() {
+    return array(
+      '' => 'Slush & Poppies',
+      'blackboard' => 'Blackboard',
+      'dawn' => 'Dawn',
+      'mac-classic' => 'Mac Classic',
+      'twitlight' => 'Twitlight',
+      'vibrant' => 'Vibrant Ink'
+    );
+  }
 
-$location = get_option('siteurl') . '/wp-admin/admin.php?page=codecolorer/codecolorer-options.php'; // Form Action URI
+  function ParseOptions($opts, $suffix = '') {
+    $opts = str_replace(array("\\\"", "\\\'"), array ("\"", "\'"), $opts);
+    preg_match_all('#([a-z_-]*?)\s*=\s*(["\'])(.*?)\2#i', $opts, $matches, PREG_SET_ORDER);
+    $options = array();
+    for ($i = 0; $i < sizeof($matches); $i++) {
+      $options[$matches[$i][1]] = $matches[$i][3];
+    }
 
-/* Add some default options if they don't exist */
-add_option('codecolorer_css_style', '');
-add_option('codecolorer_lines_to_scroll', $CodeColorer->getDefaultLinesToScroll());
-add_option('codecolorer_width', $CodeColorer->getDefaultWidth());
-add_option('codecolorer_height', $CodeColorer->getDefaultHeight());
-add_option('codecolorer_rss_width', $CodeColorer->getDefaultWidth());
-add_option('codecolorer_line_numbers', false);
-add_option('codecolorer_disable_keyword_linking', false);
-add_option('codecolorer_tab_size', 4);
-add_option('codecolorer_theme', '');
-add_option('codecolorer_inline_theme', '');
-/* Obsolete options */
-// add_option('codecolorer_line_height', $CodeColorer->getDefaultLineHeight());
+    $options = CodeColorerOptions::PopulateDefaultValues($options);
 
-/* Check form submission and update options */
-if ('process' == $_POST['stage']) {
-  update_option('codecolorer_css_style', $_POST['codecolorer_css_style']);
-  update_option('codecolorer_lines_to_scroll', intval($_POST['codecolorer_lines_to_scroll']));
-  update_option('codecolorer_width', $_POST['codecolorer_width']);
-  update_option('codecolorer_height', $_POST['codecolorer_height']);
-  update_option('codecolorer_rss_width', $_POST['codecolorer_rss_width']);
-  update_option('codecolorer_line_numbers', isset($_POST['codecolorer_line_numbers']));
-  update_option('codecolorer_disable_keyword_linking', isset($_POST['codecolorer_disable_keyword_linking']));
-  update_option('codecolorer_tab_size', intval($_POST['codecolorer_tab_size']));
-  update_option('codecolorer_theme', $_POST['codecolorer_theme']);
-  update_option('codecolorer_inline_theme', $_POST['codecolorer_inline_theme']);
+    list($modes, $lang) = explode('_', $suffix, 2);
+    if (NULL !== ($mode = CodeColorerOptions::ParseMode($modes, 'i'))) {
+      $options['inline'] = $mode;
+    }
+    if (NULL !== ($mode = CodeColorerOptions::ParseMode($modes, 'e'))) {
+      $options['escaped'] = $mode;
+    }
+    if (NULL !== ($mode = CodeColorerOptions::ParseMode($modes, 's'))) {
+      $options['strict'] = $mode;
+    }
+    if (NULL !== ($mode = CodeColorerOptions::ParseMode($modes, 'n'))) {
+      $options['line_numbers'] = $mode;
+    }
+    if (NULL !== ($mode = CodeColorerOptions::ParseMode($modes, 'b'))) {
+      $options['noborder'] = $mode;
+    }
+    if (NULL !== ($mode = CodeColorerOptions::ParseMode($modes, 'w'))) {
+      $options['nowrap'] = $mode;
+    }
+    if (NULL !== ($mode = CodeColorerOptions::ParseMode($modes, 'l'))) {
+      $options['no_links'] = $mode;
+    }
+
+    if (!empty($lang)) {
+      $options['lang'] = CodeColorerOptions::FilterLanguage($lang);
+    }
+
+    return $options;
+  }
+
+  function PopulateDefaultValues($options) {
+    if (!$options) $options = array();
+
+    if (!$options['lang']) $options['lang'] = 'text';
+    $options['lang'] = CodeColorerOptions::FilterLanguage($options['lang']);
+
+    // Whether CodeColorer should be enabled (bool)
+    if (!$options['no_cc']) {
+      $options['enabled'] = true;
+    } else {
+      $options['enabled'] = !CodeColorerOptions::ParseBoolean($options['no_cc']);
+    }
+    if ($options['enabled']) {
+      $options['enabled'] = CodeColorerOptions::ParseBoolean($options['enabled']);
+    }
+
+    // Whether code in block is already escaped (bool)
+    if (!$options['escaped']) {
+      $options['escaped'] = false;
+    } else {
+      $options['escaped'] = CodeColorerOptions::ParseBoolean($options['escaped']);
+    }
+
+    // Whether horizontal wrapping should be disabled (bool)
+    if (!$options['nowrap']) {
+      $options['nowrap'] = true;
+    } else {
+      $options['nowrap'] = CodeColorerOptions::ParseBoolean($options['nowrap']);
+    }
+
+    // Disable container border (bool)
+    if (!$options['noborder']) {
+      $options['noborder'] = false;
+    } else {
+      $options['noborder'] = CodeColorerOptions::ParseBoolean($options['noborder']);
+    }
+
+    // Whether strict mode should be enabled (bool)
+    if (!$options['strict']) {
+      $options['strict'] = NULL;
+    } else {
+      $options['strict'] = CodeColorerOptions::ParseBoolean($options['strict']);
+    }
+
+    // Whether code should be rendered inline
+    if (!$options['inline']) {
+      $options['inline'] = false;
+    } else {
+      $option['inline'] = CodeColorerOptions::ParseBoolean($options['inline']);
+    }
+
+    // Tab size (int)
+    if (!$options['tab_size']) {
+      $options['tab_size'] = intval(get_option('codecolorer_tab_size'));
+    } else {
+      $options['tab_size'] = intval($options['tab_size']);
+    }
+
+    // Line numbers (bool)
+    if (!$options['line_numbers']) {
+      $options['line_numbers'] = CodeColorerOptions::ParseBoolean(get_option('codecolorer_line_numbers'));
+    } else {
+      $options['line_numbers'] = CodeColorerOptions::ParseBoolean($options['line_numbers']);
+    }
+    // var_dump(get_option('codecolorer_line_numbers'));
+
+    // First line (int)
+    if (!$options['first_line'] && $options['first_line'] !== '0') {
+      $options['first_line'] = 1;
+    } else {
+      $options['first_line'] = intval($options['first_line']);
+    }
+
+    // Disable keyword linking (bool)
+    if (!$options['no_links']) {
+        $options['no_links'] = CodeColorerOptions::ParseBoolean(get_option('codecolorer_disable_keyword_linking'));
+    } else {
+        $options['no_links'] = CodeColorerOptions::ParseBoolean($options['no_links']);
+    }
+
+    // Lines to scroll (int)
+    if (!$options['lines']) {
+        $options['lines'] = intval(get_option('codecolorer_lines_to_scroll'));
+    } else {
+        $options['lines'] = intval($options['lines']);
+    }
+
+    // Block width (int or string)
+    if (!$options['width']) {
+        $options['width'] = get_option('codecolorer_width');
+    }
+
+    // Block height (int or string)
+    if (!$options['height']) {
+        $options['height'] = get_option('codecolorer_height');
+    }
+
+    // Block width in RSS (int or string)
+    if (!$options['rss_width']) {
+        $options['rss_width'] = get_option('codecolorer_rss_width');
+    }
+
+    // Theme (string)
+    if (!$options['theme']) {
+      $options['theme'] = get_option('codecolorer_theme');
+      $options['inline_theme'] = get_option('codecolorer_inline_theme');
+    } else {
+      $options['inline_theme'] = $options['theme'];
+    }
+    if ($options['theme'] == 'default') {
+      $options['theme'] = '';
+      $options['inline_theme'] = '';
+    }
+
+    return $options;
+  }
+
+  function ParseBoolean($val) {
+    return $val === true || $val === 'true' || $val === 'on' || $val === '1' || (is_int($val) && $val !== 0);
+  }
+
+  function ParseMode($modes, $mode) {
+    if (strpos($modes, $mode) !== false) {
+      return true;
+    }
+    if (strpos($modes, strtoupper($mode)) !== false) {
+      return false;
+    }
+    return null;
+  }
+
+  function SanitizeBoolean($val) {
+    return $val == '1';
+  }
+
+  /**
+   * Process the language identifier attribute string
+   */
+  function FilterLanguage($lang) {
+    $lang = strtolower($lang);
+    if (strstr($lang, 'html')) {
+      $lang = 'html4strict';
+    } elseif ($lang == 'c#') {
+      $lang = 'csharp';
+    } elseif ($lang == 'cs') {
+      $lang = 'csharp';
+    } elseif ($lang == 'c++') {
+      $lang = 'cpp';
+    }
+    return $lang;
+  }
 }
-
-/* Get options for form fields */
-$codecolorer_css_style = stripslashes(get_option('codecolorer_css_style'));
-$codecolorer_lines_to_scroll = stripslashes(get_option('codecolorer_lines_to_scroll'));
-$codecolorer_width = stripslashes(get_option('codecolorer_width'));
-$codecolorer_height = stripslashes(get_option('codecolorer_height'));
-$codecolorer_rss_width = stripslashes(get_option('codecolorer_rss_width'));
-$codecolorer_line_numbers = stripslashes(get_option('codecolorer_line_numbers'));
-$codecolorer_disable_keyword_linking = stripslashes(get_option('codecolorer_disable_keyword_linking'));
-$codecolorer_tab_size = stripslashes(get_option('codecolorer_tab_size'));
-$codecolorer_theme = stripslashes(get_option('codecolorer_theme'));
-$codecolorer_inline_theme = stripslashes(get_option('codecolorer_inline_theme'));
-?>
-
-<div class="wrap">
-  <h2>CodeColorer: <?php _e('Code Highlighting Options', 'codecolorer') ?></h2>
-  <form name="form1" method="post" action="<?php echo $location ?>&amp;updated=true">
-  	<input type="hidden" name="stage" value="process" />
-
-    <table width="100%" cellpadding="5" class="form-table">
-      <tr valign="top">
-        <th scope="row"><label for="codecolorer_lines_to_scroll"><?php _e('Lines to scroll', 'codecolorer') ?>:</label></th>
-        <td>
-          <input name="codecolorer_lines_to_scroll" type="text" class="small-text" size="60" id="codecolorer_lines_to_scroll" value="<?php echo $codecolorer_lines_to_scroll ?>"/>
-          <span class="setting-description"><?php _e('If your code lines number is less than this value, block height would not be fixed. Set to <b>-1</b> to remove vertical scroll.', 'codecolorer') ?></span>
-  	    </td>
-      </tr>
-
-      <tr valign="top">
-        <th scope="row"><label for="codecolorer_width"><?php _e('Width', 'codecolorer') ?>:</label></th>
-        <td>
-          <input name="codecolorer_width" type="text" class="small-text" size="60" id="codecolorer_width" value="<?php echo $codecolorer_width ?>"/>
-          <span class="setting-description"><?php _e('Default code block width. Integer means pixels, also you can specify <tt>em</tt> or <tt>%</tt> suffix. Could be omitted to use whole width.', 'codecolorer') ?></span>
-  	    </td>
-      </tr>
-
-      <tr valign="top">
-        <th scope="row"><label for="codecolorer_height"><?php _e('Height', 'codecolorer') ?>:</label></th>
-        <td>
-          <input name="codecolorer_height" type="text" class="small-text" size="60" id="codecolorer_height" value="<?php echo $codecolorer_height ?>"/>
-          <span class="setting-description"><?php _e('When code has more than &quot;Lines to Scroll&quot; lines, block height will be set to this value.', 'codecolorer') ?></span>
-  	    </td>
-      </tr>
-
-      <tr valign="top">
-        <th scope="row"><label for="codecolorer_rss_width"><?php _e('Width in RSS', 'codecolorer') ?>:</label></th>
-        <td>
-          <input name="codecolorer_rss_width" type="text" class="small-text" size="60" id="codecolorer_rss_width" value="<?php echo $codecolorer_rss_width ?>"/>
-          <span class="setting-description"><?php _e('Default code block width in RSS. See Width option description.', 'codecolorer') ?></span>
-  	    </td>
-      </tr>
-
-      <tr valign="top">
-        <th scope="row"><label for="codecolorer_tab_size"><?php _e('Tab size', 'codecolorer') ?>:</label></th>
-        <td>
-          <input name="codecolorer_tab_size" type="text" class="small-text" size="60" id="codecolorer_tab_size" value="<?php echo $codecolorer_tab_size ?>"/>
-          <span class="setting-description"><?php _e('Indicating how many spaces would represent TAB symbol.', 'codecolorer') ?></span>
-  	    </td>
-      </tr>
-
-      <tr valign="top">
-        <th scope="row"><label for="codecolorer_theme"><?php _e('Theme', 'codecolorer') ?>:</label></th>
-        <td>
-          <select name="codecolorer_theme" id="codecolorer_theme">
-            <option value=""<?php if ($codecolorer_theme == '') echo ' selected="selected"' ?>>Slush &amp; Poppies</option>
-            <option value="blackboard"<?php if ($codecolorer_theme == 'blackboard') echo ' selected="selected"' ?>>Blackboard</option>
-            <option value="dawn"<?php if ($codecolorer_theme == 'dawn') echo ' selected="selected"' ?>>Dawn</option>
-            <option value="mac-classic"<?php if ($codecolorer_theme == 'mac-classic') echo ' selected="selected"' ?>>Mac Classic</option>
-            <option value="twitlight"<?php if ($codecolorer_theme == 'twitlight') echo ' selected="selected"' ?>>Twitlight</option>
-            <option value="vibrant"<?php if ($codecolorer_theme == 'vibrant') echo ' selected="selected"' ?>>Vibrant Ink</option>
-          </select>
-          <span class="setting-description"><?php _e('Default color scheme.', 'codecolorer') ?></span>
-        </td>
-      </tr>
-
-      <tr valign="top">
-        <th scope="row"><label for="codecolorer_inline_theme"><?php _e('Inline Theme', 'codecolorer') ?>:</label></th>
-        <td>
-          <select name="codecolorer_inline_theme" id="codecolorer_inline_theme">
-            <option value=""<?php if ($codecolorer_inline_theme == '') echo ' selected="selected"' ?>>Slush &amp; Poppies</option>
-            <option value="blackboard"<?php if ($codecolorer_inline_theme == 'blackboard') echo ' selected="selected"' ?>>Blackboard</option>
-            <option value="dawn"<?php if ($codecolorer_inline_theme == 'dawn') echo ' selected="selected"' ?>>Dawn</option>
-            <option value="mac-classic"<?php if ($codecolorer_inline_theme == 'mac-classic') echo ' selected="selected"' ?>>Mac Classic</option>
-            <option value="twitlight"<?php if ($codecolorer_inline_theme == 'twitlight') echo ' selected="selected"' ?>>Twitlight</option>
-            <option value="vibrant"<?php if ($codecolorer_inline_theme == 'vibrant') echo ' selected="selected"' ?>>Vibrant Ink</option>
-          </select>
-          <span class="setting-description"><?php _e('Default color scheme for inline code blocks.', 'codecolorer') ?></span>
-        </td>
-      </tr>
-
-      <tr valign="top">
-        <th scope="row"><?php _e('Formatting', 'codecolorer') ?>:</th>
-        <td>
-          <label for="codecolorer_line_numbers">
-            <input name="codecolorer_line_numbers" type="checkbox" id="codecolorer_line_numbers" value="codecolorer_line_numbers"
-              <?php if($codecolorer_line_numbers == TRUE) {?> checked="checked" <?php } ?> />
-              <?php _e('Show line numbers', 'codecolorer') ?>
-          </label><br />
-
-          <label for="codecolorer_disable_keyword_linking">
-            <input name="codecolorer_disable_keyword_linking" type="checkbox" id="codecolorer_disable_keyword_linking" value="codecolorer_disable_keyword_linking"
-              <?php if($codecolorer_disable_keyword_linking == TRUE) {?> checked="checked" <?php } ?> />
-            <?php _e('Disable keyword linking', 'codecolorer') ?>
-          </label>
-  	    </td>
-      </tr>
-
-      <tr valign="top">
-        <th scope="row"><label for="codecolorer_css_style"><?php _e('Custom CSS Styles', 'codecolorer') ?>:</label></th>
-        <td>
-          <textarea name="codecolorer_css_style" type="text" id="codecolorer_css_style" rows="5" cols=60><?php echo $codecolorer_css_style ?></textarea><br />
-          <span class="setting-description"><?php _e('These custom CSS rules will be appended to the CodeColorer default CSS file.', 'codecolorer') ?></span>
-        </td>
-      </tr>
-    </table>
-
-    <h3><?php _e('Preview', 'codecolorer') ?></h3>
-
-    <table width="100%" cellpadding="5" class="form-table">
-      <tr valign="top">
-        <th scope="row"><label for="codecolorer_css_style"><?php _e('Code Example', 'codecolorer') ?>:</label></th>
-        <td>
-          <?php echo $CodeColorer->sampleCodeFactory(); ?>
-        </td>
-      </tr>
-    </table>
-
-    <p class="submit">
-      <input type="submit" class="button-primary" name="Submit" value="<?php _e('Save Options', 'codecolorer') ?> &raquo;" />
-    </p>
-  </form>
-</div>
