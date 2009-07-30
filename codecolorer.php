@@ -294,6 +294,8 @@ class CodeColorer {
       $lang = 'html4strict';
     } elseif ($lang == 'c#') {
       $lang = 'csharp';
+    } elseif ($lang == 'cs') {
+      $lang = 'csharp';
     } elseif ($lang == 'c++') {
       $lang = 'cpp';
     }
