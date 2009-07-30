@@ -76,63 +76,62 @@ class CodeColorerOptions {
   function PopulateDefaultValues($options) {
     if (!$options) $options = array();
 
-    if (!$options['lang']) $options['lang'] = 'text';
+    if (!isset($options['lang'])) $options['lang'] = 'text';
     $options['lang'] = CodeColorerOptions::FilterLanguage($options['lang']);
 
     // Whether CodeColorer should be enabled (bool)
-    if (!$options['no_cc']) {
-      $options['enabled'] = true;
-    } else {
-      $options['enabled'] = !CodeColorerOptions::ParseBoolean($options['no_cc']);
-    }
-    if ($options['enabled']) {
+    if (isset($options['enabled'])) {
       $options['enabled'] = CodeColorerOptions::ParseBoolean($options['enabled']);
+    } elseif (isset($options['no_cc'])) {
+      $options['enabled'] = !CodeColorerOptions::ParseBoolean($options['no_cc']);
+    } else {
+      $options['enabled'] = true;
     }
 
     // Whether code in block is already escaped (bool)
-    if (!$options['escaped']) {
+    if (!isset($options['escaped'])) {
       $options['escaped'] = false;
     } else {
       $options['escaped'] = CodeColorerOptions::ParseBoolean($options['escaped']);
     }
 
     // Whether horizontal wrapping should be disabled (bool)
-    if (!$options['nowrap']) {
+    if (!isset($options['nowrap'])) {
       $options['nowrap'] = true;
     } else {
       $options['nowrap'] = CodeColorerOptions::ParseBoolean($options['nowrap']);
     }
 
     // Disable container border (bool)
-    if (!$options['noborder']) {
+    if (!isset($options['noborder'])) {
       $options['noborder'] = false;
     } else {
       $options['noborder'] = CodeColorerOptions::ParseBoolean($options['noborder']);
     }
 
     // Whether strict mode should be enabled (bool)
-    if (!$options['strict']) {
+    if (!isset($options['strict'])) {
       $options['strict'] = NULL;
     } else {
       $options['strict'] = CodeColorerOptions::ParseBoolean($options['strict']);
     }
 
     // Whether code should be rendered inline
-    if (!$options['inline']) {
+    if (!isset($options['inline'])) {
       $options['inline'] = false;
     } else {
       $option['inline'] = CodeColorerOptions::ParseBoolean($options['inline']);
     }
 
     // Tab size (int)
-    if (!$options['tab_size']) {
+    if (!isset($options['tab_size'])) {
       $options['tab_size'] = intval(get_option('codecolorer_tab_size'));
     } else {
       $options['tab_size'] = intval($options['tab_size']);
     }
 
     // Line numbers (bool)
-    if (!$options['line_numbers']) {
+    if (!isset($options['line_numbers'])) {
       $options['line_numbers'] = CodeColorerOptions::ParseBoolean(get_option('codecolorer_line_numbers'));
     } else {
       $options['line_numbers'] = CodeColorerOptions::ParseBoolean($options['line_numbers']);
@@ -140,43 +139,44 @@ class CodeColorerOptions {
     // var_dump(get_option('codecolorer_line_numbers'));
 
     // First line (int)
-    if (!$options['first_line'] && $options['first_line'] !== '0') {
+    if (!isset($options['first_line'])) {
       $options['first_line'] = 1;
     } else {
       $options['first_line'] = intval($options['first_line']);
     }
+    if ($options['first_line'] < 1) $options['first_line'] = 1;
 
     // Disable keyword linking (bool)
-    if (!$options['no_links']) {
+    if (!isset($options['no_links'])) {
         $options['no_links'] = CodeColorerOptions::ParseBoolean(get_option('codecolorer_disable_keyword_linking'));
     } else {
         $options['no_links'] = CodeColorerOptions::ParseBoolean($options['no_links']);
     }
 
     // Lines to scroll (int)
-    if (!$options['lines']) {
+    if (!isset($options['lines'])) {
         $options['lines'] = intval(get_option('codecolorer_lines_to_scroll'));
     } else {
         $options['lines'] = intval($options['lines']);
     }
 
     // Block width (int or string)
-    if (!$options['width']) {
+    if (!isset($options['width'])) {
         $options['width'] = get_option('codecolorer_width');
     }
 
     // Block height (int or string)
-    if (!$options['height']) {
+    if (!isset($options['height'])) {
         $options['height'] = get_option('codecolorer_height');
     }
 
     // Block width in RSS (int or string)
-    if (!$options['rss_width']) {
+    if (!isset($options['rss_width'])) {
         $options['rss_width'] = get_option('codecolorer_rss_width');
     }
 
     // Theme (string)
-    if (!$options['theme']) {
+    if (!isset($options['theme'])) {
       $options['theme'] = get_option('codecolorer_theme');
       $options['inline_theme'] = get_option('codecolorer_inline_theme');
     } else {
