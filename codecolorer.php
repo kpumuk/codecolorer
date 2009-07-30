@@ -2,8 +2,8 @@
 /*
 Plugin Name: CodeColorer
 Plugin URI: http://kpumuk.info/projects/wordpress-plugins/codecolorer
-Description: This plugin allows you to insert code snippets to your posts with nice syntax highlighting powered by <a href="http://qbnz.com/highlighter/">GeSHi</a> library. After enabling this plugin visit <a href="options-general.php?page=codecolorer/codecolorer-options.php">the options page</a> to configure code style.
-Version: 0.8.7
+Description: This plugin allows you to insert code snippets to your posts with nice syntax highlighting powered by <a href="http://qbnz.com/highlighter/">GeSHi</a> library. After enabling this plugin visit <a href="options-general.php?page=codecolorer.php">the options page</a> to configure code style.
+Version: 0.9.0
 Author: Dmytro Shteflyuk
 Author URI: http://kpumuk.info/
 */
@@ -32,457 +32,152 @@ if (version_compare(phpversion(), '4.0.6', '<')) {
   return;
 }
 
-/** Instance of plugin */
-$CodeColorer = new CodeColorer();
-
-/** Register plugin actions */
-
-/** Regular pages */
-add_action('wp_head', array (&$CodeColorer, 'addCSS'), 1);
-
-/** Admin pages */
-if (is_admin()) {
-    add_action('admin_head', array(&$CodeColorer, 'init'), 1);
-    add_action('admin_head', array(&$CodeColorer, 'addCssStyle'), 1);
-    add_action('admin_menu', array(&$CodeColorer, 'addPluginOptionsPage'), 1);
-}
-
-/** Filters */
-add_filter('the_content', array(&$CodeColorer, 'highlightCode1'), -1000);
-add_filter('the_content', array(&$CodeColorer, 'highlightCode2'), 1000);
-add_filter('the_excerpt', array(&$CodeColorer, 'highlightCode1'), -1000);
-add_filter('the_excerpt', array(&$CodeColorer, 'highlightCode2'), 1000);
-add_filter('comment_text', array(&$CodeColorer, 'highlightCode1'), -1000);
-add_filter('comment_text', array(&$CodeColorer, 'highlightCode2'), 1000);
-add_filter('pre_comment_content', array(&$CodeColorer, 'protectCommentContent1'), -1000);
-add_filter('pre_comment_content', array(&$CodeColorer, 'protectCommentContent2'), 1000);
-
-unset ($CodeColorer);
-
-/** CodeColorer plugin class */
-class CodeColorer {
-  var $pluginLocation = '/wp-content/plugins/codecolorer/';
-  var $pluginPath;
-  var $libPath;
-
-  var $DEFAULT_LINES_TO_SCROLL = 20;
-  var $DEFAULT_WIDTH = 435;
-  var $DEFAULT_HEIGHT = 300;
-
-  var $blocks = array();
-  var $comments = array();
-
-  var $samplePhpCode = '  /**
-   * Comment
-   */
-  function hello() {
-    echo "Hello!";
-    return null;
-  }
-  exit();';
-
-  /** Initialization of environment */
-  function init() {
-    $this->pluginPath = dirname(__FILE__) . DIRECTORY_SEPARATOR;
-    $this->libPath = $this->pluginPath . 'lib' . DIRECTORY_SEPARATOR;
-    require_once($this->libPath . 'geshi.php');
-  }
-
-  /** Add css references to page head */
-  function addCSS() {
-    $this->init();
-    $this->addCssStyle();
-  }
-
-  function addCssStyle() {
-    $styles = stripslashes(get_option('codecolorer_css_style'));
-    echo '<link rel="stylesheet" href="' . get_option('siteurl') . $this->pluginLocation . 'codecolorer.css" type="text/css" />', "\n";
-    if (!empty($styles)) {
-      echo '<style type="text/css">' . $styles . "</style>\n";
-    }
-  }
-
-  function sampleCodeFactory() {
-    $this->init();
-    $options = $this->parseOptions('lang="php"');
-    $html = $this->highlightGeshi($this->samplePhpCode, $options);
-    $num_lines = count(explode("\n", $this->samplePhpCode));
-    return $this->addContainer($html, $options, $num_lines);
-  }
-
-  function addPluginOptionsPage() {
-    add_options_page('CodeColorer', 'CodeColorer', 8, 'codecolorer/codecolorer-options.php');
-  }
-
-  /** Perform code highlighting using GESHi engine */
-  function highlightGeshi($content, $options) {
-    if (!class_exists('geshi')) $this->init();
-
-    /* Geshi configuration */
-    if ($options['escaped']) {
-      $content = html_entity_decode($content);
-    }
-    
-    $geshi = new GeSHi($content, $options['lang'], $this->geshi_path);
-    $geshi->set_overall_class('codecolorer');
-    if (is_feed()) {
-      $geshi->set_overall_style('padding:5px;font:normal 12px/1.4em Monaco, Lucida Console, monospace;white-space:nowrap');
-    } else {
-      $geshi->enable_classes();
-      if ($options['nowrap']) {
-        $geshi->set_overall_style('white-space:nowrap');
-      } else {
-        $geshi->set_overall_style('');
-      }
-    }
-    $geshi->set_tab_width($options['tab_size']);
-    if (!is_null($options['strict'])) $geshi->enable_strict_mode($options['strict']);
-    $geshi->enable_line_numbers(GESHI_NO_LINE_NUMBERS, 1);
-    if ($options['no_links']) $geshi->enable_keyword_links(false);
-    if ($options['inline']) {
-      $geshi->set_header_type(GESHI_HEADER_NONE);
-    } else {
-      $geshi->set_header_type(GESHI_HEADER_DIV);
-    }
-
-    if ($geshi->error()) {
-      return $geshi->error();
-    }
-
-    $result = $geshi->parse_code();
-    
-    if ($options['line_numbers'] && !$options['inline']) {
-      $table = '<table cellspacing="0" cellpadding="0"><tbody><tr><td ';
-      if (is_feed()) {
-        $table .= 'style="padding:5px;text-align:center;color:#888888;background-color:#EEEEEE;border-right: 1px solid #9F9F9F;font: normal 12px/1.4em Monaco, Lucida Console, monospace;"';
-      } else {
-        $table .= 'class="line-numbers"';
-      }
-      $table .= '><div>';
-      for ($i = 0, $count = substr_count($result, '<br />') + 1; $i < $count; $i++) {
-        $table .= ($i + $options['first_line']) . '<br />';
-      }
-      $result = $table . '</div></td><td>' . $result . '</td></tr></tbody></table>';
-    }
-
-    return $result;
-  }
-
-  /** Search content for code tags and replace it */
-  function highlightCode1($content) {
-    $content = preg_replace('#(\s*)\[cc([^\s\]_]*)(_[^\s\]]*)?([^\]]*)\](.*?)\[/cc\2\](\s*)#sie', '$this->performHighlight(\'\\5\', \'\\4\', $content, \'\\2\\1\', \'$1\', \'$6\');', $content);
-    $content = preg_replace('#(\s*)\<code(.*?)\>(.*?)\</code\>(\s*)#sie', '$this->performHighlight(\'\\3\', \'\\2\', $content, \'\', \'$1\', \'$4\');', $content);
-
-    return $content;
-  }
-
-  function highlightCode2($content) {
-    $content = str_replace(array_keys($this->blocks), array_values($this->blocks), $content);
-    $this->blocks = array();
-
-    return $content;
-  }
-
-  function protectCommentContent1($content) {
-    $content = preg_replace('#\s*(\[cc.*?\].*?\[/cc\])\s*#sie', '$this->performProtect(\'\\1\', $content);', $content);
-    $content = preg_replace('#\s*(\<code.*?\>.*?\</code\>)\s*#sie', '$this->performProtect(\'\\1\', $content);', $content);
-
-    return $content;
-  }
-
-  function protectCommentContent2($content) {
-    $content = str_replace(array_keys($this->comments), array_values($this->comments), $content);
-    $this->comments = array();
-
-    return $content;
-  }
-
+/**
+ * Loader class for the CodeColorer plugin
+ */
+class CodeColorerLoader {
   /**
-   * Generate a block ID that will be replaced at the end (after all that
-   * crazy WP text work!) with the right code
+   * Enables the CodeColorer plugin with registering all required hooks.
    */
-  function getBlockID($content, $comment = false, $before = '<div>', $after = '</div>') {
-    static $num = 0;
+  function Enable() {
+    add_action('admin_init', array('CodeColorerLoader', 'AdminInit'));
 
-    $block = $comment ? 'COMMENT' : 'BLOCK';
-    $before = $before . '::CODECOLORER_' . $block . '_';
-    $after = '::' . $after;
+    // Add plugin options page
+    add_action('admin_menu', array('CodeColorerLoader', 'AddPluginOptionsPage'));
 
-    // Just do a check to make sure the user
-    // hasn't (however unlikely) input block replacements
-    // as legit text
-    do {
-      ++$num;
-      $blockID = $before . $num . $after;
-    } while (strpos($content, $blockID) !== false);
+    // Load CodeColorer styles on admin pages
+    add_action('admin_head', array('CodeColorerLoader', 'LoadStyles'));
 
-    return $blockID;
+    // Load CodeColorer styles on regular pages
+    add_action('wp_head', array('CodeColorerLoader', 'LoadStyles'));
+
+    // Add action links
+    add_action('plugin_action_links_' . plugin_basename(__FILE__), array('CodeColorerLoader', 'AddPluginActions'));
+
+    // Code highlighting filters
+    add_filter('the_content', array('CodeColorerLoader', 'CallBeforeHighlightCodeBlock'), -1000);
+    add_filter('the_content', array('CodeColorerLoader', 'CallAfterHighlightCodeBlock'), 1000);
+    add_filter('the_excerpt', array('CodeColorerLoader', 'CallBeforeHighlightCodeBlock'), -1000);
+    add_filter('the_excerpt', array('CodeColorerLoader', 'CallAfterHighlightCodeBlock'), 1000);
+    add_filter('comment_text', array('CodeColorerLoader', 'CallBeforeHighlightCodeBlock'), -1000);
+    add_filter('comment_text', array('CodeColorerLoader', 'CallAfterHighlightCodeBlock'), 1000);
+
+    // Code protection filters
+    add_filter('pre_comment_content', array('CodeColorerLoader', 'CallBeforeProtectComment'), -1000);
+    add_filter('pre_comment_content', array('CodeColorerLoader', 'CallAfterProtectComment'), 1000);
+
+    /* Add some default options if they don't exist */
+    add_option('codecolorer_css_style', '');
+    add_option('codecolorer_lines_to_scroll', 20);
+    add_option('codecolorer_width', 435);
+    add_option('codecolorer_height', 300);
+    add_option('codecolorer_rss_width', 435);
+    add_option('codecolorer_line_numbers', false);
+    add_option('codecolorer_disable_keyword_linking', false);
+    add_option('codecolorer_tab_size', 4);
+    add_option('codecolorer_theme', '');
+    add_option('codecolorer_inline_theme', '');
   }
 
-  /** Perform code highlightning */
-  function performHighlight($text, $opts, $content, $suffix = '', $before = '', $after = '') {
-    $text = str_replace(array("\\\"", "\\\'"), array ("\"", "\'"), $text);
-    $text = preg_replace('/(< \?php)/i', '<?php', $text);
-    $text = preg_replace('/(?:^(?:\s*[\r\n])+|\s+$)/', '', $text);
+  function AdminInit() {
+    $plugin_dir = basename(dirname(__FILE__));
+    load_plugin_textdomain('codecolorer', false, "$plugin_dir/languages");
 
-    $options = $this->parseOptions($opts, $suffix);
-
-    if ($options['no_cc']) {
-      $result = '<code>' . $text . '</code>';
-    } else {
-      // See if we should force a height
-      $num_lines = count(explode("\n", $text));
-
-      $result = $this->highlightGeshi($text, $options);
-
-      $result = $this->addContainer($result, $options, $num_lines);
-      
-      if ($options['inline']) {
-        $blockID = $this->getBlockID($content, false, '<span>', '</span>');
-      } else {
-        $blockID = $this->getBlockID($content);
+    // Register out options so WordPress knows about them
+    if (function_exists('register_setting')) {
+      if (!class_exists('CodeColorerOptions')) {
+        $path = dirname(__FILE__);
+        if (!file_exists("$path/codecolorer-options.php")) return false;
+        require_once("$path/codecolorer-options.php");
       }
-      $this->blocks[$blockID] = $result;
 
-      if ($options['inline']) {
-        $result = $before . $blockID . $after;
-      } else {
-        $result = "\n\n$blockID\n\n";
-      }
+      register_setting('codecolorer', 'codecolorer_css_style', '');
+      register_setting('codecolorer', 'codecolorer_lines_to_scroll', 'intval');
+      register_setting('codecolorer', 'codecolorer_width', '');
+      register_setting('codecolorer', 'codecolorer_height', '');
+      register_setting('codecolorer', 'codecolorer_rss_width', '');
+      register_setting('codecolorer', 'codecolorer_line_numbers', '');
+      register_setting('codecolorer', 'codecolorer_disable_keyword_linking', array('CodeColorerOptions', 'SanitizeBoolean'));
+      register_setting('codecolorer', 'codecolorer_tab_size', 'intval');
+      register_setting('codecolorer', 'codecolorer_theme', '');
+      register_setting('codecolorer', 'codecolorer_inline_theme', '');
     }
-
-    return $result;
   }
 
-  /** Perform code protecting from mangling by Wordpress (used in Comments) */
-  function performProtect($text, $content) {
-    $text = str_replace(array("\\\"", "\\\'"), array ("\"", "\'"), $text);
-
-    $blockID = $this->getBlockID($content, true, '', '');
-    $this->comments[$blockID] = $text;
-
-    return "\n\n" . $blockID . "\n\n";
+  function LoadStyles() {
+    $css_url = plugins_url(basename(dirname(__FILE__)) . '/codecolorer.css');
+    echo "<link rel=\"stylesheet\" href=\"$css_url\" type=\"text/css\" />\n";
+    $styles = trim(get_option('codecolorer_css_style'));
+    if (!empty($styles)) {
+      echo "<style type=\"text/css\">$styles</style>\n";
+    }
   }
 
-  function addContainer($html, $options, $num_lines) {
-    if ($options['inline']) {
-      $result  = '<code class="codecolorer ' . $options['lang'] . ' ' . $options['inline_theme'] . '">';
-      $result .= '<span class="' . $options['lang'] . '">' . $html . '</span>';
-      $result .= '</code>';
-       
-    } else {
-      $style = 'style="';
-      if ($options['nowrap']) $style .= 'overflow:auto;white-space:nowrap;';
-      if (is_feed()) $style .= 'border: 1px solid #9F9F9F;';
-      $style .= $this->getDimensionRule('width', is_feed() ? $options['rss_width'] : $options['width']);
-      if($num_lines > $options['lines'] && $options['lines'] > 0) {
-        $style .= $this->getDimensionRule('height', $options['height']);
-      }
-      $style .= '"';
-
-      $css_class = 'codecolorer-container ' . $options['lang'] . ' ' . $options['theme'];
-      if ($options['noborder']) $css_class .= ' codecolorer-noborder';
-      $result = '<div class="' . $css_class . '" ' . $style . '>' . $html . '</div>';
+  function AddPluginOptionsPage() {
+    if (function_exists('add_options_page')) {
+      add_options_page('CodeColorer', 'CodeColorer', 8, 'codecolorer.php', array('CodeColorerLoader', 'CallShowOptionsPage'));
     }
-    return $result;
   }
 
-  /** Process the lang identifier sttribute string */
-  function filterLang($lang) {
-    $lang = strtolower($lang);
-    if (strstr($lang, 'html')) {
-      $lang = 'html4strict';
-    } elseif ($lang == 'c#') {
-      $lang = 'csharp';
-    } elseif ($lang == 'cs') {
-      $lang = 'csharp';
-    } elseif ($lang == 'c++') {
-      $lang = 'cpp';
-    }
-    return $lang;
+  function AddPluginActions($links) {
+    $new_links = array();
+
+    $new_links[] = '<a href="options-general.php?page=codecolorer.php">' . __('Settings') . '</a>';
+
+    return array_merge($new_links, $links);
   }
 
-  function parseOptions($opts, $suffix = '') {
-    $opts = str_replace(array("\\\"", "\\\'"), array ("\"", "\'"), $opts);
-    preg_match_all('#([a-z_-]*?)\s*=\s*(["\'])(.*?)\2#i', $opts, $matches, PREG_SET_ORDER);
-    $options = array();
-    for ($i = 0; $i < sizeof($matches); $i++) {
-      $options[$matches[$i][1]] = $matches[$i][3];
+  function CallShowOptionsPage() {
+    if (CodeColorerLoader::LoadPlugin()) {
+      $cc = CodeColorer::GetInstance();
+      $cc->ShowOptionsPage();
     }
-    $options = $this->populateDefaultValues($options);
-    
-    list($modes, $lang) = explode('_', $suffix, 2);
-    if (NULL !== ($mode = $this->parseMode($modes, 'i'))) {
-      $options['inline'] = $mode;
-    }
-    if (NULL !== ($mode = $this->parseMode($modes, 'e'))) {
-      $options['escaped'] = $mode;
-    }
-    if (NULL !== ($mode = $this->parseMode($modes, 's'))) {
-      $options['strict'] = $mode;
-    }
-    if (NULL !== ($mode = $this->parseMode($modes, 'n'))) {
-      $options['line_numbers'] = $mode;
-    }
-    if (NULL !== ($mode = $this->parseMode($modes, 'b'))) {
-      $options['noborder'] = $mode;
-    }
-    if (NULL !== ($mode = $this->parseMode($modes, 'w'))) {
-      $options['nowrap'] = $mode;
-    }
-    if (NULL !== ($mode = $this->parseMode($modes, 'l'))) {
-      $options['no_links'] = $mode;
-    }
-    
-    if (!empty($lang)) {
-      $options['lang'] = $lang;
-    }
-    
-    return $options;
   }
 
-  function getDimensionRule($dimension, $value) {
-    $rule = '';
-    if (!empty($value)) $rule = "$dimension:$value" . (is_int($value) ? ';' : 'px;');
-    return $rule;
+  function CallBeforeHighlightCodeBlock($content) {
+    if (CodeColorerLoader::LoadPlugin()) {
+      $cc = CodeColorer::GetInstance();
+      return $cc->BeforeHighlightCodeBlock($content);
+    }
+    return $content;
   }
 
-  function populateDefaultValues($options) {
-    if (!$options['lang']) $options['lang'] = 'text';
-    $options['lang'] = $this->filterLang($options['lang']);
-
-    // Whether CodeColorer should be disabled (bool)
-    if (!$options['no_cc']) {
-      $options['no_cc'] = false;
-    } else {
-      $options['no_cc'] = $this->parseBoolean($options['no_cc']);
+  function CallAfterHighlightCodeBlock($content) {
+    if (CodeColorerLoader::LoadPlugin()) {
+      $cc = CodeColorer::GetInstance();
+      return $cc->AfterHighlightCodeBlock($content);
     }
-
-    // Whether code in block is already escaped (bool)
-    if (!$options['escaped']) {
-      $options['escaped'] = false;
-    } else {
-      $options['escaped'] = $this->parseBoolean($options['escaped']);
-    }
-
-    // Whether horizontal wrapping should be disabled (bool)
-    if (!$options['nowrap']) {
-      $options['nowrap'] = true;
-    } else {
-      $options['nowrap'] = $this->parseBoolean($options['nowrap']);
-    }
-
-    // Disable container border (bool)
-    if (!$options['noborder']) {
-      $options['noborder'] = false;
-    } else {
-      $options['noborder'] = $this->parseBoolean($options['noborder']);
-    }
-
-    // Whether strict mode should be enabled (bool)
-    if (!$options['strict']) {
-      $options['strict'] = NULL;
-    } else {
-      $options['strict'] = $this->parseBoolean($options['strict']);
-    }
-    
-    // Whether code should be rendered inline
-    if (!$options['inline']) {
-      $options['inline'] = false;
-    } else {
-      $option['inline'] = $this->parseBoolean($options['inline']);
-    }
-
-    // Tab size (int)
-    if (!$options['tab_size']) {
-      $options['tab_size'] = intval(get_option('codecolorer_tab_size'));
-    } else {
-      $options['tab_size'] = intval($options['tab_size']);
-    }
-
-    // Line numbers (bool)
-    if (!$options['line_numbers']) {
-      $options['line_numbers'] = $this->parseBoolean(get_option('codecolorer_line_numbers'));
-    } else {
-      $options['line_numbers'] = $this->parseBoolean($options['line_numbers']);
-    }
-
-    // First line (int)
-    if (!$options['first_line'] && $options['first_line'] !== '0') {
-      $options['first_line'] = 1;
-    } else {
-      $options['first_line'] = intval($options['first_line']);
-    }
-
-    // Disable keyword linking (bool)
-    if (!$options['no_links']) {
-        $options['no_links'] = $this->parseBoolean(get_option('codecolorer_disable_keyword_linking'));
-    } else {
-        $options['no_links'] = $this->parseBoolean($options['no_links']);
-    }
-
-    // Lines to scroll (int)
-    if (!$options['lines']) {
-        $options['lines'] = intval(get_option('codecolorer_lines_to_scroll'));
-    } else {
-        $options['lines'] = intval($options['lines']);
-    }
-
-    // Block width (int or string)
-    if (!$options['width']) {
-        $options['width'] = get_option('codecolorer_width');
-    }
-
-    // Block height (int or string)
-    if (!$options['height']) {
-        $options['height'] = get_option('codecolorer_height');
-    }
-
-    // Block width in RSS (int or string)
-    if (!$options['rss_width']) {
-        $options['rss_width'] = get_option('codecolorer_rss_width');
-    }
-
-    // Theme (string)
-    if (!$options['theme']) {
-      $options['theme'] = get_option('codecolorer_theme');
-      $options['inline_theme'] = get_option('codecolorer_inline_theme');
-    } else {
-      $options['inline_theme'] = $options['theme'];
-    }
-    if ($options['theme'] == 'default') {
-      $options['theme'] = '';
-      $options['inline_theme'] = '';
-    }
-
-    return $options;
+    return $content;
   }
 
-  function parseBoolean($val) {
-    return $val === true || $val === 'true' || $val === 'on' || $val === '1' || (is_int($val) && $val !== 0);
-  }
-  
-  function parseMode($modes, $mode) {
-    if (strpos($modes, $mode) !== FALSE) {
-      return TRUE;
+  function CallBeforeProtectComment($content) {
+    if (CodeColorerLoader::LoadPlugin()) {
+      $cc = CodeColorer::GetInstance();
+      return $cc->BeforeProtectComment($content);
     }
-    if (strpos($modes, strtoupper($mode)) !== FALSE) {
-      return FALSE;
+    return $content;
+  }
+
+  function CallAfterProtectComment($content) {
+    if (CodeColorerLoader::LoadPlugin()) {
+      $cc = CodeColorer::GetInstance();
+      return $cc->AfterProtectComment($content);
     }
-    return NULL;
+    return $content;
   }
 
-  function getDefaultLinesToScroll() {
-    return $this->DEFAULT_LINES_TO_SCROLL;
-  }
+  function LoadPlugin() {
+    if (!class_exists('CodeColorer')) {
+      $path = dirname(__FILE__);
+      if (!file_exists("$path/codecolorer-core.php")) return false;
+      require_once("$path/codecolorer-core.php");
+    }
 
-  function getDefaultWidth() {
-    return $this->DEFAULT_WIDTH;
-  }
-
-  function getDefaultHeight() {
-    return $this->DEFAULT_HEIGHT;
+    if (!CodeColorer::Enable()) return false;
+    return true;
   }
 }
+
+CodeColorerLoader::Enable();
 
 ?>

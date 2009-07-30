@@ -1,9 +1,9 @@
 === CodeColorer ===
 Contributors: kpumuk
 Tags: code, snippet, syntax, highlight, highlighting, color, geshi
-Requires at least: 2.0.2
+Requires at least: 2.7.0
 Tested up to: 2.8.2
-Stable tag: 0.8.7
+Stable tag: 0.9.0
 
 CodeColorer is a syntax highlighting plugin which allows to insert code
 snippets into blog posts. Supports color themes, code in RSS, comments.
@@ -41,6 +41,50 @@ is currently available in following languages:
 * Belarusian - Беларуский (thanks to <a href="http://www.fatcow.com">И. Фадков</a>)
 * Simplified Chinese - 简化字 (thanks to <a href="http://ixiezi.com">liuxiangqian</a>)
 
+<<<<<<< HEAD:readme.txt
+= Changelog =
+
+* v0.9.0 (Development)
+  * Great refactoring performed. CodeColorer requires WordPress at least 2.7 now.
+* v0.8.6 (Development)
+  * Added a new option "escaped" to process code blocks with special HTML chars escaped (&lt; -> &amp;lt;).
+  * Fixed regular expressions for PHP and some other languages.
+  * Use html_entity_decode instead of htmlspecialchars_decode if escaped="true"
+  * Added advanced syntax [ccMODE_LANG], where MODE is set of modes, and LAND is language.
+* v0.8.5 (Jul 20, 2009)
+  * Fixed bug occured when [cc] block goes just right after the [cci].
+  * Fixed bug with tab_size option saving (thanks to <a href="http://www.marclove.com/">Marc Love</a>).
+* v0.8.4 (Jul 14, 2009)
+  * Fixed inline code blocks formatting.
+  * Added special tag [cci] which works just like [cc], but with inline forced.
+  * Fixed problem when line numbers could not be disabled (thanks to miaow).
+* v0.8.3 (Jul 14, 2009)
+  * Added a new option "strict" to enable or disable strict mode.
+  * Added a new option "inline" which forces code block to render inside &lt;code&gt; tag. Used to paste a single line of code into the regular text.
+  * Trim only empty lines in the beginning of code, leave spaces untouched (thanks to FeepingCreature -- contact me please and I will add your link here).
+  * Allow "on" and "off" as boolean parameter value.
+  * Added Italian translation (thanks to <a href="http://codesnippet.altervista.org/">CodeSnippet</a>).
+  * Added Belarusian translation (thanks to <a href="http://www.fatcow.com">И. Фадков</a>).
+* v0.8.2 (Jul 14, 2009)
+  * Fixed problem with width and heigth specified at the same time.
+  * Added a new option "nowrap" to disable horizontal scrollbar.
+  * Added a new option "noborder" to disable a border around code block.
+  * Fixed inner table borders in some WordPress themes.
+  * Geshi updated to 1.0.8.4.
+* v0.8.1 (Jul 13, 2009)
+  * Fixed problem with missing CodeColorer styles when no custom CSS entered (thanks to <a href="http://codesnippet.altervista.org/">CodeSnippet</a>).
+* v0.8.0 (Jul 13, 2009)
+  * Added more styles for comments.
+  * Added ability to specify width and height in px, em, percents. Also values could be omitted to use whole width and height available.
+  * Fixed problem which blocked the access to CodeColorer options page in WordPress 2.8.1.
+  * Use plain old CSS files instead of slow styles.php.
+  * Fixed code blocks formatting in RSS feeds. Added rss_width option.
+  * Added Chinese translation (thanks to <a href="http://ixiezi.com">liuxiangqian</a>).
+
+You can find complete changelog on the <a href="http://kpumuk.info/projects/wordpress-plugins/codecolorer/">plugin home page</a>.
+
+=======
+>>>>>>> master:readme.txt
 == Installation ==
 
 1. Download and unpack plugin files to **wp-content/plugins/codecolorer**
