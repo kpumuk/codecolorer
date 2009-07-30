@@ -171,7 +171,7 @@ class CodeColorer {
   /** Search content for code tags and replace it */
   function highlightCode1($content) {
     $content = preg_replace('#(\s*)\[cc([^\s\]_]*)(_[^\s\]]*)?([^\]]*)\](.*?)\[/cc\2\](\s*)#sie', '$this->performHighlight(\'\\5\', \'\\4\', $content, \'\\2\\1\', \'$1\', \'$6\');', $content);
-    $content = preg_replace('#(\s*)\<code(.*?)\>(.*?)\</code\>\s*#sie', '$this->performHighlight(\'\\3\', \'\\2\', $content, \'\', \'$1\', \'$4\');', $content);
+    $content = preg_replace('#(\s*)\<code(.*?)\>(.*?)\</code\>(\s*)#sie', '$this->performHighlight(\'\\3\', \'\\2\', $content, \'\', \'$1\', \'$4\');', $content);
 
     return $content;
   }
