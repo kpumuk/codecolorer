@@ -227,6 +227,8 @@ an archive with plugin again (thanks to
 * Added a notice shown on admin panel when another GeSHi library found.
   CodeColorer will work with another GeSHi-based plugins side-by-side.
 * Added a .pot file for translators.
+* Added notification about incomplete translation.
+* Added ability to disable notifications.
 
 = 0.9.0 (July 30, 2009) =
 * Great refactoring performed. CodeColorer requires WordPress at least 2.7 now.

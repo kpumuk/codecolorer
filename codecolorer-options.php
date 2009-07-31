@@ -24,13 +24,21 @@ http://kpumuk.info/projects/wordpress-plugins/codecolorer
 class CodeColorerOptions {
   function GetThemes() {
     return array(
-      '' => 'Slush & Poppies',
-      'blackboard' => 'Blackboard',
-      'dawn' => 'Dawn',
+      ''            => 'Slush & Poppies',
+      'blackboard'  => 'Blackboard',
+      'dawn'        => 'Dawn',
       'mac-classic' => 'Mac Classic',
-      'twitlight' => 'Twitlight',
-      'vibrant' => 'Vibrant Ink'
+      'twitlight'   => 'Twitlight',
+      'vibrant'     => 'Vibrant Ink'
     );
+  }
+
+  function GetLanguages() {
+    return array('en_US', 'en_GB', 'ru_RU', 'ua_UA');
+  }
+
+  function GetLanguagesIncomplete() {
+    return array('be_BY', 'it_IT', 'zh_CN');
   }
 
   function ParseOptions($opts, $suffix = '') {
