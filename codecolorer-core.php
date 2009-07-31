@@ -24,7 +24,9 @@ http://kpumuk.info/projects/wordpress-plugins/codecolorer
 class CodeColorer {
   var $blocks = array();
   var $comments = array();
-  var $geshiPath = '';
+
+  var $gishiExternal = false;
+  var $geshiVersion = '1.0.8.4';
 
   var $samplePhpCode = '
     [cc_php]
@@ -234,6 +236,12 @@ class CodeColorer {
     return $rule;
   }
 
+  function ShowGeshiWarning() {
+    if ($this->gishiExternal) {
+      echo "<div id='codecolorer-warning' class='updated fade'><p><strong>" . __('CodeColorer has detected a problem.', 'codecolorer') . "</strong> " . sprintf(__('We found another plugin based on GeSHi library in your system. CodeColorer will work, but our version of GeSHi contain some patches, so we can\'t guarantee an ideal code highlighting now. Please review your <a href="%1$s">plugins</a>, maybe you don\'t need them all.', 'codecolorer'), "plugins.php") . "</p></div>\n";
+    }
+  }
+
   function ShowOptionsPage() {
     $page = $this->GetOptionsPage();
     $page->Show();
@@ -256,9 +264,6 @@ class CodeColorer {
     return $this->AfterHighlightCodeBlock($content);
   }
 
-  /**
-   * Returns the instance of the Sitemap Generator
-   */
   function &GetInstance() {
     if (isset($GLOBALS['codecolorer_instance'])) {
       return $GLOBALS['codecolorer_instance'];
@@ -266,27 +271,23 @@ class CodeColorer {
     return null;
   }
 
-  /**
-   * Enables the Google Sitemap Generator and registers the WordPress hooks
-   *
-   * @since 3.0
-   * @access public
-   * @author Arne Brachhold
-  */
   function Enable() {
     if (!isset($GLOBALS['codecolorer_instance'])) {
-      if (class_exists('GeSHi')) return false;
-
       $path = dirname(__FILE__);
       if (!class_exists('CodeColorerOptions')) {
         if (!file_exists("$path/codecolorer-options.php")) return false;
         require_once("$path/codecolorer-options.php");
       }
 
-      if (!file_exists("$path/lib/geshi.php")) return false;
-      require_once("$path/lib/geshi.php");
-
       $GLOBALS['codecolorer_instance'] = new CodeColorer();
+
+      # Maybe GeSHi has been loaded by some another plugin?
+      if (!class_exists('GeSHi')) {
+        if (!file_exists("$path/lib/geshi.php")) return false;
+        require_once("$path/lib/geshi.php");
+      } else {
+        $GLOBALS['codecolorer_instance']->gishiExternal = true;
+      }
     }
     return true;
   }

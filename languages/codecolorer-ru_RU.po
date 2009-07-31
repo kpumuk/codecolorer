@@ -1,14 +1,14 @@
-# CodeColorer Wordpress Plugin v0.8.7
+# CodeColorer Wordpress Plugin 0.9.1
 # Copyright (c) 2006 - 2009 Dmytro Shteflyuk
 # This file is distributed under the same license as the CodeColorer package.
 # Dmytro Shteflyuk <kpumuk@kpumuk.info>, 2009.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: CodeColorer Wordpress Plugin v0.8.2\n"
+"Project-Id-Version: CodeColorer Wordpress Plugin 0.9.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2007-03-31 19:30+0300\n"
-"PO-Revision-Date: 2009-07-14 16:39+0300\n"
+"PO-Revision-Date: 2009-07-31 10:42+0300\n"
 "Last-Translator: Dmytro Shteflyuk <kpumuk@kpumuk.info>\n"
 "Language-Team: Dmytro Shteflyuk <kpumuk@kpumuk.info>\n"
 "MIME-Version: 1.0\n"
@@ -86,4 +86,10 @@ msgstr "Цветовая схема по умолчанию."
 
 msgid "Default color scheme for inline code blocks."
 msgstr "Цветовая схема по умолчанию для строчных (inline) блоков кода."
+
+msgid "CodeColorer has detected a problem."
+msgstr "CodeColorer обнаружил проблему."
+
+msgid "We found another plugin based on GeSHi library in your system. CodeColorer will work, but our version of GeSHi contain some patches, so we can't guarantee an ideal code highlighting now. Please review your <a href=\"%1$s\">plugins</a>, maybe you don't need them all."
+msgstr "Мы нашли другой плагин в вашей системе, использующий библиотеку GeSHi. CodeColorer будет работать, но наша версия GeSHi содержит некоторые изменения, поэтому сейчас мы не можем гарантировать идеальную подсветку кода. Пожалуйста, пересмотрите ваши <a href=\"%1$s\">плагины</a>, может вам не нужны они все сразу."
 

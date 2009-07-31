@@ -3,7 +3,7 @@
 Plugin Name: CodeColorer
 Plugin URI: http://kpumuk.info/projects/wordpress-plugins/codecolorer
 Description: This plugin allows you to insert code snippets to your posts with nice syntax highlighting powered by <a href="http://qbnz.com/highlighter/">GeSHi</a> library. After enabling this plugin visit <a href="options-general.php?page=codecolorer.php">the options page</a> to configure code style.
-Version: 0.9.0
+Version: 0.9.1
 Author: Dmytro Shteflyuk
 Author URI: http://kpumuk.info/
 */
@@ -48,6 +48,9 @@ class CodeColorerLoader {
     // Load CodeColorer styles on admin pages
     add_action('admin_head', array('CodeColorerLoader', 'LoadStyles'));
 
+    // Show notice when another GeSHi library found
+    add_action('admin_notices', array('CodeColorerLoader', 'CallShowGeshiWarning'));
+
     // Load CodeColorer styles on regular pages
     add_action('wp_head', array('CodeColorerLoader', 'LoadStyles'));
 
@@ -83,25 +86,23 @@ class CodeColorerLoader {
     $plugin_dir = basename(dirname(__FILE__));
     load_plugin_textdomain('codecolorer', false, "$plugin_dir/languages");
 
-    // Register out options so WordPress knows about them
-    if (function_exists('register_setting')) {
-      if (!class_exists('CodeColorerOptions')) {
-        $path = dirname(__FILE__);
-        if (!file_exists("$path/codecolorer-options.php")) return false;
-        require_once("$path/codecolorer-options.php");
-      }
-
-      register_setting('codecolorer', 'codecolorer_css_style', '');
-      register_setting('codecolorer', 'codecolorer_lines_to_scroll', 'intval');
-      register_setting('codecolorer', 'codecolorer_width', '');
-      register_setting('codecolorer', 'codecolorer_height', '');
-      register_setting('codecolorer', 'codecolorer_rss_width', '');
-      register_setting('codecolorer', 'codecolorer_line_numbers', '');
-      register_setting('codecolorer', 'codecolorer_disable_keyword_linking', array('CodeColorerOptions', 'SanitizeBoolean'));
-      register_setting('codecolorer', 'codecolorer_tab_size', 'intval');
-      register_setting('codecolorer', 'codecolorer_theme', '');
-      register_setting('codecolorer', 'codecolorer_inline_theme', '');
+    if (!class_exists('CodeColorerOptions')) {
+      $path = dirname(__FILE__);
+      if (!file_exists("$path/codecolorer-options.php")) return false;
+      require_once("$path/codecolorer-options.php");
     }
+
+    // Register out options so WordPress knows about them
+    register_setting('codecolorer', 'codecolorer_css_style', '');
+    register_setting('codecolorer', 'codecolorer_lines_to_scroll', 'intval');
+    register_setting('codecolorer', 'codecolorer_width', '');
+    register_setting('codecolorer', 'codecolorer_height', '');
+    register_setting('codecolorer', 'codecolorer_rss_width', '');
+    register_setting('codecolorer', 'codecolorer_line_numbers', '');
+    register_setting('codecolorer', 'codecolorer_disable_keyword_linking', array('CodeColorerOptions', 'SanitizeBoolean'));
+    register_setting('codecolorer', 'codecolorer_tab_size', 'intval');
+    register_setting('codecolorer', 'codecolorer_theme', '');
+    register_setting('codecolorer', 'codecolorer_inline_theme', '');
   }
 
   function LoadStyles() {
@@ -131,6 +132,13 @@ class CodeColorerLoader {
     if (CodeColorerLoader::LoadPlugin()) {
       $cc = CodeColorer::GetInstance();
       $cc->ShowOptionsPage();
+    }
+  }
+
+  function CallShowGeshiWarning() {
+    if (CodeColorerLoader::LoadPlugin()) {
+      $cc = CodeColorer::GetInstance();
+      $cc->ShowGeshiWarning();
     }
   }
 
