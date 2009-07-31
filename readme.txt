@@ -212,6 +212,7 @@ an archive with plugin again (thanks to
 * Fixed code protection in comments
 * Added a notice shown on admin panel when another GeSHi library found.
   CodeColorer will work with another GeSHi-based plugins side-by-side.
+* Added a .pot file for translators.
 
 = 0.9.0 (July 30, 2009) =
 * Great refactoring performed. CodeColorer requires WordPress at least 2.7 now.
@@ -224,12 +225,6 @@ an archive with plugin again (thanks to
 * Fixed spaces before and after inline blocks (thanks to <a href="http://blog.t-l-k.com/">Anatoliy 'TLK' Kolesnick</a>).
 * Added section "Short codes" to readme.txt.
 * Added two more screenshots: inline code syntax highlighting and settings page.
-
-= 0.8.6 (July 22, 2009) =
-* Added a new option "escaped" to process code blocks with special HTML chars escaped (&lt; – &amp;lt;).
-* Fixed regular expressions for PHP and some other languages.
-* Use `html_entity_decode` instead of `htmlspecialchars_decode` if `escaped="true"`.
-* Added advanced syntax `[ccMODE_LANG]`, where **MODE** is set of modes, and **LANG** is language.
 
 You can find complete changelog on the <a href="http://kpumuk.info/projects/wordpress-plugins/codecolorer/history/">CodeColorer history</a>
 page.

@@ -1,0 +1,166 @@
+# CodeColorer Wordpress Plugin 0.9.1
+# Copyright (c) 2006 - 2009 Dmytro Shteflyuk
+# This file is distributed under the same license as the CodeColorer package.
+# Dmytro Shteflyuk <kpumuk@kpumuk.info>, 2009.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: CodeColorer Wordpress Plugin 0.9.1\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/codecolorer\n"
+"POT-Creation-Date: 2009-07-31 13:41+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: codecolorer-admin.php:41
+msgid "Code Highlighting Options"
+msgstr ""
+
+#: codecolorer-admin.php:47
+msgid "Lines to scroll"
+msgstr ""
+
+#: codecolorer-admin.php:50
+msgid ""
+"If your code lines number is less than this value, block height would not be "
+"fixed. Set to <b>-1</b> to remove vertical scroll."
+msgstr ""
+
+#: codecolorer-admin.php:55
+msgid "Width"
+msgstr ""
+
+#: codecolorer-admin.php:58
+msgid ""
+"Default code block width. Integer means pixels, also you can specify <tt>em</"
+"tt> or <tt>%</tt> suffix. Could be omitted to use whole width."
+msgstr ""
+
+#: codecolorer-admin.php:63
+msgid "Height"
+msgstr ""
+
+#: codecolorer-admin.php:66
+msgid ""
+"When code has more than &quot;Lines to Scroll&quot; lines, block height will "
+"be set to this value."
+msgstr ""
+
+#: codecolorer-admin.php:71
+msgid "Width in RSS"
+msgstr ""
+
+#: codecolorer-admin.php:74
+msgid "Default code block width in RSS. See Width option description."
+msgstr ""
+
+#: codecolorer-admin.php:79
+msgid "Tab size"
+msgstr ""
+
+#: codecolorer-admin.php:82
+msgid "Indicating how many spaces would represent TAB symbol."
+msgstr ""
+
+#: codecolorer-admin.php:87
+msgid "Theme"
+msgstr ""
+
+#: codecolorer-admin.php:92
+msgid "Default color scheme."
+msgstr ""
+
+#: codecolorer-admin.php:97
+msgid "Inline Theme"
+msgstr ""
+
+#: codecolorer-admin.php:102
+msgid "Default color scheme for inline code blocks."
+msgstr ""
+
+#: codecolorer-admin.php:107
+msgid "Formatting"
+msgstr ""
+
+#: codecolorer-admin.php:111
+msgid "Show line numbers"
+msgstr ""
+
+#: codecolorer-admin.php:116
+msgid "Disable keyword linking"
+msgstr ""
+
+#: codecolorer-admin.php:122
+msgid "Custom CSS Styles"
+msgstr ""
+
+#: codecolorer-admin.php:125
+msgid ""
+"These custom CSS rules will be appended to the CodeColorer default CSS file."
+msgstr ""
+
+#: codecolorer-admin.php:130
+msgid "Preview"
+msgstr ""
+
+#: codecolorer-admin.php:134
+msgid "Code Example"
+msgstr ""
+
+#: codecolorer-admin.php:142
+msgid "Save Options"
+msgstr ""
+
+#: codecolorer-core.php:241
+msgid "CodeColorer has detected a problem."
+msgstr ""
+
+#: codecolorer-core.php:241
+#, php-format
+msgid ""
+"We found another plugin based on GeSHi library in your system. CodeColorer "
+"will work, but our version of GeSHi contain some patches, so we can't "
+"guarantee an ideal code highlighting now. Please review your <a href=\"%1$s"
+"\">plugins</a>, maybe you don't need them all."
+msgstr ""
+
+#: codecolorer.php:131
+msgid "Settings"
+msgstr ""
+
+#: codecolorer.php:139
+msgid "FAQ"
+msgstr ""
+
+#: codecolorer.php:140
+msgid "Support"
+msgstr ""
+
+#. Plugin Name of an extension
+msgid "CodeColorer"
+msgstr ""
+
+#. Plugin URI of an extension
+msgid "http://kpumuk.info/projects/wordpress-plugins/codecolorer/"
+msgstr ""
+
+#. Description of an extension
+msgid ""
+"This plugin allows you to insert code snippets to your posts with nice "
+"syntax highlighting powered by <a href=\"http://qbnz.com/highlighter/"
+"\">GeSHi</a> library. After enabling this plugin visit <a href=\"options-"
+"general.php?page=codecolorer.php\">the options page</a> to configure code "
+"style."
+msgstr ""
+
+#. Author of an extension
+msgid "Dmytro Shteflyuk"
+msgstr ""
+
+#. Author URI of an extension
+msgid "http://kpumuk.info/"
+msgstr ""
