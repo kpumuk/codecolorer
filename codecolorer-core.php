@@ -236,9 +236,14 @@ class CodeColorer {
     return $rule;
   }
 
+  function ShowWarning($type, $title, $message) {
+    $disable = ' <a href="options-general.php?page=codecolorer.php&amp;disable=' . $type . '">' . __('Close', 'codecolorer') . '</a>';
+    echo '<div id="codecolorer-' . $type . '" class="updated fade"><p><strong>' . $title . "</strong> " . $message . $disable . "</p></div>\n";
+  }
+
   function ShowGeshiWarning() {
     if ($this->gishiExternal) {
-      echo "<div id='codecolorer-warning' class='updated fade'><p><strong>" . __('CodeColorer has detected a problem.', 'codecolorer') . "</strong> " . sprintf(__('We found another plugin based on GeSHi library in your system. CodeColorer will work, but our version of GeSHi contain some patches, so we can\'t guarantee an ideal code highlighting now. Please review your <a href="%1$s">plugins</a>, maybe you don\'t need them all.', 'codecolorer'), "plugins.php") . "</p></div>\n";
+      $this->ShowWarning('concurrent', __('CodeColorer has detected a problem.', 'codecolorer'), sprintf(__('We found another plugin based on GeSHi library in your system. CodeColorer will work, but our version of GeSHi contain some patches, so we can\'t guarantee an ideal code highlighting now. Please review your <a href="%1$s">plugins</a>, maybe you don\'t need them all.', 'codecolorer'), "plugins.php"));
     }
   }
 

@@ -42,6 +42,23 @@ class CodeColorerLoader {
    * Enables the CodeColorer plugin with registering all required hooks.
    */
   function Enable() {
+    // Add some default options if they don't exist
+    add_option('codecolorer_css_style', '');
+    add_option('codecolorer_lines_to_scroll', 20);
+    add_option('codecolorer_width', 435);
+    add_option('codecolorer_height', 300);
+    add_option('codecolorer_rss_width', 435);
+    add_option('codecolorer_line_numbers', false);
+    add_option('codecolorer_disable_keyword_linking', false);
+    add_option('codecolorer_tab_size', 4);
+    add_option('codecolorer_theme', '');
+    add_option('codecolorer_inline_theme', '');
+
+    // Two more options to disable notifications
+    add_option('codecolorer_language_notification', true);
+    add_option('codecolorer_concurrent_notification', true);
+
+    // Admin panel initialization
     add_action('admin_init', array('CodeColorerLoader', 'AdminInit'));
 
     // Add plugin options page
@@ -51,7 +68,9 @@ class CodeColorerLoader {
     add_action('admin_head', array('CodeColorerLoader', 'LoadStyles'));
 
     // Show notice when another GeSHi library found
-    add_action('admin_notices', array('CodeColorerLoader', 'CallShowGeshiWarning'));
+    if (get_option('codecolorer_concurrent_notification')) {
+      add_action('admin_notices', array('CodeColorerLoader', 'CallShowGeshiWarning'));
+    }
 
     // Load CodeColorer styles on regular pages
     add_action('wp_head', array('CodeColorerLoader', 'LoadStyles'));
@@ -73,18 +92,6 @@ class CodeColorerLoader {
     // Code protection filters
     add_filter('pre_comment_content', array('CodeColorerLoader', 'CallBeforeProtectComment'), -1000);
     add_filter('pre_comment_content', array('CodeColorerLoader', 'CallAfterProtectComment'), 1000);
-
-    /* Add some default options if they don't exist */
-    add_option('codecolorer_css_style', '');
-    add_option('codecolorer_lines_to_scroll', 20);
-    add_option('codecolorer_width', 435);
-    add_option('codecolorer_height', 300);
-    add_option('codecolorer_rss_width', 435);
-    add_option('codecolorer_line_numbers', false);
-    add_option('codecolorer_disable_keyword_linking', false);
-    add_option('codecolorer_tab_size', 4);
-    add_option('codecolorer_theme', '');
-    add_option('codecolorer_inline_theme', '');
   }
 
   function AdminInit() {
@@ -153,6 +160,13 @@ class CodeColorerLoader {
     if (CodeColorerLoader::LoadPlugin()) {
       $cc = CodeColorer::GetInstance();
       $cc->ShowGeshiWarning();
+    }
+  }
+
+  function CallShowLanguageWarning() {
+    if (CodeColorerLoader::LoadPlugin()) {
+      $cc = CodeColorer::GetInstance();
+      $cc->ShowLanguageWarning();
     }
   }
 

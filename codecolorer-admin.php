@@ -24,6 +24,7 @@ http://kpumuk.info/projects/wordpress-plugins/codecolorer
 class CodeColorerAdmin {
   function CodeColorerAdmin($codeColorer) {
     $this->cc = $codeColorer;
+    $this->DisableNotifications();
   }
 
   function ShowThemeSelectOptions($current_theme) {
@@ -34,11 +35,35 @@ class CodeColorerAdmin {
     }
   }
 
+  function ShowLanguageWarning() {
+    $locale = get_locale();
+    $msgFormat = 'Your current locale is %1$s, and CodeColorer %2$s into your language. It would be great, if you have a time to <a href="%3$s">help us to translate</a> it.';
+    $msg = '';
+    if (in_array($locale, CodeColorerOptions::GetLanguagesIncomplete())) {
+      $msg = 'has incomplete translation';
+    } elseif (!in_array($locale, CodeColorerOptions::GetLanguages())) {
+      $msg = 'does not have a translation';
+    }
+
+    if (!empty($msg)) {
+      $this->cc->ShowWarning('language', __('CodeColorer translation is incomplete.', 'codecolorer'), sprintf(__($msgFormat, 'codecolorer'), $locale, $msg, "http://kpumuk.info/projects/wordpress-plugins/codecolorer/#translation"));
+    }
+  }
+
+  function DisableNotifications() {
+    if (in_array($_GET['disable'], array('concurrent', 'language'))) {
+      update_option('codecolorer_' . $_GET['disable'] . '_notification', false);
+    }
+  }
+
   function Show() {
     ?>
 
     <div class="wrap">
       <h2>CodeColorer: <?php _e('Code Highlighting Options', 'codecolorer') ?></h2>
+
+      <?php if (get_option('codecolorer_language_notification')) $this->ShowLanguageWarning(); ?>
+
       <form name="form1" method="post" action="options.php">
         <?php settings_fields('codecolorer') ?>
 
@@ -149,4 +174,3 @@ class CodeColorerAdmin {
 }
 
 ?>
-
