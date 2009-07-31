@@ -1,95 +1,153 @@
-# CodeColorer Wordpress Plugin 0.9.1
+# CodeColorer 0.9.1
 # Copyright (c) 2006 - 2009 Dmytro Shteflyuk
 # This file is distributed under the same license as the CodeColorer package.
 # Dmytro Shteflyuk <kpumuk@kpumuk.info>, 2009.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: CodeColorer Wordpress Plugin 0.9.1\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-03-31 19:30+0300\n"
-"PO-Revision-Date: 2009-07-31 10:43+0300\n"
+"Project-Id-Version: CodeColorer 0.9.1\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/codecolorer\n"
+"POT-Creation-Date: 2009-07-31 13:41+0000\n"
+"PO-Revision-Date: 2009-07-31 17:15+0300\n"
 "Last-Translator: Dmytro Shteflyuk <kpumuk@kpumuk.info>\n"
 "Language-Team: Dmytro Shteflyuk <kpumuk@kpumuk.info>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Ukrainian\n"
 "X-Poedit-Country: UKRAINE\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
+#: codecolorer-admin.php:41
 msgid "Code Highlighting Options"
-msgstr "Налаштування підсвітки синтаксису"
+msgstr "Налаштування підсвічування синтаксису"
 
-msgid "Custom CSS Styles"
-msgstr "Додаткові стилі CSS"
-
-msgid "Show line numbers"
-msgstr "Відображати номери рядків"
-
+#: codecolorer-admin.php:47
 msgid "Lines to scroll"
 msgstr "Рядків без прокрутки"
 
-msgid "Width"
-msgstr "Ширина блоку"
-
-msgid "Height"
-msgstr "Висота блоку"
-
-msgid "Width in RSS"
-msgstr "Ширина блоку в RSS"
-
-msgid "Tab size"
-msgstr "Розмір табуляції"
-
-msgid "Theme"
-msgstr "Тема"
-
-msgid "Inline Theme"
-msgstr "Тема рядкового коду"
-
-msgid "Formatting"
-msgstr "Форматування"
-
-msgid "Preview"
-msgstr "Попередній перегляд"
-
-msgid "Code Example"
-msgstr "Приклад коду"
-
-msgid "Save Options"
-msgstr "Зберегти налаштування"
-
-msgid "Disable keyword linking"
-msgstr "Відключити посилання на ключові слова"
-
-msgid "These custom CSS rules will be appended to the CodeColorer default CSS file."
-msgstr "Ці стили CSS будуть добавлені до стилей CodeColorer за замовчуванням."
-
+#: codecolorer-admin.php:50
 msgid "If your code lines number is less than this value, block height would not be fixed. Set to <b>-1</b> to remove vertical scroll."
 msgstr "Якщо кількість рядків менша за це число, висоту блоку не буде зафіксовано. Використовуйте <b>-1</b>, щоб убрати вертикальну полосу прокрутки."
 
+#: codecolorer-admin.php:55
+msgid "Width"
+msgstr "Ширина блоку"
+
+#: codecolorer-admin.php:58
 msgid "Default code block width. Integer means pixels, also you can specify <tt>em</tt> or <tt>%</tt> suffix. Could be omitted to use whole width."
 msgstr "Ширина блоку коду за замовчуванням. Ціле число означає пікселі, окрім того можна вказати суфікс <tt>em</tt> або <tt>%</tt>. Якщо не вказано - буде використано усю ширину сторінки."
 
-msgid "When code has more than &quot;Lines to Scroll&quot; lines, block height will be set to this value."
-msgstr "Якщо блок містить більше рядків, ніж &quot;Рядків без прокрутки&quot;, висоту буде зафіксовано до вказаного числа."
+#: codecolorer-admin.php:63
+msgid "Height"
+msgstr "Висота блоку"
 
+#: codecolorer-admin.php:66
+msgid "When code has more than &quot;Lines to Scroll&quot; lines, block height will be set to this value."
+msgstr "Якщо фрагмент коду містить більше рядків, ніж &quot;Рядків без прокрутки&quot;, висоту буде зафіксовано до вказаного числа."
+
+#: codecolorer-admin.php:71
+msgid "Width in RSS"
+msgstr "Ширина блоку в RSS"
+
+#: codecolorer-admin.php:74
 msgid "Default code block width in RSS. See Width option description."
 msgstr "Ширина блоку коду за замовчуванням в RSS. Див. довідку до опції &laquo;Ширина блоку&raquo;."
 
-msgid "Indicating how many spaces would represent TAB symbol."
-msgstr "Число, що вказує кількість пропусків містить символ табуляції."
+#: codecolorer-admin.php:79
+msgid "Tab size"
+msgstr "Розмір табуляції"
 
+#: codecolorer-admin.php:82
+msgid "Indicating how many spaces would represent TAB symbol."
+msgstr "Число, що вказує кількість пропусків, що містить символ табуляції."
+
+#: codecolorer-admin.php:87
+msgid "Theme"
+msgstr "Тема"
+
+#: codecolorer-admin.php:92
 msgid "Default color scheme."
 msgstr "Кольорова схема за замовчуванням."
 
+#: codecolorer-admin.php:97
+msgid "Inline Theme"
+msgstr "Тема рядкового коду"
+
+#: codecolorer-admin.php:102
 msgid "Default color scheme for inline code blocks."
-msgstr "Кольорова схема за замовчуванням для рядкових (inline) блоків коду."
+msgstr "Кольорова схема за замовчуванням для рядкових (inline) фрагментів коду."
 
+#: codecolorer-admin.php:107
+msgid "Formatting"
+msgstr "Форматування"
+
+#: codecolorer-admin.php:111
+msgid "Show line numbers"
+msgstr "Відображати номери рядків"
+
+#: codecolorer-admin.php:116
+msgid "Disable keyword linking"
+msgstr "Відключити посилання на ключові слова"
+
+#: codecolorer-admin.php:122
+msgid "Custom CSS Styles"
+msgstr "Додаткові стилі CSS"
+
+#: codecolorer-admin.php:125
+msgid "These custom CSS rules will be appended to the CodeColorer default CSS file."
+msgstr "Ці стили CSS будуть добавлені до стилей CodeColorer за замовчуванням."
+
+#: codecolorer-admin.php:130
+msgid "Preview"
+msgstr "Попередній перегляд"
+
+#: codecolorer-admin.php:134
+msgid "Code Example"
+msgstr "Приклад коду"
+
+#: codecolorer-admin.php:142
+msgid "Save Options"
+msgstr "Зберегти налаштування"
+
+#: codecolorer-core.php:241
 msgid "CodeColorer has detected a problem."
-msgstr "CodeColorer знайшов проблему."
+msgstr "CodeColorer виявив проблему."
 
+#: codecolorer-core.php:241
+#, php-format
 msgid "We found another plugin based on GeSHi library in your system. CodeColorer will work, but our version of GeSHi contain some patches, so we can't guarantee an ideal code highlighting now. Please review your <a href=\"%1$s\">plugins</a>, maybe you don't need them all."
-msgstr "Ми побачили ще один плагін в вашій системі, що використовує бібліотеку GeSHi. CodeColorer буде працювати, але наша версія GeSHi містить деякі зміни, і через це ми не можемо гарантувати ідеальне підсвічування коду. Будь ласка, перегляньте ваші <a href=\"%1$s\">плагіни</a>, може вони не не потрібні вам усі разом."
+msgstr "Ми знайшли ще один плагін в вашій системі, що використовує бібліотеку GeSHi. CodeColorer буде працювати, але наша версія GeSHi містить деякі зміни, і через це ми не можемо гарантувати ідеальне підсвічування коду. Будь ласка, перегляньте ваші <a href=\"%1$s\">плагіни</a>, може вони не не потрібні вам усі разом."
+
+#: codecolorer.php:131
+msgid "Settings"
+msgstr "Налаштування"
+
+#: codecolorer.php:139
+msgid "FAQ"
+msgstr "Питання та відповіді"
+
+#: codecolorer.php:140
+msgid "Support"
+msgstr "Підтримка"
+
+#. Plugin Name of an extension
+msgid "CodeColorer"
+msgstr "CodeColorer"
+
+#. Plugin URI of an extension
+msgid "http://kpumuk.info/projects/wordpress-plugins/codecolorer/"
+msgstr "http://kpumuk.info/projects/wordpress-plugins/codecolorer/lang-pref/ru/"
+
+#. Description of an extension
+msgid "This plugin allows you to insert code snippets to your posts with nice syntax highlighting powered by <a href=\"http://qbnz.com/highlighter/\">GeSHi</a> library. After enabling this plugin visit <a href=\"options-general.php?page=codecolorer.php\">the options page</a> to configure code style."
+msgstr "Цей плагін дозволяє вставляти фрагменти коду з підсвічуванням синтаксису до ваших постів, використовуючи бібліотеку <a href=\"http://qbnz.com/highlighter/\">GeSHi</a>. Після включення плагіну завітайте до <a href=\"options-general.php?page=codecolorer.php\">сторінки налаштувань</a>, щоб сконфігуруваті зовнішній вигляд коду."
+
+#. Author of an extension
+msgid "Dmytro Shteflyuk"
+msgstr "Дмитро Штефлюк"
+
+#. Author URI of an extension
+msgid "http://kpumuk.info/"
+msgstr "http://kpumuk.info/lang-pref/ru/"
 

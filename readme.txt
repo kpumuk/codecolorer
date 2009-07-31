@@ -41,6 +41,20 @@ is currently available in following languages:
 * Belarusian - Беларуский (thanks to <a href="http://www.fatcow.com">И. Фадков</a>)
 * Simplified Chinese - 简化字 (thanks to <a href="http://ixiezi.com">liuxiangqian</a>)
 
+Want to help me with translation? It's easy!
+1. Download <a href="http://svn.wp-plugins.org/codecolorer/trunk/languages/codecolorer.pot">codecolorer.pot</a> file.
+2. Install <a href="http://www.poedit.net/download.php">Poedit</a>.
+3. Click *File/New catalog from .pot file* and select *codecolorer.pop*
+   you've just downloaded.
+4. Enter project name (something like **CodeColorer 0.9.1**), your name
+   and email address, select a language you want to translate to and
+   click *OK*.
+5. Enter a filename like **codecolorer-en_EN** and click *Save*.
+6. Translate all strings one by one.
+7. Send me a `.po` file with a translation to <a href="mailto:kpumuk@kpumuk.info">kpumuk@kpumuk.info</a>.
+   Do not forget a link to add to CodeColorer project home page.
+8. Thank you!
+
 = Support =
 
 If you have any suggestions, found a bug, wanted to contribute a
