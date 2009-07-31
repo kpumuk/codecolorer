@@ -208,6 +208,11 @@ an archive with plugin again (thanks to
 
 == Changelog ==
 
+= 0.9.1 (Development) =
+* Fixed code protection in comments
+* Added a notice shown on admin panel when another GeSHi library found.
+  CodeColorer will work with another GeSHi-based plugins side-by-side.
+
 = 0.9.0 (July 30, 2009) =
 * Great refactoring performed. CodeColorer requires WordPress at least 2.7 now.
 * Fixed 0 and 1 parsing for options.
