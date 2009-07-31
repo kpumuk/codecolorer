@@ -55,8 +55,8 @@ class CodeColorer {
   }
 
   function BeforeProtectComment($content) {
-    $content = preg_replace('#\s*(\[cc[^\s\]_]*(?:_[^\s\]]*)?[^\]]*\].*?\[/cc\1\])\s*#sie', '$this->PerformHighlightCodeBlock(\'\\3\', \'\\2\', $content, \'\\1\');', $content);
-    $content = preg_replace('#\s*(\<code.*?\>.*?\</code\>)\s*#sie', '$this->PerformProtectComment(\'\\1\', $content);', $content);
+    $content = preg_replace('#(\s*)(\[cc[^\s\]_]*(?:_[^\s\]]*)?[^\]]*\].*?\[/cc\1\])(\s*)#sie', '$this->PerformProtectComment(\'\\2\', $content, \'\\1\', \'\\3\');', $content);
+    $content = preg_replace('#(\s*)(\<code.*?\>.*?\</code\>)(\s*)#sie', '$this->PerformProtectComment(\'\\2\', $content, \'\\1\', \'\\3\');', $content);
 
     return $content;
   }
@@ -116,13 +116,13 @@ class CodeColorer {
   /**
    * Perform code protecting from mangling by Wordpress (used in Comments)
    */
-  function PerformProtectComment($text, $content) {
+  function PerformProtectComment($text, $content, $before, $after) {
     $text = str_replace(array("\\\"", "\\\'"), array ("\"", "\'"), $text);
 
     $blockID = $this->GetBlockID($content, true, '', '');
     $this->comments[$blockID] = $text;
 
-    return "\n\n" . $blockID . "\n\n";
+    return $before . $blockID . $after;
   }
 
   /**
