@@ -37,16 +37,16 @@ class CodeColorerAdmin {
 
   function ShowLanguageWarning() {
     $locale = get_locale();
-    $msgFormat = 'Your current locale is %1$s, and CodeColorer %2$s into your language. It would be great, if you have a time to <a href="%3$s">help us to translate</a> it.';
+    $msgFormat = __('Your current locale is %1$s, and CodeColorer %2$s into your language. It would be great, if you have a time to <a href="%3$s">help us to translate</a> it.', 'codecolorer');
     $msg = '';
     if (in_array($locale, CodeColorerOptions::GetLanguagesIncomplete())) {
-      $msg = 'has incomplete translation';
+      $msg = __('has incomplete translation', 'codecolorer');
     } elseif (!in_array($locale, CodeColorerOptions::GetLanguages())) {
-      $msg = 'does not have a translation';
+      $msg = __('does not have a translation', 'codecolorer');
     }
 
     if (!empty($msg)) {
-      $this->cc->ShowWarning('language', __('CodeColorer translation is incomplete.', 'codecolorer'), sprintf(__($msgFormat, 'codecolorer'), $locale, $msg, "http://kpumuk.info/projects/wordpress-plugins/codecolorer/#translation"));
+      $this->cc->ShowWarning('language', __('CodeColorer translation is incomplete.', 'codecolorer'), sprintf($msgFormat, $locale, $msg, "http://kpumuk.info/projects/wordpress-plugins/codecolorer/#translation"));
     }
   }
 
