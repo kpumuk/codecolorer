@@ -1,80 +1,153 @@
-# CodeColorer Wordpress Plugin v0.7.3
+# CodeColorer 0.9.1
 # Copyright (c) 2006 - 2009 Dmytro Shteflyuk
 # This file is distributed under the same license as the CodeColorer package.
 # Dmytro Shteflyuk <kpumuk@kpumuk.info>, 2009.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: CodeColorer Wordpress Plugin v0.5.0\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-03-31 19:30+0300\n"
-"PO-Revision-Date: 2009-01-03 01:13+0800\n"
-"Last-Translator: liuxiangqian <support@ixiezi.com>\n"
+"Project-Id-Version: CodeColorer 0.9.1\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/codecolorer\n"
+"POT-Creation-Date: 2009-07-31 13:41+0000\n"
+"PO-Revision-Date: 2009-07-31 16:48+0300\n"
+"Last-Translator: Dmytro Shteflyuk <kpumuk@kpumuk.info>\n"
 "Language-Team: liuxiangqian(http://ixiezi.com) <support@ixiezi.com>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Simplified Chinese\n"
 "X-Poedit-Country: China\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-msgid "CodeColorer"
-msgstr "代码高亮"
-
+#: codecolorer-admin.php:41
 msgid "Code Highlighting Options"
 msgstr "代码高亮选项"
 
-msgid "Custom CSS Styles"
-msgstr "显示代码的CSS"
-
-msgid "Show line numbers"
-msgstr "显示行号"
-
+#: codecolorer-admin.php:47
 msgid "Lines to scroll"
 msgstr "出现滚动条的行数"
 
-msgid "Width"
-msgstr "宽度"
-
-msgid "Height"
-msgstr "高度"
-
-msgid "Tab size"
-msgstr "Tab字符长度"
-
-msgid "Theme"
-msgstr "风格"
-
-msgid "Formatting"
-msgstr "格式化"
-
-msgid "Preview"
-msgstr "预览"
-
-msgid "Code Example"
-msgstr "代码示例"
-
-msgid "Save Options"
-msgstr "保存选项"
-
-msgid "Disable keyword linking"
-msgstr "禁用关键字文档链接"
-
-msgid "These custom CSS rules will be appended to the CodeColorer default CSS file."
-msgstr "此处的CSS代码会出现在CodeColorer的默认CSS文件中"
-
+#: codecolorer-admin.php:50
 msgid "If your code lines number is less than this value, block height would not be fixed. Set to <b>-1</b> to remove vertical scroll."
 msgstr "<br/>如果源代码行数少于本值，代码块不会以固定高度显示，设置为<b>-1</b>来取消代码块的垂直滚动"
 
-msgid "Default code block width."
-msgstr "默认代码块宽度."
+#: codecolorer-admin.php:55
+msgid "Width"
+msgstr "宽度"
 
+#: codecolorer-admin.php:58
+msgid "Default code block width. Integer means pixels, also you can specify <tt>em</tt> or <tt>%</tt> suffix. Could be omitted to use whole width."
+msgstr ""
+
+#: codecolorer-admin.php:63
+msgid "Height"
+msgstr "高度"
+
+#: codecolorer-admin.php:66
 msgid "When code has more than &quot;Lines to Scroll&quot; lines, block height will be set to this value."
 msgstr "<br/>当代码块长度大于出现垂直滚动条的行数而出现垂直滚动条时, 代码块高度会被设置为本值."
 
+#: codecolorer-admin.php:71
+msgid "Width in RSS"
+msgstr ""
+
+#: codecolorer-admin.php:74
+msgid "Default code block width in RSS. See Width option description."
+msgstr ""
+
+#: codecolorer-admin.php:79
+msgid "Tab size"
+msgstr "Tab字符长度"
+
+#: codecolorer-admin.php:82
 msgid "Indicating how many spaces would represent TAB symbol."
 msgstr "本值设定TAB字符等于多少个空格"
 
+#: codecolorer-admin.php:87
+msgid "Theme"
+msgstr "风格"
+
+#: codecolorer-admin.php:92
 msgid "Default color scheme."
 msgstr "默认代码配色风格."
+
+#: codecolorer-admin.php:97
+msgid "Inline Theme"
+msgstr ""
+
+#: codecolorer-admin.php:102
+msgid "Default color scheme for inline code blocks."
+msgstr ""
+
+#: codecolorer-admin.php:107
+msgid "Formatting"
+msgstr "格式化"
+
+#: codecolorer-admin.php:111
+msgid "Show line numbers"
+msgstr "显示行号"
+
+#: codecolorer-admin.php:116
+msgid "Disable keyword linking"
+msgstr "禁用关键字文档链接"
+
+#: codecolorer-admin.php:122
+msgid "Custom CSS Styles"
+msgstr "显示代码的CSS"
+
+#: codecolorer-admin.php:125
+msgid "These custom CSS rules will be appended to the CodeColorer default CSS file."
+msgstr "此处的CSS代码会出现在CodeColorer的默认CSS文件中"
+
+#: codecolorer-admin.php:130
+msgid "Preview"
+msgstr "预览"
+
+#: codecolorer-admin.php:134
+msgid "Code Example"
+msgstr "代码示例"
+
+#: codecolorer-admin.php:142
+msgid "Save Options"
+msgstr "保存选项"
+
+#: codecolorer-core.php:241
+msgid "CodeColorer has detected a problem."
+msgstr ""
+
+#: codecolorer-core.php:241
+#, php-format
+msgid "We found another plugin based on GeSHi library in your system. CodeColorer will work, but our version of GeSHi contain some patches, so we can't guarantee an ideal code highlighting now. Please review your <a href=\"%1$s\">plugins</a>, maybe you don't need them all."
+msgstr ""
+
+#: codecolorer.php:131
+msgid "Settings"
+msgstr "设置"
+
+#: codecolorer.php:139
+msgid "FAQ"
+msgstr "常见问题"
+
+#: codecolorer.php:140
+msgid "Support"
+msgstr ""
+
+#. Plugin Name of an extension
+msgid "CodeColorer"
+msgstr "CodeColorer"
+
+#. Plugin URI of an extension
+msgid "http://kpumuk.info/projects/wordpress-plugins/codecolorer/"
+msgstr "http://kpumuk.info/projects/wordpress-plugins/codecolorer/"
+
+#. Description of an extension
+msgid "This plugin allows you to insert code snippets to your posts with nice syntax highlighting powered by <a href=\"http://qbnz.com/highlighter/\">GeSHi</a> library. After enabling this plugin visit <a href=\"options-general.php?page=codecolorer.php\">the options page</a> to configure code style."
+msgstr ""
+
+#. Author of an extension
+msgid "Dmytro Shteflyuk"
+msgstr "Dmytro Shteflyuk"
+
+#. Author URI of an extension
+msgid "http://kpumuk.info/"
+msgstr "http://kpumuk.info/"
 
