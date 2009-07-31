@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: CodeColorer 0.9.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/codecolorer\n"
 "POT-Creation-Date: 2009-07-31 13:41+0000\n"
-"PO-Revision-Date: 2009-07-31 16:47+0300\n"
+"PO-Revision-Date: 2009-07-31 18:55+0300\n"
 "Last-Translator: Dmytro Shteflyuk <kpumuk@kpumuk.info>\n"
 "Language-Team: Dmytro Shteflyuk <kpumuk@kpumuk.info>\n"
 "MIME-Version: 1.0\n"
@@ -141,7 +141,7 @@ msgstr "http://kpumuk.info/projects/wordpress-plugins/codecolorer/lang-pref/ru/"
 
 #. Description of an extension
 msgid "This plugin allows you to insert code snippets to your posts with nice syntax highlighting powered by <a href=\"http://qbnz.com/highlighter/\">GeSHi</a> library. After enabling this plugin visit <a href=\"options-general.php?page=codecolorer.php\">the options page</a> to configure code style."
-msgstr "Этот плагин позволяет вставлять фрагменты кода с подсветкой синтаксисиа в ваши посты, используя библиотеку <a href=\"http://qbnz.com/highlighter/\">GeSHi</a>. После включения плагина зайдите на <a href=\"options-general.php?page=codecolorer.php\">страницу настроек</a>, чтобы задать внешний вид кода."
+msgstr "Этот плагин позволяет вставлять фрагменты кода с подсветкой синтаксиса в ваши посты, используя библиотеку <a href=\"http://qbnz.com/highlighter/\">GeSHi</a>. После включения плагина зайдите на <a href=\"options-general.php?page=codecolorer.php\">страницу настроек</a>, чтобы задать внешний вид кода."
 
 #. Author of an extension
 msgid "Dmytro Shteflyuk"
