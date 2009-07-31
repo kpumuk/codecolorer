@@ -1,11 +1,13 @@
 <?php
 /*
 Plugin Name: CodeColorer
-Plugin URI: http://kpumuk.info/projects/wordpress-plugins/codecolorer
+Plugin URI: http://kpumuk.info/projects/wordpress-plugins/codecolorer/
 Description: This plugin allows you to insert code snippets to your posts with nice syntax highlighting powered by <a href="http://qbnz.com/highlighter/">GeSHi</a> library. After enabling this plugin visit <a href="options-general.php?page=codecolorer.php">the options page</a> to configure code style.
 Version: 0.9.1
 Author: Dmytro Shteflyuk
 Author URI: http://kpumuk.info/
+Text Domain: codecolorer
+Domain Path: /languages/
 */
 /*
     Copyright 2006 - 2009  Dmytro Shteflyuk <kpumuk@kpumuk.info>
@@ -56,6 +58,9 @@ class CodeColorerLoader {
 
     // Add action links
     add_action('plugin_action_links_' . plugin_basename(__FILE__), array('CodeColorerLoader', 'AddPluginActions'));
+
+    // Add meta links
+    add_filter('plugin_row_meta', array('CodeColorerLoader', 'AddPluginLinks'), 10, 2);
 
     // Code highlighting filters
     add_filter('the_content', array('CodeColorerLoader', 'CallBeforeHighlightCodeBlock'), -1000);
@@ -123,9 +128,18 @@ class CodeColorerLoader {
   function AddPluginActions($links) {
     $new_links = array();
 
-    $new_links[] = '<a href="options-general.php?page=codecolorer.php">' . __('Settings') . '</a>';
+    $new_links[] = '<a href="options-general.php?page=codecolorer.php">' . __('Settings', 'codecolorer') . '</a>';
 
     return array_merge($new_links, $links);
+  }
+
+  function AddPluginLinks($links, $file) {
+    $base = GoogleSitemapGeneratorLoader::GetBaseName();
+    if ($file == basename(dirname(__FILE__)) . '/' . basename(__FILE__)) {
+      $links[] = '<a href="http://kpumuk.info/projects/wordpress-plugins/codecolorer/#faq">' . __('FAQ', 'codecolorer') . '</a>';
+      $links[] = '<a href="http://kpumuk.info/projects/wordpress-plugins/codecolorer/#support">' . __('Support', 'codecolorer') . '</a>';
+    }
+    return $links;
   }
 
   function CallShowOptionsPage() {
