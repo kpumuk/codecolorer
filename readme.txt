@@ -3,7 +3,7 @@ Contributors: kpumuk
 Tags: code, snippet, syntax, highlight, highlighting, color, geshi
 Requires at least: 2.7.0
 Tested up to: 2.8.2
-Stable tag: 0.9.0
+Stable tag: 0.9.1
 
 CodeColorer is a syntax highlighting plugin which allows to insert code
 snippets into blog posts. Supports color themes, code in RSS, comments.
@@ -42,8 +42,8 @@ is currently available in following languages:
 * Simplified Chinese - 简化字 (thanks to <a href="http://ixiezi.com">liuxiangqian</a>)
 
 Want to help me with translation? It's easy!
-1. Download <a href="http://svn.wp-plugins.org/codecolorer/trunk/languages/codecolorer.pot">codecolorer.pot</a> file.
-2. Install <a href="http://www.poedit.net/download.php">Poedit</a>.
+1. Install <a href="http://www.poedit.net/download.php">Poedit</a>.
+2. Download <a href="http://svn.wp-plugins.org/codecolorer/trunk/languages/codecolorer.pot">codecolorer.pot</a> file.
 3. Click *File/New catalog from .pot file* and select *codecolorer.pop*
    you've just downloaded.
 4. Enter project name (something like **CodeColorer 0.9.1**), your name
@@ -54,6 +54,10 @@ Want to help me with translation? It's easy!
 7. Send me a `.po` file with a translation to <a href="mailto:kpumuk@kpumuk.info">kpumuk@kpumuk.info</a>.
    Do not forget a link to add to CodeColorer project home page.
 8. Thank you!
+
+To fix existing translation, just open corresponding <tt>.po</tt> file
+from <em>codecolorer/languages</em> folder in Poedit, and add missing or
+update existing strings.
 
 = Support =
 
