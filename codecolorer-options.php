@@ -37,10 +37,6 @@ class CodeColorerOptions {
     return array('en_US', 'en_GB', 'ru_RU', 'ua_UA');
   }
 
-  function GetLanguagesIncomplete() {
-    return array('be_BY', 'it_IT', 'zh_CN');
-  }
-
   function ParseOptions($opts, $suffix = '') {
     $opts = str_replace(array("\\\"", "\\\'"), array ("\"", "\'"), $opts);
     preg_match_all('#([a-z_-]*?)\s*=\s*(["\'])(.*?)\2#i', $opts, $matches, PREG_SET_ORDER);
