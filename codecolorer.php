@@ -141,7 +141,6 @@ class CodeColorerLoader {
   }
 
   function AddPluginLinks($links, $file) {
-    $base = GoogleSitemapGeneratorLoader::GetBaseName();
     if ($file == basename(dirname(__FILE__)) . '/' . basename(__FILE__)) {
       $links[] = '<a href="http://kpumuk.info/projects/wordpress-plugins/codecolorer/#faq">' . __('FAQ', 'codecolorer') . '</a>';
       $links[] = '<a href="http://kpumuk.info/projects/wordpress-plugins/codecolorer/#support">' . __('Support', 'codecolorer') . '</a>';
