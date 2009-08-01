@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: CodeColorer 0.9.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/codecolorer\n"
 "POT-Creation-Date: 2009-07-31 13:41+0000\n"
-"PO-Revision-Date: 2009-07-31 18:26+0300\n"
+"PO-Revision-Date: 2009-08-01 12:42+0300\n"
 "Last-Translator: Dmytro Shteflyuk <kpumuk@kpumuk.info>\n"
 "Language-Team: CodeSnippet <codesnippet88@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -112,12 +112,12 @@ msgstr "Salva le opzioni"
 
 #: codecolorer-core.php:241
 msgid "CodeColorer has detected a problem."
-msgstr "CodeColorer ha identificato un problema."
+msgstr "CodeColorer ha trovato dei problemi."
 
 #: codecolorer-core.php:241
 #, php-format
 msgid "We found another plugin based on GeSHi library in your system. CodeColorer will work, but our version of GeSHi contain some patches, so we can't guarantee an ideal code highlighting now. Please review your <a href=\"%1$s\">plugins</a>, maybe you don't need them all."
-msgstr ""
+msgstr "Ha trovato un altro plugin basato su GeSHi nel tuo sistema. CodeColorer non funzionerà, la tua versione di GeSHi contiene delle modifiche, quindi non può garantire un'evidenziazione della sintassi ideale. Perfavore ricontrolla i tuoi <a href=\"%1$s\">plugins</a>, magari non hai bisogno di tutti."
 
 #: codecolorer.php:131
 msgid "Settings"
