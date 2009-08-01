@@ -42,6 +42,7 @@ is currently available in following languages:
 * Simplified Chinese - 简化字 (thanks to <a href="http://ixiezi.com">liuxiangqian</a>)
 
 Want to help me with translation? It's easy!
+
 1. Install <a href="http://www.poedit.net/download.php">Poedit</a>.
 2. Download <a href="http://svn.wp-plugins.org/codecolorer/trunk/languages/codecolorer.pot">codecolorer.pot</a> file.
 3. Click *File/New catalog from .pot file* and select *codecolorer.pop*
