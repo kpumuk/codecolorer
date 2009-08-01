@@ -6,9 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CodeColorer 0.9.1\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tag/codecolorer\n"
+"Report-Msgid-Bugs-To: http://kpumuk.info/projects/wordpress-plugins/codecolorer/\n"
 "POT-Creation-Date: 2009-07-31 13:41+0000\n"
-"PO-Revision-Date: 2009-08-01 12:42+0300\n"
+"PO-Revision-Date: 2009-08-01 13:01+0300\n"
 "Last-Translator: Dmytro Shteflyuk <kpumuk@kpumuk.info>\n"
 "Language-Team: CodeSnippet <codesnippet88@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -19,115 +19,128 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 #: codecolorer-admin.php:41
+#, php-format
+msgid "Your current locale is %1$s, and CodeColorer has incomplete or does not have a translation into your language. It would be great, if you have a time to <a href=\"%2$s\">help us to translate</a> it."
+msgstr ""
+
+#: codecolorer-admin.php:42
+msgid "CodeColorer translation is incomplete."
+msgstr ""
+
+#: codecolorer-admin.php:56
 msgid "Code Highlighting Options"
 msgstr "Opzioni per l'evidenziazione della sintassi"
 
-#: codecolorer-admin.php:47
+#: codecolorer-admin.php:65
 msgid "Lines to scroll"
 msgstr "Linee per lo scroll"
 
-#: codecolorer-admin.php:50
+#: codecolorer-admin.php:68
 msgid "If your code lines number is less than this value, block height would not be fixed. Set to <b>-1</b> to remove vertical scroll."
 msgstr "Se le linee del tuo codice sono meno del valore inserito, l'altezza del blocco non verà toccata. Metti <b>-1</b> per rimuovere lo scroll verticale."
 
-#: codecolorer-admin.php:55
+#: codecolorer-admin.php:73
 msgid "Width"
 msgstr "Larghezza"
 
-#: codecolorer-admin.php:58
+#: codecolorer-admin.php:76
 msgid "Default code block width. Integer means pixels, also you can specify <tt>em</tt> or <tt>%</tt> suffix. Could be omitted to use whole width."
 msgstr "Larghezza del blocco di codice. Deve esere un intero in pixel, oppure specifica il suffisso <tt>em</tt> o <tt>%</tt>. Se viene omesso verà usata tutta la larghezza del codice."
 
-#: codecolorer-admin.php:63
+#: codecolorer-admin.php:81
 msgid "Height"
 msgstr "Altezza"
 
-#: codecolorer-admin.php:66
+#: codecolorer-admin.php:84
 msgid "When code has more than &quot;Lines to Scroll&quot; lines, block height will be set to this value."
 msgstr "Quando il codice ha un numero di righe maggiori di &quot;Linee per lo scroll&quot;, l'altezza del blocco sarà quella specificata in questo box."
 
-#: codecolorer-admin.php:71
+#: codecolorer-admin.php:89
 msgid "Width in RSS"
 msgstr "Larghezza negli RSS"
 
-#: codecolorer-admin.php:74
+#: codecolorer-admin.php:92
 msgid "Default code block width in RSS. See Width option description."
 msgstr "Larghezza del blocco di codice negli RSS. Guarda la descrizione di Larghezza."
 
-#: codecolorer-admin.php:79
+#: codecolorer-admin.php:97
 msgid "Tab size"
 msgstr "Dimensione del tab"
 
-#: codecolorer-admin.php:82
+#: codecolorer-admin.php:100
 msgid "Indicating how many spaces would represent TAB symbol."
 msgstr "Specifica dopo quanti spazi vuoi che venga rappresentato il TAB."
 
-#: codecolorer-admin.php:87
+#: codecolorer-admin.php:105
 msgid "Theme"
 msgstr "Tema"
 
-#: codecolorer-admin.php:92
+#: codecolorer-admin.php:110
 msgid "Default color scheme."
 msgstr "Seleziona il tema."
 
-#: codecolorer-admin.php:97
+#: codecolorer-admin.php:115
 msgid "Inline Theme"
 msgstr "Tema inline"
 
-#: codecolorer-admin.php:102
+#: codecolorer-admin.php:120
 msgid "Default color scheme for inline code blocks."
 msgstr "Seleziona il tema di default per il blocco di codice inline."
 
-#: codecolorer-admin.php:107
+#: codecolorer-admin.php:125
 msgid "Formatting"
 msgstr "Formattazione"
 
-#: codecolorer-admin.php:111
+#: codecolorer-admin.php:129
 msgid "Show line numbers"
 msgstr "Visualizza i numeri delle linee"
 
-#: codecolorer-admin.php:116
+#: codecolorer-admin.php:134
 msgid "Disable keyword linking"
 msgstr "Disabilita i link nelle parole chiave"
 
-#: codecolorer-admin.php:122
+#: codecolorer-admin.php:140
 msgid "Custom CSS Styles"
 msgstr "Stile CSS personalizzato"
 
-#: codecolorer-admin.php:125
+#: codecolorer-admin.php:143
 msgid "These custom CSS rules will be appended to the CodeColorer default CSS file."
 msgstr "Tutte le regole descritte per il CSS saranno inserite alla fine del file CSS di default di CodeColorer."
 
-#: codecolorer-admin.php:130
+#: codecolorer-admin.php:148
 msgid "Preview"
 msgstr "Anteprima"
 
-#: codecolorer-admin.php:134
+#: codecolorer-admin.php:152
 msgid "Code Example"
 msgstr "Esempio del codice"
 
-#: codecolorer-admin.php:142
+#: codecolorer-admin.php:160
 msgid "Save Options"
 msgstr "Salva le opzioni"
 
-#: codecolorer-core.php:241
+#: codecolorer-core.php:240
+msgid "Close"
+msgstr ""
+
+#: codecolorer-core.php:246
 msgid "CodeColorer has detected a problem."
 msgstr "CodeColorer ha trovato dei problemi."
 
-#: codecolorer-core.php:241
+#: codecolorer-core.php:246
 #, php-format
 msgid "We found another plugin based on GeSHi library in your system. CodeColorer will work, but our version of GeSHi contain some patches, so we can't guarantee an ideal code highlighting now. Please review your <a href=\"%1$s\">plugins</a>, maybe you don't need them all."
 msgstr "Ha trovato un altro plugin basato su GeSHi nel tuo sistema. CodeColorer non funzionerà, la tua versione di GeSHi contiene delle modifiche, quindi non può garantire un'evidenziazione della sintassi ideale. Perfavore ricontrolla i tuoi <a href=\"%1$s\">plugins</a>, magari non hai bisogno di tutti."
 
-#: codecolorer.php:131
+#: codecolorer.php:138
 msgid "Settings"
 msgstr "Impostazioni"
 
-#: codecolorer.php:139
+#: codecolorer.php:146
 msgid "FAQ"
 msgstr "FAQ"
 
-#: codecolorer.php:140
+#: codecolorer.php:147
 msgid "Support"
 msgstr "Supporto"
 
