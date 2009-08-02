@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: CodeColorer 0.9.1\n"
 "Report-Msgid-Bugs-To: http://kpumuk.info/projects/wordpress-plugins/codecolorer/\n"
 "POT-Creation-Date: 2009-07-31 13:41+0000\n"
-"PO-Revision-Date: 2009-08-01 13:01+0300\n"
+"PO-Revision-Date: 2009-08-02 09:33+0300\n"
 "Last-Translator: Dmytro Shteflyuk <kpumuk@kpumuk.info>\n"
 "Language-Team: Marcis Gasuns <zhr@tut.by>\n"
 "MIME-Version: 1.0\n"
@@ -21,11 +21,11 @@ msgstr ""
 #: codecolorer-admin.php:41
 #, php-format
 msgid "Your current locale is %1$s, and CodeColorer has incomplete or does not have a translation into your language. It would be great, if you have a time to <a href=\"%2$s\">help us to translate</a> it."
-msgstr ""
+msgstr "Ваша бягучая лакаль – %1$s, і пераклад CodeColorer не скончаны або адсутнічае наогул. Будзе выдатна, калі вы знойдзеце час <a href=\"%2$s\">дапамагчы нам з перакладам</a>."
 
 #: codecolorer-admin.php:42
 msgid "CodeColorer translation is incomplete."
-msgstr ""
+msgstr "Пераклад CodeColorer не скончаны."
 
 #: codecolorer-admin.php:56
 msgid "Code Highlighting Options"
@@ -121,16 +121,16 @@ msgstr "Захаваць налады"
 
 #: codecolorer-core.php:240
 msgid "Close"
-msgstr ""
+msgstr "Зачыніць"
 
 #: codecolorer-core.php:246
 msgid "CodeColorer has detected a problem."
-msgstr ""
+msgstr "CodeColorer выявіў праблему."
 
 #: codecolorer-core.php:246
 #, php-format
 msgid "We found another plugin based on GeSHi library in your system. CodeColorer will work, but our version of GeSHi contain some patches, so we can't guarantee an ideal code highlighting now. Please review your <a href=\"%1$s\">plugins</a>, maybe you don't need them all."
-msgstr ""
+msgstr "Мы выявілі іншую ўбудову на бібліятэцы GeSHi у вашай сістэме. CodeColorer будзе працаваць, але наша версія GeSHi утрымоўвае некаторыя патчы, таму мы не гарантуем якасць падсвятлення. Калі ласка, перагледзіце <a href=\"%1$s\">вашы ўбудовы</a>, магчыма, не ўсе з іх вам патрэбныя."
 
 #: codecolorer.php:138
 msgid "Settings"
@@ -154,7 +154,7 @@ msgstr "http://kpumuk.info/projects/wordpress-plugins/codecolorer/"
 
 #. Description of an extension
 msgid "This plugin allows you to insert code snippets to your posts with nice syntax highlighting powered by <a href=\"http://qbnz.com/highlighter/\">GeSHi</a> library. After enabling this plugin visit <a href=\"options-general.php?page=codecolorer.php\">the options page</a> to configure code style."
-msgstr ""
+msgstr "Гэтая ўбудова дазваляе вам устаўляць фрагменты коду ў пасты з прыгожым падсвятленнем на <a href=\"http://qbnz.com/highlighter/\">GeSHi</a> бібліятэцы. Пасля ўключэння гэтай убудовы прайдзіце <a href=\"options-general.php?page=codecolorer.php\">настаронку налад</a> і вылучце стыль афармлення."
 
 #. Author of an extension
 msgid "Dmytro Shteflyuk"

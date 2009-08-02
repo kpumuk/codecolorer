@@ -227,11 +227,11 @@ an archive with plugin again (thanks to
 
 == Changelog ==
 
-= 0.9.2 (August 1, 2009)
+= 0.9.2 (August 1, 2009) =
 * Fixed a problem where CodeColorer blocked other plugins on the
   *Plugins* page (thanks to <a href="http://ScottSchulz.us/">Scott Schulz</a>).
 
-= 0.9.1 (August 1, 2009)
+= 0.9.1 (August 1, 2009) =
 * Fixed code protection in comments.
 * Added a notice shown on admin panel when another GeSHi library found.
   CodeColorer will work with another GeSHi-based plugins side-by-side.
