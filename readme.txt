@@ -227,6 +227,10 @@ an archive with plugin again (thanks to
 
 == Changelog ==
 
+= 0.9.3 (Development) =
+* Quicktag added (replaces default `code` button).
+* TinyMCE plugin added to insert code snippets.
+
 = 0.9.2 (August 1, 2009) =
 * Fixed a problem where CodeColorer blocked other plugins on the
   *Plugins* page (thanks to <a href="http://ScottSchulz.us/">Scott Schulz</a>).

@@ -225,6 +225,8 @@ class CodeColorerOptions {
       $lang = 'csharp';
     } elseif ($lang == 'c++') {
       $lang = 'cpp';
+    } elseif ($lang == 'js') {
+      $lang = 'javascript';
     }
     return $lang;
   }

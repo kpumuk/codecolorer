@@ -3,7 +3,7 @@
 Plugin Name: CodeColorer
 Plugin URI: http://kpumuk.info/projects/wordpress-plugins/codecolorer/
 Description: This plugin allows you to insert code snippets to your posts with nice syntax highlighting powered by <a href="http://qbnz.com/highlighter/">GeSHi</a> library. After enabling this plugin visit <a href="options-general.php?page=codecolorer.php">the options page</a> to configure code style.
-Version: 0.9.2
+Version: 0.9.3
 Author: Dmytro Shteflyuk
 Author URI: http://kpumuk.info/
 Text Domain: codecolorer
@@ -33,6 +33,8 @@ Domain Path: /languages/
 if (version_compare(phpversion(), '4.0.6', '<')) {
   return;
 }
+
+define('CODECOLORER_VERSION', '0.9.3');
 
 /**
  * Loader class for the CodeColorer plugin
@@ -115,6 +117,18 @@ class CodeColorerLoader {
     register_setting('codecolorer', 'codecolorer_tab_size', 'intval');
     register_setting('codecolorer', 'codecolorer_theme', '');
     register_setting('codecolorer', 'codecolorer_inline_theme', '');
+
+    // Scripts
+    if (current_user_can('edit_posts') || current_user_can('edit_pages')) {
+      // Quick tags
+      add_action('wp_print_scripts', array('CodeColorerLoader', 'RegisterQuicktag'));
+
+      // TinyMCE
+      if (get_user_option('rich_editing') == 'true') {
+        add_filter('mce_external_plugins', array('CodeColorerLoader', 'AddTinyMCEPlugin'));
+        add_filter('mce_buttons', array('CodeColorerLoader', 'RegisterTinyMCEButton'));
+      }
+    }
   }
 
   function LoadStyles() {
@@ -147,6 +161,28 @@ class CodeColorerLoader {
     }
     return $links;
   }
+  
+  function RegisterQuicktag() {
+    if (is_admin()) {
+      wp_enqueue_script('jquery');
+      $url = plugins_url(basename(dirname(__FILE__)) . '/js/quicktags.js');
+      wp_enqueue_script('codecolorer', $url, array('jquery'), CODECOLORER_VERSION, true);
+      wp_localize_script('codecolorer', 'codeColorerL10n', array(
+        'enterLanguage' => __('Enter Language')
+      ));
+    }
+  }
+  
+  function RegisterTinyMCEButton($buttons) {
+    array_push($buttons, 'separator', 'codecolorer');
+    return $buttons;
+  }
+  
+  function AddTinyMCEPlugin($plugins) {
+    $url = plugins_url(basename(dirname(__FILE__)) . '/js/tinymce_plugin.js');
+    $plugins['codecolorer'] = $url;
+    return $plugins;
+  }
 
   function CallShowOptionsPage() {
     if (CodeColorerLoader::LoadPlugin()) {
@@ -159,13 +195,6 @@ class CodeColorerLoader {
     if (CodeColorerLoader::LoadPlugin()) {
       $cc = CodeColorer::GetInstance();
       $cc->ShowGeshiWarning();
-    }
-  }
-
-  function CallShowLanguageWarning() {
-    if (CodeColorerLoader::LoadPlugin()) {
-      $cc = CodeColorer::GetInstance();
-      $cc->ShowLanguageWarning();
     }
   }
 
