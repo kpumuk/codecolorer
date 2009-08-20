@@ -34,7 +34,7 @@ class CodeColorerOptions {
   }
 
   function GetLanguages() {
-    return array('en_US', 'en_GB', 'ru_RU', 'ua_UA', 'be_BY');
+    return array('en_US', 'en_GB', 'be_BY', 'de_DE', 'es_CO', 'es_ES', 'it_IT', 'pl_PL', 'ru_RU', 'tr_TR', 'ua_UA');
   }
 
   function ParseOptions($opts, $suffix = '') {
