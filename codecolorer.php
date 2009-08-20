@@ -124,10 +124,11 @@ class CodeColorerLoader {
       add_action('wp_print_scripts', array('CodeColorerLoader', 'RegisterQuicktag'));
 
       // TinyMCE
-      if (get_user_option('rich_editing') == 'true') {
-        add_filter('mce_external_plugins', array('CodeColorerLoader', 'AddTinyMCEPlugin'));
-        add_filter('mce_buttons', array('CodeColorerLoader', 'RegisterTinyMCEButton'));
-      }
+      // temporarily disabled
+      // if (get_user_option('rich_editing') == 'true') {
+      //   add_filter('mce_external_plugins', array('CodeColorerLoader', 'AddTinyMCEPlugin'));
+      //   add_filter('mce_buttons', array('CodeColorerLoader', 'RegisterTinyMCEButton'));
+      // }
     }
   }
 
