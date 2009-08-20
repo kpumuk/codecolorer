@@ -35,11 +35,16 @@ Thank you all guys, who submitted translations to your language. CodeColorer
 is currently available in following languages:
 
 * English
-* Russian - Русский
-* Ukrainian - Українська
-* Italian - Italiano (thanks to <a href="http://codesnippet.altervista.org/">CodeSnippet</a>)
-* Belarusian - Беларуский (thanks to <a href="http://www.fatcow.com">И. Фадков</a>)
-* Simplified Chinese - 简化字 (thanks to <a href="http://ixiezi.com">liuxiangqian</a>)
+* Russian – Русский
+* Ukrainian – Українська
+* Belarusian – Беларуский (thanks to <a href="http://www.fatcow.com">И. Фадков</a>)
+* German – German (Deutsch) (thanks to <a href="www.fabianschulz.net/">Fabian Schulz</a> and <a href="http://michael-gutbier.de/">Michael Gutbier</a>)
+* Italian – Italiano (thanks to <a href="http://codesnippet.altervista.org/">CodeSnippet</a>)
+* Polish – Polski (thanks to <a href="http://www.andrzej.net.pl/">Andrzej Pindor</a>)
+* Simplified Chinese – 简化字 (thanks to <a href="http://ixiezi.com">liuxiangqian</a>)
+* Spanish – Español (thanks to <a href="http://seich.martianwabbit.com/">Sergio Díaz</a>)
+* Spanish (Colombia) (thanks to <a href="http://blog.lasumo.com.co/">Diego Alberto Bernal</a>)
+* Turkish – Türkçe (thanks to <a href="http://www.hasanakgoz.com/">Hasan Akgöz</a>)
 
 Want to help me with translation? It's easy!
 
@@ -230,6 +235,11 @@ an archive with plugin again (thanks to
 = 0.9.3 (Development) =
 * Quicktag added (replaces default `code` button).
 * TinyMCE plugin added to insert code snippets.
+* Added German translation (thanks to <a href="www.fabianschulz.net/">Fabian Schulz</a> and <a href="http://michael-gutbier.de/">Michael Gutbier</a>).
+* Added Spanish translation (thanks to <a href="http://seich.martianwabbit.com/">Sergio Díaz</a>).
+* Added Turkish translation (thanks to <a href="http://www.hasanakgoz.com/">Hasan Akgöz</a>).
+* Added Polish translation (thanks to <a href="http://www.andrzej.net.pl/">Andrzej Pindor</a>).
+* Added Spanish (Colombia) translation (thanks to <a href="http://blog.lasumo.com.co/">Diego Alberto Bernal</a>)
 
 = 0.9.2 (August 1, 2009) =
 * Fixed a problem where CodeColorer blocked other plugins on the
