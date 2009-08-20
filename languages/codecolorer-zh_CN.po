@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: CodeColorer 0.9.1\n"
 "Report-Msgid-Bugs-To: http://kpumuk.info/projects/wordpress-plugins/codecolorer/\n"
 "POT-Creation-Date: 2009-07-31 13:41+0000\n"
-"PO-Revision-Date: 2009-08-01 13:08+0300\n"
+"PO-Revision-Date: 2009-08-06 23:14+0300\n"
 "Last-Translator: Dmytro Shteflyuk <kpumuk@kpumuk.info>\n"
 "Language-Team: liuxiangqian(http://ixiezi.com) <support@ixiezi.com>\n"
 "MIME-Version: 1.0\n"
@@ -21,11 +21,11 @@ msgstr ""
 #: codecolorer-admin.php:41
 #, php-format
 msgid "Your current locale is %1$s, and CodeColorer has incomplete or does not have a translation into your language. It would be great, if you have a time to <a href=\"%2$s\">help us to translate</a> it."
-msgstr ""
+msgstr "您当前的语言设置是%1$s, 但是 CodeColorer没有该语言的翻译或该语言的翻译不完整。如果您有时间<a href=\"%2$s\">帮助我们翻译</a>本插件，我们将非常感谢。"
 
 #: codecolorer-admin.php:42
 msgid "CodeColorer translation is incomplete."
-msgstr ""
+msgstr "CodeColorer翻译不完整。"
 
 #: codecolorer-admin.php:56
 msgid "Code Highlighting Options"
@@ -45,7 +45,7 @@ msgstr "宽度"
 
 #: codecolorer-admin.php:76
 msgid "Default code block width. Integer means pixels, also you can specify <tt>em</tt> or <tt>%</tt> suffix. Could be omitted to use whole width."
-msgstr ""
+msgstr "默认代码块宽度。若输入整数则单位为像素，您也可以使用<tt>em</tt>或者<tt>%</tt>后缀来使用<tt>em</tt>或百分比为单位。您可以忽略本设置来使用整个宽度。"
 
 #: codecolorer-admin.php:81
 msgid "Height"
@@ -57,11 +57,11 @@ msgstr "<br/>当代码块长度大于出现垂直滚动条的行数而出现垂�
 
 #: codecolorer-admin.php:89
 msgid "Width in RSS"
-msgstr ""
+msgstr "RSS输出中的宽度"
 
 #: codecolorer-admin.php:92
 msgid "Default code block width in RSS. See Width option description."
-msgstr ""
+msgstr "RSS输出中的代码块宽度，请查看代码块宽度设置的详细信息"
 
 #: codecolorer-admin.php:97
 msgid "Tab size"
@@ -81,11 +81,11 @@ msgstr "默认代码配色风格."
 
 #: codecolorer-admin.php:115
 msgid "Inline Theme"
-msgstr ""
+msgstr "内嵌风格"
 
 #: codecolorer-admin.php:120
 msgid "Default color scheme for inline code blocks."
-msgstr ""
+msgstr "内嵌代码块的默认配色风格"
 
 #: codecolorer-admin.php:125
 msgid "Formatting"
@@ -121,16 +121,16 @@ msgstr "保存选项"
 
 #: codecolorer-core.php:240
 msgid "Close"
-msgstr ""
+msgstr "关闭"
 
 #: codecolorer-core.php:246
 msgid "CodeColorer has detected a problem."
-msgstr ""
+msgstr "CodeColorer检测到问题。"
 
 #: codecolorer-core.php:246
 #, php-format
 msgid "We found another plugin based on GeSHi library in your system. CodeColorer will work, but our version of GeSHi contain some patches, so we can't guarantee an ideal code highlighting now. Please review your <a href=\"%1$s\">plugins</a>, maybe you don't need them all."
-msgstr ""
+msgstr "我们在您的系统中发现了另外一个基于GeShi库的插件。CodeColorer可以正常工作，但是CodeColorer所包含的GeSHi库包含了一些补丁，所以我们不能保证您的代码高亮能够理想工作。请查看您的<a href=\"%1$s\">插件列表</a>，可能您并不需要启用所有插件。"
 
 #: codecolorer.php:138
 msgid "Settings"
@@ -142,7 +142,7 @@ msgstr "常见问题"
 
 #: codecolorer.php:147
 msgid "Support"
-msgstr ""
+msgstr "支持"
 
 #. Plugin Name of an extension
 msgid "CodeColorer"
@@ -154,7 +154,7 @@ msgstr "http://kpumuk.info/projects/wordpress-plugins/codecolorer/"
 
 #. Description of an extension
 msgid "This plugin allows you to insert code snippets to your posts with nice syntax highlighting powered by <a href=\"http://qbnz.com/highlighter/\">GeSHi</a> library. After enabling this plugin visit <a href=\"options-general.php?page=codecolorer.php\">the options page</a> to configure code style."
-msgstr ""
+msgstr "使用本插件您可以在日志中插入漂亮的语法高亮效果的代码片段，本插件基于<a href=\"http://qbnz.com/highlighter/\">GeSHi</a>代码高亮库。启用本插件后请访问 <a href=\"options-general.php?page=codecolorer.php\">插件设置页面</a> 配置代码显示风格。"
 
 #. Author of an extension
 msgid "Dmytro Shteflyuk"
