@@ -39,6 +39,7 @@ is currently available in following languages:
 * Ukrainian – Українська
 * Belarusian – Беларуский (thanks to <a href="http://www.fatcow.com">И. Фадков</a>)
 * German – German (Deutsch) (thanks to <a href="www.fabianschulz.net/">Fabian Schulz</a> and <a href="http://michael-gutbier.de/">Michael Gutbier</a>)
+* Hebrew – עִבְרִית (thanks to <a href="http://www.gadgetguru.co.il/">Yaron Ofer</a>)
 * Italian – Italiano (thanks to <a href="http://codesnippet.altervista.org/">CodeSnippet</a>)
 * Polish – Polski (thanks to <a href="http://www.andrzej.net.pl/">Andrzej Pindor</a>)
 * Simplified Chinese – 简化字 (thanks to <a href="http://ixiezi.com">liuxiangqian</a>)
@@ -240,6 +241,7 @@ an archive with plugin again (thanks to
 * Added Turkish translation (thanks to <a href="http://www.hasanakgoz.com/">Hasan Akgöz</a>).
 * Added Polish translation (thanks to <a href="http://www.andrzej.net.pl/">Andrzej Pindor</a>).
 * Added Spanish (Colombia) translation (thanks to <a href="http://blog.lasumo.com.co/">Diego Alberto Bernal</a>)
+* Added Hebrew translation (thanks to <a href="http://www.gadgetguru.co.il/">Yaron Ofer</a>).
 
 = 0.9.2 (August 1, 2009) =
 * Fixed a problem where CodeColorer blocked other plugins on the
