@@ -25,7 +25,7 @@ class CodeColorer {
   var $blocks = array();
   var $comments = array();
 
-  var $gishiExternal = false;
+  var $geshiExternal = false;
   var $geshiVersion = '1.0.8.4';
 
   var $samplePhpCode = '
@@ -51,7 +51,6 @@ class CodeColorer {
 
   function AfterHighlightCodeBlock($content) {
     $content = str_replace(array_keys($this->blocks), array_values($this->blocks), $content);
-    $this->blocks = array();
 
     return $content;
   }
@@ -242,7 +241,7 @@ class CodeColorer {
   }
 
   function ShowGeshiWarning() {
-    if ($this->gishiExternal) {
+    if ($this->geshiExternal) {
       $this->ShowWarning('concurrent', __('CodeColorer has detected a problem.', 'codecolorer'), sprintf(__('We found another plugin based on GeSHi library in your system. CodeColorer will work, but our version of GeSHi contain some patches, so we can\'t guarantee an ideal code highlighting now. Please review your <a href="%1$s">plugins</a>, maybe you don\'t need them all.', 'codecolorer'), "plugins.php"));
     }
   }
@@ -270,30 +269,26 @@ class CodeColorer {
   }
 
   function &GetInstance() {
-    if (isset($GLOBALS['codecolorer_instance'])) {
-      return $GLOBALS['codecolorer_instance'];
-    }
-    return null;
-  }
+    static $instance = null;
 
-  function Enable() {
-    if (!isset($GLOBALS['codecolorer_instance'])) {
+    if (null === $instance) {
       $path = dirname(__FILE__);
       if (!class_exists('CodeColorerOptions')) {
-        if (!file_exists("$path/codecolorer-options.php")) return false;
+        if (!file_exists("$path/codecolorer-options.php")) return null;
         require_once("$path/codecolorer-options.php");
       }
 
-      $GLOBALS['codecolorer_instance'] = new CodeColorer();
+      $instance = new CodeColorer();
 
       # Maybe GeSHi has been loaded by some another plugin?
       if (!class_exists('GeSHi')) {
-        if (!file_exists("$path/lib/geshi.php")) return false;
+        if (!file_exists("$path/lib/geshi.php")) return null;
         require_once("$path/lib/geshi.php");
       } else {
-        $GLOBALS['codecolorer_instance']->gishiExternal = true;
+        $instance->geshiExternal = true;
       }
     }
-    return true;
+
+    return $instance;
   }
 }

@@ -242,6 +242,7 @@ an archive with plugin again (thanks to
 * Added Polish translation (thanks to <a href="http://www.andrzej.net.pl/">Andrzej Pindor</a>).
 * Added Spanish (Colombia) translation (thanks to <a href="http://blog.lasumo.com.co/">Diego Alberto Bernal</a>)
 * Added Hebrew translation (thanks to <a href="http://www.gadgetguru.co.il/">Yaron Ofer</a>).
+* Fixed problem with PHP 4 (thanks to <a href="http://www.conan1412.os3.sg/conan/cblog/">Conan Chou</a>, <a href="http://markup-javascript.com/">Алексей Таранец</a>, <a href="http://www.helixsoft.nl/blog/">Martijn van Iersel</a>).
 
 = 0.9.2 (August 1, 2009) =
 * Fixed a problem where CodeColorer blocked other plugins on the
@@ -260,12 +261,6 @@ an archive with plugin again (thanks to
 * Fixed 0 and 1 parsing for options.
 * Fixed disabled CodeColorer blocks rendering.
 * Fixed default theme CSS class, and shortcodes processing.
-
-= 0.8.7 (July 23, 2009) =
-* Fixed inline code blocks theming (thanks to <a href="http://blog.t-l-k.com/">Anatoliy 'TLK' Kolesnick</a>).
-* Fixed spaces before and after inline blocks (thanks to <a href="http://blog.t-l-k.com/">Anatoliy 'TLK' Kolesnick</a>).
-* Added section "Short codes" to readme.txt.
-* Added two more screenshots: inline code syntax highlighting and settings page.
 
 You can find complete changelog on the <a href="http://kpumuk.info/projects/wordpress-plugins/codecolorer/history/">CodeColorer history</a>
 page.

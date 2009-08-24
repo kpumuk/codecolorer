@@ -44,6 +44,10 @@ class CodeColorerLoader {
    * Enables the CodeColorer plugin with registering all required hooks.
    */
   function Enable() {
+    $path = dirname(__FILE__);
+    if (!file_exists("$path/codecolorer-core.php")) return false;
+    require_once("$path/codecolorer-core.php");
+
     // Add some default options if they don't exist
     add_option('codecolorer_css_style', '');
     add_option('codecolorer_lines_to_scroll', 20);
@@ -94,6 +98,8 @@ class CodeColorerLoader {
     // Code protection filters
     add_filter('pre_comment_content', array('CodeColorerLoader', 'CallBeforeProtectComment'), -1000);
     add_filter('pre_comment_content', array('CodeColorerLoader', 'CallAfterProtectComment'), 1000);
+    
+    return true;
   }
 
   function AdminInit() {
@@ -186,60 +192,49 @@ class CodeColorerLoader {
   }
 
   function CallShowOptionsPage() {
-    if (CodeColorerLoader::LoadPlugin()) {
-      $cc = CodeColorer::GetInstance();
+    $cc = &CodeColorer::GetInstance();
+    if (null !== $cc) {
       $cc->ShowOptionsPage();
     }
   }
 
   function CallShowGeshiWarning() {
-    if (CodeColorerLoader::LoadPlugin()) {
-      $cc = CodeColorer::GetInstance();
+    $cc = &CodeColorer::GetInstance();
+    if (null !== $cc) {
       $cc->ShowGeshiWarning();
     }
   }
 
   function CallBeforeHighlightCodeBlock($content) {
-    if (CodeColorerLoader::LoadPlugin()) {
-      $cc = CodeColorer::GetInstance();
+    $cc = &CodeColorer::GetInstance();
+    if (null !== $cc) {
       return $cc->BeforeHighlightCodeBlock($content);
     }
     return $content;
   }
 
   function CallAfterHighlightCodeBlock($content) {
-    if (CodeColorerLoader::LoadPlugin()) {
-      $cc = CodeColorer::GetInstance();
+    $cc = &CodeColorer::GetInstance();
+    if (null !== $cc) {
       return $cc->AfterHighlightCodeBlock($content);
     }
     return $content;
   }
 
   function CallBeforeProtectComment($content) {
-    if (CodeColorerLoader::LoadPlugin()) {
-      $cc = CodeColorer::GetInstance();
+    $cc = &CodeColorer::GetInstance();
+    if (null !== $cc) {
       return $cc->BeforeProtectComment($content);
     }
     return $content;
   }
 
   function CallAfterProtectComment($content) {
-    if (CodeColorerLoader::LoadPlugin()) {
-      $cc = CodeColorer::GetInstance();
+    $cc = &CodeColorer::GetInstance();
+    if (null !== $cc) {
       return $cc->AfterProtectComment($content);
     }
     return $content;
-  }
-
-  function LoadPlugin() {
-    if (!class_exists('CodeColorer')) {
-      $path = dirname(__FILE__);
-      if (!file_exists("$path/codecolorer-core.php")) return false;
-      require_once("$path/codecolorer-core.php");
-    }
-
-    if (!CodeColorer::Enable()) return false;
-    return true;
   }
 }
 
