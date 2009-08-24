@@ -1,0 +1,165 @@
+# CodeColorer 0.9.4
+# Copyright (c) 2006 - 2009 Dmytro Shteflyuk
+# This file is distributed under the same license as the CodeColorer package.
+# Dmytro Shteflyuk <kpumuk@kpumuk.info>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: CodeColorer 0.9.4\n"
+"Report-Msgid-Bugs-To: http://kpumuk.info/projects/wordpress-plugins/codecolorer/\n"
+"POT-Creation-Date: 2009-07-31 13:41+0000\n"
+"PO-Revision-Date: 2009-08-24 16:01+0300\n"
+"Last-Translator: Dmytro Shteflyuk <kpumuk@kpumuk.info>\n"
+"Language-Team: Martian Wabbit Productions <seich@martianwabbit.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Dutch\n"
+"X-Poedit-Country: NETHERLANDS\n"
+
+#: codecolorer-admin.php:41
+#, php-format
+msgid "Your current locale is %1$s, and CodeColorer has incomplete or does not have a translation into your language. It would be great, if you have a time to <a href=\"%2$s\">help us to translate</a> it."
+msgstr "Je huidige locatie is %1$s, en CodeColorer en vertaling voor uw taal is incompleet of afwezig. Het zou geweldig zijn als je ons zou willen <a href=\"%2$s\">helpen met vertalen</a>"
+
+#: codecolorer-admin.php:42
+msgid "CodeColorer translation is incomplete."
+msgstr "Vertaling van CodeColorer is nog niet af"
+
+#: codecolorer-admin.php:56
+msgid "Code Highlighting Options"
+msgstr "Code Opmaak Opties"
+
+#: codecolorer-admin.php:65
+msgid "Lines to scroll"
+msgstr "Regels om te scrollen"
+
+#: codecolorer-admin.php:68
+msgid "If your code lines number is less than this value, block height would not be fixed. Set to <b>-1</b> to remove vertical scroll."
+msgstr "Als je aantal regels code minder is dan dit getal, dan is de hoogte van het blok niet vast. Zet dit op <b>-1</b> om verticale schuifbalken uit te zetten."
+
+#: codecolorer-admin.php:73
+msgid "Width"
+msgstr "Breedte"
+
+#: codecolorer-admin.php:76
+msgid "Default code block width. Integer means pixels, also you can specify <tt>em</tt> or <tt>%</tt> suffix. Could be omitted to use whole width."
+msgstr "Standaard breedte van het codeblok. Alleen een geheel getal betekent pixels, je kunt ook een <tt>em</tt> of <tt>%</tt> suffix toevoegen. Indien leeggelaten wordt de hele breedte gebruikt."
+
+#: codecolorer-admin.php:81
+msgid "Height"
+msgstr "Hoogte"
+
+#: codecolorer-admin.php:84
+msgid "When code has more than &quot;Lines to Scroll&quot; lines, block height will be set to this value."
+msgstr "Blok hoogte indien er meer regels zijn dan &quot;Regels om te scrollen&quot;."
+
+#: codecolorer-admin.php:89
+msgid "Width in RSS"
+msgstr "Breede in RSS"
+
+#: codecolorer-admin.php:92
+msgid "Default code block width in RSS. See Width option description."
+msgstr "Standaardwaarde voor codeblok breedte in RSS. Zie de beschrijving van de optie Breedte."
+
+#: codecolorer-admin.php:97
+msgid "Tab size"
+msgstr "Tab grootte"
+
+#: codecolorer-admin.php:100
+msgid "Indicating how many spaces would represent TAB symbol."
+msgstr "Geeft aan hoveel spaties overeenkomen met een TAB teken."
+
+#: codecolorer-admin.php:105
+msgid "Theme"
+msgstr "Thema"
+
+#: codecolorer-admin.php:110
+msgid "Default color scheme."
+msgstr "Standaard kleurenschema"
+
+#: codecolorer-admin.php:115
+msgid "Inline Theme"
+msgstr "Regelfragmenten Thema"
+
+#: codecolorer-admin.php:120
+msgid "Default color scheme for inline code blocks."
+msgstr "Standaard kleurenschema voor regelfragment codeblokken."
+
+#: codecolorer-admin.php:125
+msgid "Formatting"
+msgstr "Opmaak"
+
+#: codecolorer-admin.php:129
+msgid "Show line numbers"
+msgstr "Geef regelnummers weer"
+
+#: codecolorer-admin.php:134
+msgid "Disable keyword linking"
+msgstr "Keyword linking uitzetten"
+
+#: codecolorer-admin.php:140
+msgid "Custom CSS Styles"
+msgstr "Aangepaste CSS Stijlen"
+
+#: codecolorer-admin.php:143
+msgid "These custom CSS rules will be appended to the CodeColorer default CSS file."
+msgstr "Deze aantgepaste CSS regels worden aan het standaard CodeColorer CSS bestand toegevoegd."
+
+#: codecolorer-admin.php:148
+msgid "Preview"
+msgstr "Voorproef"
+
+#: codecolorer-admin.php:152
+msgid "Code Example"
+msgstr "Code Voorbeeld"
+
+#: codecolorer-admin.php:160
+msgid "Save Options"
+msgstr "Opties Opslaan"
+
+#: codecolorer-core.php:240
+msgid "Close"
+msgstr "Afsluiten"
+
+#: codecolorer-core.php:246
+msgid "CodeColorer has detected a problem."
+msgstr "CodeColorer heeft een probleem gedetecteerd"
+
+#: codecolorer-core.php:246
+#, php-format
+msgid "We found another plugin based on GeSHi library in your system. CodeColorer will work, but our version of GeSHi contain some patches, so we can't guarantee an ideal code highlighting now. Please review your <a href=\"%1$s\">plugins</a>, maybe you don't need them all."
+msgstr "We hebben een andere plugin gevonden die ook GeSHi gebruikt. CodeColorer werkt wel, maar onze versie van GeSHi bevat specifieke aanpassingen, dus de ideale code opmaak kan niet worden gegarandeerd. Controleer je <a href=\"%1$s\"> plugins </ a>, misschien heb je ze niet allemaal nodig."
+
+#: codecolorer.php:138
+msgid "Settings"
+msgstr "Instellingen"
+
+#: codecolorer.php:146
+msgid "FAQ"
+msgstr "Veelgestelde Vragen"
+
+#: codecolorer.php:147
+msgid "Support"
+msgstr "Ondersteuning"
+
+#. Plugin Name of an extension
+msgid "CodeColorer"
+msgstr "CodeColorer"
+
+#. Plugin URI of an extension
+msgid "http://kpumuk.info/projects/wordpress-plugins/codecolorer/"
+msgstr "http://kpumuk.info/projects/wordpress-plugins/codecolorer/"
+
+#. Description of an extension
+msgid "This plugin allows you to insert code snippets to your posts with nice syntax highlighting powered by <a href=\"http://qbnz.com/highlighter/\">GeSHi</a> library. After enabling this plugin visit <a href=\"options-general.php?page=codecolorer.php\">the options page</a> to configure code style."
+msgstr "Deze plugin stelt je in staat stukken code in je posts in te voegen met opmaak gebaseerd op <a href=\"http://qbnz.com/highlighter/\">GeSHi</a>. Bezoek na het inschakelen van deze plugin <a href=\"options-general.php?page=codecolorer.php\">de opties pagina</a> om de opmaak in te stellen."
+
+#. Author of an extension
+msgid "Dmytro Shteflyuk"
+msgstr "Dmytro Shteflyuk"
+
+#. Author URI of an extension
+msgid "http://kpumuk.info/"
+msgstr "http://kpumuk.info/"
+

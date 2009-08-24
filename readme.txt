@@ -38,6 +38,7 @@ is currently available in following languages:
 * Russian – Русский
 * Ukrainian – Українська
 * Belarusian – Беларуский (thanks to <a href="http://www.fatcow.com">И. Фадков</a>)
+* Dutch – Nederlands (thanks to <a href="http://www.helixsoft.nl/blog/">Martijn van Iersel</a>)
 * German – German (Deutsch) (thanks to <a href="www.fabianschulz.net/">Fabian Schulz</a> and <a href="http://michael-gutbier.de/">Michael Gutbier</a>)
 * Hebrew – עִבְרִית (thanks to <a href="http://www.gadgetguru.co.il/">Yaron Ofer</a>)
 * Italian – Italiano (thanks to <a href="http://codesnippet.altervista.org/">CodeSnippet</a>)
@@ -232,6 +233,9 @@ an archive with plugin again (thanks to
 4. Settings page.
 
 == Changelog ==
+
+= 0.9.5 (Development) =
+* Dutch translation added (thanks to <a href="http://www.helixsoft.nl/blog/">Martijn van Iersel</a>).
 
 = 0.9.4 (August 24, 2009) =
 * Version bump to 0.9.4 (for WordPress.org)
