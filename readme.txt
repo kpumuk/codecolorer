@@ -45,7 +45,8 @@ is currently available in following languages:
 * Polish – Polski (thanks to <a href="http://www.andrzej.net.pl/">Andrzej Pindor</a>)
 * Simplified Chinese – 简化字 (thanks to <a href="http://ixiezi.com">liuxiangqian</a>)
 * Spanish – Español (thanks to <a href="http://seich.martianwabbit.com/">Sergio Díaz</a>)
-* Spanish (Colombia) (thanks to <a href="http://blog.lasumo.com.co/">Diego Alberto Bernal</a>)
+* Spanish – Español (Argentina) (thanks to <a href="http://www.lordblacksuca.com.ar/">Diego Sucaria</a>)
+* Spanish – Español (Colombia) (thanks to <a href="http://blog.lasumo.com.co/">Diego Alberto Bernal</a>)
 * Turkish – Türkçe (thanks to <a href="http://www.hasanakgoz.com/">Hasan Akgöz</a>)
 
 Want to help me with translation? It's easy!
@@ -235,7 +236,8 @@ an archive with plugin again (thanks to
 == Changelog ==
 
 = 0.9.5 (Development) =
-* Dutch translation added (thanks to <a href="http://www.helixsoft.nl/blog/">Martijn van Iersel</a>).
+* Added Dutch translation (thanks to <a href="http://www.helixsoft.nl/blog/">Martijn van Iersel</a>).
+* Added Spanish (Argentina) translation (thanks to <a href="http://www.lordblacksuca.com.ar/">Diego Sucaria</a>).
 
 = 0.9.4 (August 24, 2009) =
 * Version bump to 0.9.4 (for WordPress.org)
