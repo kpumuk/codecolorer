@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: CodeColorer 0.9.4\n"
 "Report-Msgid-Bugs-To: http://kpumuk.info/projects/wordpress-plugins/codecolorer/\n"
 "POT-Creation-Date: 2009-07-31 13:41+0000\n"
-"PO-Revision-Date: 2009-08-26 21:20+0300\n"
+"PO-Revision-Date: 2009-08-26 21:39+0300\n"
 "Last-Translator: Dmytro Shteflyuk <kpumuk@kpumuk.info>\n"
 "Language-Team: Arabe <http://amine27.zici.fr>\n"
 "MIME-Version: 1.0\n"
@@ -33,11 +33,11 @@ msgstr "خيارات تلوين الكود"
 
 #: codecolorer-admin.php:65
 msgid "Lines to scroll"
-msgstr "الأسطر للتمرير"
+msgstr "الأسطر لتمريرها"
 
 #: codecolorer-admin.php:68
 msgid "If your code lines number is less than this value, block height would not be fixed. Set to <b>-1</b> to remove vertical scroll."
-msgstr "إذا كان عدد أسطر الكود أقل من هذه القيمة، الإرتفاع سيكون ثابتا. عين إلى <b>-1</b> لحذف التمرير العمودي."
+msgstr "إذا كان عدد أسطر الكود أقل من هذه القيمة، الإرتفاع سيكون ثابتا. عين القيمة إلى <b>-1</b> لحذف التمرير العمودي."
 
 #: codecolorer-admin.php:73
 msgid "Width"
@@ -45,7 +45,7 @@ msgstr "العرض"
 
 #: codecolorer-admin.php:76
 msgid "Default code block width. Integer means pixels, also you can specify <tt>em</tt> or <tt>%</tt> suffix. Could be omitted to use whole width."
-msgstr "قيمة عرض الكود الإفتراضية. الأعداد الصحيح تعني بكسل، أيضا يمكنك تحديد اللاحقة <tt>em</ tt> أو <tt>%</tt>. يمكن حذفها لاستخدام العرض بأكمله."
+msgstr "قيمة عرض الكود الإفتراضية. الأعداد الصحيحة تعني بكسل، أيضا يمكنك تحديد اللاحقة <tt>em</  tt> أو <tt>%</tt>. يمكن حذفها لاستخدام العرض بأكمله."
 
 #: codecolorer-admin.php:81
 msgid "Height"
@@ -53,7 +53,7 @@ msgstr "الطول"
 
 #: codecolorer-admin.php:84
 msgid "When code has more than &quot;Lines to Scroll&quot; lines, block height will be set to this value."
-msgstr "عندما يكون عدد &quot;الأسطر للتمرير&quot; سطر، الطول سيتعين إلى هذه القيمة."
+msgstr "عندما يكون عدد &quot;الأسطر لتمريرها&quot; سطر، الطول سيتعين إلى هذه القيمة."
 
 #: codecolorer-admin.php:89
 msgid "Width in RSS"
