@@ -37,6 +37,7 @@ is currently available in following languages:
 * English
 * Russian – Русский
 * Ukrainian – Українська
+* Arabic – العربية (thanks to <a href="http://amine27.zici.fr/">Amine Roukh</a>)
 * Belarusian – Беларуский (thanks to <a href="http://www.fatcow.com">И. Фадков</a>)
 * Dutch – Nederlands (thanks to <a href="http://www.helixsoft.nl/blog/">Martijn van Iersel</a>)
 * German – German (Deutsch) (thanks to <a href="www.fabianschulz.net/">Fabian Schulz</a> and <a href="http://michael-gutbier.de/">Michael Gutbier</a>)
@@ -238,6 +239,7 @@ an archive with plugin again (thanks to
 = 0.9.5 (Development) =
 * Added Dutch translation (thanks to <a href="http://www.helixsoft.nl/blog/">Martijn van Iersel</a>).
 * Added Spanish (Argentina) translation (thanks to <a href="http://www.lordblacksuca.com.ar/">Diego Sucaria</a>).
+* Added Arabic translation (thanks to <a href="http://amine27.zici.fr/">Amine Roukh</a>).
 
 = 0.9.4 (August 24, 2009) =
 * Version bump to 0.9.4 (for WordPress.org)
