@@ -40,6 +40,7 @@ is currently available in following languages:
 * Arabic – العربية (thanks to <a href="http://amine27.zici.fr/">Amine Roukh</a>)
 * Belarusian – Беларуский (thanks to <a href="http://www.fatcow.com">И. Фадков</a>)
 * Dutch – Nederlands (thanks to <a href="http://www.helixsoft.nl/blog/">Martijn van Iersel</a>)
+* French – Français (thanks to <a href="http://www.flyingcode.com/">Valentin PRUGNAUD</a>)
 * German – German (Deutsch) (thanks to <a href="www.fabianschulz.net/">Fabian Schulz</a> and <a href="http://michael-gutbier.de/">Michael Gutbier</a>)
 * Hebrew – עִבְרִית (thanks to <a href="http://www.gadgetguru.co.il/">Yaron Ofer</a>)
 * Italian – Italiano (thanks to <a href="http://codesnippet.altervista.org/">CodeSnippet</a>)
@@ -235,6 +236,9 @@ an archive with plugin again (thanks to
 4. Settings page.
 
 == Changelog ==
+
+= 0.9.6 (Development) =
+* Added French translation (thanks to <a href="http://www.flyingcode.com/">Valentin PRUGNAUD</a>).
 
 = 0.9.5 (August 27, 2009) =
 * Added Dutch translation (thanks to <a href="http://www.helixsoft.nl/blog/">Martijn van Iersel</a>).
