@@ -243,6 +243,7 @@ an archive with plugin again (thanks to
 * Added French translation (thanks to <a href="http://www.flyingcode.com/">Valentin PRUGNAUD</a>).
 * Added Brazilian Portuguese translation (thanks to <a href="http://www.jeveaux.com/">Paulo César M. Jeveaux</a>, <a href="">Fabricio Bortoluzzi</a>, and <a href="http://www.rodolfoleao.com/">Rodolfo Leão</a>).
 * Added Swedish translation (thanks to <a href="http://blog.lhli.net/">LHLI</a>).
+* Fixed XHTML validation problems on the CodeColorer options page (thanks to Brett Zamir).
 
 = 0.9.5 (August 27, 2009) =
 * Added Dutch translation (thanks to <a href="http://www.helixsoft.nl/blog/">Martijn van Iersel</a>).
@@ -263,24 +264,6 @@ an archive with plugin again (thanks to
 * Added Spanish (Colombia) translation (thanks to <a href="http://blog.lasumo.com.co/">Diego Alberto Bernal</a>)
 * Added Hebrew translation (thanks to <a href="http://www.gadgetguru.co.il/">Yaron Ofer</a>).
 * Fixed problem with PHP 4 (thanks to <a href="http://www.conan1412.os3.sg/conan/cblog/">Conan Chou</a>, <a href="http://markup-javascript.com/">Алексей Таранец</a>, <a href="http://www.helixsoft.nl/blog/">Martijn van Iersel</a>).
-
-= 0.9.2 (August 1, 2009) =
-* Fixed a problem where CodeColorer blocked other plugins on the
-  *Plugins* page (thanks to <a href="http://ScottSchulz.us/">Scott Schulz</a>).
-
-= 0.9.1 (August 1, 2009) =
-* Fixed code protection in comments.
-* Added a notice shown on admin panel when another GeSHi library found.
-  CodeColorer will work with another GeSHi-based plugins side-by-side.
-* Added a .pot file for translators.
-* Added notification about incomplete translation.
-* Added ability to disable notifications.
-
-= 0.9.0 (July 30, 2009) =
-* Great refactoring performed. CodeColorer requires WordPress at least 2.7 now.
-* Fixed 0 and 1 parsing for options.
-* Fixed disabled CodeColorer blocks rendering.
-* Fixed default theme CSS class, and shortcodes processing.
 
 You can find complete changelog on the <a href="http://kpumuk.info/projects/wordpress-plugins/codecolorer/history/">CodeColorer history</a>
 page.
