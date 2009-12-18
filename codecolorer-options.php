@@ -29,7 +29,8 @@ class CodeColorerOptions {
       'dawn'        => 'Dawn',
       'mac-classic' => 'Mac Classic',
       'twitlight'   => 'Twitlight',
-      'vibrant'     => 'Vibrant Ink'
+      'vibrant'     => 'Vibrant Ink',
+      'geshi'       => 'GeSHi'
     );
   }
 

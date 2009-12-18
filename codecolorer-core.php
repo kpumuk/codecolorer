@@ -145,7 +145,7 @@ class CodeColorer {
     $geshi->set_overall_class('codecolorer');
     $geshi->set_tab_width($options['tab_size']);
     if (!is_feed()) {
-      $geshi->enable_classes();
+      if ($options['theme'] != 'geshi') $geshi->enable_classes();
       if ($options['nowrap']) {
         $geshi->set_overall_style('white-space:nowrap');
       } else {
