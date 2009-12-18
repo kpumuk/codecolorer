@@ -39,6 +39,7 @@ is currently available in following languages:
 * Ukrainian – Українська
 * Arabic – العربية (thanks to <a href="http://amine27.zici.fr/">Amine Roukh</a>)
 * Belarusian – Беларуский (thanks to <a href="http://www.fatcow.com">И. Фадков</a>)
+* Danish – Dansk (thanks to <a href="http://www.klysner.com/">Hans Klysner</a>)
 * Dutch – Nederlands (thanks to <a href="http://www.helixsoft.nl/blog/">Martijn van Iersel</a>)
 * French – Français (thanks to <a href="http://www.flyingcode.com/">Valentin PRUGNAUD</a>)
 * German – German (Deutsch) (thanks to <a href="http://www.fabianschulz.net/">Fabian Schulz</a> and <a href="http://michael-gutbier.de/">Michael Gutbier</a>)
@@ -246,6 +247,7 @@ an archive with plugin again (thanks to
 * Added Swedish translation (thanks to <a href="http://blog.lhli.net/">LHLI</a>).
 * Fixed XHTML validation problems on the CodeColorer options page (thanks to Brett Zamir).
 * Added Japanese translation (thanks to <a href="http://www.kuroneko-square.net/">Kuroneko Square</a>).
+* Added Danish translation (thanks to <a href="http://www.klysner.com/">Hans Klysner</a>).
 
 = 0.9.5 (August 27, 2009) =
 * Added Dutch translation (thanks to <a href="http://www.helixsoft.nl/blog/">Martijn van Iersel</a>).
