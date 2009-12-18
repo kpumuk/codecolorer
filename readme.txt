@@ -179,6 +179,7 @@ page. You can find modes explained below.
   code block.
 * **no_cc** (*boolean*) – when *true* the syntax in code block will not be
   highlighted, code will be rendered inside `<code></code>` tag.
+* **class** (*string*) – additional CSS classes to add to the wrapper HTML element.
 
 You can use special tag `[cci]` instead of `[cc]` to force inline mode:
 
@@ -249,6 +250,7 @@ an archive with plugin again (thanks to
 * Added Japanese translation (thanks to <a href="http://www.kuroneko-square.net/">Kuroneko Square</a>).
 * Added Danish translation (thanks to <a href="http://www.klysner.com/">Hans Klysner</a>).
 * Added GeSHi theme.
+* Added ability to specify custom CSS class for the wrapper HTML element.
 
 = 0.9.5 (August 27, 2009) =
 * Added Dutch translation (thanks to <a href="http://www.helixsoft.nl/blog/">Martijn van Iersel</a>).

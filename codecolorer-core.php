@@ -184,9 +184,10 @@ class CodeColorer {
   }
 
   function AddContainer($html, $options, $num_lines) {
+    $custom_css_class = empty($options['class']) ? '' : ' ' . $options['class'];
     if ($options['inline']) {
       $theme = empty($options['inline_theme']) ? 'default' : $options['inline_theme'];
-      $result  = '<code class="codecolorer ' . $options['lang'] . ' ' . $theme . '">';
+      $result  = '<code class="codecolorer ' . $options['lang'] . ' ' . $theme . $custom_css_class . '">';
       $result .= '<span class="' . $options['lang'] . '">' . $html . '</span>';
       $result .= '</code>';
     } else {
@@ -200,7 +201,7 @@ class CodeColorer {
       }
       $style .= '"';
 
-      $css_class = 'codecolorer-container ' . $options['lang'] . ' ' . $theme;
+      $css_class = 'codecolorer-container ' . $options['lang'] . ' ' . $theme . $custom_css_class;
       if ($options['noborder']) $css_class .= ' codecolorer-noborder';
       $result = '<div class="' . $css_class . '" ' . $style . '>' . $html . '</div>';
     }

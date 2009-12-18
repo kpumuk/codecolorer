@@ -50,6 +50,7 @@ class CodeColorerLoader {
 
     // Add some default options if they don't exist
     add_option('codecolorer_css_style', '');
+    add_option('codecolorer_css_class', '');
     add_option('codecolorer_lines_to_scroll', 20);
     add_option('codecolorer_width', 435);
     add_option('codecolorer_height', 300);
@@ -114,6 +115,7 @@ class CodeColorerLoader {
 
     // Register out options so WordPress knows about them
     register_setting('codecolorer', 'codecolorer_css_style', '');
+    register_setting('codecolorer', 'codecolorer_css_class', '');
     register_setting('codecolorer', 'codecolorer_lines_to_scroll', 'intval');
     register_setting('codecolorer', 'codecolorer_width', '');
     register_setting('codecolorer', 'codecolorer_height', '');

@@ -183,6 +183,11 @@ class CodeColorerOptions {
         $options['rss_width'] = get_option('codecolorer_rss_width');
     }
 
+    // Custom CSS classes (string)
+    if (!isset($options['class'])) {
+        $options['class'] = get_option('codecolorer_css_class');
+    }
+
     // Theme (string)
     if (!isset($options['theme'])) {
       $options['theme'] = get_option('codecolorer_theme');
