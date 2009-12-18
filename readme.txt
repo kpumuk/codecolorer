@@ -159,7 +159,7 @@ page. You can find modes explained below.
   is greater then "lines" value.
 * **rss_width** (*integer* or *string*) – block width in RSS feeds.
 * **theme** (*string*) – color theme (default, blackboard, dawn, mac-classic,
-  twitlight, vibrant).
+  twitlight, vibrant, geshi).
 * **first_line** (*integer*) – a number of the first line in the block.
 * **escaped** (*boolean*) – when *true* special HTML sequences like `&lt;` or
   `&#91;` will be treated as encoded (in this example as `<` and `[`
@@ -248,6 +248,7 @@ an archive with plugin again (thanks to
 * Fixed XHTML validation problems on the CodeColorer options page (thanks to Brett Zamir).
 * Added Japanese translation (thanks to <a href="http://www.kuroneko-square.net/">Kuroneko Square</a>).
 * Added Danish translation (thanks to <a href="http://www.klysner.com/">Hans Klysner</a>).
+* Added GeSHi theme.
 
 = 0.9.5 (August 27, 2009) =
 * Added Dutch translation (thanks to <a href="http://www.helixsoft.nl/blog/">Martijn van Iersel</a>).
