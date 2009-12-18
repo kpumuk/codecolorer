@@ -137,6 +137,14 @@ class CodeColorerAdmin {
           </tr>
 
           <tr valign="top">
+            <th scope="row"><label for="codecolorer_css_class"><?php _e('Custom CSS Classes', 'codecolorer') ?>:</label></th>
+            <td>
+              <input name="codecolorer_css_class" class="regular-text" size="60" id="codecolorer_css_class" value="<?php echo get_option('codecolorer_css_class') ?>"/>
+              <span class="description"><?php _e('These custom CSS classes will be appended to the wrapper HTML element.', 'codecolorer') ?></span>
+            </td>
+          </tr>
+
+          <tr valign="top">
             <th scope="row"><label for="codecolorer_css_style"><?php _e('Custom CSS Styles', 'codecolorer') ?>:</label></th>
             <td>
               <textarea name="codecolorer_css_style" id="codecolorer_css_style" rows="5" cols="60"><?php echo htmlspecialchars(get_option('codecolorer_css_style')) ?></textarea><br />
