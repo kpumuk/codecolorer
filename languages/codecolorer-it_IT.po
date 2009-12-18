@@ -1,14 +1,15 @@
-# CodeColorer 0.9.4
+# CodeColorer 0.9.6
 # Copyright (c) 2006 - 2009 Dmytro Shteflyuk
 # This file is distributed under the same license as the CodeColorer package.
+#
 # Dmytro Shteflyuk <kpumuk@kpumuk.info>, 2009.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: CodeColorer 0.9.4\n"
+"Project-Id-Version: CodeColorer 0.9.6\n"
 "Report-Msgid-Bugs-To: http://kpumuk.info/projects/wordpress-plugins/codecolorer/\n"
 "POT-Creation-Date: 2009-07-31 13:41+0000\n"
-"PO-Revision-Date: 2009-08-01 13:01+0300\n"
+"PO-Revision-Date: 2009-12-18 17:16+0300\n"
 "Last-Translator: Dmytro Shteflyuk <kpumuk@kpumuk.info>\n"
 "Language-Team: CodeSnippet <codesnippet88@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -100,22 +101,30 @@ msgid "Disable keyword linking"
 msgstr "Disabilita i link nelle parole chiave"
 
 #: codecolorer-admin.php:140
+msgid "Custom CSS Classes"
+msgstr ""
+
+#: codecolorer-admin.php:143
+msgid "These custom CSS classes will be appended to the wrapper HTML element."
+msgstr ""
+
+#: codecolorer-admin.php:148
 msgid "Custom CSS Styles"
 msgstr "Stile CSS personalizzato"
 
-#: codecolorer-admin.php:143
+#: codecolorer-admin.php:151
 msgid "These custom CSS rules will be appended to the CodeColorer default CSS file."
 msgstr "Tutte le regole descritte per il CSS saranno inserite alla fine del file CSS di default di CodeColorer."
 
-#: codecolorer-admin.php:148
+#: codecolorer-admin.php:156
 msgid "Preview"
 msgstr "Anteprima"
 
-#: codecolorer-admin.php:152
+#: codecolorer-admin.php:160
 msgid "Code Example"
 msgstr "Esempio del codice"
 
-#: codecolorer-admin.php:160
+#: codecolorer-admin.php:168
 msgid "Save Options"
 msgstr "Salva le opzioni"
 
@@ -132,15 +141,15 @@ msgstr "CodeColorer ha trovato dei problemi."
 msgid "We found another plugin based on GeSHi library in your system. CodeColorer will work, but our version of GeSHi contain some patches, so we can't guarantee an ideal code highlighting now. Please review your <a href=\"%1$s\">plugins</a>, maybe you don't need them all."
 msgstr "Ha trovato un altro plugin basato su GeSHi nel tuo sistema. CodeColorer non funzionerà, la tua versione di GeSHi contiene delle modifiche, quindi non può garantire un'evidenziazione della sintassi ideale. Perfavore ricontrolla i tuoi <a href=\"%1$s\">plugins</a>, magari non hai bisogno di tutti."
 
-#: codecolorer.php:138
+#: codecolorer.php:161
 msgid "Settings"
 msgstr "Impostazioni"
 
-#: codecolorer.php:146
+#: codecolorer.php:168
 msgid "FAQ"
 msgstr "FAQ"
 
-#: codecolorer.php:147
+#: codecolorer.php:169
 msgid "Support"
 msgstr "Supporto"
 
