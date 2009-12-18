@@ -1,11 +1,12 @@
-# CodeColorer 0.9.4
+# CodeColorer 0.9.6
 # Copyright (c) 2006 - 2009 Dmytro Shteflyuk
 # This file is distributed under the same license as the CodeColorer package.
+#
 # Dmytro Shteflyuk <kpumuk@kpumuk.info>, 2009.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: CodeColorer 0.9.4\n"
+"Project-Id-Version: CodeColorer 0.9.6\n"
 "Report-Msgid-Bugs-To: http://kpumuk.info/projects/wordpress-plugins/codecolorer/\n"
 "POT-Creation-Date: 2009-07-31 13:41+0000\n"
 "PO-Revision-Date: \n"
@@ -16,6 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Spanish\n"
 "X-Poedit-Country: COLOMBIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
 
 #: codecolorer-admin.php:41
 #, php-format

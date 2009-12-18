@@ -1,6 +1,12 @@
+# CodeColorer 0.9.6
+# Copyright (c) 2006 - 2009 Dmytro Shteflyuk
+# This file is distributed under the same license as the CodeColorer package.
+#
+# Dmytro Shteflyuk <kpumuk@kpumuk.info>, 2009.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: CodeColorer 0.9.5\n"
+"Project-Id-Version: CodeColorer 0.9.6\n"
 "Report-Msgid-Bugs-To: http://kpumuk.info/projects/wordpress-plugins/codecolorer/\n"
 "POT-Creation-Date: 2009-07-31 13:41+0000\n"
 "PO-Revision-Date: \n"
@@ -95,22 +101,30 @@ msgid "Disable keyword linking"
 msgstr "キーワードをリンクしない"
 
 #: codecolorer-admin.php:140
+msgid "Custom CSS Classes"
+msgstr ""
+
+#: codecolorer-admin.php:143
+msgid "These custom CSS classes will be appended to the wrapper HTML element."
+msgstr ""
+
+#: codecolorer-admin.php:148
 msgid "Custom CSS Styles"
 msgstr "カスタムCSSスタイル"
 
-#: codecolorer-admin.php:143
+#: codecolorer-admin.php:151
 msgid "These custom CSS rules will be appended to the CodeColorer default CSS file."
 msgstr "これらのカスタムCSSルールは、CodeColorerのデフォルトCSSファイルを適用した上に、さらに追加されます。"
 
-#: codecolorer-admin.php:148
+#: codecolorer-admin.php:156
 msgid "Preview"
 msgstr "プレビュー"
 
-#: codecolorer-admin.php:152
+#: codecolorer-admin.php:160
 msgid "Code Example"
 msgstr "コード例"
 
-#: codecolorer-admin.php:160
+#: codecolorer-admin.php:168
 msgid "Save Options"
 msgstr "設定を保存"
 
@@ -127,15 +141,15 @@ msgstr "CodeColorerにて問題が見つかりました。"
 msgid "We found another plugin based on GeSHi library in your system. CodeColorer will work, but our version of GeSHi contain some patches, so we can't guarantee an ideal code highlighting now. Please review your <a href=\"%1$s\">plugins</a>, maybe you don't need them all."
 msgstr "お使いのシステム上にGeSHiライブラリをベースとした別のプラグインが見つかりました。CodeColorerは動作しますが、CodeColorerバージョンのGeSHiはいくつかのパッチを含んでいるため、現在はコードハイライトが実現できるかどうか保証できません。どちらも必要というわけではないでしょうから、お使いの<a href=\"%1$s\">プラグイン</a>を再検討してみてください。"
 
-#: codecolorer.php:138
+#: codecolorer.php:161
 msgid "Settings"
 msgstr "設定"
 
-#: codecolorer.php:146
+#: codecolorer.php:168
 msgid "FAQ"
 msgstr "FAQ"
 
-#: codecolorer.php:147
+#: codecolorer.php:169
 msgid "Support"
 msgstr "サポート"
 

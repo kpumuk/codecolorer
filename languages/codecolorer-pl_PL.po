@@ -1,11 +1,12 @@
-# CodeColorer 0.9.4
+# CodeColorer 0.9.6
 # Copyright (c) 2006 - 2009 Dmytro Shteflyuk
 # This file is distributed under the same license as the CodeColorer package.
+#
 # Dmytro Shteflyuk <kpumuk@kpumuk.info>, 2009.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: CodeColorer 0.9.4\n"
+"Project-Id-Version: CodeColorer 0.9.6\n"
 "Report-Msgid-Bugs-To: http://kpumuk.info/projects/wordpress-plugins/codecolorer/\n"
 "POT-Creation-Date: 2009-07-31 13:41+0000\n"
 "PO-Revision-Date: \n"
@@ -18,111 +19,157 @@ msgstr ""
 "X-Poedit-Country: POLAND\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-msgid "Close"
-msgstr "Zamknij"
-
-msgid "Code Example"
-msgstr "Przykładowy kod"
-
-msgid "Code Highlighting Options"
-msgstr "Ustawienia opcji wyróżniania kodu"
-
-msgid "CodeColorer"
-msgstr "CodeColorer"
-
-msgid "CodeColorer has detected a problem."
-msgstr "CodeColorer wykrył problem."
-
-msgid "CodeColorer translation is incomplete."
-msgstr "Tłumaczenie CodeColorer jest niekompletne."
-
-msgid "Custom CSS Styles"
-msgstr "Własny styl CSS"
-
-msgid "Default code block width in RSS. See Width option description."
-msgstr "Domyślna szerokość blok kodu RSS. Zobacz opis opcji Szerokość."
-
-msgid "Default code block width. Integer means pixels, also you can specify <tt>em</tt> or <tt>%</tt> suffix. Could be omitted to use whole width."
-msgstr "Domyślna szerokość bloku kodu. Jeśli nie podasz jednostki - będą to pixele. Możesz podać również przyrostki: <tt>em</tt> lub <tt>%</tt>. Nie ustawienie tej wartości spowoduje ustawienie maksymalnej szerokości."
-
-msgid "Default color scheme for inline code blocks."
-msgstr "Domyślny schemat kolorów dla kodu \"w linii\""
-
-msgid "Default color scheme."
-msgstr "Domyślny schemat kolorów."
-
-msgid "Disable keyword linking"
-msgstr "Wyłącz linkowanie słów kluczowych"
-
-msgid "Dmytro Shteflyuk"
-msgstr "Dmytro Shteflyuk"
-
-msgid "FAQ"
-msgstr "FAQ"
-
-msgid "Formatting"
-msgstr "Formatowanie"
-
-msgid "Height"
-msgstr "Wysokość"
-
-msgid "If your code lines number is less than this value, block height would not be fixed. Set to <b>-1</b> to remove vertical scroll."
-msgstr "Jeśli liczba linii kodu będzie mniejsza niż ta wartość, wysokość bloku nie zostanie ustawiona. Ustawienie <b>-1</b> wyłącza pionowe przewijanie."
-
-msgid "Indicating how many spaces would represent TAB symbol."
-msgstr "Określa ile spacji będzie reprezentowało symbol TAB"
-
-msgid "Inline Theme"
-msgstr "Skórka kodu \"w linii\""
-
-msgid "Lines to scroll"
-msgstr "Przewijanie po liniach:"
-
-msgid "Preview"
-msgstr "Podgląd"
-
-msgid "Save Options"
-msgstr "Zapisz"
-
-msgid "Settings"
-msgstr "Ustawienia"
-
-msgid "Show line numbers"
-msgstr "Pokazuj numery linii"
-
-msgid "Support"
-msgstr "Wsparcie"
-
-msgid "Tab size"
-msgstr "Rozmiar wcięcia"
-
-msgid "Theme"
-msgstr "Skórka"
-
-msgid "These custom CSS rules will be appended to the CodeColorer default CSS file."
-msgstr "Ten styl zostanie dołączony do domyślnego stylu CodeColorer"
-
-msgid "This plugin allows you to insert code snippets to your posts with nice syntax highlighting powered by <a href=\"http://qbnz.com/highlighter/\">GeSHi</a> library. After enabling this plugin visit <a href=\"options-general.php?page=codecolorer.php\">the options page</a> to configure code style."
-msgstr "Wtyczka pozwala na wstawianie bloków kodu do Twoich wpisów z kolorowaniem składni z użyciem biblioteki &lt;a href=\"http://qbnz.com/highlighter/\"&gt;GeSHi</a>. Po włączeniu wtyczki przejdź na <a href=\"options-general.php?page=codecolorer.php\">stronę opcji</a> aby ją skonfigurować."
-
-msgid "We found another plugin based on GeSHi library in your system. CodeColorer will work, but our version of GeSHi contain some patches, so we can't guarantee an ideal code highlighting now. Please review your <a href=\"%1$s\">plugins</a>, maybe you don't need them all."
-msgstr "Na Twoim blogu wykryta została inna wtyczka oparta o bibliotekę GeSHi. CodeColorer będzie działał, jednak jego wersja GeSHi zawiera własne poprawki, dlatego nie możemy zagwarantować idealnego podświetlania składni. Sprawdź zainstalowane <a href=\"%1$s\">wtyczki</a>, może nie potrzebujesz ich wszystkich."
-
-msgid "When code has more than &quot;Lines to Scroll&quot; lines, block height will be set to this value."
-msgstr "Gdy kod będzie miał więcej linii niż zostało to ustawione w opcji &quot;Przewijanie po liniach&quot;, wysokość bloku zostanie ustawiona na tę wartość."
-
-msgid "Width"
-msgstr "Szerokość"
-
-msgid "Width in RSS"
-msgstr "Szerokość w RSS"
-
+#: codecolorer-admin.php:41
+#, php-format
 msgid "Your current locale is %1$s, and CodeColorer has incomplete or does not have a translation into your language. It would be great, if you have a time to <a href=\"%2$s\">help us to translate</a> it."
 msgstr "Twoja obecna lokalizacja to %1$s - CodeColorer nie posiada kompletnego tłumaczenia na Twój język. Byłoby wspaniale, gdybyś miał czas <a href=\"%2$s\">pomóc nam w tłumaczeniu</a>."
 
-msgid "http://kpumuk.info/"
-msgstr "http://kpumuk.info/"
+#: codecolorer-admin.php:42
+msgid "CodeColorer translation is incomplete."
+msgstr "Tłumaczenie CodeColorer jest niekompletne."
 
+#: codecolorer-admin.php:56
+msgid "Code Highlighting Options"
+msgstr "Ustawienia opcji wyróżniania kodu"
+
+#: codecolorer-admin.php:65
+msgid "Lines to scroll"
+msgstr "Przewijanie po liniach:"
+
+#: codecolorer-admin.php:68
+msgid "If your code lines number is less than this value, block height would not be fixed. Set to <b>-1</b> to remove vertical scroll."
+msgstr "Jeśli liczba linii kodu będzie mniejsza niż ta wartość, wysokość bloku nie zostanie ustawiona. Ustawienie <b>-1</b> wyłącza pionowe przewijanie."
+
+#: codecolorer-admin.php:73
+msgid "Width"
+msgstr "Szerokość"
+
+#: codecolorer-admin.php:76
+msgid "Default code block width. Integer means pixels, also you can specify <tt>em</tt> or <tt>%</tt> suffix. Could be omitted to use whole width."
+msgstr "Domyślna szerokość bloku kodu. Jeśli nie podasz jednostki - będą to pixele. Możesz podać również przyrostki: <tt>em</tt> lub <tt>%</tt>. Nie ustawienie tej wartości spowoduje ustawienie maksymalnej szerokości."
+
+#: codecolorer-admin.php:81
+msgid "Height"
+msgstr "Wysokość"
+
+#: codecolorer-admin.php:84
+msgid "When code has more than &quot;Lines to Scroll&quot; lines, block height will be set to this value."
+msgstr "Gdy kod będzie miał więcej linii niż zostało to ustawione w opcji &quot;Przewijanie po liniach&quot;, wysokość bloku zostanie ustawiona na tę wartość."
+
+#: codecolorer-admin.php:89
+msgid "Width in RSS"
+msgstr "Szerokość w RSS"
+
+#: codecolorer-admin.php:92
+msgid "Default code block width in RSS. See Width option description."
+msgstr "Domyślna szerokość blok kodu RSS. Zobacz opis opcji Szerokość."
+
+#: codecolorer-admin.php:97
+msgid "Tab size"
+msgstr "Rozmiar wcięcia"
+
+#: codecolorer-admin.php:100
+msgid "Indicating how many spaces would represent TAB symbol."
+msgstr "Określa ile spacji będzie reprezentowało symbol TAB"
+
+#: codecolorer-admin.php:105
+msgid "Theme"
+msgstr "Skórka"
+
+#: codecolorer-admin.php:110
+msgid "Default color scheme."
+msgstr "Domyślny schemat kolorów."
+
+#: codecolorer-admin.php:115
+msgid "Inline Theme"
+msgstr "Skórka kodu \"w linii\""
+
+#: codecolorer-admin.php:120
+msgid "Default color scheme for inline code blocks."
+msgstr "Domyślny schemat kolorów dla kodu \"w linii\""
+
+#: codecolorer-admin.php:125
+msgid "Formatting"
+msgstr "Formatowanie"
+
+#: codecolorer-admin.php:129
+msgid "Show line numbers"
+msgstr "Pokazuj numery linii"
+
+#: codecolorer-admin.php:134
+msgid "Disable keyword linking"
+msgstr "Wyłącz linkowanie słów kluczowych"
+
+#: codecolorer-admin.php:140
+msgid "Custom CSS Classes"
+msgstr ""
+
+#: codecolorer-admin.php:143
+msgid "These custom CSS classes will be appended to the wrapper HTML element."
+msgstr ""
+
+#: codecolorer-admin.php:148
+msgid "Custom CSS Styles"
+msgstr "Własny styl CSS"
+
+#: codecolorer-admin.php:151
+msgid "These custom CSS rules will be appended to the CodeColorer default CSS file."
+msgstr "Ten styl zostanie dołączony do domyślnego stylu CodeColorer"
+
+#: codecolorer-admin.php:156
+msgid "Preview"
+msgstr "Podgląd"
+
+#: codecolorer-admin.php:160
+msgid "Code Example"
+msgstr "Przykładowy kod"
+
+#: codecolorer-admin.php:168
+msgid "Save Options"
+msgstr "Zapisz"
+
+#: codecolorer-core.php:240
+msgid "Close"
+msgstr "Zamknij"
+
+#: codecolorer-core.php:246
+msgid "CodeColorer has detected a problem."
+msgstr "CodeColorer wykrył problem."
+
+#: codecolorer-core.php:246
+#, php-format
+msgid "We found another plugin based on GeSHi library in your system. CodeColorer will work, but our version of GeSHi contain some patches, so we can't guarantee an ideal code highlighting now. Please review your <a href=\"%1$s\">plugins</a>, maybe you don't need them all."
+msgstr "Na Twoim blogu wykryta została inna wtyczka oparta o bibliotekę GeSHi. CodeColorer będzie działał, jednak jego wersja GeSHi zawiera własne poprawki, dlatego nie możemy zagwarantować idealnego podświetlania składni. Sprawdź zainstalowane <a href=\"%1$s\">wtyczki</a>, może nie potrzebujesz ich wszystkich."
+
+#: codecolorer.php:161
+msgid "Settings"
+msgstr "Ustawienia"
+
+#: codecolorer.php:168
+msgid "FAQ"
+msgstr "FAQ"
+
+#: codecolorer.php:169
+msgid "Support"
+msgstr "Wsparcie"
+
+#. Plugin Name of an extension
+msgid "CodeColorer"
+msgstr "CodeColorer"
+
+#. Plugin URI of an extension
 msgid "http://kpumuk.info/projects/wordpress-plugins/codecolorer/"
 msgstr "http://kpumuk.info/projects/wordpress-plugins/codecolorer/"
+
+#. Description of an extension
+msgid "This plugin allows you to insert code snippets to your posts with nice syntax highlighting powered by <a href=\"http://qbnz.com/highlighter/\">GeSHi</a> library. After enabling this plugin visit <a href=\"options-general.php?page=codecolorer.php\">the options page</a> to configure code style."
+msgstr "Wtyczka pozwala na wstawianie bloków kodu do Twoich wpisów z kolorowaniem składni z użyciem biblioteki &lt;a href=\"http://qbnz.com/highlighter/\"&gt;GeSHi</a>. Po włączeniu wtyczki przejdź na <a href=\"options-general.php?page=codecolorer.php\">stronę opcji</a> aby ją skonfigurować."
+
+#. Author of an extension
+msgid "Dmytro Shteflyuk"
+msgstr "Dmytro Shteflyuk"
+
+#. Author URI of an extension
+msgid "http://kpumuk.info/"
+msgstr "http://kpumuk.info/"
 

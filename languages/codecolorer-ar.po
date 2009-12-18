@@ -1,15 +1,16 @@
-# CodeColorer 0.9.4
+# CodeColorer 0.9.6
 # Copyright (c) 2006 - 2009 Dmytro Shteflyuk
 # This file is distributed under the same license as the CodeColorer package.
 #
 # Dmytro Shteflyuk <kpumuk@kpumuk.info>, 2009.
 # Amine Roukh <amineroukh@gmail.com>, 2009.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: CodeColorer 0.9.4\n"
+"Project-Id-Version: CodeColorer 0.9.6\n"
 "Report-Msgid-Bugs-To: http://kpumuk.info/projects/wordpress-plugins/codecolorer/\n"
 "POT-Creation-Date: 2009-07-31 13:41+0000\n"
-"PO-Revision-Date: 2009-08-26 21:39+0300\n"
+"PO-Revision-Date: 2009-12-18 17:08+0300\n"
 "Last-Translator: Dmytro Shteflyuk <kpumuk@kpumuk.info>\n"
 "Language-Team: Arabe <http://amine27.zici.fr>\n"
 "MIME-Version: 1.0\n"
@@ -100,22 +101,30 @@ msgid "Disable keyword linking"
 msgstr "تعطيل ربط الكلمات المفتاحية"
 
 #: codecolorer-admin.php:140
+msgid "Custom CSS Classes"
+msgstr ""
+
+#: codecolorer-admin.php:143
+msgid "These custom CSS classes will be appended to the wrapper HTML element."
+msgstr ""
+
+#: codecolorer-admin.php:148
 msgid "Custom CSS Styles"
 msgstr "نمط CSS مخصص"
 
-#: codecolorer-admin.php:143
+#: codecolorer-admin.php:151
 msgid "These custom CSS rules will be appended to the CodeColorer default CSS file."
 msgstr "هذه الأنماط المخصصة من CSS  يتم إضافتها إلى نهاية ملف CSS الإفتراضي الخاص بـ CodeColorer."
 
-#: codecolorer-admin.php:148
+#: codecolorer-admin.php:156
 msgid "Preview"
 msgstr "معاينة"
 
-#: codecolorer-admin.php:152
+#: codecolorer-admin.php:160
 msgid "Code Example"
 msgstr "مثال للكود"
 
-#: codecolorer-admin.php:160
+#: codecolorer-admin.php:168
 msgid "Save Options"
 msgstr "حفظ الخصائص"
 
@@ -132,15 +141,15 @@ msgstr "CodeColorer تواجه مشكل."
 msgid "We found another plugin based on GeSHi library in your system. CodeColorer will work, but our version of GeSHi contain some patches, so we can't guarantee an ideal code highlighting now. Please review your <a href=\"%1$s\">plugins</a>, maybe you don't need them all."
 msgstr "وجدنا إضافة أخرى في نظامك تعتمد على مكتبة GeSHi. CodeColorer ستعمل، لكن نسختنا من GeSHi تحتوي على بغض الرقع، إذن لن نضمن تلوين للكود مثالي الآن. من فضلك عاين <a href=\"%1$s \">الإضافات</a>، فربما لا تحتاجها جميعا."
 
-#: codecolorer.php:138
+#: codecolorer.php:161
 msgid "Settings"
 msgstr "الخصائص"
 
-#: codecolorer.php:146
+#: codecolorer.php:168
 msgid "FAQ"
 msgstr "الأسئلة المتكررة"
 
-#: codecolorer.php:147
+#: codecolorer.php:169
 msgid "Support"
 msgstr "الدعم"
 
