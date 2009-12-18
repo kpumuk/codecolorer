@@ -45,7 +45,7 @@ is currently available in following languages:
 * Hebrew – עִבְרִית (thanks to <a href="http://www.gadgetguru.co.il/">Yaron Ofer</a>)
 * Italian – Italiano (thanks to <a href="http://codesnippet.altervista.org/">CodeSnippet</a>)
 * Polish – Polski (thanks to <a href="http://www.andrzej.net.pl/">Andrzej Pindor</a>)
-* Brazilian Portuguese – Português Brasileiro (thanks to <a href="http://www.jeveaux.com/">Paulo César M. Jeveaux</a> and <a href="">Fabricio Bortoluzzi</a>)
+* Brazilian Portuguese – Português Brasileiro (thanks to <a href="http://www.jeveaux.com/">Paulo César M. Jeveaux</a>, <a href="">Fabricio Bortoluzzi</a>, and <a href="http://www.rodolfoleao.com/">Rodolfo Leão</a>)
 * Simplified Chinese – 简化字 (thanks to <a href="http://ixiezi.com">liuxiangqian</a>)
 * Spanish – Español (thanks to <a href="http://seich.martianwabbit.com/">Sergio Díaz</a>)
 * Spanish – Español (Argentina) (thanks to <a href="http://www.lordblacksuca.com.ar/">Diego Sucaria</a>)
@@ -241,7 +241,7 @@ an archive with plugin again (thanks to
 
 = 0.9.6 (Development) =
 * Added French translation (thanks to <a href="http://www.flyingcode.com/">Valentin PRUGNAUD</a>).
-* Added Brazilian Portuguese translation (thanks to <a href="http://www.jeveaux.com/">Paulo César M. Jeveaux</a> and <a href="">Fabricio Bortoluzzi</a>).
+* Added Brazilian Portuguese translation (thanks to <a href="http://www.jeveaux.com/">Paulo César M. Jeveaux</a>, <a href="">Fabricio Bortoluzzi</a>, and <a href="http://www.rodolfoleao.com/">Rodolfo Leão</a>).
 * Added Swedish translation (thanks to <a href="http://blog.lhli.net/">LHLI</a>).
 
 = 0.9.5 (August 27, 2009) =
