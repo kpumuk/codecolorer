@@ -50,6 +50,7 @@ is currently available in following languages:
 * Spanish – Español (thanks to <a href="http://seich.martianwabbit.com/">Sergio Díaz</a>)
 * Spanish – Español (Argentina) (thanks to <a href="http://www.lordblacksuca.com.ar/">Diego Sucaria</a>)
 * Spanish – Español (Colombia) (thanks to <a href="http://blog.lasumo.com.co/">Diego Alberto Bernal</a>)
+* Swedish – Svenska (thanks to <a href="http://blog.lhli.net/">LHLI</a>)
 * Turkish – Türkçe (thanks to <a href="http://www.hasanakgoz.com/">Hasan Akgöz</a>)
 
 Want to help me with translation? It's easy!
@@ -241,6 +242,7 @@ an archive with plugin again (thanks to
 = 0.9.6 (Development) =
 * Added French translation (thanks to <a href="http://www.flyingcode.com/">Valentin PRUGNAUD</a>).
 * Added Brazilian Portuguese translation (thanks to <a href="http://www.jeveaux.com/">Paulo César M. Jeveaux</a> and <a href="">Fabricio Bortoluzzi</a>).
+* Added Swedish translation (thanks to <a href="http://blog.lhli.net/">LHLI</a>).
 
 = 0.9.5 (August 27, 2009) =
 * Added Dutch translation (thanks to <a href="http://www.helixsoft.nl/blog/">Martijn van Iersel</a>).
