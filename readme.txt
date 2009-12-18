@@ -242,7 +242,7 @@ an archive with plugin again (thanks to
 
 == Changelog ==
 
-= 0.9.6 (Development) =
+= 0.9.6 (December 18, 2009) =
 * Added French translation (thanks to <a href="http://www.flyingcode.com/">Valentin PRUGNAUD</a>, <a href="http://fanta78.free.fr/">fanta78</a>, <a href="http://blog.zabe.fr/">Sylvain Zabé</a>, and <a href="http://blogs.wittwer.fr/whiler/">Whiler</a>).
 * Added Brazilian Portuguese translation (thanks to <a href="http://www.jeveaux.com/">Paulo César M. Jeveaux</a>, <a href="">Fabricio Bortoluzzi</a>, and <a href="http://www.rodolfoleao.com/">Rodolfo Leão</a>).
 * Added Swedish translation (thanks to <a href="http://blog.lhli.net/">LHLI</a>).
