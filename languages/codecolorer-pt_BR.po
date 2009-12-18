@@ -1,26 +1,21 @@
-# Copyright (c) 2006 - 2009 Dmytro Shteflyuk
-# This file is distributed under the same license as the CodeColorer package.
-# Dmytro Shteflyuk <kpumuk@kpumuk.info>, 2009.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: CodeColorer 0.9.5\n"
 "Report-Msgid-Bugs-To: http://kpumuk.info/projects/wordpress-plugins/codecolorer/\n"
 "POT-Creation-Date: 2009-07-31 13:41+0000\n"
-"PO-Revision-Date: 2009-12-18 15:47+0300\n"
+"PO-Revision-Date: \n"
 "Last-Translator: Dmytro Shteflyuk <kpumuk@kpumuk.info>\n"
-"Language-Team: Translators <fb@univali.br>\n"
+"Language-Team: Paulo César M. Jeveaux <paulo@jeveaux.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Brazilian Portuguese\n"
+"X-Poedit-Language: Portuguese\n"
 "X-Poedit-Country: BRAZIL\n"
-"X-Poedit-SourceCharset: utf-8\n"
 
 #: codecolorer-admin.php:41
 #, php-format
 msgid "Your current locale is %1$s, and CodeColorer has incomplete or does not have a translation into your language. It would be great, if you have a time to <a href=\"%2$s\">help us to translate</a> it."
-msgstr "Sua região atual é %1$s, e o CodeColorer está com tradução completa ou inexistente para seu idioma. Seria muito legal se você pudesse<a href=\"%2$s\"> ajudar na tradução</a>."
+msgstr "Sua localização atual é  %1$s, e o CodeColorer não possui uma tradução completa para o seu idioma. Seria muito legal se você tivesse um tempinho para <a href=\"%2$s\">nos ajudar a traduzir</a> o CodeColorer para o seu idioma."
 
 #: codecolorer-admin.php:42
 msgid "CodeColorer translation is incomplete."
@@ -28,7 +23,7 @@ msgstr "A tradução do CodeColorer está incompleta."
 
 #: codecolorer-admin.php:56
 msgid "Code Highlighting Options"
-msgstr "Opções de realce do código"
+msgstr "Opções para o destaque de código"
 
 #: codecolorer-admin.php:65
 msgid "Lines to scroll"
@@ -36,39 +31,39 @@ msgstr "Linhas para rolar"
 
 #: codecolorer-admin.php:68
 msgid "If your code lines number is less than this value, block height would not be fixed. Set to <b>-1</b> to remove vertical scroll."
-msgstr "Se o número de linhas em seu código é menor que este valor, a alutra do bloco não será fixa. Ajuste em <b>-1</b> para remover a rolagem vertical."
+msgstr "Se o seu código tiver o número de linhas menor do que este valor, a altura do bloco não será fixada. Defina o valor como <b>-1</b> para remover a rolagem vertical."
 
 #: codecolorer-admin.php:73
 msgid "Width"
-msgstr "Largura"
+msgstr "Largura (width)"
 
 #: codecolorer-admin.php:76
 msgid "Default code block width. Integer means pixels, also you can specify <tt>em</tt> or <tt>%</tt> suffix. Could be omitted to use whole width."
-msgstr "Largura pardão para o bloco de código. Inteiro significa pixels. Você também pode especificar um sufixo <tt>em</tt> ou <tt>%</tt>. Pode ser omitido para usar toda a largura."
+msgstr "Largura padrão do bloco de código. O valor em inteiro é usado para representar o tamanho em pixels, mas você também pode especificar usando os sufixos <tt>em</tt> ou <tt>%</tt>. Este valor pode ser omitido para usar a largura inteira do código."
 
 #: codecolorer-admin.php:81
 msgid "Height"
-msgstr "Altura"
+msgstr "Altura (height)"
 
 #: codecolorer-admin.php:84
 msgid "When code has more than &quot;Lines to Scroll&quot; lines, block height will be set to this value."
-msgstr "Quando o código tem moais de &quot;Linhas para Rolar&quot; linhas, a altura do bloco será ajustada para este valor."
+msgstr "Quando o código tiver mais linhas do que o valor em &quot;Linhas para rolar&quot; a altura do bloco terá este tamanho."
 
 #: codecolorer-admin.php:89
 msgid "Width in RSS"
-msgstr "Largura no RSS"
+msgstr "Largura (width) no RSS"
 
 #: codecolorer-admin.php:92
 msgid "Default code block width in RSS. See Width option description."
-msgstr "Largura de bloco de código padrão para o RSS. Veja a descrição da opção Largura"
+msgstr "Largura padrão do bloco de código mostrado no RSS. Veja a descrição da Largura para mais informações."
 
 #: codecolorer-admin.php:97
 msgid "Tab size"
-msgstr "Tamnho do Tab"
+msgstr "Tamanho do TAB"
 
 #: codecolorer-admin.php:100
 msgid "Indicating how many spaces would represent TAB symbol."
-msgstr "Indica quantos espaços representação um símbolo TAB"
+msgstr "Quantos espaços serão utilizados para representar o TAB."
 
 #: codecolorer-admin.php:105
 msgid "Theme"
@@ -76,15 +71,15 @@ msgstr "Tema"
 
 #: codecolorer-admin.php:110
 msgid "Default color scheme."
-msgstr "Esquema de cores padrão."
+msgstr "Tema de cores padrão."
 
 #: codecolorer-admin.php:115
 msgid "Inline Theme"
-msgstr "Tema em linha"
+msgstr "Tema inline (no meio da linha de texto)"
 
 #: codecolorer-admin.php:120
 msgid "Default color scheme for inline code blocks."
-msgstr "Esquema de cores padrão para o tema em linha"
+msgstr "Tema de cores padrão para códigos inline (no meio da linha de texto)"
 
 #: codecolorer-admin.php:125
 msgid "Formatting"
@@ -92,27 +87,27 @@ msgstr "Formatação"
 
 #: codecolorer-admin.php:129
 msgid "Show line numbers"
-msgstr "Mostrar números das linhas"
+msgstr "Mostrar número nas linhas"
 
 #: codecolorer-admin.php:134
 msgid "Disable keyword linking"
-msgstr "Desabilitar link por teclado"
+msgstr "Desabilitar links nas palavras-chave."
 
 #: codecolorer-admin.php:140
 msgid "Custom CSS Styles"
-msgstr "Estilos CSS personalizados"
+msgstr "Estilos CSS customizados"
 
 #: codecolorer-admin.php:143
 msgid "These custom CSS rules will be appended to the CodeColorer default CSS file."
-msgstr "Estas regras CCS personalizadas serão adicionadas ao arquivo CSS padrão do CodeColorer."
+msgstr "Estas regras personalizadas serão anexadas ao CSS padrão do CodeColorer."
 
 #: codecolorer-admin.php:148
 msgid "Preview"
-msgstr "Prévia"
+msgstr "Previsualizar"
 
 #: codecolorer-admin.php:152
 msgid "Code Example"
-msgstr "Exemplo de Código"
+msgstr "Exemplo de código"
 
 #: codecolorer-admin.php:160
 msgid "Save Options"
@@ -124,16 +119,16 @@ msgstr "Fechar"
 
 #: codecolorer-core.php:246
 msgid "CodeColorer has detected a problem."
-msgstr "O CodeColorer detectou um problema."
+msgstr "CodeColorer detectou um problema."
 
 #: codecolorer-core.php:246
 #, php-format
 msgid "We found another plugin based on GeSHi library in your system. CodeColorer will work, but our version of GeSHi contain some patches, so we can't guarantee an ideal code highlighting now. Please review your <a href=\"%1$s\">plugins</a>, maybe you don't need them all."
-msgstr "Nós encontramos outro plugin baseado na biblioteca GeSHi em seu sistema. O CodeColorer vai funcionar, mas sua nossa versão do GeSHi contém patches, então não podemos garantir o realce ideal no momento. Por favor revise seus <a href=\"%1$s\">plugins</a>, talvez você não precise deles."
+msgstr "Nós encontramos outro plugin que também é baseado no GeSHi instalado no seu sistema. O CodeColorer irá funcionar, mas a nossa versão do GeSHi possui algumas correções e melhorias, por isso não podemos garantir que  CodeColorer funcionará da forma ideal. Por favor revise as instalações de seus <a href=\"%1$s\">plugins</a>, talvez exista algum que você não precise mais."
 
 #: codecolorer.php:138
 msgid "Settings"
-msgstr "Ajustes"
+msgstr "Configurações"
 
 #: codecolorer.php:146
 msgid "FAQ"
@@ -145,7 +140,7 @@ msgstr "Suporte"
 
 #. Plugin Name of an extension
 msgid "CodeColorer"
-msgstr "CodeColore"
+msgstr "CodeColorer"
 
 #. Plugin URI of an extension
 msgid "http://kpumuk.info/projects/wordpress-plugins/codecolorer/"
@@ -153,7 +148,7 @@ msgstr "http://kpumuk.info/projects/wordpress-plugins/codecolorer/"
 
 #. Description of an extension
 msgid "This plugin allows you to insert code snippets to your posts with nice syntax highlighting powered by <a href=\"http://qbnz.com/highlighter/\">GeSHi</a> library. After enabling this plugin visit <a href=\"options-general.php?page=codecolorer.php\">the options page</a> to configure code style."
-msgstr "Este plugin permite a inserção de snippets em seus posts com um realce de sintaxe legal baseado na biblioteca <a href=\"http://qbnz.com/highlighter/\">GeSHi</a>. Depois de habilitar este plugin visite a <a href=\"options-general.php?page=codecolorer.php\"> página de opções</a> para configura o estilo do código."
+msgstr "Este plugin permite que você insira trechos de código em seus posts aplicando destaque com cores e formatação usando uma simples sintaxe provida pela lib <a href=\"http://qbnz.com/highlighter/\">GeSHi</a>. Depois de ativar este plugin visite <a href=\"options-general.php?page=codecolorer.php\">a página de opções</a> para configurar o estilo dos seus códigos."
 
 #. Author of an extension
 msgid "Dmytro Shteflyuk"
