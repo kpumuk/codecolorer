@@ -2,7 +2,7 @@
 Contributors: kpumuk
 Tags: code, snippet, syntax, highlight, highlighting, color, geshi
 Requires at least: 2.7.0
-Tested up to: 2.8.5
+Tested up to: 2.9.0
 Stable tag: 0.9.6
 
 CodeColorer is a syntax highlighting plugin which allows to insert code
