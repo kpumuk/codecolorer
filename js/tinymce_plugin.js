@@ -46,7 +46,7 @@
         author : 'Dmytro Shtefluk',
         authorurl : 'http://kpumuk.info/',
         infourl : 'http://kpumuk.info/projects/wordpress-plugins/codecolorer/',
-        version : '0.9.4'
+        version : '0.9.7'
       };
     }
   });
