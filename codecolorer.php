@@ -238,8 +238,18 @@ class CodeColorerLoader {
     }
     return $content;
   }
+
+  function Highlight($code) {
+    $cc = &CodeColorer::GetInstance();
+    if (null !== $cc) {
+      return $cc->GetCodeHighlighted($code);
+    }
+    return $code;
+  }
 }
 
 CodeColorerLoader::Enable();
 
-?>
+function codecolorer_highlight($code) {
+  return CodeColorerLoader::Highlight($code);
+}
