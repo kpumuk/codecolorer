@@ -72,7 +72,7 @@ class CodeColorerLoader {
     add_action('admin_menu', array('CodeColorerLoader', 'AddPluginOptionsPage'));
 
     // Load CodeColorer styles on admin pages
-    add_action('admin_head', array('CodeColorerLoader', 'LoadStyles'));
+    add_action('admin_print_styles', array('CodeColorerLoader', 'LoadStyles'));
 
     // Show notice when another GeSHi library found
     if (get_option('codecolorer_concurrent_notification')) {
@@ -80,7 +80,7 @@ class CodeColorerLoader {
     }
 
     // Load CodeColorer styles on regular pages
-    add_action('wp_head', array('CodeColorerLoader', 'LoadStyles'));
+    add_action('wp_print_styles', array('CodeColorerLoader', 'LoadStyles'));
 
     // Add action links
     add_action('plugin_action_links_' . plugin_basename(__FILE__), array('CodeColorerLoader', 'AddPluginActions'));
@@ -99,7 +99,7 @@ class CodeColorerLoader {
     // Code protection filters
     add_filter('pre_comment_content', array('CodeColorerLoader', 'CallBeforeProtectComment'), -1000);
     add_filter('pre_comment_content', array('CodeColorerLoader', 'CallAfterProtectComment'), 1000);
-    
+
     return true;
   }
 
@@ -142,7 +142,7 @@ class CodeColorerLoader {
 
   function LoadStyles() {
     $css_url = plugins_url(basename(dirname(__FILE__)) . '/codecolorer.css');
-    echo "<link rel=\"stylesheet\" href=\"$css_url\" type=\"text/css\" />\n";
+    wp_enqueue_style('codecolorer', $css_url, array(), '0.9.6', 'screen');
     $styles = trim(get_option('codecolorer_css_style'));
     if (!empty($styles)) {
       echo "<style type=\"text/css\">$styles</style>\n";
@@ -170,7 +170,7 @@ class CodeColorerLoader {
     }
     return $links;
   }
-  
+
   function RegisterQuicktag() {
     if (is_admin()) {
       wp_enqueue_script('jquery');
@@ -181,12 +181,12 @@ class CodeColorerLoader {
       ));
     }
   }
-  
+
   function RegisterTinyMCEButton($buttons) {
     array_push($buttons, 'separator', 'codecolorer');
     return $buttons;
   }
-  
+
   function AddTinyMCEPlugin($plugins) {
     $url = plugins_url(basename(dirname(__FILE__)) . '/js/tinymce_plugin.js');
     $plugins['codecolorer'] = $url;

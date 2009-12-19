@@ -245,6 +245,7 @@ an archive with plugin again (thanks to
 = 0.9.7 (Development) =
 * Fixed `theme="geshi"` attribute bug.
 * Added ability to highlight arbitary piece of code from PHP.
+* Use `wp_enqueue_style` instead of echoing plain HTML.
 
 = 0.9.6 (December 18, 2009) =
 * Added French translation (thanks to <a href="http://www.flyingcode.com/">Valentin PRUGNAUD</a>, <a href="http://fanta78.free.fr/">fanta78</a>, <a href="http://blog.zabe.fr/">Sylvain Zabé</a>, and <a href="http://blogs.wittwer.fr/whiler/">Whiler</a>).
