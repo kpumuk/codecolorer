@@ -2,8 +2,8 @@
 Contributors: kpumuk
 Tags: code, snippet, syntax, highlight, highlighting, color, geshi
 Requires at least: 2.7.0
-Tested up to: 2.9.0
-Stable tag: 0.9.6
+Tested up to: 2.9
+Stable tag: 0.9.7
 
 CodeColorer is a syntax highlighting plugin which allows to insert code
 snippets into blog posts. Supports color themes, code in RSS, comments.
@@ -61,7 +61,7 @@ Want to help me with translation? It's easy!
 2. Download <a href="http://svn.wp-plugins.org/codecolorer/trunk/languages/codecolorer.pot">codecolorer.pot</a> file.
 3. Click *File/New catalog from .pot file* and select *codecolorer.pop*
    you've just downloaded.
-4. Enter project name (something like **CodeColorer 0.9.1**), your name
+4. Enter project name (something like **CodeColorer 0.9.7**), your name
    and email address, select a language you want to translate to and
    click *OK*.
 5. Enter a filename like **codecolorer-en_EN** and click *Save*.
@@ -242,10 +242,12 @@ an archive with plugin again (thanks to
 
 == Changelog ==
 
-= 0.9.7 (Development) =
+= 0.9.7 (December 19, 2009) =
 * Fixed `theme="geshi"` attribute bug.
 * Added ability to highlight arbitary piece of code from PHP.
 * Use `wp_enqueue_style` instead of echoing plain HTML.
+* Fixed problem with escaped code blocks, when some entities were not unescaped.
+* Fixed compatibility with WordPress 2.9.
 
 = 0.9.6 (December 18, 2009) =
 * Added French translation (thanks to <a href="http://www.flyingcode.com/">Valentin PRUGNAUD</a>, <a href="http://fanta78.free.fr/">fanta78</a>, <a href="http://blog.zabe.fr/">Sylvain Zabé</a>, and <a href="http://blogs.wittwer.fr/whiler/">Whiler</a>).
