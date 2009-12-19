@@ -145,12 +145,14 @@ class CodeColorer {
     $geshi->set_overall_class('codecolorer');
     $geshi->set_tab_width($options['tab_size']);
     if (!is_feed()) {
-      if ($options['theme'] != 'geshi') $geshi->enable_classes();
+      $geshi->enable_classes($options['theme'] != 'geshi');
       if ($options['nowrap']) {
         $geshi->set_overall_style('white-space:nowrap');
       } else {
         $geshi->set_overall_style('');
       }
+    } else {
+      $geshi->enable_classes(false);
     }
     if (!is_null($options['strict'])) $geshi->enable_strict_mode($options['strict']);
     if ($options['no_links']) $geshi->enable_keyword_links(false);
