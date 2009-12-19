@@ -266,9 +266,13 @@ class CodeColorer {
     return $this->optionsPage;
   }
 
-  function GetSampleCodeHighlighted() {
-    $content = $this->BeforeHighlightCodeBlock($this->samplePhpCode);
+  function GetCodeHighlighted($code) {
+    $content = $this->BeforeHighlightCodeBlock($code);
     return $this->AfterHighlightCodeBlock($content);
+  }
+
+  function GetSampleCodeHighlighted() {
+    return $this->GetCodeHighlighted($this->samplePhpCode);
   }
 
   function &GetInstance() {

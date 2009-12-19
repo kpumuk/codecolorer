@@ -173,5 +173,3 @@ class CodeColorerAdmin {
     <?php
   }
 }
-
-?>
