@@ -142,7 +142,8 @@ class CodeColorerLoader {
 
   function LoadStyles() {
     $css_url = plugins_url(basename(dirname(__FILE__)) . '/codecolorer.css');
-    wp_enqueue_style('codecolorer', $css_url, array(), '0.9.6', 'screen');
+    wp_register_style('codecolorer', $css_url, array(), CODECOLORER_VERSION, 'screen');
+    wp_enqueue_style('codecolorer');
     $styles = trim(get_option('codecolorer_css_style'));
     if (!empty($styles)) {
       echo "<style type=\"text/css\">$styles</style>\n";
