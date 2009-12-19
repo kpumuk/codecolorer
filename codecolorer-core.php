@@ -82,7 +82,9 @@ class CodeColorer {
     $options = CodeColorerOptions::ParseOptions($opts, $suffix);
 
     if ($options['escaped']) {
-      $text = html_entity_decode($text);
+      $text = html_entity_decode($text, ENT_QUOTES);
+      $text = preg_replace('~&#x0*([0-9a-f]+);~ei', 'chr(hexdec("\\1"))', $text);
+      $text = preg_replace('~&#0*([0-9]+);~e', 'chr(\\1)', $text);
     }
 
     $result = '';
