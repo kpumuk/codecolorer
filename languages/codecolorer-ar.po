@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: CodeColorer 0.9.7\n"
 "Report-Msgid-Bugs-To: http://kpumuk.info/projects/wordpress-plugins/codecolorer/\n"
 "POT-Creation-Date: 2009-07-31 13:41+0000\n"
-"PO-Revision-Date: 2009-12-18 17:08+0300\n"
+"PO-Revision-Date: 2009-12-21 16:07+0300\n"
 "Last-Translator: Dmytro Shteflyuk <kpumuk@kpumuk.info>\n"
 "Language-Team: Arabe <http://amine27.zici.fr>\n"
 "MIME-Version: 1.0\n"
@@ -102,11 +102,11 @@ msgstr "تعطيل ربط الكلمات المفتاحية"
 
 #: codecolorer-admin.php:140
 msgid "Custom CSS Classes"
-msgstr ""
+msgstr "فئات CSS مخصصة"
 
 #: codecolorer-admin.php:143
 msgid "These custom CSS classes will be appended to the wrapper HTML element."
-msgstr ""
+msgstr "هذه الفئات المخصصة من CSS ستضاف إلى عناصر غلاف HTML."
 
 #: codecolorer-admin.php:148
 msgid "Custom CSS Styles"
