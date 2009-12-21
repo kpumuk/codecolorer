@@ -53,6 +53,7 @@ class CodeColorerAdmin {
     ?>
 
     <div class="wrap">
+      <?php screen_icon(); ?>
       <h2>CodeColorer: <?php _e('Code Highlighting Options', 'codecolorer') ?></h2>
 
       <?php if (get_option('codecolorer_language_notification')) $this->ShowLanguageWarning(); ?>
