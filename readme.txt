@@ -242,6 +242,9 @@ an archive with plugin again (thanks to
 
 == Changelog ==
 
+= 0.9.8 (Development) =
+* Added an icon to the admin options page.
+
 = 0.9.7 (December 19, 2009) =
 * Fixed `theme="geshi"` attribute bug.
 * Added ability to highlight arbitary piece of code from PHP.
