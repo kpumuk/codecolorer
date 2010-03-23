@@ -245,6 +245,7 @@ an archive with plugin again (thanks to
 = 0.9.8 (Development) =
 * Added an icon to the admin options page.
 * Updated Arabic translation (thanks to <a href="http://amine27.zici.fr/">Amine Roukh</a>).
+* GeSHi updated to 1.0.8.6.
 
 = 0.9.7 (December 19, 2009) =
 * Fixed `theme="geshi"` attribute bug.
