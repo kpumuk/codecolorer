@@ -36,6 +36,8 @@ code.codecolorer { padding: 2px; }
 .twitlight .xml .re1 { color: #008080; }
 /* Constant */
 .twitlight .xml .re0 { color: #0080A0; }
+/* Highlight lines */
+.codecolorer .ln-xtra { background-color: #ffff66; }
 
 /* "Twitlight" color scheme */
 .twitlight, .twitlight .codecolorer { color: #F8F8F8; background-color: #141414; }

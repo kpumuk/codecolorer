@@ -161,6 +161,8 @@ page. You can find modes explained below.
 * **theme** (*string*) – color theme (default, blackboard, dawn, mac-classic,
   twitlight, vibrant, geshi).
 * **first_line** (*integer*) – a number of the first line in the block.
+* **highlight** (*string*) — a comma-separated list of line numbers to
+  highlight (e.g. `1,5,8,9`).
 * **escaped** (*boolean*) – when *true* special HTML sequences like `&lt;` or
   `&#91;` will be treated as encoded (in this example as `<` and `[`
   respectively.)
@@ -246,6 +248,8 @@ an archive with plugin again (thanks to
 * Added an icon to the admin options page.
 * Updated Arabic translation (thanks to <a href="http://amine27.zici.fr/">Amine Roukh</a>).
 * GeSHi updated to 1.0.8.6.
+* Added ability to highlight specified lines (thanks to <a href="http://www.deltanova.co.uk/641/">DELTA NOVA</a>).
+* Some unit tests added.
 
 = 0.9.7 (December 19, 2009) =
 * Fixed `theme="geshi"` attribute bug.
@@ -269,20 +273,6 @@ an archive with plugin again (thanks to
 * Added Spanish (Argentina) translation (thanks to <a href="http://www.lordblacksuca.com.ar/">Diego Sucaria</a>).
 * Added Arabic translation (thanks to <a href="http://amine27.zici.fr/">Amine Roukh</a>).
 * Fixed bug in Safari 4 caused by text-align=justify in parent container.
-
-= 0.9.4 (August 24, 2009) =
-* Version bump to 0.9.4 (for WordPress.org)
-
-= 0.9.3 (August 20, 2009) =
-* Quicktag added (replaces default `code` button).
-* TinyMCE plugin added to insert code snippets (temporarily disabled).
-* Added German translation (thanks to <a href="www.fabianschulz.net/">Fabian Schulz</a> and <a href="http://michael-gutbier.de/">Michael Gutbier</a>).
-* Added Spanish translation (thanks to <a href="http://seich.martianwabbit.com/">Sergio Díaz</a>).
-* Added Turkish translation (thanks to <a href="http://www.hasanakgoz.com/">Hasan Akgöz</a>).
-* Added Polish translation (thanks to <a href="http://www.andrzej.net.pl/">Andrzej Pindor</a>).
-* Added Spanish (Colombia) translation (thanks to <a href="http://blog.lasumo.com.co/">Diego Alberto Bernal</a>)
-* Added Hebrew translation (thanks to <a href="http://www.gadgetguru.co.il/">Yaron Ofer</a>).
-* Fixed problem with PHP 4 (thanks to <a href="http://www.conan1412.os3.sg/conan/cblog/">Conan Chou</a>, <a href="http://markup-javascript.com/">Алексей Таранец</a>, <a href="http://www.helixsoft.nl/blog/">Martijn van Iersel</a>).
 
 You can find complete changelog on the <a href="http://kpumuk.info/projects/wordpress-plugins/codecolorer/history/">CodeColorer history</a>
 page.

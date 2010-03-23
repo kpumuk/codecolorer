@@ -158,6 +158,11 @@ class CodeColorer {
     }
     if (!is_null($options['strict'])) $geshi->enable_strict_mode($options['strict']);
     if ($options['no_links']) $geshi->enable_keyword_links(false);
+    if ($options['highlight']){
+      $hlines = explode(',', $options['highlight']);
+      $geshi->highlight_lines_extra($hlines);
+      $geshi->set_highlight_lines_extra_style('background-color:#ffff66');
+    }
     if ($options['inline']) {
       $geshi->set_header_type(GESHI_HEADER_NONE);
     } else {
