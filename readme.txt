@@ -3,7 +3,7 @@ Contributors: kpumuk
 Tags: code, snippet, syntax, highlight, highlighting, color, geshi
 Requires at least: 2.7.0
 Tested up to: 2.9
-Stable tag: 0.9.7
+Stable tag: 0.9.8
 
 CodeColorer is a syntax highlighting plugin which allows to insert code
 snippets into blog posts. Supports color themes, code in RSS, comments.
@@ -64,7 +64,7 @@ Want to help me with translation? It's easy!
 2. Download <a href="http://svn.wp-plugins.org/codecolorer/trunk/languages/codecolorer.pot">codecolorer.pot</a> file.
 3. Click *File/New catalog from .pot file* and select *codecolorer.pop*
    you've just downloaded.
-4. Enter project name (something like **CodeColorer 0.9.7**), your name
+4. Enter project name (something like **CodeColorer 0.9.8**), your name
    and email address, select a language you want to translate to and
    click *OK*.
 5. Enter a filename like **codecolorer-en_EN** and click *Save*.
@@ -247,7 +247,7 @@ an archive with plugin again (thanks to
 
 == Changelog ==
 
-= 0.9.8 (Development) =
+= 0.9.8 (March 23, 2010) =
 * Added an icon to the admin options page.
 * Updated Arabic translation (thanks to <a href="http://amine27.zici.fr/">Amine Roukh</a>).
 * GeSHi updated to 1.0.8.6.
