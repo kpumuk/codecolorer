@@ -1,8 +1,8 @@
 # CodeColorer 0.9.7
-# Copyright (c) 2006 - 2009 Dmytro Shteflyuk
+# Copyright (c) 2006 - 2010 Dmytro Shteflyuk
 # This file is distributed under the same license as the CodeColorer package.
 #
-# Dmytro Shteflyuk <kpumuk@kpumuk.info>, 2009.
+# Dmytro Shteflyuk <kpumuk@kpumuk.info>, 2010.
 # Amine Roukh <amineroukh@gmail.com>, 2009.
 #
 msgid ""
