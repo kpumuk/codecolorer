@@ -198,7 +198,7 @@ class CodeColorer {
       $theme = empty($options['theme']) ? 'default' : $options['theme'];
       $style = 'style="';
       if ($options['nowrap']) $style .= 'overflow:auto;white-space:nowrap;';
-      if (is_feed()) $style .= 'border: 1px solid #9F9F9F;';
+      if (is_feed()) $style .= 'border:1px solid #9F9F9F;';
       $style .= $this->GetDimensionRule('width', is_feed() ? $options['rss_width'] : $options['width']);
       if($num_lines > $options['lines'] && $options['lines'] > 0) {
         $style .= $this->GetDimensionRule('height', $options['height']);
