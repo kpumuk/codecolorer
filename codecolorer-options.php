@@ -41,6 +41,17 @@ class CodeColorerOptions {
       'pl_PL', 'pt_BR', 'ru_RU', 'sv_SE', 'tr_TR', 'ua_UA');
   }
 
+  function GetLanguageMappings() {
+    return array(
+      'c#'  => 'csharp',
+      'cs'  => 'csharp',
+      'c++' => 'cpp',
+      'f#'  => 'fsharp',
+      'fs'  => 'fsharp',
+      'js'  => 'javascript'
+    );
+  }
+
   function ParseOptions($opts, $suffix = '') {
     $opts = str_replace(array("\\\"", "\\\'"), array ("\"", "\'"), $opts);
     preg_match_all('#([a-z_-]*?)\s*=\s*(["\'])(.*?)\2#i', $opts, $matches, PREG_SET_ORDER);
@@ -228,14 +239,9 @@ class CodeColorerOptions {
     $lang = strtolower($lang);
     if (strstr($lang, 'html')) {
       $lang = 'html4strict';
-    } elseif ($lang == 'c#') {
-      $lang = 'csharp';
-    } elseif ($lang == 'cs') {
-      $lang = 'csharp';
-    } elseif ($lang == 'c++') {
-      $lang = 'cpp';
-    } elseif ($lang == 'js') {
-      $lang = 'javascript';
+    } else {
+      $langs = CodeColorerOptions::GetLanguageMappings();
+      if ($langs[$lang]) $lang = $langs[$lang];
     }
     return $lang;
   }
