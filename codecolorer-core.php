@@ -26,7 +26,7 @@ class CodeColorer {
   var $comments = array();
 
   var $geshiExternal = false;
-  var $geshiVersion = '1.0.8.4';
+  var $geshiVersion = '1.0.8.6';
 
   var $samplePhpCode = '
     [cc_php]
