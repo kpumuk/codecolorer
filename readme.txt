@@ -43,6 +43,7 @@ is currently available in following languages:
 * Danish – Dansk (thanks to <a href="http://www.klysner.com/">Hans Klysner</a>)
 * Dutch – Nederlands (thanks to <a href="http://www.helixsoft.nl/blog/">Martijn van Iersel</a>)
 * French – Français (thanks to <a href="http://www.flyingcode.com/">Valentin PRUGNAUD</a>, <a href="http://fanta78.free.fr/">fanta78</a>, <a href="http://blog.zabe.fr/">Sylvain Zabé</a>, and <a href="http://blogs.wittwer.fr/whiler/">Whiler</a>)
+* Georgian – ქართული ენა (thanks to <a href="http://sysadmin.softgen.ge/">Nika Chkhikvishvili</a>)
 * German – German (Deutsch) (thanks to <a href="http://www.fabianschulz.net/">Fabian Schulz</a> and <a href="http://michael-gutbier.de/">Michael Gutbier</a>)
 * Hebrew – עִבְרִית (thanks to <a href="http://www.gadgetguru.co.il/">Yaron Ofer</a>)
 * Italian – Italiano (thanks to <a href="http://codesnippet.altervista.org/">CodeSnippet</a>)
@@ -251,6 +252,7 @@ an archive with plugin again (thanks to
 * GeSHi updated to 1.0.8.6.
 * Added ability to highlight specified lines (thanks to <a href="http://www.deltanova.co.uk/641/">DELTA NOVA</a>).
 * Added Czech translation (thanks to <a href="http://lelkoun.cz/">Lelkounův</a>).
+* Added Georgian translation (thanks to <a href="http://sysadmin.softgen.ge/">Nika Chkhikvishvili</a>).
 * Some unit tests added.
 
 = 0.9.7 (December 19, 2009) =
