@@ -39,6 +39,7 @@ is currently available in following languages:
 * Ukrainian – Українська
 * Arabic – العربية (thanks to <a href="http://amine27.zici.fr/">Amine Roukh</a>)
 * Belarusian – Беларуский (thanks to <a href="http://www.fatcow.com">И. Фадков</a>)
+* Czech – Čeština (thanks to <a href="http://lelkoun.cz/">Lelkounův</a>)
 * Danish – Dansk (thanks to <a href="http://www.klysner.com/">Hans Klysner</a>)
 * Dutch – Nederlands (thanks to <a href="http://www.helixsoft.nl/blog/">Martijn van Iersel</a>)
 * French – Français (thanks to <a href="http://www.flyingcode.com/">Valentin PRUGNAUD</a>, <a href="http://fanta78.free.fr/">fanta78</a>, <a href="http://blog.zabe.fr/">Sylvain Zabé</a>, and <a href="http://blogs.wittwer.fr/whiler/">Whiler</a>)
@@ -249,6 +250,7 @@ an archive with plugin again (thanks to
 * Updated Arabic translation (thanks to <a href="http://amine27.zici.fr/">Amine Roukh</a>).
 * GeSHi updated to 1.0.8.6.
 * Added ability to highlight specified lines (thanks to <a href="http://www.deltanova.co.uk/641/">DELTA NOVA</a>).
+* Added Czech translation (thanks to <a href="http://lelkoun.cz/">Lelkounův</a>).
 * Some unit tests added.
 
 = 0.9.7 (December 19, 2009) =
