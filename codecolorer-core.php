@@ -159,7 +159,7 @@ class CodeColorer {
     if (!is_null($options['strict'])) $geshi->enable_strict_mode($options['strict']);
     if ($options['no_links']) $geshi->enable_keyword_links(false);
     if ($options['highlight']) {
-      $hlines = explode(',',$options['highlight']);
+      $hlines = explode(',', $options['highlight']);
       $highlight = array(); /* Empty array to store processed line numbers*/
       foreach($hlines as $v) {
         list($from, $to) = explode('-', $v);
