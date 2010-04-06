@@ -11,13 +11,17 @@ class HighlightTest extends PHPUnit_Framework_TestCase {
     $this->shtag = "<span class=\"xtra ln-xtra\">";
     $this->ehtag = "</span>";
   }
-  
+
   public function testHighlightOneLine() {
     $this->assertRegExp("#hello<br />\n{$this->shtag}world<br />{$this->ehtag}!#", codecolorer_highlight("[cc highlight=\"2\"]hello\nworld\n![/cc]"));
   }
 
   public function testHighlightTwoLines() {
     $this->assertRegExp("#{$this->shtag}hello<br />{$this->ehtag}{$this->shtag}world<br />{$this->ehtag}!#", codecolorer_highlight("[cc highlight=\"2,1\"]hello\nworld\n![/cc]"));
+  }
+
+  public function testHighlightRange() {
+    $this->assertRegExp("#{$this->shtag}hello<br />{$this->ehtag}{$this->shtag}world<br />{$this->ehtag}{$this->shtag}!{$this->ehtag}#", codecolorer_highlight("[cc highlight=\"2-3,1\"]hello\nworld\n![/cc]"));
   }
 
   public function testHighlightWithCodePHPLanguage() {

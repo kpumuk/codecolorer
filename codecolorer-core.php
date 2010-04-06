@@ -158,9 +158,19 @@ class CodeColorer {
     }
     if (!is_null($options['strict'])) $geshi->enable_strict_mode($options['strict']);
     if ($options['no_links']) $geshi->enable_keyword_links(false);
-    if ($options['highlight']){
-      $hlines = explode(',', $options['highlight']);
-      $geshi->highlight_lines_extra($hlines);
+    if ($options['highlight']) {
+      $hlines = explode(',',$options['highlight']);
+      $highlight = array(); /* Empty array to store processed line numbers*/
+      foreach($hlines as $v) {
+        list($from, $to) = explode('-', $v);
+        if (is_null($to)) $to = $from;
+        for ($i = $from; $i <= $to; $i++) {
+          array_push($highlight, $i);
+        }
+      }
+      /* Sort the array in ascending numerical order */
+      sort($highlight);
+      $geshi->highlight_lines_extra($highlight);
       $geshi->set_highlight_lines_extra_style('background-color:#ffff66');
     }
     if ($options['inline']) {
