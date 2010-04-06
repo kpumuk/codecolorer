@@ -51,7 +51,7 @@ is currently available in following languages:
 * Persian – فارسی, پارسی, دری (thanks to <a href="http://www.7sal.com/">Hamed Momeni</a>)
 * Polish – Polski (thanks to <a href="http://www.andrzej.net.pl/">Andrzej Pindor</a>)
 * Brazilian Portuguese – Português Brasileiro (thanks to <a href="http://www.jeveaux.com/">Paulo César M. Jeveaux</a>, <a href="">Fabricio Bortoluzzi</a>, and <a href="http://www.rodolfoleao.com/">Rodolfo Leão</a>)
-* Simplified Chinese – 简化字 (thanks to <a href="http://ixiezi.com">liuxiangqian</a>)
+* Simplified Chinese – 简化字 (thanks to <a href="http://ixiezi.com">liuxiangqian</a> and <a href="http://tihope.com/">KenSai</a>)
 * Spanish – Español (thanks to <a href="http://seich.martianwabbit.com/">Sergio Díaz</a>)
 * Spanish – Español (Argentina) (thanks to <a href="http://www.lordblacksuca.com.ar/">Diego Sucaria</a>)
 * Spanish – Español (Colombia) (thanks to <a href="http://blog.lasumo.com.co/">Diego Alberto Bernal</a>)
@@ -250,6 +250,7 @@ an archive with plugin again (thanks to
 = 0.9.9 (Development) =
 * Added ability to highlight ranges of lines (thanks to <a href="http://www.deltanova.co.uk/670/">DELTA NOVA</a>).
 * GeSHi updated to 1.0.8.7.
+* Updated Simplified Chinese translation (thanks to <a href="http://tihope.com/">KenSai</a>).
 
 = 0.9.8 (March 23, 2010) =
 * Added an icon to the admin options page.
