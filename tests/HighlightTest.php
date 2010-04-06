@@ -24,7 +24,7 @@ class HighlightTest extends PHPUnit_Framework_TestCase {
     $this->assertRegExp("#{$this->shtag}hello<br />{$this->ehtag}{$this->shtag}world<br />{$this->ehtag}{$this->shtag}!{$this->ehtag}#", codecolorer_highlight("[cc highlight=\"2-3,1\"]hello\nworld\n![/cc]"));
   }
 
-  public function testHighlightWithCodePHPLanguage() {
+  public function testHighlightWithCodePhpLanguage() {
     $this->assertRegExp("#{$this->shtag}<span class=\"re0\">\\\$a</span> <span class=\"sy0\">=</span> <span class=\"nu0\">10</span><span class=\"sy0\">;</span><br />{$this->ehtag}<span class=\"re0\">\\\$b</span> <span class=\"sy0\">=</span> <span class=\"nu0\">20</span><span class=\"sy0\">;</span>#", codecolorer_highlight("[cc lang=\"php\" highlight=\"1\"]\$a = 10;\n\$b = 20;[/cc]"));
   }
 
