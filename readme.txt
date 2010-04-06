@@ -164,8 +164,8 @@ page. You can find modes explained below.
 * **theme** (*string*) – color theme (default, blackboard, dawn, mac-classic,
   twitlight, vibrant, geshi).
 * **first_line** (*integer*) – a number of the first line in the block.
-* **highlight** (*string*) — a comma-separated list of line numbers to
-  highlight (e.g. `1,5,8,9`).
+* **highlight** (*string*) — a comma-separated list of line numbers or ranges
+  of line numbers to highlight (e.g. `1,5,8-11`).
 * **escaped** (*boolean*) – when *true* special HTML sequences like `&lt;` or
   `&#91;` will be treated as encoded (in this example as `<` and `[`
   respectively.)
@@ -246,6 +246,9 @@ an archive with plugin again (thanks to
 4. Settings page.
 
 == Changelog ==
+
+= 0.9.9 (Development) =
+* Added ability to highlight ranges of lines (thanks to <a href="http://www.deltanova.co.uk/670/">DELTA NOVA</a>).
 
 = 0.9.8 (March 23, 2010) =
 * Added an icon to the admin options page.
