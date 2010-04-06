@@ -249,6 +249,7 @@ an archive with plugin again (thanks to
 
 = 0.9.9 (Development) =
 * Added ability to highlight ranges of lines (thanks to <a href="http://www.deltanova.co.uk/670/">DELTA NOVA</a>).
+* GeSHi updated to 1.0.8.7.
 
 = 0.9.8 (March 23, 2010) =
 * Added an icon to the admin options page.
@@ -288,7 +289,7 @@ page.
 
 == Supported languages ==
 
-Here is list of supported by CodeColorer languages: abap, actionscript, actionscript3, ada, apache, applescript, apt\_sources, asm, asp, autoit, avisynth, bash, basic4gl, bf, bibtex, blitzbasic, bnf, boo, c, c\_mac, caddcl, cadlisp, cfdg, cfm, cil, cmake, cobol, cpp-qt, cpp, csharp, css, d, dcs, delphi, diff, div, dos, dot, eiffel, email, erlang, fo, fortran, freebasic, genero, gettext, glsl, gml, gnuplot, groovy, haskell, hq9plus, html4strict, idl, ini, inno, intercal, io, java, java5, javascript, kixtart, klonec, klonecpp, latex, lisp, locobasic, lolcode, lotusformulas, lotusscript, lscript, lsl2, lua, m68k, make, matlab, mirc, modula3, mpasm, mxml, mysql, nsis, oberon2, objc, ocaml-brief, ocaml, oobas, oracle11, oracle8, pascal, per, perl, php-brief, php, pic16, pixelbender, plsql, povray, powershell, progress, prolog, properties, providex, python, qbasic, rails, rebol, reg, robots, ruby, sas, scala, scheme, scilab, sdlbasic, smalltalk, smarty, sql, tcl, teraterm, text, thinbasic, tsql, typoscript, vb, vbnet, verilog, vhdl, vim, visualfoxpro, visualprolog, whitespace, whois, winbatch, xml, xorg\_conf, xpp, yaml, z80.
+Here is list of supported by CodeColorer languages: 4cs, abap, actionscript, actionscript3, ada, apache, applescript, apt\_sources, asm, asp, autoconf, autohotkey, autoit, avisynth, awk, bash, basic4gl, bf, bibtex, blitzbasic, bnf, boo, c, c\_mac, caddcl, cadlisp, cfdg, cfm, cil, clojure, cmake, cobol, cpp-qt, cpp, csharp, css, cuesheet, d, dcs, delphi, diff, div, dos, dot, ecmascript, eiffel, email, erlang, fo, fortran, freebasic, fsharp, gambas, gdb, genero, gettext, glsl, gml, gnuplot, groovy, haskell, hq9plus, html4strict, idl, ini, inno, intercal, io, j, java, java5, javascript, jquery, kixtart, klonec, klonecpp, latex, lisp, locobasic, logtalk, lolcode, lotusformulas, lotusscript, lscript, lsl2, lua, m68k, make, mapbasic, matlab, mirc, mmix, modula3, mpasm, mxml, mysql, newlisp, nsis, oberon2, objc, ocaml-brief, ocaml, oobas, oracle11, oracle8, oxygene, pascal, per, perl, perl6, pf, php-brief, php, pic16, pike, pixelbender, plsql, povray, powerbuilder, powershell, progress, prolog, properties, providex, purebasic, python, qbasic, rails, rebol, reg, robots, rsplus, ruby, sas, scala, scheme, scilab, sdlbasic, smalltalk, smarty, sql, systemverilog, tcl, teraterm, text, thinbasic, tsql, typoscript, vb, vbnet, verilog, vhdl, vim, visualfoxpro, visualprolog, whitespace, whois, winbatch, xml, xorg\_conf, xpp, yaml, z80.
 
 == Development ==
 
