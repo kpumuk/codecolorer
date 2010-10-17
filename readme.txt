@@ -249,7 +249,7 @@ an archive with plugin again (thanks to
 
 = 0.9.9 (Development) =
 * Added ability to highlight ranges of lines (thanks to <a href="http://www.deltanova.co.uk/670/">DELTA NOVA</a>).
-* GeSHi updated to 1.0.8.8.
+* GeSHi updated to 1.0.8.9 (now with Google Go support!).
 * Updated Simplified Chinese translation (thanks to <a href="http://tihope.com/">KenSai</a>).
 
 = 0.9.8 (March 23, 2010) =

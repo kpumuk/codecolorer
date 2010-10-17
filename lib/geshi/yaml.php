@@ -4,10 +4,10 @@
  * --------
  * Author: Dmytro Shteflyuk (kpumuk@kpumuk.info)
  * Copyright: (c) 2007 Dmytro Shteflyuk
- * Release Version: 1.0.8.2
+ * Release Version: 1.0.8.9
  * Date Started: 2007/04/03
  *
- * YAML Ain't Markup Language language file for GeSHi.
+ * YAML language file for GeSHi.
  *
  * CHANGES
  * -------
