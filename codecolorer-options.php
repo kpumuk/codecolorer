@@ -39,8 +39,8 @@ class CodeColorerOptions {
     return array(
       '', 'en', 'en_US', 'ar', 'be_BY', 'cs_CZ', 'da_DK', 'de_DE', 'es_AR',
       'es_CO', 'es_ES', 'fa_IR', 'fr_FR', 'he_IL', 'hu_HU', 'it_IT', 'ja',
-      'ka_GE', 'nl_NL', 'pl_PL', 'pt_BR', 'ru_RU', 'sv_SE', 'tr_TR', 'ua_UA',
-      'zh_CN'
+      'ka_GE', 'ms_MY', 'nl_NL', 'pl_PL', 'pt_BR', 'ro_RO', 'ru_RU', 'sk_SK',
+      'sv_SE', 'tr_TR', 'ua_UA', 'zh_CN', 'zh_TW'
     );
   }
 
