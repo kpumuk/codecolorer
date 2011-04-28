@@ -277,6 +277,7 @@ This snippet will insert code from the UPLOADS_DIR/test_project/main.rb file.
 * Fix for notice 'has_cap was called with an argument that is deprecated since version 2.0!' (thanks to <a href="https://github.com/lenon">Lenon Marcel</a>).
 * Fixed undefined index warnings (thanks to <a href="https://github.com/lenon">Lenon Marcel</a>).
 * Added Railscasts theme (thanks to <a href="https://github.com/ankit">Ankit Ahuja</a>).
+* Fixed Twitlight theme (strings and symbols coloring was broken).
 
 = 0.9.8 (March 23, 2010) =
 * Added an icon to the admin options page.
