@@ -89,12 +89,14 @@ class CodeColorerLoader {
     add_filter('plugin_row_meta', array('CodeColorerLoader', 'AddPluginLinks'), 10, 2);
 
     // Code highlighting filters
-    add_filter('the_content', array('CodeColorerLoader', 'CallBeforeHighlightCodeBlock'), -1000);
-    add_filter('the_content', array('CodeColorerLoader', 'CallAfterHighlightCodeBlock'), 1000);
-    add_filter('the_excerpt', array('CodeColorerLoader', 'CallBeforeHighlightCodeBlock'), -1000);
-    add_filter('the_excerpt', array('CodeColorerLoader', 'CallAfterHighlightCodeBlock'), 1000);
+    add_filter('the_content',  array('CodeColorerLoader', 'CallBeforeHighlightCodeBlock'), -1000);
+    add_filter('the_content',  array('CodeColorerLoader', 'CallAfterHighlightCodeBlock'),   1000);
+    add_filter('the_excerpt',  array('CodeColorerLoader', 'CallBeforeHighlightCodeBlock'), -1000);
+    add_filter('the_excerpt',  array('CodeColorerLoader', 'CallAfterHighlightCodeBlock'),   1000);
     add_filter('comment_text', array('CodeColorerLoader', 'CallBeforeHighlightCodeBlock'), -1000);
-    add_filter('comment_text', array('CodeColorerLoader', 'CallAfterHighlightCodeBlock'), 1000);
+    add_filter('comment_text', array('CodeColorerLoader', 'CallAfterHighlightCodeBlock'),   1000);
+    add_filter('book_review',  array('CodeColorerLoader', 'CallBeforeHighlightCodeBlock'), -1000);
+    add_filter('book_review',  array('CodeColorerLoader', 'CallAfterHighlightCodeBlock'),   1000);
 
     // Code protection filters
     add_filter('pre_comment_content', array('CodeColorerLoader', 'CallBeforeProtectComment'), -1000);
