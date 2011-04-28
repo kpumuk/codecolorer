@@ -24,7 +24,7 @@ various nice features:
 * code block intelligent scroll detection (short code would have short block,
   for long one block height would be fixed and scrollbar would appear)
 * predefined color themes (Slush &amp; Poppies, Blackboard, Dawn, Mac Classic,
-  Twitlight, Vibrant Ink)
+  Twitlight, Vibrant Ink, Railscasts)
 * syntax colors customization in CSS file
 * code protect from mangling by Wordpress (for example, quotes, double-dashes,
   and others would look just right as you entered)
@@ -276,7 +276,7 @@ This snippet will insert code from the UPLOADS_DIR/test_project/main.rb file.
 * Added Malay translation (thanks to <a href="http://www.losebellyfat365.com/">Shareef Sam</a>).
 * Fix for notice 'has_cap was called with an argument that is deprecated since version 2.0!' (thanks to <a href="https://github.com/lenon">Lenon Marcel</a>).
 * Fixed undefined index warnings (thanks to <a href="https://github.com/lenon">Lenon Marcel</a>).
-
+* Added Railscasts theme (thanks to <a href="https://github.com/ankit">Ankit Ahuja</a>).
 
 = 0.9.8 (March 23, 2010) =
 * Added an icon to the admin options page.
