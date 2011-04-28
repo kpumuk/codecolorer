@@ -264,6 +264,9 @@ This snippet will insert code from the UPLOADS_DIR/test_project/main.rb file.
 
 == Changelog ==
 
+= 0.9.10 (Development) =
+* Fixed a bug with large code blocks margins.
+
 = 0.9.9 (April 28, 2011) =
 * Added ability to highlight ranges of lines (thanks to <a href="http://www.deltanova.co.uk/670/">DELTA NOVA</a>).
 * GeSHi updated to 1.0.8.10 (now with Google Go support!).
