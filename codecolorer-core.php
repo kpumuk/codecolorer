@@ -180,7 +180,7 @@ class CodeColorer {
       $hlines = explode(',', $options['highlight']);
       $highlight = array(); /* Empty array to store processed line numbers*/
       foreach($hlines as $v) {
-        list($from, $to) = explode('-', $v);
+        @list($from, $to) = explode('-', $v);
         if (is_null($to)) $to = $from;
         for ($i = $from; $i <= $to; $i++) {
           array_push($highlight, $i);
