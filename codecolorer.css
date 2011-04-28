@@ -183,3 +183,29 @@ code.codecolorer { padding: 2px; }
 	{ color: #FFFFFF; }
 .vibrant .xml .re1 { color: #FFCC00; }
 .vibrant .xml .re0 { color: #339999; }
+
+/* Railscasts theme */
+.railscasts, .railscasts .codecolorer { color: #E6E1DC; background-color: #2B2B2B; }
+/* Selection Color */
+.railscasts ::selection, .railscasts .codecolorer ::selection { background:#adb9d2; }
+.railscasts ::-moz-selection, .railscasts .codecolorer ::-moz-selection { background:#566381; }
+.railscasts .codecolorer .co0, .railscasts .codecolorer .co1, .railscasts .codecolorer .co2, .railscasts .codecolorer .co3, .railscasts .codecolorer .co4, .railscasts .codecolorer .coMULTI
+	{ color: #BC9458; font-style: italic; }
+.railscasts .codecolorer .nu0, .railscasts .codecolorer .re3
+	{ color: #6D9CBE; }
+.railscasts .codecolorer .st0, .railscasts .codecolorer .st_h, .railscasts .codecolorer .es0, .railscasts .codecolorer .es1
+	{ color: #A5C261; }
+.railscasts .codecolorer .me1, .railscasts .codecolorer .me2
+	{ color: #FFC66D; }
+.railscasts .codecolorer .kw1, .railscasts .codecolorer .kw2, .railscasts .codecolorer .sy1
+	{ color: #CC7833; }
+.railscasts .codecolorer .kw3, .railscasts .codecolorer .kw4, .railscasts .codecolorer .kw5, .railscasts .codecolorer .re2
+	{ color: #6E9CBE; }
+.railscasts .codecolorer .railscasts .re0, .railscasts .codecolorer .re1
+	{ color: #D0D0FF; }
+.railscasts .codecolorer .br0,  .railscasts .codecolorer .sy0
+	{ color: #E6E1DC; }
+.railscasts .xml .re1
+	{ color: #6E9CBE; }
+.railscasts .xml .re0
+	{ color: #6D9CBE; }

@@ -30,7 +30,8 @@ class CodeColorerOptions {
       'mac-classic' => 'Mac Classic',
       'twitlight'   => 'Twitlight',
       'vibrant'     => 'Vibrant Ink',
-      'geshi'       => 'GeSHi'
+      'geshi'       => 'GeSHi',
+      'railscasts'  => 'Railscasts'
     );
   }
 
