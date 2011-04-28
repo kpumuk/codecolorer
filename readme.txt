@@ -54,6 +54,7 @@ is currently available in following languages:
 * Brazilian Portuguese – Português Brasileiro (thanks to <a href="http://www.jeveaux.com/">Paulo César M. Jeveaux</a>, <a href="">Fabricio Bortoluzzi</a>, and <a href="http://www.rodolfoleao.com/">Rodolfo Leão</a>)
 * Romanian - Română (thanks to <a href="http://www.sphynxsoft.com/">Bogdan M. Botezatu</a>)
 * Simplified Chinese – 汉语 (thanks to <a href="http://ixiezi.com">liuxiangqian</a> and <a href="http://tihope.com/">KenSai</a>)
+* Slovak — Slovenský (thanks to <a href="http://cstudio.sk/">ceco</a>)
 * Spanish – Español (thanks to <a href="http://seich.martianwabbit.com/">Sergio Díaz</a>)
 * Spanish – Español (Argentina) (thanks to <a href="http://www.lordblacksuca.com.ar/">Diego Sucaria</a>)
 * Spanish – Español (Colombia) (thanks to <a href="http://blog.lasumo.com.co/">Diego Alberto Bernal</a>)
@@ -270,6 +271,7 @@ This snippet will insert code from the UPLOADS_DIR/test_project/main.rb file.
 * Added Traditional Chinese translation (thanks to <a href="http://jhcheng.byethost3.com/">Horace Cheng</a>).
 * Added Romanian translation (thanks to <a href="http://www.sphynxsoft.com/">Bogdan M. Botezatu</a>).
 * Added `file="file"` attribute to load code from external files (thanks to Mészáros Márton).
+* Added Slovak translation (thanks to <a href="http://cstudio.sk/">ceco</a>).
 
 = 0.9.8 (March 23, 2010) =
 * Added an icon to the admin options page.
