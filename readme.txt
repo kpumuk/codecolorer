@@ -52,11 +52,12 @@ is currently available in following languages:
 * Persian – فارسی, پارسی, دری (thanks to <a href="http://www.7sal.com/">Hamed Momeni</a>)
 * Polish – Polski (thanks to <a href="http://www.andrzej.net.pl/">Andrzej Pindor</a>)
 * Brazilian Portuguese – Português Brasileiro (thanks to <a href="http://www.jeveaux.com/">Paulo César M. Jeveaux</a>, <a href="">Fabricio Bortoluzzi</a>, and <a href="http://www.rodolfoleao.com/">Rodolfo Leão</a>)
-* Simplified Chinese – 简化字 (thanks to <a href="http://ixiezi.com">liuxiangqian</a> and <a href="http://tihope.com/">KenSai</a>)
+* Simplified Chinese – 汉语 (thanks to <a href="http://ixiezi.com">liuxiangqian</a> and <a href="http://tihope.com/">KenSai</a>)
 * Spanish – Español (thanks to <a href="http://seich.martianwabbit.com/">Sergio Díaz</a>)
 * Spanish – Español (Argentina) (thanks to <a href="http://www.lordblacksuca.com.ar/">Diego Sucaria</a>)
 * Spanish – Español (Colombia) (thanks to <a href="http://blog.lasumo.com.co/">Diego Alberto Bernal</a>)
 * Swedish – Svenska (thanks to <a href="http://blog.lhli.net/">LHLI</a>)
+* Traditional Chinese — 漢語 (thanks to <a href="http://jhcheng.byethost3.com/">Horace Cheng</a>)
 * Turkish – Türkçe (thanks to <a href="http://www.hasanakgoz.com/">Hasan Akgöz</a>)
 
 Want to help me with translation? It's easy!
@@ -253,6 +254,7 @@ an archive with plugin again (thanks to
 * GeSHi updated to 1.0.8.10 (now with Google Go support!).
 * Updated Simplified Chinese translation (thanks to <a href="http://tihope.com/">KenSai</a>).
 * Added Hungarian translation (thanks to <a href="http://dassad.com/">daSSad</a>).
+* Added Traditional Chinese translation (thanks to <a href="http://jhcheng.byethost3.com/">Horace Cheng</a>).
 
 = 0.9.8 (March 23, 2010) =
 * Added an icon to the admin options page.
