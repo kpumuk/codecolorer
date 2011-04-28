@@ -188,6 +188,9 @@ page. You can find modes explained below.
 * **no_cc** (*boolean*) – when *true* the syntax in code block will not be
   highlighted, code will be rendered inside `<code></code>` tag.
 * **class** (*string*) – additional CSS classes to add to the wrapper HTML element.
+* **file** (*string*) — when specified, code will be loaded from external file.
+  Should be a relative to uploads folder path, only files from uploads are
+  allowed to be embedded.
 
 You can use special tag `[cci]` instead of `[cc]` to force inline mode:
 
@@ -257,6 +260,7 @@ an archive with plugin again (thanks to
 * Added Hungarian translation (thanks to <a href="http://dassad.com/">daSSad</a>).
 * Added Traditional Chinese translation (thanks to <a href="http://jhcheng.byethost3.com/">Horace Cheng</a>).
 * Added Romanian translation (thanks to <a href="http://www.sphynxsoft.com/">Bogdan M. Botezatu</a>).
+* Added `file="file"` attribute to load code from external files (thanks to Mészáros Márton).
 
 = 0.9.8 (March 23, 2010) =
 * Added an icon to the admin options page.

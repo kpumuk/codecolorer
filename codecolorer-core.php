@@ -73,13 +73,28 @@ class CodeColorer {
    * Perform code highlightning
    */
   function PerformHighlightCodeBlock($text, $opts, $content, $suffix = '', $before = '', $after = '') {
+    // Parse options
+    $options = CodeColorerOptions::ParseOptions($opts, $suffix);
+
+    // Load code from a file
+    if (isset($options['file'])) {
+      $uploadPath = wp_upload_dir();
+      $baseDir = realpath($uploadPath['basedir']);
+      $filePath = realpath(path_join($baseDir, $options['file']));
+      # Security check: do not allow to display arbitrary files, only the ones from
+      # uploads folder.
+      if (false === $filePath || 0 !== strncmp($baseDir, $filePath, strlen($baseDir)) || !is_file($filePath)) {
+        $text = 'Specified file is not in uploads folder, does not exists, or not a file.';
+        $options['lang'] = 'text';
+      } else {
+        $text = file_get_contents($filePath);
+      }
+    }
+
     // Preprocess source text
     $text = str_replace(array("\\\"", "\\\'"), array ("\"", "\'"), $text);
     $text = preg_replace('/(< \?php)/i', '<?php', $text);
     $text = preg_replace('/(?:^(?:\s*[\r\n])+|\s+$)/', '', $text);
-
-    // Parse options
-    $options = CodeColorerOptions::ParseOptions($opts, $suffix);
 
     if ($options['escaped']) {
       $text = html_entity_decode($text, ENT_QUOTES);
