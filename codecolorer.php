@@ -10,7 +10,7 @@ Text Domain: codecolorer
 Domain Path: /languages/
 */
 /*
-    Copyright 2006 - 2010  Dmytro Shteflyuk <kpumuk@kpumuk.info>
+    Copyright 2006 - 2011  Dmytro Shteflyuk <kpumuk@kpumuk.info>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by

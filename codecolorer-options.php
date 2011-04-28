@@ -4,7 +4,7 @@ CodeColorer plugin options part
 http://kpumuk.info/projects/wordpress-plugins/codecolorer
 */
 /*
-    Copyright 2006 - 2010  Dmytro Shteflyuk <kpumuk@kpumuk.info>
+    Copyright 2006 - 2011  Dmytro Shteflyuk <kpumuk@kpumuk.info>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -36,9 +36,11 @@ class CodeColorerOptions {
 
   function GetLanguages() {
     return array(
-      '', 'en', 'en_US', 'ar', 'be_BY', 'da_DK', 'de_DE', 'es_AR',
-      'es_CO', 'es_ES', 'fr_FR', 'he_IL', 'it_IT', 'ja', 'nl_NL',
-      'pl_PL', 'pt_BR', 'ru_RU', 'sv_SE', 'tr_TR', 'ua_UA');
+      '', 'en', 'en_US', 'ar', 'be_BY', 'cs_CZ', 'da_DK', 'de_DE', 'es_AR',
+      'es_CO', 'es_ES', 'fa_IR', 'fr_FR', 'he_IL', 'hu_HU', 'it_IT', 'ja',
+      'ka_GE', 'nl_NL', 'pl_PL', 'pt_BR', 'ru_RU', 'sv_SE', 'tr_TR', 'ua_UA',
+      'zh_CN'
+    );
   }
 
   function GetLanguageMappings() {
