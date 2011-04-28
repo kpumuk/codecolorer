@@ -52,6 +52,7 @@ is currently available in following languages:
 * Persian – فارسی, پارسی, دری (thanks to <a href="http://www.7sal.com/">Hamed Momeni</a>)
 * Polish – Polski (thanks to <a href="http://www.andrzej.net.pl/">Andrzej Pindor</a>)
 * Brazilian Portuguese – Português Brasileiro (thanks to <a href="http://www.jeveaux.com/">Paulo César M. Jeveaux</a>, <a href="">Fabricio Bortoluzzi</a>, and <a href="http://www.rodolfoleao.com/">Rodolfo Leão</a>)
+* Romanian - Română (thanks to <a href="http://www.sphynxsoft.com/">Bogdan M. Botezatu</a>)
 * Simplified Chinese – 汉语 (thanks to <a href="http://ixiezi.com">liuxiangqian</a> and <a href="http://tihope.com/">KenSai</a>)
 * Spanish – Español (thanks to <a href="http://seich.martianwabbit.com/">Sergio Díaz</a>)
 * Spanish – Español (Argentina) (thanks to <a href="http://www.lordblacksuca.com.ar/">Diego Sucaria</a>)
@@ -255,6 +256,7 @@ an archive with plugin again (thanks to
 * Updated Simplified Chinese translation (thanks to <a href="http://tihope.com/">KenSai</a>).
 * Added Hungarian translation (thanks to <a href="http://dassad.com/">daSSad</a>).
 * Added Traditional Chinese translation (thanks to <a href="http://jhcheng.byethost3.com/">Horace Cheng</a>).
+* Added Romanian translation (thanks to <a href="http://www.sphynxsoft.com/">Bogdan M. Botezatu</a>).
 
 = 0.9.8 (March 23, 2010) =
 * Added an icon to the admin options page.
