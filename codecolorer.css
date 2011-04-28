@@ -47,8 +47,7 @@ code.codecolorer { padding: 2px; }
 .twitlight .codecolorer .nu0, .twitlight .codecolorer .re3,
 	code.twitlight .nu0, code.twitlight .re3
 	{ color: #CF6A4C; }
-.twitlight .codecolorer .nu0, .twitlight .codecolorer .re3,
-	code.twitlight .nu0, code.twitlight .re3
+.twitlight .codecolorer .st0, .twitlight .codecolorer .st_h, .twitlight .codecolorer .es0, .twitlight .codecolorer .es1
 	{ color: #8F9D6A; }
 .twitlight .codecolorer .me1, .twitlight .codecolorer .me2,
 	code.twitlight .me1, code.twitlight .me2
