@@ -2,7 +2,7 @@
 Contributors: kpumuk
 Tags: code, snippet, syntax, highlight, highlighting, color, geshi
 Requires at least: 2.7.0
-Tested up to: 2.9
+Tested up to: 3.0.1
 Stable tag: 0.9.8
 
 CodeColorer is a syntax highlighting plugin which allows to insert code
@@ -249,7 +249,7 @@ an archive with plugin again (thanks to
 
 = 0.9.9 (Development) =
 * Added ability to highlight ranges of lines (thanks to <a href="http://www.deltanova.co.uk/670/">DELTA NOVA</a>).
-* GeSHi updated to 1.0.8.9 (now with Google Go support!).
+* GeSHi updated to 1.0.8.10 (now with Google Go support!).
 * Updated Simplified Chinese translation (thanks to <a href="http://tihope.com/">KenSai</a>).
 
 = 0.9.8 (March 23, 2010) =
