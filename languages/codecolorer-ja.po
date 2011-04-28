@@ -1,12 +1,12 @@
-# CodeColorer 0.9.8
-# Copyright (c) 2006 - 2010 Dmytro Shteflyuk
+# CodeColorer 0.9.9
+# Copyright (c) 2006 - 2011 Dmytro Shteflyuk
 # This file is distributed under the same license as the CodeColorer package.
 #
-# Dmytro Shteflyuk <kpumuk@kpumuk.info>, 2010.
+# Dmytro Shteflyuk <kpumuk@kpumuk.info>, 2011.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: CodeColorer 0.9.8\n"
+"Project-Id-Version: CodeColorer 0.9.9\n"
 "Report-Msgid-Bugs-To: http://kpumuk.info/projects/wordpress-plugins/codecolorer/\n"
 "POT-Creation-Date: 2009-07-31 13:41+0000\n"
 "PO-Revision-Date: \n"
