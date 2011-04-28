@@ -46,6 +46,7 @@ is currently available in following languages:
 * Georgian – ქართული ენა (thanks to <a href="http://sysadmin.softgen.ge/">Nika Chkhikvishvili</a>)
 * German – German (Deutsch) (thanks to <a href="http://www.fabianschulz.net/">Fabian Schulz</a> and <a href="http://michael-gutbier.de/">Michael Gutbier</a>)
 * Hebrew – עִבְרִית (thanks to <a href="http://www.gadgetguru.co.il/">Yaron Ofer</a>)
+* Hungarian — magyar nyelv (thanks to <a href="http://dassad.com/">daSSad</a>)
 * Italian – Italiano (thanks to <a href="http://codesnippet.altervista.org/">CodeSnippet</a>)
 * Japanese – 日本語 (thanks to <a href="http://www.kuroneko-square.net/">Kuroneko Square</a>)
 * Persian – فارسی, پارسی, دری (thanks to <a href="http://www.7sal.com/">Hamed Momeni</a>)
@@ -251,6 +252,7 @@ an archive with plugin again (thanks to
 * Added ability to highlight ranges of lines (thanks to <a href="http://www.deltanova.co.uk/670/">DELTA NOVA</a>).
 * GeSHi updated to 1.0.8.10 (now with Google Go support!).
 * Updated Simplified Chinese translation (thanks to <a href="http://tihope.com/">KenSai</a>).
+* Added Hungarian translation (thanks to <a href="http://dassad.com/">daSSad</a>).
 
 = 0.9.8 (March 23, 2010) =
 * Added an icon to the admin options page.
