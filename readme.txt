@@ -274,6 +274,9 @@ This snippet will insert code from the UPLOADS_DIR/test_project/main.rb file.
 * Added `file="file"` attribute to load code from external files (thanks to Mészáros Márton).
 * Added Slovak translation (thanks to <a href="http://cstudio.sk/">ceco</a>).
 * Added Malay translation (thanks to <a href="http://www.losebellyfat365.com/">Shareef Sam</a>).
+* Fix for notice 'has_cap was called with an argument that is deprecated since version 2.0!' (thanks to <a href="https://github.com/lenon">Lenon Marcel</a>).
+* Fixed undefined index warnings (thanks to <a href="https://github.com/lenon">Lenon Marcel</a>).
+
 
 = 0.9.8 (March 23, 2010) =
 * Added an icon to the admin options page.

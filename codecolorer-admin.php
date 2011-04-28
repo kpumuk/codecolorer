@@ -44,7 +44,7 @@ class CodeColorerAdmin {
   }
 
   function DisableNotifications() {
-    if (in_array($_GET['disable'], array('concurrent', 'language'))) {
+    if (isset($_GET['disable']) && in_array($_GET['disable'], array('concurrent', 'language'))) {
       update_option('codecolorer_' . $_GET['disable'] . '_notification', false);
     }
   }

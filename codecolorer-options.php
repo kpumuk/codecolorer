@@ -64,7 +64,7 @@ class CodeColorerOptions {
 
     $options = CodeColorerOptions::PopulateDefaultValues($options);
 
-    list($modes, $lang) = explode('_', $suffix, 2);
+    @list($modes, $lang) = explode('_', $suffix, 2);
     if (NULL !== ($mode = CodeColorerOptions::ParseMode($modes, 'i'))) {
       $options['inline'] = $mode;
     }
@@ -243,7 +243,7 @@ class CodeColorerOptions {
       $lang = 'html4strict';
     } else {
       $langs = CodeColorerOptions::GetLanguageMappings();
-      if ($langs[$lang]) $lang = $langs[$lang];
+      if (isset($langs[$lang]) && $langs[$lang]) $lang = $langs[$lang];
     }
     return $lang;
   }
