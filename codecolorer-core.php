@@ -28,6 +28,9 @@ class CodeColorer {
   var $geshiExternal = false;
   var $geshiVersion = '1.0.8.6';
 
+  var $geshi;
+  var $optionsPage;
+
   var $samplePhpCode = '
     [cc_php]
     /**
@@ -172,8 +175,8 @@ class CodeColorer {
       $geshi->enable_classes(false);
     }
     if (!is_null($options['strict'])) $geshi->enable_strict_mode($options['strict']);
-    if ($options['no_links']) $geshi->enable_keyword_links(false);
-    if ($options['highlight']) {
+    if (isset($options['no_links']) && $options['no_links']) $geshi->enable_keyword_links(false);
+    if (isset($options['highlight'])) {
       $hlines = explode(',', $options['highlight']);
       $highlight = array(); /* Empty array to store processed line numbers*/
       foreach($hlines as $v) {
