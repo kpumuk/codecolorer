@@ -239,10 +239,19 @@ Use `<code no_cc="true">` option for your code block.
 = I have updated the plugin to the newest version and now I keep getting following warnings: =
 
     Warning: array_keys() [function.array-keys]: The first argument should be an array in /home/wordpress/wp-content/plugins/codecolorer/lib/geshi.php on line 3599
-  
+
 Remove all files from the **wp-content/plugins/codecolorer** folder and unpack
-an archive with plugin again (thanks to 
+an archive with plugin again (thanks to
 <a href="http://blog.t-l-k.com/">Anatoliy 'TLK' Kolesnick</a>).
+
+= How to insert code from an external file?
+
+You can upload this file using WordPress upload or put it somewhere in uploads folder,
+and the specify relative path using `file="relative/path/to/file"` attribute:
+
+    [cc_ruby file="test_project/main.rb"][/cc_ruby]
+
+This snippet will insert code from the UPLOADS_DIR/test_project/main.rb file.
 
 == Screenshots ==
 
@@ -317,7 +326,7 @@ product). Email for patches, suggestions, or bug reports:
 == Customization ==
 
 Syntax coloring is highly customizable: you could change color scheme for all
-languages or for specific language. You could find CodeColorer CSS in 
+languages or for specific language. You could find CodeColorer CSS in
 **wp-content/plugins/codecolorer/codecolorer.css** file. To change colors for
 all languages edit lines below *Color scheme* section.
 
