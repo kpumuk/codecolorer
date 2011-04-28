@@ -49,6 +49,7 @@ is currently available in following languages:
 * Hungarian — magyar nyelv (thanks to <a href="http://dassad.com/">daSSad</a>)
 * Italian – Italiano (thanks to <a href="http://codesnippet.altervista.org/">CodeSnippet</a>)
 * Japanese – 日本語 (thanks to <a href="http://www.kuroneko-square.net/">Kuroneko Square</a>)
+* Malay – Bahasa Melayu (thanks to <a href="http://www.losebellyfat365.com/">Shareef Sam</a>)
 * Persian – فارسی, پارسی, دری (thanks to <a href="http://www.7sal.com/">Hamed Momeni</a>)
 * Polish – Polski (thanks to <a href="http://www.andrzej.net.pl/">Andrzej Pindor</a>)
 * Brazilian Portuguese – Português Brasileiro (thanks to <a href="http://www.jeveaux.com/">Paulo César M. Jeveaux</a>, <a href="">Fabricio Bortoluzzi</a>, and <a href="http://www.rodolfoleao.com/">Rodolfo Leão</a>)
@@ -272,6 +273,7 @@ This snippet will insert code from the UPLOADS_DIR/test_project/main.rb file.
 * Added Romanian translation (thanks to <a href="http://www.sphynxsoft.com/">Bogdan M. Botezatu</a>).
 * Added `file="file"` attribute to load code from external files (thanks to Mészáros Márton).
 * Added Slovak translation (thanks to <a href="http://cstudio.sk/">ceco</a>).
+* Added Malay translation (thanks to <a href="http://www.losebellyfat365.com/">Shareef Sam</a>).
 
 = 0.9.8 (March 23, 2010) =
 * Added an icon to the admin options page.
