@@ -154,7 +154,7 @@ class CodeColorerLoader {
 
   function AddPluginOptionsPage() {
     if (function_exists('add_options_page')) {
-      add_options_page('CodeColorer', 'CodeColorer', 8, 'codecolorer.php', array('CodeColorerLoader', 'CallShowOptionsPage'));
+      add_options_page('CodeColorer', 'CodeColorer', 'manage_options', 'codecolorer.php', array('CodeColorerLoader', 'CallShowOptionsPage'));
     }
   }
 
