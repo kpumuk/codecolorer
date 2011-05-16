@@ -7,9 +7,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CodeColorer 0.9.9\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-05-07 10:07+0700\n"
-"PO-Revision-Date: 2011-05-16 12:29-0500\n"
+"Report-Msgid-Bugs-To: http://kpumuk.info/projects/wordpress-plugins/codecolorer/\n"
+"POT-Creation-Date: 2009-07-31 13:41+0000\n"
+"PO-Revision-Date: 2011-05-16 14:30-0500\n"
 "Last-Translator: Dmytro Shteflyuk <kpumuk@kpumuk.info>\n"
 "Language-Team: Masino Sinaga <masino.sinaga@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -22,141 +22,159 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SearchPath-0: ..\n"
 
-#: ../codecolorer-admin.php:41
+#: codecolorer-admin.php:41
 #, php-format
 msgid "Your current locale is %1$s, and CodeColorer has incomplete or does not have a translation into your language. It would be great, if you have a time to <a href=\"%2$s\">help us to translate</a> it."
 msgstr "Kode lokal bahasa Anda saat ini adalah %1$s, dan CodeColorer belum selesai atau tidak memiliki terjemahan dalam bahasa Anda. Akan lebih baik, jika Anda menyediakan waktu untuk <a href=\"%2$s\">membantu kami menterjemahkannya</a>."
 
-#: ../codecolorer-admin.php:42
+#: codecolorer-admin.php:42
 msgid "CodeColorer translation is incomplete."
 msgstr "Terjemahan CodeColorer belum lengkap."
 
-#: ../codecolorer-admin.php:57
+#: codecolorer-admin.php:56
 msgid "Code Highlighting Options"
 msgstr "Pilihan Penyorotan Kode"
 
-#: ../codecolorer-admin.php:66
+#: codecolorer-admin.php:65
 msgid "Lines to scroll"
 msgstr "Baris untuk discroll"
 
-#: ../codecolorer-admin.php:69
+#: codecolorer-admin.php:68
 msgid "If your code lines number is less than this value, block height would not be fixed. Set to <b>-1</b> to remove vertical scroll."
 msgstr "Jika nomor baris kode Anda lebih kecil dari nilai ini, tinggi blok tidak tetap. Set ke <b>-1</b> untuk menghapus scroll vertikal."
 
-#: ../codecolorer-admin.php:74
+#: codecolorer-admin.php:73
 msgid "Width"
 msgstr "Lebar"
 
-#: ../codecolorer-admin.php:77
+#: codecolorer-admin.php:76
 msgid "Default code block width. Integer means pixels, also you can specify <tt>em</tt> or <tt>%</tt> suffix. Could be omitted to use whole width."
 msgstr "Lebar blok kode standar. Integer dalam satuan pixels, juga Anda dapat menentukan akhiran <tt>em</tt> atau <tt>%</tt>. Dapat dihilangkan untuk menggunakan seluruh lebar."
 
-#: ../codecolorer-admin.php:82
+#: codecolorer-admin.php:81
 msgid "Height"
 msgstr "Tinggi"
 
-#: ../codecolorer-admin.php:85
+#: codecolorer-admin.php:84
 msgid "When code has more than &quot;Lines to Scroll&quot; lines, block height will be set to this value."
 msgstr "Ketika kode memiliki lebih dari &quot;Baris yang Discroll&quot; baris, tinggi blok akan diset ke nilai ini."
 
-#: ../codecolorer-admin.php:90
+#: codecolorer-admin.php:89
 msgid "Width in RSS"
 msgstr "Lebar di RSS"
 
-#: ../codecolorer-admin.php:93
+#: codecolorer-admin.php:92
 msgid "Default code block width in RSS. See Width option description."
 msgstr "Standar lebar blok kode di RSS. Lihat deskripsi pilihan Lebar."
 
-#: ../codecolorer-admin.php:98
+#: codecolorer-admin.php:97
 msgid "Tab size"
 msgstr "Ukuran Tab"
 
-#: ../codecolorer-admin.php:101
+#: codecolorer-admin.php:100
 msgid "Indicating how many spaces would represent TAB symbol."
 msgstr "Menentukan berapa banyak spasi yang mewakili simbol TAB."
 
-#: ../codecolorer-admin.php:106
+#: codecolorer-admin.php:105
 msgid "Theme"
 msgstr "Tema"
 
-#: ../codecolorer-admin.php:111
+#: codecolorer-admin.php:110
 msgid "Default color scheme."
 msgstr "Skema warna standar."
 
-#: ../codecolorer-admin.php:116
+#: codecolorer-admin.php:115
 msgid "Inline Theme"
 msgstr "Tema di baris"
 
-#: ../codecolorer-admin.php:121
+#: codecolorer-admin.php:120
 msgid "Default color scheme for inline code blocks."
 msgstr "Standar skema warna untuk blok kode dalam baris."
 
-#: ../codecolorer-admin.php:126
+#: codecolorer-admin.php:125
 msgid "Formatting"
 msgstr "Pemformatan"
 
-#: ../codecolorer-admin.php:130
+#: codecolorer-admin.php:129
 msgid "Show line numbers"
 msgstr "Tampilkan nomor baris"
 
-#: ../codecolorer-admin.php:135
+#: codecolorer-admin.php:134
 msgid "Disable keyword linking"
 msgstr "Nonaktifkan tautan ke kata kunci"
 
-#: ../codecolorer-admin.php:141
+#: codecolorer-admin.php:140
 msgid "Custom CSS Classes"
 msgstr "Class CSS Kostumais"
 
-#: ../codecolorer-admin.php:144
+#: codecolorer-admin.php:143
 msgid "These custom CSS classes will be appended to the wrapper HTML element."
 msgstr "Class CSS kostumais ini akan ditambahkan ke elemen pembungkus HTML."
 
-#: ../codecolorer-admin.php:149
+#: codecolorer-admin.php:148
 msgid "Custom CSS Styles"
 msgstr "Gaya CSS Kostumais"
 
-#: ../codecolorer-admin.php:152
+#: codecolorer-admin.php:151
 msgid "These custom CSS rules will be appended to the CodeColorer default CSS file."
 msgstr "Aturan CSS kostumais akan ditambahkan ke standar berkas CSS CodeColorer."
 
-#: ../codecolorer-admin.php:157
+#: codecolorer-admin.php:156
 msgid "Preview"
 msgstr "Tampilan"
 
-#: ../codecolorer-admin.php:161
+#: codecolorer-admin.php:160
 msgid "Code Example"
 msgstr "Contoh Kode"
 
-#: ../codecolorer-admin.php:169
+#: codecolorer-admin.php:168
 msgid "Save Options"
 msgstr "Simpan Pilihan"
 
-#: ../codecolorer-core.php:277
+#: codecolorer-core.php:240
 msgid "Close"
 msgstr "Tutup"
 
-#: ../codecolorer-core.php:283
+#: codecolorer-core.php:246
 msgid "CodeColorer has detected a problem."
 msgstr "CodeColorer telah menemukan kesalahan."
 
-#: ../codecolorer-core.php:283
+#: codecolorer-core.php:246
 #, php-format
 msgid "We found another plugin based on GeSHi library in your system. CodeColorer will work, but our version of GeSHi contain some patches, so we can't guarantee an ideal code highlighting now. Please review your <a href=\"%1$s\">plugins</a>, maybe you don't need them all."
 msgstr "Kami menemukan plugin lainnya berdasarkan pustaka GeSHi di sistem Anda. CodeColorer akan bekerja, tapi versi GeSHi kami mengandung beberapa tambalan, jadi kami tidak menjamin sorotan kode yang ideal saat ini. Silahkan review <a href=\"%1$s\">plugin</a> Anda, mungkin Anda tidak membutuhkan semuanya."
 
-#: ../codecolorer.php:164
+#: codecolorer.php:161
 msgid "Settings"
 msgstr "Pengaturan"
 
-#: ../codecolorer.php:171
+#: codecolorer.php:168
 msgid "FAQ"
 msgstr "FAQ"
 
-#: ../codecolorer.php:172
+#: codecolorer.php:169
 msgid "Support"
 msgstr "Bantuan"
 
-#: ../codecolorer.php:183
-msgid "Enter Language"
-msgstr "Masukkan Bahasa"
+#. Plugin Name of an extension
+msgid "CodeColorer"
+msgstr "CodeColorer"
 
+#. Plugin URI of an extension
+msgid "http://kpumuk.info/projects/wordpress-plugins/codecolorer/"
+msgstr "http://kpumuk.info/projects/wordpress-plugins/codecolorer/"
+
+#. Description of an extension
+msgid "This plugin allows you to insert code snippets to your posts with nice syntax highlighting powered by <a href=\"http://qbnz.com/highlighter/\">GeSHi</a> library. After enabling this plugin visit <a href=\"options-general.php?page=codecolorer.php\">the options page</a> to configure code style."
+msgstr "Plugin ini mengijinkan Anda untuk memasukkan potongan kode ke dalam kiriman tulisan Anda dengan sorotan sintaks bagus yang didukung oleh pustaka <a href=\"http://qbnz.com/highlighter/\">GeSHi</a>. Setelah mengaktifkan plugin ini, kunjungi <a href=\"options-general.php?page=codecolorer.php\">halaman pengaturan</a> untuk mengkonfigurasikan tampilan kodenya."
+
+#. Author of an extension
+msgid "Dmytro Shteflyuk"
+msgstr "Dmytro Shteflyuk"
+
+#. Author URI of an extension
+msgid "http://kpumuk.info/"
+msgstr "http://kpumuk.info/"
+
+#~ msgid "Enter Language"
+#~ msgstr "Masukkan Bahasa"
