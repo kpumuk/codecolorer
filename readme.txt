@@ -52,6 +52,7 @@ is currently available in following languages:
 * Malay – Bahasa Melayu (thanks to <a href="http://www.losebellyfat365.com/">Shareef Sam</a>)
 * Persian – فارسی, پارسی, دری (thanks to <a href="http://www.7sal.com/">Hamed Momeni</a>)
 * Polish – Polski (thanks to <a href="http://www.andrzej.net.pl/">Andrzej Pindor</a>)
+* Portuguese – Português (thanks to <a href="http://lfscoutinho.net/">Luis Coutinho</a>)
 * Brazilian Portuguese – Português Brasileiro (thanks to <a href="http://www.jeveaux.com/">Paulo César M. Jeveaux</a>, <a href="">Fabricio Bortoluzzi</a>, and <a href="http://www.rodolfoleao.com/">Rodolfo Leão</a>)
 * Romanian - Română (thanks to <a href="http://www.sphynxsoft.com/">Bogdan M. Botezatu</a>)
 * Simplified Chinese – 汉语 (thanks to <a href="http://ixiezi.com">liuxiangqian</a> and <a href="http://tihope.com/">KenSai</a>)
@@ -266,6 +267,7 @@ This snippet will insert code from the UPLOADS_DIR/test_project/main.rb file.
 
 = 0.9.10 (Development) =
 * Fixed a bug with large code blocks margins.
+* Added Portuguese translation (thanks to <a href="http://lfscoutinho.net/">Luis Coutinho</a>).
 
 = 0.9.9 (April 28, 2011) =
 * Added ability to highlight ranges of lines (thanks to <a href="http://www.deltanova.co.uk/670/">DELTA NOVA</a>).
