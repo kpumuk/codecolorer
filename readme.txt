@@ -47,6 +47,7 @@ is currently available in following languages:
 * German – German (Deutsch) (thanks to <a href="http://www.fabianschulz.net/">Fabian Schulz</a> and <a href="http://michael-gutbier.de/">Michael Gutbier</a>)
 * Hebrew – עִבְרִית (thanks to <a href="http://www.gadgetguru.co.il/">Yaron Ofer</a>)
 * Hungarian — magyar nyelv (thanks to <a href="http://dassad.com/">daSSad</a>)
+* Indonesian — Bahasa Indonesia (thanks to <a href="http://www.openscriptsolution.com/">Masino Sinaga</a>)
 * Italian – Italiano (thanks to <a href="http://codesnippet.altervista.org/">CodeSnippet</a>)
 * Japanese – 日本語 (thanks to <a href="http://www.kuroneko-square.net/">Kuroneko Square</a>)
 * Malay – Bahasa Melayu (thanks to <a href="http://www.losebellyfat365.com/">Shareef Sam</a>)
@@ -268,6 +269,7 @@ This snippet will insert code from the UPLOADS_DIR/test_project/main.rb file.
 = 0.9.10 (Development) =
 * Fixed a bug with large code blocks margins.
 * Added Portuguese translation (thanks to <a href="http://lfscoutinho.net/">Luis Coutinho</a>).
+* Added Indonesian translation (thanks to <a href="http://www.openscriptsolution.com/">Masino Sinaga</a>).
 
 = 0.9.9 (April 28, 2011) =
 * Added ability to highlight ranges of lines (thanks to <a href="http://www.deltanova.co.uk/670/">DELTA NOVA</a>).
