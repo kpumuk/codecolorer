@@ -208,3 +208,61 @@ code.codecolorer { padding: 2px; }
 	{ color: #6E9CBE; }
 .railscasts .xml .re0
 	{ color: #6D9CBE; }
+
+/* Solarized (Dark) */
+.solarized-dark, .solarized-dark .codecolorer { color: #839496; background-color: #002b36; }
+.solarized-dark ::selection, .solarized-dark .codecolorer ::selection { background: #073642; }
+.solarized-dark ::-moz-selection, .solarized-dark .codecolorer ::-moz-selection { background: #073642; }
+
+.solarized-dark .codecolorer .co0, .solarized-dark .codecolorer .co1, .solarized-dark .codecolorer .co2, .solarized-dark .codecolorer .co3, .solarized-dark .codecolorer .co4, .solarized-dark .codecolorer .coMULTI
+	{ color: #586E75; font-style: normal; }
+.solarized-dark .codecolorer .nu0, .solarized-dark .codecolorer .re3
+	{ color: #269186; }
+.solarized-dark .codecolorer .st0, .solarized-dark .codecolorer .st_h, .solarized-dark .codecolorer .es0, .solarized-dark .codecolorer .es1
+	{ color: #269186; }
+.solarized-dark .codecolorer .me1, .solarized-dark .codecolorer .me2
+	{ color: #748B00; }
+.solarized-dark .codecolorer .kw1, .solarized-dark .codecolorer .kw2, .solarized-dark .codecolorer .sy1
+	{ color: #859900; }
+.solarized-dark .codecolorer .kw3, .solarized-dark .codecolorer .kw4, .solarized-dark .codecolorer .kw5, .solarized-dark .codecolorer .re2
+	{ color: #A57800; }
+.solarized-dark .codecolorer .solarized-dark .re0, .solarized-dark .codecolorer .re1
+	{ color: #268BD2; }
+.solarized-dark .codecolorer .br0,  .solarized-dark .codecolorer .sy0
+	{ color: #D01F1E; }
+.solarized-dark .xml .re1
+	{ color: #6E9CBE; }
+.solarized-dark .xml .re0
+	{ color: #6D9CBE; }
+
+.codecolorer-container.solarized-dark table td.line-numbers
+  { color: #839496; background-color: #073642; border-right-color: #001B26; }
+
+/* Solarized (Light) */
+.solarized-light, .solarized-light .codecolorer { color: #586E75; background-color: #FDF6E3; }
+.solarized-light ::selection, .solarized-light .codecolorer ::selection { background: #EEE8D5; }
+.solarized-light ::-moz-selection, .solarized-light .codecolorer ::-moz-selection { background: #EEE8D5; }
+
+.solarized-light .codecolorer .co0, .solarized-light .codecolorer .co1, .solarized-light .codecolorer .co2, .solarized-light .codecolorer .co3, .solarized-light .codecolorer .co4, .solarized-light .codecolorer .coMULTI
+	{ color: #93A1A1; font-style: normal; }
+.solarized-light .codecolorer .nu0, .solarized-light .codecolorer .re3
+	{ color: #269186; }
+.solarized-light .codecolorer .st0, .solarized-light.codecolorer .st_h, .solarized-light .codecolorer .es0, .solarized-light .codecolorer .es1
+	{ color: #269186; }
+.solarized-light .codecolorer .me1, .solarized-light .codecolorer .me2
+	{ color: #748B00; }
+.solarized-light .codecolorer .kw1, .solarized-light .codecolorer .kw2, .solarized-light .codecolorer .sy1
+	{ color: #748B00; }
+.solarized-light .codecolorer .kw3, .solarized-light .codecolorer .kw4, .solarized-light .codecolorer .kw5, .solarized-light .codecolorer .re2
+	{ color: #A57800; }
+.solarized-light .codecolorer .solarized-light .re0, .solarized-light .codecolorer .re1
+	{ color: #4EB1F6; }
+.solarized-light .codecolorer .br0,  .solarized-light .codecolorer .sy0
+	{ color: #D01F1E; }
+.solarized-light .xml .re1
+	{ color: #6E9CBE; }
+.solarized-light .xml .re0
+	{ color: #6D9CBE; }
+
+.codecolorer-container.solarized-light table td.line-numbers
+  { color: #839496; background-color: #EEE8D5; border-right-color: #CEC8B5; }
