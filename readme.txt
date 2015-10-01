@@ -298,7 +298,7 @@ This snippet will insert code from the UPLOADS_DIR/test_project/main.rb file.
 
 = 0.9.7 (December 19, 2009) =
 * Fixed `theme="geshi"` attribute bug.
-* Added ability to highlight arbitary piece of code from PHP.
+* Added ability to highlight arbitrary piece of code from PHP.
 * Use `wp_enqueue_style` instead of echoing plain HTML.
 * Fixed problem with escaped code blocks, when some entities were not unescaped.
 * Fixed compatibility with WordPress 2.9.
