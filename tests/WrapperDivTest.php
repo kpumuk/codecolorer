@@ -6,7 +6,9 @@ http://kpumuk.info/projects/wordpress-plugins/codecolorer
 
 require_once 'test_helper.php';
 
-class WrapperDivTest extends PHPUnit\Framework\TestCase {
+use PHPUnit\Framework\TestCase;
+
+class WrapperDivTest extends TestCase {
   public function setUp() {
     $this->old_wp_options = $GLOBALS['wp_options'];
   }

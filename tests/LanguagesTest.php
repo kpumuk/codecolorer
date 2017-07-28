@@ -6,7 +6,9 @@ http://kpumuk.info/projects/wordpress-plugins/codecolorer
 
 require_once 'test_helper.php';
 
-class LanguagesTest extends PHPUnit\Framework\TestCase {
+use PHPUnit\Framework\TestCase;
+
+class LanguagesTest extends TestCase {
   public function testTextWithoutCode() {
     $this->assertEquals('hello, world', codecolorer_highlight('hello, world'));
   }
