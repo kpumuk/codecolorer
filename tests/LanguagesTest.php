@@ -6,11 +6,11 @@ http://kpumuk.info/projects/wordpress-plugins/codecolorer
 
 require_once 'test_helper.php';
 
-class LanguagesTest extends PHPUnit_Framework_TestCase {
+class LanguagesTest extends PHPUnit\Framework\TestCase {
   public function testTextWithoutCode() {
     $this->assertEquals('hello, world', codecolorer_highlight('hello, world'));
   }
-  
+
   public function testTextWithCodeNoLanguage() {
     $this->assertEquals("\n\n<div class=\"codecolorer-container text default\" style=\"overflow:auto;white-space:nowrap;width:435px;\"><div class=\"text codecolorer\">hello, world</div></div>\n\n", codecolorer_highlight('[cc]hello, world[/cc]'));
   }
