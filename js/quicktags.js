@@ -33,4 +33,4 @@
   }
 })(jQuery);
 
-jQuery('#ed_code').codeColorerQuickTags();
+if(jQuery('#ed_code').length) jQuery('#ed_code').codeColorerQuickTags();
