@@ -53,11 +53,11 @@ class CodeColorer {
   }
 
   function before_callback1($matches) {
-    return  $this->PerformHighlightCodeBlock($matches[4], $matches[3], $content, $matches[2], $matches[1], $matches[5]); 
+    return  $this->PerformHighlightCodeBlock($matches[4], $matches[3], $content, $matches[2], $matches[1], $matches[5]);
   }
 
   function before_callback2($matches) {
-    return $this->PerformHighlightCodeBlock($matches[3], $matches[2], $content, $matches[1], $matches[4]); 
+    return $this->PerformHighlightCodeBlock($matches[3], $matches[2], $content, $matches[1], $matches[4]);
   }
 
   function AfterHighlightCodeBlock($content) {
@@ -116,8 +116,8 @@ class CodeColorer {
 
     if ($options['escaped']) {
       $text = html_entity_decode($text, ENT_QUOTES);
-      $text = preg_replace('~&#x0*([0-9a-f]+);~ei', 'chr(hexdec("\\1"))', $text);
-      $text = preg_replace('~&#0*([0-9]+);~e', 'chr(\\1)', $text);
+      $text = preg_replace_callback('~&#x0*([0-9a-f]+);~i', array($this, 'unescape_callback_1'), $text);
+      $text = preg_replace_callback('~&#0*([0-9]+);~', array($this, 'unescape_callback_2'), $text);
     }
 
     $result = '';
@@ -147,6 +147,14 @@ class CodeColorer {
     }
 
     return $result;
+  }
+
+  function unescape_callback_1($matches) {
+    return chr(hexdec($matches[1]));
+  }
+
+  function unescape_callback_2($matches) {
+    return chr($matches[1]);
   }
 
   /**
