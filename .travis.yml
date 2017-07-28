@@ -1,17 +1,27 @@
 language: php
 
+env:
+  global:
+    - CC_TEST_REPORTER_ID=c905307dfede8f3280ee4209d836ef7035981e83a62a7d256b249c9e7ea35484
+    - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct; else git log -1 --skip 1 --pretty=format:%ct; fi)
+
 php:
-  # - '5.4'
-  # - '5.5'
-  # - '5.6'
-  # - '7.0'
+  - '5.4'
+  - '5.5'
+  - '5.6'
+  - '7.0'
   - '7.1'
-  # - hhvm # on Trusty only
-  # - nightly
+  - hhvm # on Trusty only
+  - nightly
 
 notifications:
   recipients:
     - kpumuk@kpumuk.info
 
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+
 script:
-  - phpunit --coverage-clover build/logs/clover.xml tests
+  - phpunit --coverage-clover clover.xml tests
+  - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT --coverage-input-type clover; fi
