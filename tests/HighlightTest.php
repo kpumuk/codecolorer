@@ -6,7 +6,7 @@ http://kpumuk.info/projects/wordpress-plugins/codecolorer
 
 require_once 'test_helper.php';
 
-class HighlightTest extends PHPUnit_Framework_TestCase {
+class HighlightTest extends PHPUnit\Framework\TestCase {
   public function setUp() {
     $this->shtag = "<span class=\"xtra ln-xtra\">";
     $this->ehtag = "</span>";
