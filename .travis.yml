@@ -20,9 +20,9 @@ notifications:
   recipients:
     - kpumuk@kpumuk.info
 
-# before_script:
-#   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-#   - chmod +x ./cc-test-reporter
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
 
 before_install:
   - composer require --dev --no-update phpunit/phpunit "~$PHPUNIT_VERSION"
@@ -34,4 +34,4 @@ install:
 script:
   - vendor/bin/phpunit --version
   - vendor/bin/phpunit --coverage-clover clover.xml tests
-  # - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT --coverage-input-type clover || true; fi
+  - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT --coverage-input-type clover || true; fi
