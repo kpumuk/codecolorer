@@ -71,7 +71,7 @@ Want to help me with translation? It's easy!
 2. Download <a href="https://plugins.svn.wordpress.org/codecolorer/trunk/languages/codecolorer.pot">codecolorer.pot</a> file.
 3. Click *File/New catalog from .pot file* and select *codecolorer.pop*
    you've just downloaded.
-4. Enter project name (something like **CodeColorer 0.9.9**), your name
+4. Enter project name (something like **CodeColorer 0.9.10**), your name
    and email address, select a language you want to translate to and
    click *OK*.
 5. Enter a filename like **codecolorer-en_EN** and click *Save*.
