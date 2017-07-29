@@ -44,7 +44,7 @@ class CodeColorerOptions {
     );
   }
 
-  function GetLanguageMappings() {
+  static function GetLanguageMappings() {
     return array(
       'c#'  => 'csharp',
       'cs'  => 'csharp',
@@ -55,7 +55,7 @@ class CodeColorerOptions {
     );
   }
 
-  function ParseOptions($opts, $suffix = '') {
+  static function ParseOptions($opts, $suffix = '') {
     $opts = str_replace(array("\\\"", "\\\'"), array ("\"", "\'"), $opts);
     preg_match_all('#([a-z_-]*?)\s*=\s*(["\'])(.*?)\2#i', $opts, $matches, PREG_SET_ORDER);
     $options = array();
@@ -95,7 +95,7 @@ class CodeColorerOptions {
     return $options;
   }
 
-  function PopulateDefaultValues($options) {
+  static function PopulateDefaultValues($options) {
     if (!$options) $options = array();
 
     if (!isset($options['lang'])) $options['lang'] = 'text';
@@ -217,11 +217,11 @@ class CodeColorerOptions {
     return $options;
   }
 
-  function ParseBoolean($val) {
+  static function ParseBoolean($val) {
     return $val === true || $val === 'true' || $val === 'on' || $val === '1' || (is_int($val) && $val !== 0);
   }
 
-  function ParseMode($modes, $mode) {
+  static function ParseMode($modes, $mode) {
     if (strpos($modes, $mode) !== false) {
       return true;
     }
@@ -238,7 +238,7 @@ class CodeColorerOptions {
   /**
    * Process the language identifier attribute string
    */
-  function FilterLanguage($lang) {
+  static function FilterLanguage($lang) {
     $lang = strtolower($lang);
     if (strstr($lang, 'html')) {
       $lang = 'html4strict';
