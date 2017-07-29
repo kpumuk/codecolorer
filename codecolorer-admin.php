@@ -65,40 +65,40 @@ class CodeColorerAdmin {
           <tr valign="top">
             <th scope="row"><label for="codecolorer_lines_to_scroll"><?php _e('Lines to scroll', 'codecolorer') ?>:</label></th>
             <td>
-              <input name="codecolorer_lines_to_scroll" type="text" class="small-text" size="60" id="codecolorer_lines_to_scroll" value="<?php echo get_option('codecolorer_lines_to_scroll') ?>"/>
-              <span class="description"><?php _e('If your code lines number is less than this value, block height would not be fixed. Set to <b>-1</b> to remove vertical scroll.', 'codecolorer') ?></span>
+              <input name="codecolorer_lines_to_scroll" type="number" class="small-text" size="60" id="codecolorer_lines_to_scroll" value="<?php echo get_option('codecolorer_lines_to_scroll') ?>"/>
+              <p class="description"><?php _e('If your code lines number is less than this value, block height would not be fixed. Set to <b>-1</b> to remove vertical scroll.', 'codecolorer') ?></p>
             </td>
           </tr>
 
           <tr valign="top">
             <th scope="row"><label for="codecolorer_width"><?php _e('Width', 'codecolorer') ?>:</label></th>
             <td>
-              <input name="codecolorer_width" type="text" class="small-text" size="60" id="codecolorer_width" value="<?php echo get_option('codecolorer_width') ?>"/>
-              <span class="description"><?php _e('Default code block width. Integer means pixels, also you can specify <tt>em</tt> or <tt>%</tt> suffix. Could be omitted to use whole width.', 'codecolorer') ?></span>
+              <input name="codecolorer_width" type="number" class="small-text" size="60" id="codecolorer_width" value="<?php echo get_option('codecolorer_width') ?>"/>
+              <p class="description"><?php _e('Default code block width. Integer means pixels, also you can specify <tt>em</tt> or <tt>%</tt> suffix. Could be omitted to use whole width.', 'codecolorer') ?></p>
             </td>
           </tr>
 
           <tr valign="top">
             <th scope="row"><label for="codecolorer_height"><?php _e('Height', 'codecolorer') ?>:</label></th>
             <td>
-              <input name="codecolorer_height" type="text" class="small-text" size="60" id="codecolorer_height" value="<?php echo get_option('codecolorer_height') ?>"/>
-              <span class="description"><?php _e('When code has more than &quot;Lines to Scroll&quot; lines, block height will be set to this value.', 'codecolorer') ?></span>
+              <input name="codecolorer_height" type="number" class="small-text" size="60" id="codecolorer_height" value="<?php echo get_option('codecolorer_height') ?>"/>
+              <p class="description"><?php _e('When code has more than &quot;Lines to Scroll&quot; lines, block height will be set to this value.', 'codecolorer') ?></p>
             </td>
           </tr>
 
           <tr valign="top">
             <th scope="row"><label for="codecolorer_rss_width"><?php _e('Width in RSS', 'codecolorer') ?>:</label></th>
             <td>
-              <input name="codecolorer_rss_width" type="text" class="small-text" size="60" id="codecolorer_rss_width" value="<?php echo get_option('codecolorer_rss_width') ?>"/>
-              <span class="description"><?php _e('Default code block width in RSS. See Width option description.', 'codecolorer') ?></span>
+              <input name="codecolorer_rss_width" type="number" class="small-text" size="60" id="codecolorer_rss_width" value="<?php echo get_option('codecolorer_rss_width') ?>"/>
+              <p class="description"><?php _e('Default code block width in RSS. See Width option description.', 'codecolorer') ?></p>
             </td>
           </tr>
 
           <tr valign="top">
             <th scope="row"><label for="codecolorer_tab_size"><?php _e('Tab size', 'codecolorer') ?>:</label></th>
             <td>
-              <input name="codecolorer_tab_size" type="text" class="small-text" size="60" id="codecolorer_tab_size" value="<?php echo get_option('codecolorer_tab_size') ?>"/>
-              <span class="description"><?php _e('Indicating how many spaces would represent TAB symbol.', 'codecolorer') ?></span>
+              <input name="codecolorer_tab_size" type="number" class="small-text" size="60" id="codecolorer_tab_size" value="<?php echo get_option('codecolorer_tab_size') ?>"/>
+              <p class="description"><?php _e('Indicating how many spaces would represent TAB symbol.', 'codecolorer') ?></p>
             </td>
           </tr>
 
@@ -108,7 +108,7 @@ class CodeColorerAdmin {
               <select name="codecolorer_theme" id="codecolorer_theme">
                 <?php $this->ShowThemeSelectOptions(get_option('codecolorer_theme')) ?>
               </select>
-              <span class="description"><?php _e('Default color scheme.', 'codecolorer') ?></span>
+              <p class="description"><?php _e('Default color scheme.', 'codecolorer') ?></p>
             </td>
           </tr>
 
@@ -118,7 +118,7 @@ class CodeColorerAdmin {
               <select name="codecolorer_inline_theme" id="codecolorer_inline_theme">
                 <?php $this->ShowThemeSelectOptions(get_option('codecolorer_inline_theme')) ?>
               </select>
-              <span class="description"><?php _e('Default color scheme for inline code blocks.', 'codecolorer') ?></span>
+              <p class="description"><?php _e('Default color scheme for inline code blocks.', 'codecolorer') ?></p>
             </td>
           </tr>
 
@@ -140,16 +140,16 @@ class CodeColorerAdmin {
           <tr valign="top">
             <th scope="row"><label for="codecolorer_css_class"><?php _e('Custom CSS Classes', 'codecolorer') ?>:</label></th>
             <td>
-              <input name="codecolorer_css_class" type="text" class="regular-text" size="60" id="codecolorer_css_class" value="<?php echo get_option('codecolorer_css_class') ?>"/>
-              <span class="description"><?php _e('These custom CSS classes will be appended to the wrapper HTML element.', 'codecolorer') ?></span>
+              <input name="codecolorer_css_class" type="text" class="regular-text code" size="60" id="codecolorer_css_class" value="<?php echo get_option('codecolorer_css_class') ?>"/>
+              <p class="description"><?php _e('These custom CSS classes will be appended to the wrapper HTML element.', 'codecolorer') ?></p>
             </td>
           </tr>
 
           <tr valign="top">
             <th scope="row"><label for="codecolorer_css_style"><?php _e('Custom CSS Styles', 'codecolorer') ?>:</label></th>
             <td>
-              <textarea name="codecolorer_css_style" id="codecolorer_css_style" rows="5" cols="60"><?php echo htmlspecialchars(get_option('codecolorer_css_style')) ?></textarea><br />
-              <span class="description"><?php _e('These custom CSS rules will be appended to the CodeColorer default CSS file.', 'codecolorer') ?></span>
+              <textarea name="codecolorer_css_style" id="codecolorer_css_style" class="large-text code" rows="10" cols="60"><?php echo htmlspecialchars(get_option('codecolorer_css_style')) ?></textarea><br />
+              <p class="description"><?php _e('These custom CSS rules will be appended to the CodeColorer default CSS file.', 'codecolorer') ?></p>
             </td>
           </tr>
         </table>

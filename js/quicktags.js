@@ -1,36 +1,17 @@
 (function($) {
-  $.fn.codeColorerQuickTags = function(options) {
-    var codeTagIndex = -1;
-
-    for (var i = 0; i < edButtons.length; i++) {
-      if (edButtons[i].id == 'ed_code') {
-        edButtons[i].id = 'ed_cc';
-        edButtons[i].display = 'cc';
-        edButtons[i].tagStart = '';
-        edButtons[i].tagEnd = '[/cc]';
-        
-        codeTagIndex = i;
-        break;
-      }
-    }
-
-    var button = '<input type="button" id="ed_cc" accesskey="c" class="ed_button" value="cc">';
-    $(this).replaceWith(button);
-    
-    $('#ed_cc').bind('click', insertCodeColorer);
-
-    function insertCodeColorer() {
-      if (!edCheckOpenTags(codeTagIndex)) {
-        var URL = prompt(codeColorerL10n.enterLanguage, '');
-        if (URL) {
-          edButtons[codeTagIndex].tagStart = '[cc lang="' + URL + '"]';
-          edInsertTag(edCanvas, codeTagIndex);
+    var ccButtonIndex = 110;
+    while (edButtons[ccButtonIndex] !== undefined) ccButtonIndex++;
+    QTags.addButton('code', 'cc', '[cc]', '[/cc]', 'c', 'CodeColorer', ccButtonIndex);
+    edButtons[ccButtonIndex].callback = function(element, canvas, ed) {
+        var t = this;
+        if (t.isOpen(ed) === false) {
+            var lang = prompt(codeColorerL10n.enterLanguage, '');
+            if (lang) {
+                t.tagStart = '[cc lang="' + lang + '"]';
+            } else {
+                t.tagStart = '[cc]';
+            }
         }
-      } else {
-        edInsertTag(edCanvas, codeTagIndex);
-      }
-    }
-  }
+        QTags.TagButton.prototype.callback.call(t, element, canvas, ed);
+    };
 })(jQuery);
-
-jQuery('#ed_code').codeColorerQuickTags();

@@ -53,11 +53,11 @@ class CodeColorer {
   }
 
   function before_callback1($matches) {
-    return  $this->PerformHighlightCodeBlock($matches[4], $matches[3], $content, $matches[2], $matches[1], $matches[5]);
+    return  $this->PerformHighlightCodeBlock($matches[4], $matches[3], $matches[0], $matches[2], $matches[1], $matches[5]);
   }
 
   function before_callback2($matches) {
-    return $this->PerformHighlightCodeBlock($matches[3], $matches[2], $content, $matches[1], $matches[4]);
+    return $this->PerformHighlightCodeBlock($matches[3], $matches[2], $matches[0], $matches[1], $matches[4]);
   }
 
   function AfterHighlightCodeBlock($content) {
@@ -67,17 +67,14 @@ class CodeColorer {
   }
 
   function BeforeProtectComment($content) {
-    $content = preg_replace_callback('#(\s*)(\[cc[^\s\]_]*(?:_[^\s\]]*)?[^\]]*\].*?\[/cc\1\])(\s*)#si', array($this, 'before_procted_callback1'), $content);
-    $content = preg_replace_callback('#(\s*)(\<code.*?\>.*?\</code\>)(\s*)#si', array($this, 'before_protect_callback2'), $content);
+    $content = preg_replace_callback('#(\s*)(\[cc[^\s\]_]*(?:_[^\s\]]*)?[^\]]*\].*?\[/cc\1\])(\s*)#si', array($this, 'before_protect_callback'), $content);
+    $content = preg_replace_callback('#(\s*)(\<code.*?\>.*?\</code\>)(\s*)#si', array($this, 'before_protect_callback'), $content);
 
     return $content;
   }
-  function before_protect_callback1($matches) {
-    return  $this->PerformProtectComment($matches[2], $content, $matches[1], $matches[3]);
-  }
 
-  function before_protect_callback2($matches) {
-    return $this->PerformProtectComment($matches[2], $content, $matches[1], $matches[3]);
+  function before_protect_callback($matches) {
+    return $this->PerformProtectComment($matches[2], $matches[0], $matches[1], $matches[3]);
   }
 
   function AfterProtectComment($content) {
@@ -203,7 +200,7 @@ class CodeColorer {
       $hlines = explode(',', $options['highlight']);
       $highlight = array(); /* Empty array to store processed line numbers*/
       foreach($hlines as $v) {
-        list($from, $to) = explode('-', $v);
+        list($from, $to) = array_pad(explode('-', $v, 2), 2, null);
         if (is_null($to)) $to = $from;
         for ($i = $from; $i <= $to; $i++) {
           array_push($highlight, $i);
@@ -333,7 +330,7 @@ class CodeColorer {
     return $this->GetCodeHighlighted($this->samplePhpCode);
   }
 
-  function &GetInstance() {
+  static function &GetInstance() {
     static $instance = null;
 
     if (null === $instance) {

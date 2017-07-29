@@ -34,7 +34,7 @@ if (version_compare(phpversion(), '4.0.6', '<')) {
   return;
 }
 
-define('CODECOLORER_VERSION', '0.9.9');
+define('CODECOLORER_VERSION', '0.9.10');
 
 /**
  * Loader class for the CodeColorer plugin
@@ -43,7 +43,7 @@ class CodeColorerLoader {
   /**
    * Enables the CodeColorer plugin with registering all required hooks.
    */
-  function Enable() {
+  static function Enable() {
     $path = dirname(__FILE__);
     if (!file_exists("$path/codecolorer-core.php")) return false;
     require_once("$path/codecolorer-core.php");
@@ -242,7 +242,7 @@ class CodeColorerLoader {
     return $content;
   }
 
-  function Highlight($code) {
+  static function Highlight($code) {
     $cc = &CodeColorer::GetInstance();
     if (null !== $cc) {
       return $cc->GetCodeHighlighted($code);
