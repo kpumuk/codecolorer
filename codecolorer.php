@@ -34,7 +34,7 @@ if (version_compare(phpversion(), '4.0.6', '<')) {
   return;
 }
 
-define('CODECOLORER_VERSION', '0.9.9');
+define('CODECOLORER_VERSION', '0.9.10');
 
 /**
  * Loader class for the CodeColorer plugin
