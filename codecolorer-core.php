@@ -105,7 +105,7 @@ class CodeColorer {
    */
   function PerformHighlightCodeBlock($text, $opts, $content, $suffix = '', $before = '', $after = '') {
     // Parse options
-    $options = CodeColorerOptions::ParseOptions($opts, $suffix);
+    $options = CodeColorerOptions::parseOptions($opts, $suffix);
 
     // Load code from a file
     if (isset($options['file'])) {

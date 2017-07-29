@@ -123,7 +123,7 @@ class CodeColorerLoader {
     register_setting('codecolorer', 'codecolorer_height', '');
     register_setting('codecolorer', 'codecolorer_rss_width', '');
     register_setting('codecolorer', 'codecolorer_line_numbers', '');
-    register_setting('codecolorer', 'codecolorer_disable_keyword_linking', array('CodeColorerOptions', 'SanitizeBoolean'));
+    register_setting('codecolorer', 'codecolorer_disable_keyword_linking', array('CodeColorerOptions', 'sanitizeBoolean'));
     register_setting('codecolorer', 'codecolorer_tab_size', 'intval');
     register_setting('codecolorer', 'codecolorer_theme', '');
     register_setting('codecolorer', 'codecolorer_inline_theme', '');
