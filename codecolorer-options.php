@@ -31,7 +31,9 @@ class CodeColorerOptions {
       'twitlight'   => 'Twitlight',
       'vibrant'     => 'Vibrant Ink',
       'geshi'       => 'GeSHi',
-      'railscasts'  => 'Railscasts'
+      'railscasts'  => 'Railscasts',
+      'solarized-light' => 'Solarized Light',
+      'solarized-dark'  => 'Solarized Dark',
     );
   }
 
