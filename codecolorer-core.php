@@ -46,18 +46,25 @@ class CodeColorer {
 
   /** Search content for code tags and replace it */
   function BeforeHighlightCodeBlock($content) {
-    $content = preg_replace_callback('#(\s*)\[cc([^\s\]_]*(?:_[^\s\]]*)?)([^\]]*)\](.*?)\[/cc\2\](\s*)#si', array($this, 'before_callback1'), $content);
-    $content = preg_replace_callback('#(\s*)\<code(.*?)\>(.*?)\</code\>(\s*)#si', array($this, 'before_callback2'), $content);
+    $helper = $this;
+
+    $content = preg_replace_callback(
+      '#(\s*)\[cc([^\s\]_]*(?:_[^\s\]]*)?)([^\]]*)\](.*?)\[/cc\2\](\s*)#si',
+      function ($m) use ($helper, $content) {
+        return $helper->PerformHighlightCodeBlock($m[4], $m[3], $content, $m[2], $m[1], $m[5]);
+      },
+      $content
+    );
+
+    $content = preg_replace_callback(
+      '#(\s*)\<code(.*?)\>(.*?)\</code\>(\s*)#si',
+      function ($m) use ($helper, $content) {
+        return $helper->PerformHighlightCodeBlock($m[3], $m[2], $content, '', $m[1], $m[4]);
+      },
+      $content
+    );
 
     return $content;
-  }
-
-  function before_callback1($matches) {
-    return  $this->PerformHighlightCodeBlock($matches[4], $matches[3], $matches[0], $matches[2], $matches[1], $matches[5]);
-  }
-
-  function before_callback2($matches) {
-    return $this->PerformHighlightCodeBlock($matches[3], $matches[2], $matches[0], $matches[1], $matches[4]);
   }
 
   function AfterHighlightCodeBlock($content) {
@@ -67,14 +74,23 @@ class CodeColorer {
   }
 
   function BeforeProtectComment($content) {
-    $content = preg_replace_callback('#(\s*)(\[cc[^\s\]_]*(?:_[^\s\]]*)?[^\]]*\].*?\[/cc\1\])(\s*)#si', array($this, 'before_protect_callback'), $content);
-    $content = preg_replace_callback('#(\s*)(\<code.*?\>.*?\</code\>)(\s*)#si', array($this, 'before_protect_callback'), $content);
+    $helper = $this;
+    $content = preg_replace_callback(
+      '#(\s*)(\[cc[^\s\]_]*(?:_[^\s\]]*)?[^\]]*\].*?\[/cc\1\])(\s*)#si',
+      function ($m) use ($helper, $content) {
+        return $helper->PerformProtectComment($m[2], $content, $m[1], $m[3]);
+      },
+      $content
+    );
+    $content = preg_replace_callback(
+      '#(\s*)(\<code.*?\>.*?\</code\>)(\s*)#si',
+      function ($m) use ($helper, $content) {
+        return $helper->PerformProtectComment($m[2], $content, $m[1], $m[3]);
+      },
+      $content
+    );
 
     return $content;
-  }
-
-  function before_protect_callback($matches) {
-    return $this->PerformProtectComment($matches[2], $matches[0], $matches[1], $matches[3]);
   }
 
   function AfterProtectComment($content) {
@@ -113,8 +129,8 @@ class CodeColorer {
 
     if ($options['escaped']) {
       $text = html_entity_decode($text, ENT_QUOTES);
-      $text = preg_replace_callback('~&#x0*([0-9a-f]+);~i', array($this, 'unescape_callback_1'), $text);
-      $text = preg_replace_callback('~&#0*([0-9]+);~', array($this, 'unescape_callback_2'), $text);
+      $text = preg_replace_callback('~&#x0*([0-9a-f]+);~i', function ($m) {return chr(hexdec($m[1]));}, $text);
+      $text = preg_replace_callback('~&#0*([0-9]+);~', function ($m) {return chr($m[1]);}, $text);
     }
 
     $result = '';
@@ -144,14 +160,6 @@ class CodeColorer {
     }
 
     return $result;
-  }
-
-  function unescape_callback_1($matches) {
-    return chr(hexdec($matches[1]));
-  }
-
-  function unescape_callback_2($matches) {
-    return chr($matches[1]);
   }
 
   /**
