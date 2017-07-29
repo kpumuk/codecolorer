@@ -266,7 +266,7 @@ This snippet will insert code from the UPLOADS_DIR/test_project/main.rb file.
 
 == Changelog ==
 
-= 0.9.10 (Development) =
+= 0.9.10 (July 28, 2017) =
 * Fixed a bug with large code blocks margins.
 * Added Portuguese translation (thanks to <a href="http://lfscoutinho.net/">Luis Coutinho</a>).
 * Added Indonesian translation (thanks to <a href="http://www.openscriptsolution.com/">Masino Sinaga</a>).
