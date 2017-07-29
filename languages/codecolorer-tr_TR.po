@@ -1,175 +1,220 @@
-# CodeColorer 0.9.9
-# Copyright (c) 2006 - 2011 Dmytro Shteflyuk
+# CodeColorer 0.9.10
+# Copyright (c) 2006 - 2017 Dmytro Shteflyuk
 # This file is distributed under the same license as the CodeColorer package.
 #
 # Dmytro Shteflyuk <kpumuk@kpumuk.info>, 2011.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: CodeColorer 0.9.9\n"
-"Report-Msgid-Bugs-To: http://kpumuk.info/projects/wordpress-plugins/codecolorer/\n"
-"POT-Creation-Date: 2009-07-31 13:41+0000\n"
+"Project-Id-Version: CodeColorer 0.9.10\n"
+"Report-Msgid-Bugs-To: https://kpumuk.info/projects/wordpress-plugins/"
+"codecolorer/\n"
+"POT-Creation-Date: 2017-07-29 01:12-0400\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Dmytro Shteflyuk <kpumuk@kpumuk.info>\n"
 "Language-Team: by hasan <hasanakgoz@gmail.com>\n"
+"Language: tr_TR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Turkish\n"
-"X-Poedit-Country: TURKEY\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 2.0.3\n"
 
 #: codecolorer-admin.php:41
 #, php-format
-msgid "Your current locale is %1$s, and CodeColorer has incomplete or does not have a translation into your language. It would be great, if you have a time to <a href=\"%2$s\">help us to translate</a> it."
-msgstr "Mecut yerelleştirme %1$s dir. ve CodeColorer dilinize çevirisi tamamlanmamıştır. Olsaydı çok iyi olurdu, eğer zamanınız varsa <a href=\"%2$s\">Çeviride bize yardımcı olun</a> it."
+msgid ""
+"Your current locale is %1$s, and CodeColorer has incomplete or does not have "
+"a translation into your language. It would be great, if you have a time to "
+"<a href=\"%2$s\">help us to translate</a> it."
+msgstr ""
+"Mecut yerelleştirme %1$s dir. ve CodeColorer dilinize çevirisi "
+"tamamlanmamıştır. Olsaydı çok iyi olurdu, eğer zamanınız varsa <a href=\"%2$s"
+"\">Çeviride bize yardımcı olun</a> it."
 
 #: codecolorer-admin.php:42
 msgid "CodeColorer translation is incomplete."
 msgstr "Çeviri tamamlanmadı."
 
-#: codecolorer-admin.php:56
+#: codecolorer-admin.php:57
 msgid "Code Highlighting Options"
 msgstr "Kod renklendirme ayarları"
 
-#: codecolorer-admin.php:65
+#: codecolorer-admin.php:66
 msgid "Lines to scroll"
 msgstr "Satırları kaydırmak için"
 
-#: codecolorer-admin.php:68
-msgid "If your code lines number is less than this value, block height would not be fixed. Set to <b>-1</b> to remove vertical scroll."
-msgstr "Eğer kod satır sayısı bu değerden az ise, block genişliği sabit olmaz. Dikey kaydırmayı kaldırmak için değeri <b>-1 </b>  şeklinde ayarlayın."
+#: codecolorer-admin.php:69
+msgid ""
+"If your code lines number is less than this value, block height would not be "
+"fixed. Set to <b>-1</b> to remove vertical scroll."
+msgstr ""
+"Eğer kod satır sayısı bu değerden az ise, block genişliği sabit olmaz. Dikey "
+"kaydırmayı kaldırmak için değeri <b>-1 </b>  şeklinde ayarlayın."
 
-#: codecolorer-admin.php:73
+#: codecolorer-admin.php:74
 msgid "Width"
 msgstr "Genişlik"
 
-#: codecolorer-admin.php:76
-msgid "Default code block width. Integer means pixels, also you can specify <tt>em</tt> or <tt>%</tt> suffix. Could be omitted to use whole width."
-msgstr "Varsayılan kod block genişliği. Piksel olarak tamsayı, Birde bunu  <tt>em</tt> veya <tt>%</tt> önek olarak belirtin. Tüm genişlik kullanımında sitede kayma olabilir."
+#: codecolorer-admin.php:77
+msgid ""
+"Default code block width. Integer means pixels, also you can specify <tt>em</"
+"tt> or <tt>%</tt> suffix. Could be omitted to use whole width."
+msgstr ""
+"Varsayılan kod block genişliği. Piksel olarak tamsayı, Birde bunu  <tt>em</"
+"tt> veya <tt>%</tt> önek olarak belirtin. Tüm genişlik kullanımında sitede "
+"kayma olabilir."
 
-#: codecolorer-admin.php:81
+#: codecolorer-admin.php:82
 msgid "Height"
 msgstr "Yükseklik"
 
-#: codecolorer-admin.php:84
-msgid "When code has more than &quot;Lines to Scroll&quot; lines, block height will be set to this value."
-msgstr "Daha fazla kaydırma çubuğu için burdaki değeri ayarlayın , block genişiliği değişecektir."
+#: codecolorer-admin.php:85
+msgid ""
+"When code has more than &quot;Lines to Scroll&quot; lines, block height will "
+"be set to this value."
+msgstr ""
+"Daha fazla kaydırma çubuğu için burdaki değeri ayarlayın , block genişiliği "
+"değişecektir."
 
-#: codecolorer-admin.php:89
+#: codecolorer-admin.php:90
 msgid "Width in RSS"
 msgstr "Rss genişliği"
 
-#: codecolorer-admin.php:92
+#: codecolorer-admin.php:93
 msgid "Default code block width in RSS. See Width option description."
-msgstr "Rss' de varsayılan kod block genişliği. Ayar genişiği için site tanımına bakınız."
+msgstr ""
+"Rss' de varsayılan kod block genişliği. Ayar genişiği için site tanımına "
+"bakınız."
 
-#: codecolorer-admin.php:97
+#: codecolorer-admin.php:98
 msgid "Tab size"
 msgstr "Sekme (Tab) büyüklüğü"
 
-#: codecolorer-admin.php:100
+#: codecolorer-admin.php:101
 msgid "Indicating how many spaces would represent TAB symbol."
 msgstr "Kaç tane boşluk sekme olarak ayarlansın gösteriniz."
 
-#: codecolorer-admin.php:105
+#: codecolorer-admin.php:106
 msgid "Theme"
 msgstr "Tema"
 
-#: codecolorer-admin.php:110
+#: codecolorer-admin.php:111
 msgid "Default color scheme."
-msgstr "Varsayılan renk şeması"
+msgstr "Varsayılan renk şeması."
 
-#: codecolorer-admin.php:115
+#: codecolorer-admin.php:116
 msgid "Inline Theme"
 msgstr "Satıriçi tema"
 
-#: codecolorer-admin.php:120
+#: codecolorer-admin.php:121
 msgid "Default color scheme for inline code blocks."
-msgstr "Satıriçi  kod blokları için varsayılan renk şeması"
+msgstr "Satıriçi  kod blokları için varsayılan renk şeması."
 
-#: codecolorer-admin.php:125
+#: codecolorer-admin.php:126
 msgid "Formatting"
 msgstr "Biçimlendirme"
 
-#: codecolorer-admin.php:129
+#: codecolorer-admin.php:130
 msgid "Show line numbers"
 msgstr "Satır numaralarını göster"
 
-#: codecolorer-admin.php:134
+#: codecolorer-admin.php:135
 msgid "Disable keyword linking"
-msgstr "Kod hakkında bilg veren linkleri iptal et."
+msgstr "Kod hakkında bilg veren linkleri iptal et"
 
-#: codecolorer-admin.php:140
+#: codecolorer-admin.php:141
 msgid "Custom CSS Classes"
 msgstr ""
 
-#: codecolorer-admin.php:143
+#: codecolorer-admin.php:144
 msgid "These custom CSS classes will be appended to the wrapper HTML element."
 msgstr ""
 
-#: codecolorer-admin.php:148
+#: codecolorer-admin.php:149
 msgid "Custom CSS Styles"
-msgstr "CSS sitillerini özelleştir."
+msgstr "CSS sitillerini özelleştir"
 
-#: codecolorer-admin.php:151
-msgid "These custom CSS rules will be appended to the CodeColorer default CSS file."
-msgstr "Burada CodeColorer varsayılan Css dosyasına kendi Css kurallarınızı ekleyebilirsiniz.."
+#: codecolorer-admin.php:152
+msgid ""
+"These custom CSS rules will be appended to the CodeColorer default CSS file."
+msgstr ""
+"Burada CodeColorer varsayılan Css dosyasına kendi Css kurallarınızı "
+"ekleyebilirsiniz.."
 
-#: codecolorer-admin.php:156
+#: codecolorer-admin.php:157
 msgid "Preview"
 msgstr "Önizleme"
 
-#: codecolorer-admin.php:160
+#: codecolorer-admin.php:161
 msgid "Code Example"
 msgstr "Kod örneği"
 
-#: codecolorer-admin.php:168
+#: codecolorer-admin.php:169
 msgid "Save Options"
 msgstr "Ayarları kaydet"
 
-#: codecolorer-core.php:240
+#: codecolorer-core.php:305
 msgid "Close"
 msgstr "Kapat"
 
-#: codecolorer-core.php:246
+#: codecolorer-core.php:311
 msgid "CodeColorer has detected a problem."
 msgstr "CodeColorer bir problem tespit etti."
 
-#: codecolorer-core.php:246
+#: codecolorer-core.php:311
 #, php-format
-msgid "We found another plugin based on GeSHi library in your system. CodeColorer will work, but our version of GeSHi contain some patches, so we can't guarantee an ideal code highlighting now. Please review your <a href=\"%1$s\">plugins</a>, maybe you don't need them all."
-msgstr "Birbaşka GeSHİ tabanlı bir eklenti bulundu. CodeColorer çalışacaktır fakat iyi bir kod renklendirme garantisi şimdilik yoktur. Lütfen önizlemesi olan <a href=\"%1$s\">eklentilerden</a>, gerekli olmayanları kaldırın."
+msgid ""
+"We found another plugin based on GeSHi library in your system. CodeColorer "
+"will work, but our version of GeSHi contain some patches, so we can't "
+"guarantee an ideal code highlighting now. Please review your <a href=\"%1$s"
+"\">plugins</a>, maybe you don't need them all."
+msgstr ""
+"Birbaşka GeSHİ tabanlı bir eklenti bulundu. CodeColorer çalışacaktır fakat "
+"iyi bir kod renklendirme garantisi şimdilik yoktur. Lütfen önizlemesi olan "
+"<a href=\"%1$s\">eklentilerden</a>, gerekli olmayanları kaldırın."
 
-#: codecolorer.php:161
+#: codecolorer.php:164
 msgid "Settings"
 msgstr "Ayarlar"
 
-#: codecolorer.php:168
+#: codecolorer.php:171
 msgid "FAQ"
 msgstr "Sık sorula sorular"
 
-#: codecolorer.php:169
+#: codecolorer.php:172
 msgid "Support"
 msgstr "Desktek"
+
+#: codecolorer.php:183
+msgid "Enter Language"
+msgstr ""
 
 #. Plugin Name of an extension
 msgid "CodeColorer"
 msgstr "CodeColorer"
 
 #. Plugin URI of an extension
-msgid "http://kpumuk.info/projects/wordpress-plugins/codecolorer/"
-msgstr "http://kpumuk.info/projects/wordpress-plugins/codecolorer/"
+msgid "https://kpumuk.info/projects/wordpress-plugins/codecolorer/"
+msgstr "https://kpumuk.info/projects/wordpress-plugins/codecolorer/"
 
 #. Description of an extension
-msgid "This plugin allows you to insert code snippets to your posts with nice syntax highlighting powered by <a href=\"http://qbnz.com/highlighter/\">GeSHi</a> library. After enabling this plugin visit <a href=\"options-general.php?page=codecolorer.php\">the options page</a> to configure code style."
-msgstr "Bu eklenti kod eklenmesine izin verilen güzel bir yazı renklendirmesi olan, <a href=\"http://qbnz.com/highlighter/\">GeSHi</a> kütüphanesi ile çalışmaktadır. Eklentiyi aktifleştirdikten sonra sitesini ziyaret için <a href=\"options-general.php?page=codecolorer.php\">Ayar sayfası</a> kod sitlini ayarlayın."
+msgid ""
+"This plugin allows you to insert code snippets to your posts with nice "
+"syntax highlighting powered by <a href=\"http://qbnz.com/highlighter/"
+"\">GeSHi</a> library. After enabling this plugin visit <a href=\"options-"
+"general.php?page=codecolorer.php\">the options page</a> to configure code "
+"style."
+msgstr ""
+"Bu eklenti kod eklenmesine izin verilen güzel bir yazı renklendirmesi olan, "
+"<a href=\"http://qbnz.com/highlighter/\">GeSHi</a> kütüphanesi ile "
+"çalışmaktadır. Eklentiyi aktifleştirdikten sonra sitesini ziyaret için <a "
+"href=\"options-general.php?page=codecolorer.php\">Ayar sayfası</a> kod "
+"sitlini ayarlayın."
 
 #. Author of an extension
 msgid "Dmytro Shteflyuk"
 msgstr "Dmytro Shteflyuk"
 
 #. Author URI of an extension
-msgid "http://kpumuk.info/"
-msgstr "http://kpumuk.info/"
-
+msgid "https://kpumuk.info/"
+msgstr "https://kpumuk.info/"

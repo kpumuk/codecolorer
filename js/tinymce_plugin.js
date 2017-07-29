@@ -32,7 +32,7 @@
       });
     },
 
-    
+
 
     /**
      * Returns information about the plugin as a name/value array.
@@ -44,9 +44,9 @@
       return {
         longname : 'CodeColorer plugin',
         author : 'Dmytro Shtefluk',
-        authorurl : 'http://kpumuk.info/',
-        infourl : 'http://kpumuk.info/projects/wordpress-plugins/codecolorer/',
-        version : '0.9.9'
+        authorurl : 'https://kpumuk.info/',
+        infourl : 'https://kpumuk.info/projects/wordpress-plugins/codecolorer/',
+        version : '0.9.10'
       };
     }
   });

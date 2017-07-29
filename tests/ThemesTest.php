@@ -1,7 +1,7 @@
 <?php
 /*
 CodeColorer plugin unit tests
-http://kpumuk.info/projects/wordpress-plugins/codecolorer
+https://kpumuk.info/projects/wordpress-plugins/codecolorer
 */
 
 require_once 'test_helper.php';

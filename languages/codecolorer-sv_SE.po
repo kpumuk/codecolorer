@@ -1,175 +1,216 @@
-# CodeColorer 0.9.9
-# Copyright (c) 2006 - 2011 Dmytro Shteflyuk
+# CodeColorer 0.9.10
+# Copyright (c) 2006 - 2017 Dmytro Shteflyuk
 # This file is distributed under the same license as the CodeColorer package.
 #
 # Dmytro Shteflyuk <kpumuk@kpumuk.info>, 2011.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: CodeColorer 0.9.9\n"
-"Report-Msgid-Bugs-To: http://kpumuk.info/projects/wordpress-plugins/codecolorer/\n"
-"POT-Creation-Date: 2009-07-31 13:41+0000\n"
+"Project-Id-Version: CodeColorer 0.9.10\n"
+"Report-Msgid-Bugs-To: https://kpumuk.info/projects/wordpress-plugins/"
+"codecolorer/\n"
+"POT-Creation-Date: 2017-07-29 01:12-0400\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Dmytro Shteflyuk <kpumuk@kpumuk.info>\n"
 "Language-Team: LHLI <samuel@lhli.net>\n"
+"Language: sv_SE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: Swedish\n"
-"X-Poedit-Country: SWEDEN\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 2.0.3\n"
 
 #: codecolorer-admin.php:41
 #, php-format
-msgid "Your current locale is %1$s, and CodeColorer has incomplete or does not have a translation into your language. It would be great, if you have a time to <a href=\"%2$s\">help us to translate</a> it."
+msgid ""
+"Your current locale is %1$s, and CodeColorer has incomplete or does not have "
+"a translation into your language. It would be great, if you have a time to "
+"<a href=\"%2$s\">help us to translate</a> it."
 msgstr ""
 
 #: codecolorer-admin.php:42
 msgid "CodeColorer translation is incomplete."
 msgstr "Översättningen av CodeColorer är ofullständig."
 
-#: codecolorer-admin.php:56
+#: codecolorer-admin.php:57
 msgid "Code Highlighting Options"
 msgstr "Inställningar för färgkodning"
 
-#: codecolorer-admin.php:65
+#: codecolorer-admin.php:66
 msgid "Lines to scroll"
 msgstr "Rader att scrolla"
 
-#: codecolorer-admin.php:68
-msgid "If your code lines number is less than this value, block height would not be fixed. Set to <b>-1</b> to remove vertical scroll."
-msgstr "Om antalet rader i din källkod är mindre än angiven siffra kommer höjden på kodblocket inte att fixeras. Sätt till <b>-1</b> för att ta bort vertikal scroll."
+#: codecolorer-admin.php:69
+msgid ""
+"If your code lines number is less than this value, block height would not be "
+"fixed. Set to <b>-1</b> to remove vertical scroll."
+msgstr ""
+"Om antalet rader i din källkod är mindre än angiven siffra kommer höjden på "
+"kodblocket inte att fixeras. Sätt till <b>-1</b> för att ta bort vertikal "
+"scroll."
 
-#: codecolorer-admin.php:73
+#: codecolorer-admin.php:74
 msgid "Width"
 msgstr "Bredd"
 
-#: codecolorer-admin.php:76
-msgid "Default code block width. Integer means pixels, also you can specify <tt>em</tt> or <tt>%</tt> suffix. Could be omitted to use whole width."
-msgstr "Förvald bredd för kodblock. Endast heltal innebär bredd i pixlar, <tt>em</tt> eller <tt>%</tt> som suffix fungerar också. Lämna tomt för full bredd."
+#: codecolorer-admin.php:77
+msgid ""
+"Default code block width. Integer means pixels, also you can specify <tt>em</"
+"tt> or <tt>%</tt> suffix. Could be omitted to use whole width."
+msgstr ""
+"Förvald bredd för kodblock. Endast heltal innebär bredd i pixlar, <tt>em</"
+"tt> eller <tt>%</tt> som suffix fungerar också. Lämna tomt för full bredd."
 
-#: codecolorer-admin.php:81
+#: codecolorer-admin.php:82
 msgid "Height"
 msgstr "Höjd"
 
-#: codecolorer-admin.php:84
-msgid "When code has more than &quot;Lines to Scroll&quot; lines, block height will be set to this value."
-msgstr "Om källkoden har fler rader än &quot;Rader att scrolla&quot; sätts kodblockets höjd till detta värde."
+#: codecolorer-admin.php:85
+msgid ""
+"When code has more than &quot;Lines to Scroll&quot; lines, block height will "
+"be set to this value."
+msgstr ""
+"Om källkoden har fler rader än &quot;Rader att scrolla&quot; sätts "
+"kodblockets höjd till detta värde."
 
-#: codecolorer-admin.php:89
+#: codecolorer-admin.php:90
 msgid "Width in RSS"
 msgstr "Bredd i RSS"
 
-#: codecolorer-admin.php:92
+#: codecolorer-admin.php:93
 msgid "Default code block width in RSS. See Width option description."
 msgstr "Förvald bredd för kodblock i RSS. Samma val som för &quot;Bredd&quot;."
 
-#: codecolorer-admin.php:97
+#: codecolorer-admin.php:98
 msgid "Tab size"
 msgstr "Tabbstorlek"
 
-#: codecolorer-admin.php:100
+#: codecolorer-admin.php:101
 msgid "Indicating how many spaces would represent TAB symbol."
 msgstr "Antalet mellanslag som representerar ett tabbstopp."
 
-#: codecolorer-admin.php:105
+#: codecolorer-admin.php:106
 msgid "Theme"
 msgstr "Tema"
 
-#: codecolorer-admin.php:110
+#: codecolorer-admin.php:111
 msgid "Default color scheme."
 msgstr "Förvalt färgschema."
 
-#: codecolorer-admin.php:115
+#: codecolorer-admin.php:116
 msgid "Inline Theme"
 msgstr "Tema i löpande text"
 
-#: codecolorer-admin.php:120
+#: codecolorer-admin.php:121
 msgid "Default color scheme for inline code blocks."
 msgstr "Förvalt färgschema för kodblock i löpande text."
 
-#: codecolorer-admin.php:125
+#: codecolorer-admin.php:126
 msgid "Formatting"
 msgstr "Formatering"
 
-#: codecolorer-admin.php:129
+#: codecolorer-admin.php:130
 msgid "Show line numbers"
 msgstr "Visa radnummer"
 
-#: codecolorer-admin.php:134
+#: codecolorer-admin.php:135
 msgid "Disable keyword linking"
 msgstr "Stäng av länkning av nyckelord"
 
-#: codecolorer-admin.php:140
+#: codecolorer-admin.php:141
 msgid "Custom CSS Classes"
 msgstr ""
 
-#: codecolorer-admin.php:143
+#: codecolorer-admin.php:144
 msgid "These custom CSS classes will be appended to the wrapper HTML element."
 msgstr ""
 
-#: codecolorer-admin.php:148
+#: codecolorer-admin.php:149
 msgid "Custom CSS Styles"
 msgstr "Anpassad CSS"
 
-#: codecolorer-admin.php:151
-msgid "These custom CSS rules will be appended to the CodeColorer default CSS file."
-msgstr "De anpassade CSS-reglerna kommer att läggas till i CodeColorers ordinarie CSS-fil."
+#: codecolorer-admin.php:152
+msgid ""
+"These custom CSS rules will be appended to the CodeColorer default CSS file."
+msgstr ""
+"De anpassade CSS-reglerna kommer att läggas till i CodeColorers ordinarie "
+"CSS-fil."
 
-#: codecolorer-admin.php:156
+#: codecolorer-admin.php:157
 msgid "Preview"
 msgstr "Förhandsvisa"
 
-#: codecolorer-admin.php:160
+#: codecolorer-admin.php:161
 msgid "Code Example"
 msgstr "Exempel"
 
-#: codecolorer-admin.php:168
+#: codecolorer-admin.php:169
 msgid "Save Options"
 msgstr "Spara inställningar"
 
-#: codecolorer-core.php:240
+#: codecolorer-core.php:305
 msgid "Close"
 msgstr "Stäng"
 
-#: codecolorer-core.php:246
+#: codecolorer-core.php:311
 msgid "CodeColorer has detected a problem."
 msgstr "CodeColorer har upptäckt ett problem."
 
-#: codecolorer-core.php:246
+#: codecolorer-core.php:311
 #, php-format
-msgid "We found another plugin based on GeSHi library in your system. CodeColorer will work, but our version of GeSHi contain some patches, so we can't guarantee an ideal code highlighting now. Please review your <a href=\"%1$s\">plugins</a>, maybe you don't need them all."
-msgstr "Vi hittade ett annat tillägg i ditt system baserat på GeSHi-biblioteket. CodeColorer kommer att fungera, men eftersom vår version av GeSHi innehåller ett antal förändringar kan vi inte garantera perfekt färgkodning. Gå gärna igenom dina <a href=\"%1$s\">tillägg</a>, kanske behöver du inte alla?"
+msgid ""
+"We found another plugin based on GeSHi library in your system. CodeColorer "
+"will work, but our version of GeSHi contain some patches, so we can't "
+"guarantee an ideal code highlighting now. Please review your <a href=\"%1$s"
+"\">plugins</a>, maybe you don't need them all."
+msgstr ""
+"Vi hittade ett annat tillägg i ditt system baserat på GeSHi-biblioteket. "
+"CodeColorer kommer att fungera, men eftersom vår version av GeSHi innehåller "
+"ett antal förändringar kan vi inte garantera perfekt färgkodning. Gå gärna "
+"igenom dina <a href=\"%1$s\">tillägg</a>, kanske behöver du inte alla."
 
-#: codecolorer.php:161
+#: codecolorer.php:164
 msgid "Settings"
 msgstr "Inställningar"
 
-#: codecolorer.php:168
+#: codecolorer.php:171
 msgid "FAQ"
 msgstr "FAQ"
 
-#: codecolorer.php:169
+#: codecolorer.php:172
 msgid "Support"
 msgstr "Support"
+
+#: codecolorer.php:183
+msgid "Enter Language"
+msgstr ""
 
 #. Plugin Name of an extension
 msgid "CodeColorer"
 msgstr "CodeColorer"
 
 #. Plugin URI of an extension
-msgid "http://kpumuk.info/projects/wordpress-plugins/codecolorer/"
-msgstr "http://kpumuk.info/projects/wordpress-plugins/codecolorer/"
+msgid "https://kpumuk.info/projects/wordpress-plugins/codecolorer/"
+msgstr "https://kpumuk.info/projects/wordpress-plugins/codecolorer/"
 
 #. Description of an extension
-msgid "This plugin allows you to insert code snippets to your posts with nice syntax highlighting powered by <a href=\"http://qbnz.com/highlighter/\">GeSHi</a> library. After enabling this plugin visit <a href=\"options-general.php?page=codecolorer.php\">the options page</a> to configure code style."
-msgstr "Detta tillägg låter dig klistra in färgkodad källkod i dina blogginlägg. Färgkodningen skapas av <a href=\"http://qbnz.com/highlighter/\">GeSHi</a>-biblioteket. Efter att du aktiverat tillägget, gå till <a href=\"options-general.php?page=codecolorer.php\">inställningssidan</a> för att konfigurera färgkodning."
+msgid ""
+"This plugin allows you to insert code snippets to your posts with nice "
+"syntax highlighting powered by <a href=\"http://qbnz.com/highlighter/"
+"\">GeSHi</a> library. After enabling this plugin visit <a href=\"options-"
+"general.php?page=codecolorer.php\">the options page</a> to configure code "
+"style."
+msgstr ""
+"Detta tillägg låter dig klistra in färgkodad källkod i dina blogginlägg. "
+"Färgkodningen skapas av <a href=\"http://qbnz.com/highlighter/\">GeSHi</a>-"
+"biblioteket. Efter att du aktiverat tillägget, gå till <a href=\"options-"
+"general.php?page=codecolorer.php\">inställningssidan</a> för att konfigurera "
+"färgkodning."
 
 #. Author of an extension
 msgid "Dmytro Shteflyuk"
 msgstr "Dmytro Shteflyuk"
 
 #. Author URI of an extension
-msgid "http://kpumuk.info/"
-msgstr "http://kpumuk.info/"
-
+msgid "https://kpumuk.info/"
+msgstr "https://kpumuk.info/"
