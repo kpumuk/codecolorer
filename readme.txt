@@ -270,7 +270,7 @@ This snippet will insert code from the UPLOADS_DIR/test_project/main.rb file.
 * Fixed a bug with large code blocks margins.
 * Added Portuguese translation (thanks to <a href="http://lfscoutinho.net/">Luis Coutinho</a>).
 * Added Indonesian translation (thanks to <a href="http://www.openscriptsolution.com/">Masino Sinaga</a>).
-* Fixed PHP 7 compatibility issues.
+* Fixed PHP 7 compatibility issues (thanks to <a href="https://github.com/kamermans">Steve Kamerman</a> and <a href="https://github.com/robfelty">Robert Felty</a>).
 * Fixed WordPress 4+ compatibility (editor button, settings page layout).
 
 = 0.9.9 (April 28, 2011) =
