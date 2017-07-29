@@ -28,7 +28,7 @@ class CodeColorerAdmin {
   }
 
   function ShowThemeSelectOptions($current_theme) {
-    foreach(CodeColorerOptions::GetThemes() as $theme => $description) {
+    foreach(CodeColorerOptions::getThemes() as $theme => $description) {
       echo '<option value="' . $theme . '"';
       if ($theme == $current_theme) echo ' selected="selected"';
       echo '>' . htmlspecialchars($description) . '</option>';
@@ -37,7 +37,7 @@ class CodeColorerAdmin {
 
   function ShowLanguageWarning() {
     $locale = get_locale();
-    if (!in_array($locale, CodeColorerOptions::GetLanguages())) {
+    if (!in_array($locale, CodeColorerOptions::getLanguages())) {
       $msgFormat = __('Your current locale is %1$s, and CodeColorer has incomplete or does not have a translation into your language. It would be great, if you have a time to <a href="%2$s">help us to translate</a> it.', 'codecolorer');
       $this->cc->ShowWarning('language', __('CodeColorer translation is incomplete.', 'codecolorer'), sprintf($msgFormat, $locale, "https://kpumuk.info/projects/wordpress-plugins/codecolorer/#translation"));
     }
