@@ -42,6 +42,7 @@ is currently available in following languages:
 * Czech – Čeština (thanks to <a href="http://lelkoun.cz/">Lelkoun</a>)
 * Danish – Dansk (thanks to <a href="http://www.klysner.com/">Hans Klysner</a>)
 * Dutch – Nederlands (thanks to <a href="http://www.helixsoft.nl/blog/">Martijn van Iersel</a>)
+* English - Great Britain (thanks to <a href="https://github.com/DeltaNova">Matthew Tunstall</a>)
 * French – Français (thanks to <a href="http://www.flyingcode.com/">Valentin PRUGNAUD</a>, <a href="http://fanta78.free.fr/">fanta78</a>, <a href="http://blog.zabe.fr/">Sylvain Zabé</a>, and <a href="http://blogs.wittwer.fr/whiler/">Whiler</a>)
 * Georgian – ქართული ენა (thanks to <a href="http://sysadmin.softgen.ge/">Nika Chkhikvishvili</a>)
 * German – German (Deutsch) (thanks to <a href="http://www.fabianschulz.net/">Fabian Schulz</a> and <a href="http://michael-gutbier.de/">Michael Gutbier</a>)
@@ -272,6 +273,7 @@ This snippet will insert code from the UPLOADS_DIR/test_project/main.rb file.
 * Added Indonesian translation (thanks to <a href="http://www.openscriptsolution.com/">Masino Sinaga</a>).
 * Fixed PHP 7 compatibility issues (thanks to <a href="https://github.com/kamermans">Steve Kamerman</a> and <a href="https://github.com/robfelty">Robert Felty</a>).
 * Fixed WordPress 4+ compatibility (editor button, settings page layout).
+* Added "Solarized Light" and "Solarized Dark" themes (thanks to <a href="https://github.com/mattkirman">Matt Kirman</a>).
 
 = 0.9.9 (April 28, 2011) =
 * Added ability to highlight ranges of lines (thanks to <a href="http://www.deltanova.co.uk/670/">DELTA NOVA</a>).
