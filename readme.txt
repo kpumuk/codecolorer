@@ -2,8 +2,8 @@
 Contributors: kpumuk
 Tags: code, snippet, syntax, highlight, highlighting, color, geshi
 Requires at least: 2.7.0
-Tested up to: 3.1.2
-Stable tag: 0.9.9
+Tested up to: 4.8
+Stable tag: 0.9.10
 
 CodeColorer is a syntax highlighting plugin which allows to insert code
 snippets into blog posts. Supports color themes, code in RSS, comments.
@@ -270,6 +270,8 @@ This snippet will insert code from the UPLOADS_DIR/test_project/main.rb file.
 * Fixed a bug with large code blocks margins.
 * Added Portuguese translation (thanks to <a href="http://lfscoutinho.net/">Luis Coutinho</a>).
 * Added Indonesian translation (thanks to <a href="http://www.openscriptsolution.com/">Masino Sinaga</a>).
+* Fixed PHP 7 compatibility issues.
+* Fixed WordPress 4+ compatibility (editor button, settings page layout).
 
 = 0.9.9 (April 28, 2011) =
 * Added ability to highlight ranges of lines (thanks to <a href="http://www.deltanova.co.uk/670/">DELTA NOVA</a>).
