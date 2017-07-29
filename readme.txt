@@ -1,7 +1,7 @@
 === CodeColorer ===
 Contributors: kpumuk
 Tags: code, snippet, syntax, highlight, highlighting, color, geshi
-Requires at least: 2.7.0
+Requires at least: 4.0
 Tested up to: 4.8
 Stable tag: 0.9.10
 
@@ -68,7 +68,7 @@ is currently available in following languages:
 Want to help me with translation? It's easy!
 
 1. Install <a href="http://www.poedit.net/download.php">Poedit</a>.
-2. Download <a href="http://svn.wp-plugins.org/codecolorer/trunk/languages/codecolorer.pot">codecolorer.pot</a> file.
+2. Download <a href="https://plugins.svn.wordpress.org/codecolorer/trunk/languages/codecolorer.pot">codecolorer.pot</a> file.
 3. Click *File/New catalog from .pot file* and select *codecolorer.pop*
    you've just downloaded.
 4. Enter project name (something like **CodeColorer 0.9.9**), your name
@@ -326,14 +326,14 @@ page.
 
 == Supported languages ==
 
-Here is list of supported by CodeColorer languages: 4cs, abap, actionscript, actionscript3, ada, apache, applescript, apt\_sources, asm, asp, autoconf, autohotkey, autoit, avisynth, awk, bash, basic4gl, bf, bibtex, blitzbasic, bnf, boo, c, c\_mac, caddcl, cadlisp, cfdg, cfm, cil, clojure, cmake, cobol, cpp-qt, cpp, csharp, css, cuesheet, d, dcs, delphi, diff, div, dos, dot, ecmascript, eiffel, email, erlang, fo, fortran, freebasic, fsharp, gambas, gdb, genero, gettext, glsl, gml, gnuplot, groovy, haskell, hq9plus, html4strict, idl, ini, inno, intercal, io, j, java, java5, javascript, jquery, kixtart, klonec, klonecpp, latex, lisp, locobasic, logtalk, lolcode, lotusformulas, lotusscript, lscript, lsl2, lua, m68k, make, mapbasic, matlab, mirc, mmix, modula3, mpasm, mxml, mysql, newlisp, nsis, oberon2, objc, ocaml-brief, ocaml, oobas, oracle11, oracle8, oxygene, pascal, per, perl, perl6, pf, php-brief, php, pic16, pike, pixelbender, plsql, povray, powerbuilder, powershell, progress, prolog, properties, providex, purebasic, python, qbasic, rails, rebol, reg, robots, rsplus, ruby, sas, scala, scheme, scilab, sdlbasic, smalltalk, smarty, sql, systemverilog, tcl, teraterm, text, thinbasic, tsql, typoscript, vb, vbnet, verilog, vhdl, vim, visualfoxpro, visualprolog, whitespace, whois, winbatch, xml, xorg\_conf, xpp, yaml, z80.
+Here is list of supported by CodeColorer languages: 4cs, 6502acme, 6502kickass, 6502tasm, 68000devpac, abap, actionscript, actionscript3, ada, aimms, algol68, apache, applescript, apt_sources, arm, asm, asp, asymptote, autoconf, autohotkey, autoit, avisynth, awk, bascomavr, bash, basic4gl, batch, bf, biblatex, bibtex, blitzbasic, bnf, boo, c, c_loadrunner, c_mac, c_winapi, caddcl, cadlisp, ceylon, cfdg, cfm, chaiscript, chapel, cil, clojure, cmake, cobol, coffeescript, cpp-qt, cpp-winapi, cpp, csharp, css, cuesheet, d, dart, dcl, dcpu16, dcs, delphi, diff, div, dos, dot, e, ecmascript, eiffel, email, epc, erlang, euphoria, ezt, f1, falcon, fo, fortran, freebasic, freeswitch, fsharp, gambas, gdb, genero, genie, gettext, glsl, gml, gnuplot, go, groovy, gwbasic, haskell, haxe, hicest, hq9plus, html4strict, html5, icon, idl, ini, inno, intercal, io, ispfpanel, j, java, java5, javascript, jcl, jquery, julia, julia, kixtart, klonec, klonecpp, kotlin, latex, lb, ldif, lisp, llvm, locobasic, logtalk, lolcode, lotusformulas, lotusscript, lscript, lsl2, lua, m68k, magiksf, make, mapbasic, mathematica, matlab, mercury, metapost, mirc, mk-61, mmix, modula2, modula3, mpasm, mxml, mysql, nagios, netrexx, newlisp, nginx, nimrod, nsis, oberon2, objc, objeck, ocaml-brief, ocaml, octave, oobas, oorexx, oracle11, oracle8, oxygene, oz, parasail, parigp, pascal, pcre, per, perl, perl6, pf, phix, php-brief, php, pic16, pike, pixelbender, pli, plsql, postgresql, postscript, povray, powerbuilder, powershell, proftpd, progress, prolog, properties, providex, purebasic, pycon, pys60, python, q, qbasic, qml, racket, rails, rbs, rebol, reg, rexx, robots, rpmspec, rsplus, ruby, rust, sas, sass, scala, scheme, scilab, scl, sdlbasic, smalltalk, smarty, spark, sparql, sql, standardml, stonescript, swift, systemverilog, tcl, tclegg, teraterm, texgraph, text, thinbasic, tsql, twig, typoscript, unicon, upc, urbi, uscript, vala, vb, vbnet, vbscript, vedit, verilog, vhdl, vim, visualfoxpro, visualprolog, whitespace, whois, winbatch, xbasic, xml, xojo, xorg_conf, xpp, xyscript, yaml, z80, zxbasic.
 
 == Development ==
 
 Sources of this plugin are available both in SVN and Git:
 
-* <a href="http://svn.wp-plugins.org/codecolorer/">WordPress SVN repository</a>
-* <a href="http://github.com/kpumuk/codecolorer/">GitHub</a>
+* <a href="https://plugins.svn.wordpress.org/codecolorer/">WordPress SVN repository</a>
+* <a href="https://github.com/kpumuk/codecolorer/">GitHub</a>
 
 Feel free to check them out, make your changes and send me patches.
 Promise, I will apply every patch (of course, if they add a value to the
