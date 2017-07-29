@@ -24,14 +24,14 @@ https://kpumuk.info/projects/wordpress-plugins/codecolorer
 class CodeColorerOptions {
   function GetThemes() {
     return array(
-      ''            => 'Slush & Poppies',
-      'blackboard'  => 'Blackboard',
-      'dawn'        => 'Dawn',
-      'mac-classic' => 'Mac Classic',
-      'twitlight'   => 'Twitlight',
-      'vibrant'     => 'Vibrant Ink',
-      'geshi'       => 'GeSHi',
-      'railscasts'  => 'Railscasts',
+      ''                => 'Slush & Poppies',
+      'blackboard'      => 'Blackboard',
+      'dawn'            => 'Dawn',
+      'mac-classic'     => 'Mac Classic',
+      'twitlight'       => 'Twitlight',
+      'vibrant'         => 'Vibrant Ink',
+      'geshi'           => 'GeSHi',
+      'railscasts'      => 'Railscasts',
       'solarized-light' => 'Solarized Light',
       'solarized-dark'  => 'Solarized Dark',
     );
