@@ -1,10 +1,10 @@
 <?php
 /*
 CodeColorer plugin admin part
-http://kpumuk.info/projects/wordpress-plugins/codecolorer
+https://kpumuk.info/projects/wordpress-plugins/codecolorer
 */
 /*
-    Copyright 2006 - 2011  Dmytro Shteflyuk <kpumuk@kpumuk.info>
+    Copyright 2006 - 2017  Dmytro Shteflyuk <kpumuk@kpumuk.info>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -39,7 +39,7 @@ class CodeColorerAdmin {
     $locale = get_locale();
     if (!in_array($locale, CodeColorerOptions::GetLanguages())) {
       $msgFormat = __('Your current locale is %1$s, and CodeColorer has incomplete or does not have a translation into your language. It would be great, if you have a time to <a href="%2$s">help us to translate</a> it.', 'codecolorer');
-      $this->cc->ShowWarning('language', __('CodeColorer translation is incomplete.', 'codecolorer'), sprintf($msgFormat, $locale, "http://kpumuk.info/projects/wordpress-plugins/codecolorer/#translation"));
+      $this->cc->ShowWarning('language', __('CodeColorer translation is incomplete.', 'codecolorer'), sprintf($msgFormat, $locale, "https://kpumuk.info/projects/wordpress-plugins/codecolorer/#translation"));
     }
   }
 

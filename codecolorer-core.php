@@ -1,10 +1,10 @@
 <?php
 /*
 CodeColorer plugin core part
-http://kpumuk.info/projects/wordpress-plugins/codecolorer
+https://kpumuk.info/projects/wordpress-plugins/codecolorer
 */
 /*
-    Copyright 2006 - 2011  Dmytro Shteflyuk <kpumuk@kpumuk.info>
+    Copyright 2006 - 2017  Dmytro Shteflyuk <kpumuk@kpumuk.info>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by

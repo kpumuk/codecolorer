@@ -155,7 +155,7 @@ Small letter means **enabled**, capital – **disabled**. Examples:
     attr_accessor :title
     [/ccW_ruby]
 
-More examples could be found on the <a href="http://kpumuk.info/projects/wordpress-plugins/codecolorer/examples">CodeColorer Examples</a>
+More examples could be found on the <a href="https://kpumuk.info/projects/wordpress-plugins/codecolorer/examples">CodeColorer Examples</a>
 page. You can find modes explained below.
 
 = Possible parameters =
@@ -321,7 +321,7 @@ This snippet will insert code from the UPLOADS_DIR/test_project/main.rb file.
 * Added Arabic translation (thanks to <a href="http://amine27.zici.fr/">Amine Roukh</a>).
 * Fixed bug in Safari 4 caused by text-align=justify in parent container.
 
-You can find complete changelog on the <a href="http://kpumuk.info/projects/wordpress-plugins/codecolorer/history/">CodeColorer history</a>
+You can find complete changelog on the <a href="https://kpumuk.info/projects/wordpress-plugins/codecolorer/history/">CodeColorer history</a>
 page.
 
 == Supported languages ==

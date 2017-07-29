@@ -1,172 +1,222 @@
-# CodeColorer 0.9.9
-# Copyright (c) 2006 - 2011 Dmytro Shteflyuk
+# CodeColorer 0.9.10
+# Copyright (c) 2006 - 2017 Dmytro Shteflyuk
 # This file is distributed under the same license as the CodeColorer package.
 #
 # Dmytro Shteflyuk <kpumuk@kpumuk.info>, 2011.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: CodeColorer 0.9.9\n"
-"Report-Msgid-Bugs-To: http://kpumuk.info/projects/wordpress-plugins/codecolorer/\n"
-"POT-Creation-Date: 2009-07-31 13:41+0000\n"
-"PO-Revision-Date: 2011-04-28 12:34-0500\n"
+"Project-Id-Version: CodeColorer 0.9.10\n"
+"Report-Msgid-Bugs-To: https://kpumuk.info/projects/wordpress-plugins/"
+"codecolorer/\n"
+"POT-Creation-Date: 2017-07-29 01:12-0400\n"
+"PO-Revision-Date: 2017-07-29 01:53-0400\n"
 "Last-Translator: Dmytro Shteflyuk <kpumuk@kpumuk.info>\n"
 "Language-Team: Bene Istvan <dassad@dassad.net>\n"
+"Language: hu_HU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.3\n"
 
 #: codecolorer-admin.php:41
 #, php-format
-msgid "Your current locale is %1$s, and CodeColorer has incomplete or does not have a translation into your language. It would be great, if you have a time to <a href=\"%2$s\">help us to translate</a> it."
-msgstr "Your current locale is %1$s, and CodeColorer has incomplete or does not have a translation into your language. Jó lenne ha segíthetnél a <a href=\"%2$s\">fordításban</a> it."
+msgid ""
+"Your current locale is %1$s, and CodeColorer has incomplete or does not have "
+"a translation into your language. It would be great, if you have a time to "
+"<a href=\"%2$s\">help us to translate</a> it."
+msgstr ""
+"Your current locale is %1$s, and CodeColorer has incomplete or does not have "
+"a translation into your language. Jó lenne ha segíthetnél a <a href=\"%2$s"
+"\">fordításban</a> it."
 
 #: codecolorer-admin.php:42
 msgid "CodeColorer translation is incomplete."
-msgstr "A CodeColorer fórdítása nem telyes"
+msgstr "A CodeColorer fórdítása nem telyes."
 
-#: codecolorer-admin.php:56
+#: codecolorer-admin.php:57
 msgid "Code Highlighting Options"
 msgstr "Kód kiemelés opciók"
 
-#: codecolorer-admin.php:65
+#: codecolorer-admin.php:66
 msgid "Lines to scroll"
 msgstr "Sorok görgetése"
 
-#: codecolorer-admin.php:68
-msgid "If your code lines number is less than this value, block height would not be fixed. Set to <b>-1</b> to remove vertical scroll."
-msgstr "Ha a kódod sorjainak szám akevesebb mint ez a szám, akkór a kódmező magassága nem lessz fix (fixed). Állítsd <b>-1</b> -re, hogy kikapcsold a függőleges görgetést."
+#: codecolorer-admin.php:69
+msgid ""
+"If your code lines number is less than this value, block height would not be "
+"fixed. Set to <b>-1</b> to remove vertical scroll."
+msgstr ""
+"Ha a kódod sorjainak szám akevesebb mint ez a szám, akkór a kódmező "
+"magassága nem lessz fix (fixed). Állítsd <b>-1</b> -re, hogy kikapcsold a "
+"függőleges görgetést."
 
-#: codecolorer-admin.php:73
+#: codecolorer-admin.php:74
 msgid "Width"
 msgstr "Szélesség"
 
-#: codecolorer-admin.php:76
-msgid "Default code block width. Integer means pixels, also you can specify <tt>em</tt> or <tt>%</tt> suffix. Could be omitted to use whole width."
-msgstr "Alap kód mező szélessége. A szám pixelt jelent, és megadhatod a <tt>em</tt> vagy <tt>%</tt> előtagokat. Csak akkor használd ha nem szeretnél maximum szélességet."
+#: codecolorer-admin.php:77
+msgid ""
+"Default code block width. Integer means pixels, also you can specify <tt>em</"
+"tt> or <tt>%</tt> suffix. Could be omitted to use whole width."
+msgstr ""
+"Alap kód mező szélessége. A szám pixelt jelent, és megadhatod a <tt>em</tt> "
+"vagy <tt>%</tt> előtagokat. Csak akkor használd ha nem szeretnél maximum "
+"szélességet."
 
-#: codecolorer-admin.php:81
+#: codecolorer-admin.php:82
 msgid "Height"
 msgstr "Magasság"
 
-#: codecolorer-admin.php:84
-msgid "When code has more than &quot;Lines to Scroll&quot; lines, block height will be set to this value."
-msgstr "Ha kódod sorainak száma több mint &quot;Sorok görgetése&quot; akkor a kódmező magassága ennyi lessz."
+#: codecolorer-admin.php:85
+msgid ""
+"When code has more than &quot;Lines to Scroll&quot; lines, block height will "
+"be set to this value."
+msgstr ""
+"Ha kódod sorainak száma több mint &quot;Sorok görgetése&quot; akkor a "
+"kódmező magassága ennyi lessz."
 
-#: codecolorer-admin.php:89
+#: codecolorer-admin.php:90
 msgid "Width in RSS"
 msgstr "Szélesség RSS-ben"
 
-#: codecolorer-admin.php:92
+#: codecolorer-admin.php:93
 msgid "Default code block width in RSS. See Width option description."
-msgstr "Alap kód mező szélessége az RSS-ben. Lásd a szélesség beállítások leirását."
+msgstr ""
+"Alap kód mező szélessége az RSS-ben. Lásd a szélesség beállítások leirását."
 
-#: codecolorer-admin.php:97
+#: codecolorer-admin.php:98
 msgid "Tab size"
 msgstr "Fűl méret"
 
-#: codecolorer-admin.php:100
+#: codecolorer-admin.php:101
 msgid "Indicating how many spaces would represent TAB symbol."
-msgstr "Hány szóköz helyetesíti a TAB karaktert"
+msgstr "Hány szóköz helyetesíti a TAB karaktert."
 
-#: codecolorer-admin.php:105
+#: codecolorer-admin.php:106
 msgid "Theme"
 msgstr "Téma"
 
-#: codecolorer-admin.php:110
+#: codecolorer-admin.php:111
 msgid "Default color scheme."
-msgstr "Alap szinskála"
+msgstr "Alap szinskála."
 
-#: codecolorer-admin.php:115
+#: codecolorer-admin.php:116
 msgid "Inline Theme"
 msgstr "Belső téma"
 
-#: codecolorer-admin.php:120
+#: codecolorer-admin.php:121
 msgid "Default color scheme for inline code blocks."
 msgstr "Alap szinskál belső kód dobozoknak."
 
-#: codecolorer-admin.php:125
+#: codecolorer-admin.php:126
 msgid "Formatting"
 msgstr "Formázás"
 
-#: codecolorer-admin.php:129
+#: codecolorer-admin.php:130
 msgid "Show line numbers"
 msgstr "Sorok számozása"
 
-#: codecolorer-admin.php:134
+#: codecolorer-admin.php:135
 msgid "Disable keyword linking"
 msgstr "Kulcsszó linkelés kikapcsolása"
 
-#: codecolorer-admin.php:140
+#: codecolorer-admin.php:141
 msgid "Custom CSS Classes"
 msgstr "Testreszabott CSS Class-ok"
 
-#: codecolorer-admin.php:143
+#: codecolorer-admin.php:144
 msgid "These custom CSS classes will be appended to the wrapper HTML element."
-msgstr "Ezek a testreszabott CSS class-ok lesznek használva a HTML elemek formázásánál."
+msgstr ""
+"Ezek a testreszabott CSS class-ok lesznek használva a HTML elemek "
+"formázásánál."
 
-#: codecolorer-admin.php:148
+#: codecolorer-admin.php:149
 msgid "Custom CSS Styles"
 msgstr "Testreszabott CSS stílus"
 
-#: codecolorer-admin.php:151
-msgid "These custom CSS rules will be appended to the CodeColorer default CSS file."
-msgstr "Ezen a testreszabott CSS stíluselemek felüllírják a CodeColorer eredeti stílusát"
+#: codecolorer-admin.php:152
+msgid ""
+"These custom CSS rules will be appended to the CodeColorer default CSS file."
+msgstr ""
+"Ezen a testreszabott CSS stíluselemek felüllírják a CodeColorer eredeti "
+"stílusát."
 
-#: codecolorer-admin.php:156
+#: codecolorer-admin.php:157
 msgid "Preview"
 msgstr "Előnézet"
 
-#: codecolorer-admin.php:160
+#: codecolorer-admin.php:161
 msgid "Code Example"
 msgstr "Kód példa"
 
-#: codecolorer-admin.php:168
+#: codecolorer-admin.php:169
 msgid "Save Options"
 msgstr "Opciók mentése"
 
-#: codecolorer-core.php:240
+#: codecolorer-core.php:305
 msgid "Close"
 msgstr "Bezár"
 
-#: codecolorer-core.php:246
+#: codecolorer-core.php:311
 msgid "CodeColorer has detected a problem."
 msgstr "A CodeLororer hibát észlelt."
 
-#: codecolorer-core.php:246
+#: codecolorer-core.php:311
 #, php-format
-msgid "We found another plugin based on GeSHi library in your system. CodeColorer will work, but our version of GeSHi contain some patches, so we can't guarantee an ideal code highlighting now. Please review your <a href=\"%1$s\">plugins</a>, maybe you don't need them all."
-msgstr "Egy másik plugint is találtunka  rendszerben mely a GeSHi library-t használja. A CodeColorer így is müködni fog viszont ajánlott a másik <a href=\"%1$s\">plugin</a> letiltása amennyiben nincs szügséged rá, külömben nem tudjuk garantálni a tökéletes müködését a CodeColorer-nek."
+msgid ""
+"We found another plugin based on GeSHi library in your system. CodeColorer "
+"will work, but our version of GeSHi contain some patches, so we can't "
+"guarantee an ideal code highlighting now. Please review your <a href=\"%1$s"
+"\">plugins</a>, maybe you don't need them all."
+msgstr ""
+"Egy másik plugint is találtunka  rendszerben mely a GeSHi library-t "
+"használja. A CodeColorer így is müködni fog viszont ajánlott a másik <a href="
+"\"%1$s\">plugin</a> letiltása amennyiben nincs szügséged rá, külömben nem "
+"tudjuk garantálni a tökéletes müködését a CodeColorer-nek."
 
-#: codecolorer.php:161
+#: codecolorer.php:164
 msgid "Settings"
 msgstr "Beállítások"
 
-#: codecolorer.php:168
+#: codecolorer.php:171
 msgid "FAQ"
 msgstr "Gyakori Kérdések"
 
-#: codecolorer.php:169
+#: codecolorer.php:172
 msgid "Support"
 msgstr "Support"
+
+#: codecolorer.php:183
+msgid "Enter Language"
+msgstr ""
 
 #. Plugin Name of an extension
 msgid "CodeColorer"
 msgstr "CodeColorer"
 
 #. Plugin URI of an extension
-msgid "http://kpumuk.info/projects/wordpress-plugins/codecolorer/"
-msgstr "http://kpumuk.info/projects/wordpress-plugins/codecolorer/"
+msgid "https://kpumuk.info/projects/wordpress-plugins/codecolorer/"
+msgstr "https://kpumuk.info/projects/wordpress-plugins/codecolorer/"
 
 #. Description of an extension
-msgid "This plugin allows you to insert code snippets to your posts with nice syntax highlighting powered by <a href=\"http://qbnz.com/highlighter/\">GeSHi</a> library. After enabling this plugin visit <a href=\"options-general.php?page=codecolorer.php\">the options page</a> to configure code style."
-msgstr "Az a plugin lehetővé teszi a speciálisan fórmázott és kód kiemeléssel ellátott kódmezpk beillesztését a bejegyzéseidbe a <a href=\"http://qbnz.com/highlighter/\">GeSHi library</a> segítségével. A plugin engedélyezése után lépj a <a href=\"options-general.php?page=codecolorer.php\">CodeColorer beállítások</a> oldalra a testreszabáshoz.."
+msgid ""
+"This plugin allows you to insert code snippets to your posts with nice "
+"syntax highlighting powered by <a href=\"http://qbnz.com/highlighter/"
+"\">GeSHi</a> library. After enabling this plugin visit <a href=\"options-"
+"general.php?page=codecolorer.php\">the options page</a> to configure code "
+"style."
+msgstr ""
+"Az a plugin lehetővé teszi a speciálisan fórmázott és kód kiemeléssel "
+"ellátott kódmezpk beillesztését a bejegyzéseidbe a <a href=\"http://qbnz.com/"
+"highlighter/\">GeSHi library</a> segítségével. A plugin engedélyezése után "
+"lépj a <a href=\"options-general.php?page=codecolorer.php\">CodeColorer "
+"beállítások</a> oldalra a testreszabáshoz.."
 
 #. Author of an extension
 msgid "Dmytro Shteflyuk"
 msgstr "Dmytro Shteflyuk"
 
 #. Author URI of an extension
-msgid "http://kpumuk.info/"
-msgstr "http://kpumuk.info/"
-
+msgid "https://kpumuk.info/"
+msgstr "https://kpumuk.info/"
