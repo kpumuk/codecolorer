@@ -5,34 +5,27 @@ Requires at least: 4.0
 Tested up to: 4.8
 Stable tag: 0.9.10
 
-CodeColorer is a syntax highlighting plugin which allows to insert code
-snippets into blog posts. Supports color themes, code in RSS, comments.
+CodeColorer is a syntax highlighting plugin which allows inserting code snippets into blog posts. The plugin supports color themes, code samples in RSS, comments.
 
 == Description ==
 
-CodeColorer is the plugin which allows you to insert code snippets into the
-post with nice syntax highlighting.
+CodeColorer is the plugin which allows you to insert code snippets into the post with nice syntax highlighting.
 
-Plugin based on GeSHi library, which supports most languages. CodeColorer has
-various nice features:
+Plugin based on GeSHi library, which supports most languages. CodeColorer has various nice features:
 
 * syntax highlighting in RSS feeds
 * syntax highlighting of single line of code (inline)
 * syntax highlighting of code in comments
 * line numbers
 * automatic links to the documentation inserting
-* code block intelligent scroll detection (short code would have short block,
-  for long one block height would be fixed and scrollbar would appear)
-* predefined color themes (Slush &amp; Poppies, Blackboard, Dawn, Mac Classic,
-  Twitlight, Vibrant Ink, Railscasts, Solarized Light, Solarized Dark)
+* code block intelligent scroll detection (short code would have a short block, for a long one the block height would be fixed and a scrollbar would appear)
+* predefined color themes (Slush &amp; Poppies, Blackboard, Dawn, Mac Classic, Twitlight, Vibrant Ink, Railscasts, Solarized Light, Solarized Dark)
 * syntax colors customization in CSS file
-* code protect from mangling by Wordpress (for example, quotes, double-dashes,
-  and others would look just right as you entered)
+* code protect from mangling by Wordpress (for example, quotes, double-dashes, and others would look just right as you entered)
 
 = Translations =
 
-Thank you all guys, who submitted translations to your language. CodeColorer
-is currently available in following languages:
+Thank you all guys, who submitted translations to your language. CodeColorer is currently available in following languages:
 
 * English
 * Russian – Русский
@@ -70,65 +63,42 @@ Want to help me with translation? It's easy!
 
 1. Install <a href="http://www.poedit.net/download.php">Poedit</a>.
 2. Download <a href="https://plugins.svn.wordpress.org/codecolorer/trunk/languages/codecolorer.pot">codecolorer.pot</a> file.
-3. Click *File/New catalog from .pot file* and select *codecolorer.pop*
-   you've just downloaded.
-4. Enter project name (something like **CodeColorer 0.9.10**), your name
-   and email address, select a language you want to translate to and
-   click *OK*.
+3. Click *File/New catalog from .pot file* and select *codecolorer.pop* you've just downloaded.
+4. Enter project name (something like **CodeColorer 0.9.10**), your name and email address, select a language you want to translate to and click *OK*.
 5. Enter a filename like **codecolorer-en_EN** and click *Save*.
 6. Translate all strings one by one.
-7. Send me a `.po` file with a translation to <a href="mailto:kpumuk@kpumuk.info">kpumuk@kpumuk.info</a>.
-   Do not forget a link to add to CodeColorer project home page.
+7. Send me a `.po` file with a translation to <a href="mailto:kpumuk@kpumuk.info">kpumuk@kpumuk.info</a>. Do not forget a link to add to CodeColorer project home page.
 8. Thank you!
 
-To fix existing translation, just open corresponding <tt>.po</tt> file
-from <em>codecolorer/languages</em> folder in Poedit, and add missing or
-update existing strings.
+To fix existing translation, just open corresponding <tt>.po</tt> file from <em>codecolorer/languages</em> folder in Poedit, and add missing or update existing strings.
 
 = Support =
 
-If you have any suggestions, found a bug, wanted to contribute a
-translation to your language, or just wanted to say "thank
-you",– feel free to email me <a href="mailto:kpumuk@kpumuk.info">kpumuk@kpumuk.info</a>.
-Promise, I will answer every email I received.
+If you have any suggestions, found a bug, wanted to contribute a translation to your language, or just wanted to say "thank you",– feel free to email me <a href="mailto:kpumuk@kpumuk.info">kpumuk@kpumuk.info</a>. Promise, I will answer every email I received.
 
-If you want to contribute your code, see the *Development* section under
-the *Other Notes* tab.
+If you want to contribute your code, see the *Development* section under the *Other Notes* tab.
 
 == Installation ==
 
-1. Download and unpack plugin files to **wp-content/plugins/codecolorer**
-   directory.
+1. Download and unpack plugin files to **wp-content/plugins/codecolorer** directory.
 2. Enable **CodeColorer** plugin on your *Plugins* page in *Site Admin*.
-3. Go to the *Options/CodeColorer* page in *Site Admin* and change plugin's
-   options as you wish.
-4. Use `[cc lang="lang"]code[/cc]` or `<code lang="lang">code</cc>` syntax to
-   insert code snippet into the post (you could skip `lang="lang"`, in this
-   case code would be in CodeColorer's code block, but without syntax
-   highlighting). Also you can use `[cci lang="lang"]code[/cci]` to format
-   inline code (see the "inline" option description).
+3. Go to the *Options/CodeColorer* page in *Site Admin* and change plugin's options as you wish.
+4. Use `[cc lang="lang"]code[/cc]` or `<code lang="lang">code</cc>` syntax to insert a code snippet into the post (you could skip `lang="lang"`, in this case code would be in CodeColorer's code block, but without syntax highlighting). Also you can use `[cci lang="lang"]code[/cci]` to format inline code (see the "inline" option description).
 5. Have fun!
 
 = Syntax =
 
-To insert code snippet into your post (or comment) you should use
-`[cc lang="lang"]code[/cc]` or `<code lang="lang">code</cc>` syntax. Starting
-from version 0.6.0 you could specify additional CodeColorer options inside
-`[cc]` tag:
+To insert a code snippet into your post (or comment) you would use `[cc lang="lang"]code[/cc]` or `<code lang="lang">code</cc>` syntax. Starting from version 0.6.0 you could specify additional CodeColorer options inside `[cc]` tag:
 
     [cc lang="php" tab_size="2" lines="40"]
     // some code
     [/cc]
 
-Note: You should always use double quotes or single quotes around the parameter
-value. Boolean values could be passed using string *true* or *false*, *on* or
-*off*, number *1* or *0*.
+Note: You should always use double quotes or single quotes around the parameter value. Boolean values could be passed using string *true* or *false*, *on* or *off*, number *1* or *0*.
 
 = Short codes =
 
-Starting from CodeColorer 0.8.6 you can use short codes to insert code
-snippets. The short code in common looks like `[ccM_LANG]`, where **LANG** is
-your programming language, and **M** is the one or more of following modes:
+Starting from CodeColorer 0.8.6 you can use short codes to insert code snippets. The short code in common looks like `[ccM_LANG]`, where **LANG** is your programming language, and **M** is the one or more of following modes:
 
 * **i** – *inline*
 * **e** – *escaped*
@@ -156,46 +126,29 @@ Small letter means **enabled**, capital – **disabled**. Examples:
     attr_accessor :title
     [/ccW_ruby]
 
-More examples could be found on the <a href="https://kpumuk.info/projects/wordpress-plugins/codecolorer/examples">CodeColorer Examples</a>
-page. You can find modes explained below.
+More examples could be found on the <a href="https://kpumuk.info/projects/wordpress-plugins/codecolorer/examples">CodeColorer Examples</a> page. You can find modes explained below.
 
 = Possible parameters =
 
 * **lang** (*string*) – source language.
 * **tab_size** (*integer*) – how many spaces would represent TAB symbol.
-* **lines** (*integer*) – how many lines would be block height without scroll;
-  could be set to *-1* to remove vertical scrollbar.
+* **lines** (*integer*) – how many lines would be block height without scroll; could be set to *-1* to remove vertical scrollbar.
 * **width** (*integer* or *string*) – block width.
-* **height** (*integer* or *string*) – height in pixels; used when lines number
-  is greater then "lines" value.
+* **height** (*integer* or *string*) – height in pixels; used when lines number is greater then "lines" value.
 * **rss_width** (*integer* or *string*) – block width in RSS feeds.
-* **theme** (*string*) – color theme (default, blackboard, dawn, mac-classic,
-  twitlight, vibrant, geshi, railscasts, solarized-light, solarized-dark).
+* **theme** (*string*) – color theme (default, blackboard, dawn, mac-classic, twitlight, vibrant, geshi, railscasts, solarized-light, solarized-dark).
 * **first_line** (*integer*) – a number of the first line in the block.
-* **highlight** (*string*) — a comma-separated list of line numbers or ranges
-  of line numbers to highlight (e.g. `1,5,8-11`).
-* **escaped** (*boolean*) – when *true* special HTML sequences like `&lt;` or
-  `&#91;` will be treated as encoded (in this example as `<` and `[`
-  respectively.)
+* **highlight** (*string*) — a comma-separated list of line numbers or ranges of line numbers to highlight (e.g. `1,5,8-11`).
+* **escaped** (*boolean*) – when *true* special HTML sequences like `&lt;` or `&#91;` will be treated as encoded (in this example as `<` and `[` respectively.)
 * **line_numbers** (*boolean*) – when *true* line numbers will be added.
-* **no_links** (*boolean*) – when *false* keywords will be represented as links
-  to manual.
-* **inline** (*boolean*) – when *true* forces code block to render inside
-  `<code>`. Used to paste a single line of code into the regular text.
-* **strict** (*boolean*) – when *true* <a href="http://qbnz.com/highlighter/geshi-doc.html#using-strict-mode">strict mode</a>
-  will be enabled. By default CodeColorer tries to guess whether strict mode is
-  needed, so this option allows to force it on or off when automatic suggestion
-  is wrong.
-* **nowrap** (*boolean*) – when *false* no horizontal scrollbar will be shown;
-  instead code will be wrapped in the end of code box.
-* **noborder** (*boolean*) – when *true* no border will be shown around the
-  code block.
-* **no_cc** (*boolean*) – when *true* the syntax in code block will not be
-  highlighted, code will be rendered inside `<code></code>` tag.
+* **no_links** (*boolean*) – when *false* keywords will be represented as links to manual.
+* **inline** (*boolean*) – when *true* forces code block to render inside `<code>`. Used to paste a single line of code into the regular text.
+* **strict** (*boolean*) – when *true* <a href="http://qbnz.com/highlighter/geshi-doc.html#using-strict-mode">strict mode</a> will be enabled. By default CodeColorer tries to guess whether strict mode is needed, so this option allows to force it on or off when automatic suggestion is wrong.
+* **nowrap** (*boolean*) – when *false* no horizontal scrollbar will be shown; instead code will be wrapped in the end of code box.
+* **noborder** (*boolean*) – when *true* no border will be shown around the code block.
+* **no_cc** (*boolean*) – when *true* the syntax in code block will not be highlighted, code will be rendered inside `<code></code>` tag.
 * **class** (*string*) – additional CSS classes to add to the wrapper HTML element.
-* **file** (*string*) — when specified, code will be loaded from external file.
-  Should be a relative to uploads folder path, only files from uploads are
-  allowed to be embedded.
+* **file** (*string*) — when specified, code will be loaded from external file. Should be a relative to uploads folder path, only files from uploads are allowed to be embedded.
 
 You can use special tag `[cci]` instead of `[cc]` to force inline mode:
 
@@ -215,18 +168,15 @@ To insert example of CodeColorer short codes you can use something like this:
 
 = How do I can customize CodeColorer CSS rules? =
 
-Go to the *Options/CodeColorer* page in <em>Site Admin</em> and change the
-"Custom CSS Styles" option.
+Go to the *Options/CodeColorer* page in <em>Site Admin</em> and change the "Custom CSS Styles" option.
 
 = I see &amp;lt; instead of &lt; (or other HTML entities like &gt;, &amp;, &quot;) in my code. =
 
-You should use `[cc escaped="true"]` or `[cce]` in the visual editor when
-inserting code into the post.
+You should use `[cc escaped="true"]` or `[cce]` in the visual editor when inserting code into the post.
 
 = Does it highlights my code on server or client side? =
 
-CodeColorer performs code highlighting on the server, you could see HTML of
-the highlighted code in page source.
+CodeColorer performs code highlighting on the server; you could see HTML of the highlighted code in the page source.
 
 = Is it produces valid XHTML source? =
 
@@ -234,8 +184,7 @@ Yes, resulting XHTML is completely valid.
 
 = Could my visitors insert their code snippets in comments? =
 
-Yes, CodeColorer supports code highlighting in comments using the same syntax,
-as you use in your blog posts.
+Yes, CodeColorer supports code highlighting in comments using the same syntax, as you use in your blog posts.
 
 = How can I disable syntax highlighting for a particular `<code>` block? =
 
@@ -245,14 +194,11 @@ Use `<code no_cc="true">` option for your code block.
 
     Warning: array_keys() [function.array-keys]: The first argument should be an array in /home/wordpress/wp-content/plugins/codecolorer/lib/geshi.php on line 3599
 
-Remove all files from the **wp-content/plugins/codecolorer** folder and unpack
-an archive with plugin again (thanks to
-<a href="http://blog.t-l-k.com/">Anatoliy 'TLK' Kolesnick</a>).
+Remove all files from the **wp-content/plugins/codecolorer** folder and unpack an archive with plugin again (thanks to <a href="http://blog.t-l-k.com/">Anatoliy 'TLK' Kolesnick</a>).
 
 = How to insert code from an external file?
 
-You can upload this file using WordPress upload or put it somewhere in uploads folder,
-and the specify relative path using `file="relative/path/to/file"` attribute:
+You can upload this file using WordPress upload or put it somewhere in uploads folder, and the specify relative path using `file="relative/path/to/file"` attribute:
 
     [cc_ruby file="test_project/main.rb"][/cc_ruby]
 
@@ -326,8 +272,7 @@ This snippet will insert code from the UPLOADS_DIR/test_project/main.rb file.
 * Added Arabic translation (thanks to <a href="http://amine27.zici.fr/">Amine Roukh</a>).
 * Fixed bug in Safari 4 caused by text-align=justify in parent container.
 
-You can find complete changelog on the <a href="https://kpumuk.info/projects/wordpress-plugins/codecolorer/history/">CodeColorer history</a>
-page.
+You can find complete changelog on the <a href="https://kpumuk.info/projects/wordpress-plugins/codecolorer/history/">CodeColorer history</a> page.
 
 == Supported languages ==
 
@@ -340,20 +285,13 @@ Sources of this plugin are available both in SVN and Git:
 * <a href="https://plugins.svn.wordpress.org/codecolorer/">WordPress SVN repository</a>
 * <a href="https://github.com/kpumuk/codecolorer/">GitHub</a>
 
-Feel free to check them out, make your changes and send me patches.
-Promise, I will apply every patch (of course, if they add a value to the
-product). Email for patches, suggestions, or bug reports:
-<a href="mailto:kpumuk@kpumuk.info">kpumuk@kpumuk.info</a>.
+Feel free to check them out, make your changes and send me patches. Promise, I will apply every patch (of course, if they add a value to the product). Email for patches, suggestions, or bug reports: <a href="mailto:kpumuk@kpumuk.info">kpumuk@kpumuk.info</a>.
 
 == Customization ==
 
-Syntax coloring is highly customizable: you could change color scheme for all
-languages or for specific language. You could find CodeColorer CSS in
-**wp-content/plugins/codecolorer/codecolorer.css** file. To change colors for
-all languages edit lines below *Color scheme* section.
+Syntax coloring is highly customizable: you could change the  color scheme for all languages or a specific language. You could find CodeColorer CSS in **wp-content/plugins/codecolorer/codecolorer.css** file. To change colors for all languages edit lines below *Color scheme* section.
 
-There is simple mapping exists between Textmate color themes and CodeColorer
-ones:
+There is simple mapping exists between Textmate color themes and CodeColorer ones:
 
     /* "Slush & Poppies" color scheme (default) */
     .codecolorer-container, .codecolorer { color: #000000; background-color: #F1F1F1; }
