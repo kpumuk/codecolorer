@@ -280,4 +280,20 @@ class CodeColorerOptions
     {
         return get_option($name);
     }
+
+    public static function feedOverallStyle()
+    {
+        return 'padding:5px;' .
+               'font:normal 12px/1.4em Monaco, Lucida Console, monospace;' .
+               'white-space:nowrap;';
+    }
+
+    public static function feedLineNumbersStyle()
+    {
+        return self::feedOverallStyle() .
+               'text-align:center;' .
+               'color:#888888;' .
+               'background-color:#EEEEEE;' .
+               'border-right: 1px solid #9F9F9F;';
+    }
 }
