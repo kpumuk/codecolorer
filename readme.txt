@@ -24,7 +24,7 @@ various nice features:
 * code block intelligent scroll detection (short code would have short block,
   for long one block height would be fixed and scrollbar would appear)
 * predefined color themes (Slush &amp; Poppies, Blackboard, Dawn, Mac Classic,
-  Twitlight, Vibrant Ink, Railscasts)
+  Twitlight, Vibrant Ink, Railscasts, Solarized Light, Solarized Dark)
 * syntax colors customization in CSS file
 * code protect from mangling by Wordpress (for example, quotes, double-dashes,
   and others would look just right as you entered)
@@ -170,7 +170,7 @@ page. You can find modes explained below.
   is greater then "lines" value.
 * **rss_width** (*integer* or *string*) – block width in RSS feeds.
 * **theme** (*string*) – color theme (default, blackboard, dawn, mac-classic,
-  twitlight, vibrant, geshi).
+  twitlight, vibrant, geshi, railscasts, solarized-light, solarized-dark).
 * **first_line** (*integer*) – a number of the first line in the block.
 * **highlight** (*string*) — a comma-separated list of line numbers or ranges
   of line numbers to highlight (e.g. `1,5,8-11`).
