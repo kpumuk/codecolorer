@@ -14,6 +14,10 @@ engines:
     enabled: true
     config:
       file_extensions: "php"
+      ignore-undeclared: false
+      quick: false
+      backward-compatibility-checks: true
+      dead-code-detection: true
 
 ratings:
   paths:
