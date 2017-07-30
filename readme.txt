@@ -267,6 +267,9 @@ This snippet will insert code from the UPLOADS_DIR/test_project/main.rb file.
 
 == Changelog ==
 
+= 0.9.11 (Development)
+* Fixed an issue with TinyMCE when CodeColorer options were removed in the editor (thanks to <a href="https://github.com/TheBox193">Jonathan Stassen</a> for the suggestion).
+
 = 0.9.10 (July 28, 2017) =
 * Fixed a bug with large code blocks margins.
 * Added Portuguese translation (thanks to <a href="http://lfscoutinho.net/">Luis Coutinho</a>).
