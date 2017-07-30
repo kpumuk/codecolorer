@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://kpumuk.info/projects/wordpress-plugins/"
 "codecolorer/\n"
 "POT-Creation-Date: 2017-07-29 01:12-0400\n"
-"PO-Revision-Date: 2017-07-29 01:42-0400\n"
+"PO-Revision-Date: 2017-07-30 17:50-0400\n"
 "Last-Translator: Dmytro Shteflyuk <kpumuk@kpumuk.info>\n"
 "Language-Team: GEORGIAN <frrrredo@gmail.com>\n"
 "Language: ka_GE\n"
@@ -41,7 +41,7 @@ msgstr "კოდის გამყოფის საშუალებებ�
 
 #: codecolorer-admin.php:66
 msgid "Lines to scroll"
-msgstr "ხაზები  ლიფტისთვის"
+msgstr "ხაზები ლიფტისთვის"
 
 #: codecolorer-admin.php:69
 msgid ""
@@ -84,8 +84,7 @@ msgstr "სიგანე RSS-ში"
 #: codecolorer-admin.php:93
 msgid "Default code block width in RSS. See Width option description."
 msgstr ""
-"კოდის ბლოკის  ნაგულსხმევი სიგანე RSS-ში. იხილეთ სიგანის პარამეტრის "
-"განმარტება."
+"კოდის ბლოკის ნაგულსხმევი სიგანე RSS-ში. იხილეთ სიგანის პარამეტრის განმარტება."
 
 #: codecolorer-admin.php:98
 msgid "Tab size"
@@ -93,7 +92,7 @@ msgstr "ცხრილის ზომა"
 
 #: codecolorer-admin.php:101
 msgid "Indicating how many spaces would represent TAB symbol."
-msgstr "აჩვენებს  რამდენ სივრცეს შეიძლება  შეიცავდეს TAB სიმბოლო."
+msgstr "აჩვენებს რამდენ სივრცეს შეიძლება შეიცავდეს TAB სიმბოლო."
 
 #: codecolorer-admin.php:106
 msgid "Theme"
@@ -125,20 +124,20 @@ msgstr "საკვანძო სიტყვის ბმულად აღ
 
 #: codecolorer-admin.php:141
 msgid "Custom CSS Classes"
-msgstr "მორგებადი CSS  კლასები"
+msgstr "მორგებადი CSS კლასები"
 
 #: codecolorer-admin.php:144
 msgid "These custom CSS classes will be appended to the wrapper HTML element."
-msgstr "ეს პირადი CSS  კლასები მიემატება HTML ელემენტს."
+msgstr "ეს პირადი CSS კლასები მიემატება HTML ელემენტს."
 
 #: codecolorer-admin.php:149
 msgid "Custom CSS Styles"
-msgstr "მორგებადი CSS  სტილები"
+msgstr "მორგებადი CSS სტილები"
 
 #: codecolorer-admin.php:152
 msgid ""
 "These custom CSS rules will be appended to the CodeColorer default CSS file."
-msgstr "ეს პირადი CSS  წესები მიემატება CodeColorer _ის ნაგულისხმევ CSS ფაილს."
+msgstr "ეს პირადი CSS წესები მიემატება CodeColorer _ის ნაგულისხმევ CSS ფაილს."
 
 #: codecolorer-admin.php:157
 msgid "Preview"
@@ -158,7 +157,7 @@ msgstr "დახურვა"
 
 #: codecolorer-core.php:311
 msgid "CodeColorer has detected a problem."
-msgstr "CodeColorer-მა  აღმოაჩინა პრობლემა."
+msgstr "CodeColorer-მა აღმოაჩინა პრობლემა."
 
 #: codecolorer-core.php:311
 #, php-format
@@ -169,9 +168,9 @@ msgid ""
 "\">plugins</a>, maybe you don't need them all."
 msgstr ""
 "თქვენს სისტემაში ჩვენ აღმოვაჩინეთ, სხვა ჩადგმა დაფუძვნევული GeSHi "
-"ბიბლიოთეკაზე. CodeColorer  იმუშავებს, მაგრამ ჩვენი GeSHi_ის ვერსია შეიცავს "
+"ბიბლიოთეკაზე. CodeColorer იმუშავებს, მაგრამ ჩვენი GeSHi_ის ვერსია შეიცავს "
 "რამოდენიმე პაჩს, გამომდინარე აქედან ჩვენ ვერ გაძლავეთ გარანტიას რომ "
-"CodeColorer იდეალურად იმუშავებს. გთხოვთ გადახედოთ თქვენს  <a href=\"%1$s"
+"CodeColorer იდეალურად იმუშავებს. გთხოვთ გადახედოთ თქვენს <a href=\"%1$s"
 "\">ჩადგმებს</a>, სრულიად შესაძლებელია, რომ თქვენ საერთოდ არ გესაჭიროებათ "
 "რამოდენიმე მათგანი."
 
@@ -210,8 +209,8 @@ msgstr ""
 "ეს ჩადგმა საშუალებას მოგცემთ ჩასვათ პროგრამული კოდის ნაწილები თქვენს "
 "პოსტებში ლამაზი სინატაქსის გამყოფებით. powered by <a href=\"http://qbnz.com/"
 "highlighter/\">GeSHi</a> library. ამ ჩადგმის გააქტიურების შემდეგ ეწვიეთ <a "
-"href=\"options-general.php?\">პარამეტრების გვერდს</a>page=codecolorer.php\"> "
-"კოდის სტილების დასაკონფიგურირებლად."
+"href=\"options-general.php?page=codecolorer.php\">პარამეტრების გვერდს</"
+"a>page=codecolorer.php\"> კოდის სტილების დასაკონფიგურირებლად."
 
 #. Author of an extension
 msgid "Dmytro Shteflyuk"
