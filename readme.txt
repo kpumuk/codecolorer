@@ -215,6 +215,8 @@ This snippet will insert code from the UPLOADS_DIR/test_project/main.rb file.
 
 = 0.9.11 (Development)
 * Fixed an issue with TinyMCE when CodeColorer options were removed in the editor (thanks to <a href="https://github.com/TheBox193">Jonathan Stassen</a> for the suggestion).
+* New art for the WordPress plugins page.
+* Fixed Ukrainian translation path.
 
 = 0.9.10 (July 28, 2017) =
 * Fixed a bug with large code blocks margins.
