@@ -1,14 +1,14 @@
 <?php
 /*
-Plugin Name: CodeColorer
-Plugin URI: https://kpumuk.info/projects/wordpress-plugins/codecolorer/
-Description: This plugin allows you to insert code snippets to your posts with nice syntax highlighting powered by <a href="http://qbnz.com/highlighter/">GeSHi</a> library. After enabling this plugin visit <a href="options-general.php?page=codecolorer.php">the options page</a> to configure code style.
-Version: 0.9.10
-Author: Dmytro Shteflyuk
-Author URI: https://kpumuk.info/
-Text Domain: codecolorer
-Domain Path: /languages/
-*/
+ * Plugin Name: CodeColorer
+ * Plugin URI: https://kpumuk.info/projects/wordpress-plugins/codecolorer/
+ * Description: This plugin allows you to insert code snippets to your posts with nice syntax highlighting powered by <a href="http://qbnz.com/highlighter/">GeSHi</a> library. After enabling this plugin visit <a href="options-general.php?page=codecolorer.php">the options page</a> to configure code style.
+ * Version: 0.9.10
+ * Author: Dmytro Shteflyuk
+ * Author URI: https://kpumuk.info/
+ * Text Domain: codecolorer
+ * Domain Path: /languages
+ */
 /*
     Copyright 2006 - 2017  Dmytro Shteflyuk <kpumuk@kpumuk.info>
 

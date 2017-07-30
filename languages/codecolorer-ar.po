@@ -11,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://kpumuk.info/projects/wordpress-plugins/"
 "codecolorer/\n"
 "POT-Creation-Date: 2017-07-29 01:12-0400\n"
-"PO-Revision-Date: 2017-07-29 01:19-0400\n"
+"PO-Revision-Date: 2017-07-30 18:01-0400\n"
 "Last-Translator: Dmytro Shteflyuk <kpumuk@kpumuk.info>\n"
 "Language-Team: Arabe <http://amine27.zici.fr>\n"
 "Language: ar\n"
@@ -30,7 +30,7 @@ msgid ""
 "<a href=\"%2$s\">help us to translate</a> it."
 msgstr ""
 "لغتك الحالية هي %1$s، و CodeColorer لايملك أو يملك ترجمة ناقصة للغتك. من "
-"المحبذ، إن كان لديك وقت <a href=\"%2$s\">أن تساعدنا لترجمتها.</a>"
+"المحبذ، إن كان لديك وقت <a href=\"%2$s\">أن تساعدنا لترجمتها</a>."
 
 #: codecolorer-admin.php:42
 msgid "CodeColorer translation is incomplete."
@@ -62,7 +62,7 @@ msgid ""
 "tt> or <tt>%</tt> suffix. Could be omitted to use whole width."
 msgstr ""
 "قيمة عرض الكود الإفتراضية. الأعداد الصحيحة تعني بكسل، أيضا يمكنك تحديد "
-"اللاحقة <tt>em</  tt> أو <tt>%</tt>. يمكن حذفها لاستخدام العرض بأكمله."
+"اللاحقة <tt>em</tt> أو <tt>%</tt>. يمكن حذفها لاستخدام العرض بأكمله."
 
 #: codecolorer-admin.php:82
 msgid "Height"
@@ -81,7 +81,7 @@ msgstr "العرض في RSS"
 
 #: codecolorer-admin.php:93
 msgid "Default code block width in RSS. See Width option description."
-msgstr "العرض الإفتراضي في RSS. شاهد وصف خصائص العرض"
+msgstr "العرض الإفتراضي في RSS. شاهد وصف خصائص العرض."
 
 #: codecolorer-admin.php:98
 msgid "Tab size"
@@ -89,7 +89,7 @@ msgstr "حجم التبويب"
 
 #: codecolorer-admin.php:101
 msgid "Indicating how many spaces would represent TAB symbol."
-msgstr "تشير إلى عدد المساحات التي يأخذها رمز التبويب"
+msgstr "تشير إلى عدد المساحات التي يأخذها رمز التبويب."
 
 #: codecolorer-admin.php:106
 msgid "Theme"
@@ -97,7 +97,7 @@ msgstr "السمة"
 
 #: codecolorer-admin.php:111
 msgid "Default color scheme."
-msgstr "لون السمة الإفتراضية"
+msgstr "لون السمة الإفتراضية."
 
 #: codecolorer-admin.php:116
 msgid "Inline Theme"
@@ -168,7 +168,7 @@ msgid ""
 msgstr ""
 "وجدنا إضافة أخرى في نظامك تعتمد على مكتبة GeSHi. CodeColorer ستعمل، لكن "
 "نسختنا من GeSHi تحتوي على بغض الرقع، إذن لن نضمن تلوين للكود مثالي الآن. من "
-"فضلك عاين <a href=\"%1$s \">الإضافات</a>، فربما لا تحتاجها جميعا."
+"فضلك عاين <a href=\"%1$s\">الإضافات</a>، فربما لا تحتاجها جميعا."
 
 #: codecolorer.php:164
 msgid "Settings"
