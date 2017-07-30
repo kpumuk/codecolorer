@@ -146,6 +146,8 @@ class CodeColorerLoader
             //   add_filter('mce_external_plugins', array('CodeColorerLoader', 'addTinyMCEPlugin'));
             //   add_filter('mce_buttons', array('CodeColorerLoader', 'registerTinyMCEButton'));
             // }
+            add_filter('tiny_mce_before_init', array('CodeColorerLoader', 'addTinyMCEValidElements'));
+            add_filter('teeny_mce_before_init', array('CodeColorerLoader', 'addTinyMCEValidElements'));
         }
     }
 
@@ -214,6 +216,19 @@ class CodeColorerLoader
         $url = plugins_url(basename(dirname(__FILE__)) . '/js/tinymce_plugin.js');
         $plugins['codecolorer'] = $url;
         return $plugins;
+    }
+
+    public static function addTinyMCEValidElements($init) {
+        $knownOptions = CodeColorerOptions::parseOptions('');
+        $ext = 'code[' . implode('|', array_keys($knownOptions)) . ']';
+
+        if (isset($init['extended_valid_elements'])) {
+            $init['extended_valid_elements'] .= ',' . $ext;
+        } else {
+            $init['extended_valid_elements'] = $ext;
+        }
+
+        return $init;
     }
 
     public static function callShowOptionsPage()
