@@ -164,7 +164,7 @@ This snippet will insert code from the UPLOADS_DIR/test_project/main.rb file.
 
 == Changelog ==
 
-= 0.9.11 (August 8, 2017)
+= 0.9.11 (August 8, 2017) =
 * Fixed an issue with TinyMCE when CodeColorer options were removed in the editor (thanks to [Jonathan Stassen](https://github.com/TheBox193) for the suggestion).
 * New art for the WordPress plugins page.
 * Moved translations to https://translate.wordpress.org/projects/wp-plugins/codecolorer. WordPress should automatically download language packs now.
