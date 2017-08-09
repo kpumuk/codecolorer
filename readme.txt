@@ -2,8 +2,8 @@
 Contributors: kpumuk
 Tags: code, snippet, syntax, highlight, highlighting, color, geshi
 Requires at least: 4.0
-Tested up to: 4.8
-Stable tag: 0.9.10
+Tested up to: 4.8.1
+Stable tag: 0.9.11
 
 CodeColorer is a syntax highlighting plugin which allows inserting code snippets into blog posts. The plugin supports color themes, code samples in RSS, comments.
 
@@ -14,7 +14,7 @@ CodeColorer is the plugin which allows you to insert code snippets into the post
 Plugin based on GeSHi library, which supports most languages. CodeColorer has various nice features:
 
 * syntax highlighting in RSS feeds
-* syntax highlighting of single line of code (inline)
+* syntax highlighting of a single line of code (inline)
 * syntax highlighting of code in comments
 * line numbers
 * automatic links to the documentation inserting
@@ -23,58 +23,9 @@ Plugin based on GeSHi library, which supports most languages. CodeColorer has va
 * syntax colors customization in CSS file
 * code protect from mangling by Wordpress (for example, quotes, double-dashes, and others would look just right as you entered)
 
-= Translations =
-
-Thank you all guys, who submitted translations to your language. CodeColorer is currently available in following languages:
-
-* English
-* Russian – Русский
-* Ukrainian – Українська
-* Arabic – العربية (thanks to <a href="http://amine27.zici.fr/">Amine Roukh</a>)
-* Belarusian – Беларуский (thanks to <a href="http://www.fatcow.com">И. Фадков</a>)
-* Czech – Čeština (thanks to <a href="http://lelkoun.cz/">Lelkoun</a>)
-* Danish – Dansk (thanks to <a href="http://www.klysner.com/">Hans Klysner</a>)
-* Dutch – Nederlands (thanks to <a href="http://www.helixsoft.nl/blog/">Martijn van Iersel</a>)
-* English - Great Britain (thanks to <a href="https://github.com/DeltaNova">Matthew Tunstall</a>)
-* French – Français (thanks to <a href="http://www.flyingcode.com/">Valentin PRUGNAUD</a>, <a href="http://fanta78.free.fr/">fanta78</a>, <a href="http://blog.zabe.fr/">Sylvain Zabé</a>, and <a href="http://blogs.wittwer.fr/whiler/">Whiler</a>)
-* Georgian – ქართული ენა (thanks to <a href="http://sysadmin.softgen.ge/">Nika Chkhikvishvili</a>)
-* German – German (Deutsch) (thanks to <a href="http://www.fabianschulz.net/">Fabian Schulz</a> and <a href="http://michael-gutbier.de/">Michael Gutbier</a>)
-* Hebrew – עִבְרִית (thanks to <a href="http://www.gadgetguru.co.il/">Yaron Ofer</a>)
-* Hungarian — magyar nyelv (thanks to <a href="http://dassad.com/">daSSad</a>)
-* Indonesian — Bahasa Indonesia (thanks to <a href="http://www.openscriptsolution.com/">Masino Sinaga</a>)
-* Italian – Italiano (thanks to <a href="http://codesnippet.altervista.org/">CodeSnippet</a>)
-* Japanese – 日本語 (thanks to <a href="http://www.kuroneko-square.net/">Kuroneko Square</a>)
-* Malay – Bahasa Melayu (thanks to <a href="http://www.losebellyfat365.com/">Shareef Sam</a>)
-* Persian – فارسی, پارسی, دری (thanks to <a href="http://www.7sal.com/">Hamed Momeni</a>)
-* Polish – Polski (thanks to <a href="http://www.andrzej.net.pl/">Andrzej Pindor</a>)
-* Portuguese – Português (thanks to <a href="http://lfscoutinho.net/">Luis Coutinho</a>)
-* Brazilian Portuguese – Português Brasileiro (thanks to <a href="http://www.jeveaux.com/">Paulo César M. Jeveaux</a>, <a href="">Fabricio Bortoluzzi</a>, and <a href="http://www.rodolfoleao.com/">Rodolfo Leão</a>)
-* Romanian - Română (thanks to <a href="http://www.sphynxsoft.com/">Bogdan M. Botezatu</a>)
-* Simplified Chinese – 汉语 (thanks to <a href="http://ixiezi.com">liuxiangqian</a> and <a href="http://tihope.com/">KenSai</a>)
-* Slovak — Slovenský (thanks to <a href="http://cstudio.sk/">ceco</a>)
-* Spanish – Español (thanks to <a href="http://seich.martianwabbit.com/">Sergio Díaz</a>)
-* Spanish – Español (Argentina) (thanks to <a href="http://www.lordblacksuca.com.ar/">Diego Sucaria</a>)
-* Spanish – Español (Colombia) (thanks to <a href="http://blog.lasumo.com.co/">Diego Alberto Bernal</a>)
-* Swedish – Svenska (thanks to <a href="http://blog.lhli.net/">LHLI</a>)
-* Traditional Chinese — 漢語 (thanks to <a href="http://jhcheng.byethost3.com/">Horace Cheng</a>)
-* Turkish – Türkçe (thanks to <a href="http://www.hasanakgoz.com/">Hasan Akgöz</a>)
-
-Want to help me with translation? It's easy!
-
-1. Install <a href="http://www.poedit.net/download.php">Poedit</a>.
-2. Download <a href="https://plugins.svn.wordpress.org/codecolorer/trunk/languages/codecolorer.pot">codecolorer.pot</a> file.
-3. Click *File/New catalog from .pot file* and select *codecolorer.pop* you've just downloaded.
-4. Enter project name (something like **CodeColorer 0.9.10**), your name and email address, select a language you want to translate to and click *OK*.
-5. Enter a filename like **codecolorer-en_EN** and click *Save*.
-6. Translate all strings one by one.
-7. Send me a `.po` file with a translation to <a href="mailto:kpumuk@kpumuk.info">kpumuk@kpumuk.info</a>. Do not forget a link to add to CodeColorer project home page.
-8. Thank you!
-
-To fix existing translation, just open corresponding <tt>.po</tt> file from <em>codecolorer/languages</em> folder in Poedit, and add missing or update existing strings.
-
 = Support =
 
-If you have any suggestions, found a bug, wanted to contribute a translation to your language, or just wanted to say "thank you",– feel free to email me <a href="mailto:kpumuk@kpumuk.info">kpumuk@kpumuk.info</a>. Promise, I will answer every email I received.
+If you have any suggestions, found a bug, wanted to contribute a translation to your language, or just wanted to say "thank you",– feel free to email me [kpumuk@kpumuk.info](mailto:kpumuk@kpumuk.info). Promise, I will answer every email I received.
 
 If you want to contribute your code, see the *Development* section under the *Other Notes* tab.
 
@@ -126,7 +77,7 @@ Small letter means **enabled**, capital – **disabled**. Examples:
     attr_accessor :title
     [/ccW_ruby]
 
-More examples could be found on the <a href="https://kpumuk.info/projects/wordpress-plugins/codecolorer/examples">CodeColorer Examples</a> page. You can find modes explained below.
+More examples could be found on the [CodeColorer Examples](https://kpumuk.info/projects/wordpress-plugins/codecolorer/examples) page. You can find modes explained below.
 
 = Possible parameters =
 
@@ -143,7 +94,7 @@ More examples could be found on the <a href="https://kpumuk.info/projects/wordpr
 * **line_numbers** (*boolean*) – when *true* line numbers will be added.
 * **no_links** (*boolean*) – when *false* keywords will be represented as links to manual.
 * **inline** (*boolean*) – when *true* forces code block to render inside `<code>`. Used to paste a single line of code into the regular text.
-* **strict** (*boolean*) – when *true* <a href="http://qbnz.com/highlighter/geshi-doc.html#using-strict-mode">strict mode</a> will be enabled. By default CodeColorer tries to guess whether strict mode is needed, so this option allows to force it on or off when automatic suggestion is wrong.
+* **strict** (*boolean*) – when *true* [strict mode](http://qbnz.com/highlighter/geshi-doc.html#using-strict-mode) will be enabled. By default CodeColorer tries to guess whether strict mode is needed, so this option allows to force it on or off when automatic suggestion is wrong.
 * **nowrap** (*boolean*) – when *false* no horizontal scrollbar will be shown; instead code will be wrapped in the end of code box.
 * **noborder** (*boolean*) – when *true* no border will be shown around the code block.
 * **no_cc** (*boolean*) – when *true* the syntax in code block will not be highlighted, code will be rendered inside `<code></code>` tag.
@@ -194,7 +145,7 @@ Use `<code no_cc="true">` option for your code block.
 
     Warning: array_keys() [function.array-keys]: The first argument should be an array in /home/wordpress/wp-content/plugins/codecolorer/lib/geshi.php on line 3599
 
-Remove all files from the **wp-content/plugins/codecolorer** folder and unpack an archive with plugin again (thanks to <a href="http://blog.t-l-k.com/">Anatoliy 'TLK' Kolesnick</a>).
+Remove all files from the **wp-content/plugins/codecolorer** folder and unpack an archive with plugin again (thanks to [Anatoliy 'TLK' Kolesnick](http://blog.t-l-k.com/)).
 
 = How to insert code from an external file?
 
@@ -213,68 +164,21 @@ This snippet will insert code from the UPLOADS_DIR/test_project/main.rb file.
 
 == Changelog ==
 
-= 0.9.11 (Development)
-* Fixed an issue with TinyMCE when CodeColorer options were removed in the editor (thanks to <a href="https://github.com/TheBox193">Jonathan Stassen</a> for the suggestion).
+= 0.9.11 (August 8, 2017)
+* Fixed an issue with TinyMCE when CodeColorer options were removed in the editor (thanks to [Jonathan Stassen](https://github.com/TheBox193) for the suggestion).
 * New art for the WordPress plugins page.
-* Fixed Ukrainian translation path.
+* Moved translations to https://translate.wordpress.org/projects/wp-plugins/codecolorer. WordPress should automatically download language packs now.
+* Lots of code style issues, should resolve all warnings in PHP logs.
 
 = 0.9.10 (July 28, 2017) =
 * Fixed a bug with large code blocks margins.
-* Added Portuguese translation (thanks to <a href="http://lfscoutinho.net/">Luis Coutinho</a>).
-* Added Indonesian translation (thanks to <a href="http://www.openscriptsolution.com/">Masino Sinaga</a>).
-* Fixed PHP 7 compatibility issues (thanks to <a href="https://github.com/kamermans">Steve Kamerman</a> and <a href="https://github.com/robfelty">Robert Felty</a>).
+* Added Portuguese translation (thanks to [Luis Coutinho](http://lfscoutinho.net/)).
+* Added Indonesian translation (thanks to [Masino Sinaga](http://www.openscriptsolution.com/)).
+* Fixed PHP 7 compatibility issues (thanks to [Steve Kamerman](https://github.com/kamermans) and [Robert Felty](https://github.com/robfelty)).
 * Fixed WordPress 4+ compatibility (editor button, settings page layout).
-* Added "Solarized Light" and "Solarized Dark" themes (thanks to <a href="https://github.com/mattkirman">Matt Kirman</a>).
+* Added "Solarized Light" and "Solarized Dark" themes (thanks to [Matt Kirman](https://github.com/mattkirman)).
 
-= 0.9.9 (April 28, 2011) =
-* Added ability to highlight ranges of lines (thanks to <a href="http://www.deltanova.co.uk/670/">DELTA NOVA</a>).
-* GeSHi updated to 1.0.8.10 (now with Google Go support!).
-* Updated Simplified Chinese translation (thanks to <a href="http://tihope.com/">KenSai</a>).
-* Added Hungarian translation (thanks to <a href="http://dassad.com/">daSSad</a>).
-* Added Traditional Chinese translation (thanks to <a href="http://jhcheng.byethost3.com/">Horace Cheng</a>).
-* Added Romanian translation (thanks to <a href="http://www.sphynxsoft.com/">Bogdan M. Botezatu</a>).
-* Added `file="file"` attribute to load code from external files (thanks to Mészáros Márton).
-* Added Slovak translation (thanks to <a href="http://cstudio.sk/">ceco</a>).
-* Added Malay translation (thanks to <a href="http://www.losebellyfat365.com/">Shareef Sam</a>).
-* Fix for notice 'has_cap was called with an argument that is deprecated since version 2.0!' (thanks to <a href="https://github.com/lenon">Lenon Marcel</a>).
-* Fixed undefined index warnings (thanks to <a href="https://github.com/lenon">Lenon Marcel</a>).
-* Added Railscasts theme (thanks to <a href="https://github.com/ankit">Ankit Ahuja</a>).
-* Fixed Twitlight theme (strings and symbols coloring was broken).
-
-= 0.9.8 (March 23, 2010) =
-* Added an icon to the admin options page.
-* Updated Arabic translation (thanks to <a href="http://amine27.zici.fr/">Amine Roukh</a>).
-* GeSHi updated to 1.0.8.6.
-* Added ability to highlight specified lines (thanks to <a href="http://www.deltanova.co.uk/641/">DELTA NOVA</a>).
-* Added Czech translation (thanks to <a href="http://lelkoun.cz/">Lelkoun</a>).
-* Added Georgian translation (thanks to <a href="http://sysadmin.softgen.ge/">Nika Chkhikvishvili</a>).
-* Added Persian translation (thanks to <a href="http://www.7sal.com/">Hamed Momeni</a>).
-* Some unit tests added.
-
-= 0.9.7 (December 19, 2009) =
-* Fixed `theme="geshi"` attribute bug.
-* Added ability to highlight arbitrary piece of code from PHP.
-* Use `wp_enqueue_style` instead of echoing plain HTML.
-* Fixed problem with escaped code blocks, when some entities were not unescaped.
-* Fixed compatibility with WordPress 2.9.
-
-= 0.9.6 (December 18, 2009) =
-* Added French translation (thanks to <a href="http://www.flyingcode.com/">Valentin PRUGNAUD</a>, <a href="http://fanta78.free.fr/">fanta78</a>, <a href="http://blog.zabe.fr/">Sylvain Zabé</a>, and <a href="http://blogs.wittwer.fr/whiler/">Whiler</a>).
-* Added Brazilian Portuguese translation (thanks to <a href="http://www.jeveaux.com/">Paulo César M. Jeveaux</a>, <a href="">Fabricio Bortoluzzi</a>, and <a href="http://www.rodolfoleao.com/">Rodolfo Leão</a>).
-* Added Swedish translation (thanks to <a href="http://blog.lhli.net/">LHLI</a>).
-* Fixed XHTML validation problems on the CodeColorer options page (thanks to Brett Zamir).
-* Added Japanese translation (thanks to <a href="http://www.kuroneko-square.net/">Kuroneko Square</a>).
-* Added Danish translation (thanks to <a href="http://www.klysner.com/">Hans Klysner</a>).
-* Added GeSHi theme.
-* Added ability to specify custom CSS class for the wrapper HTML element.
-
-= 0.9.5 (August 27, 2009) =
-* Added Dutch translation (thanks to <a href="http://www.helixsoft.nl/blog/">Martijn van Iersel</a>).
-* Added Spanish (Argentina) translation (thanks to <a href="http://www.lordblacksuca.com.ar/">Diego Sucaria</a>).
-* Added Arabic translation (thanks to <a href="http://amine27.zici.fr/">Amine Roukh</a>).
-* Fixed bug in Safari 4 caused by text-align=justify in parent container.
-
-You can find complete changelog on the <a href="https://kpumuk.info/projects/wordpress-plugins/codecolorer/history/">CodeColorer history</a> page.
+You can find complete changelog on the [CodeColorer history](https://kpumuk.info/projects/wordpress-plugins/codecolorer/history/) page.
 
 == Supported languages ==
 
@@ -284,10 +188,12 @@ Here is list of supported by CodeColorer languages: 4cs, 6502acme, 6502kickass, 
 
 Sources of this plugin are available both in SVN and Git:
 
-* <a href="https://plugins.svn.wordpress.org/codecolorer/">WordPress SVN repository</a>
-* <a href="https://github.com/kpumuk/codecolorer/">GitHub</a>
+* [WordPress SVN repository](https://plugins.svn.wordpress.org/codecolorer/)
+* [GitHub](https://github.com/kpumuk/codecolorer/)
 
-Feel free to check them out, make your changes and send me patches. Promise, I will apply every patch (of course, if they add a value to the product). Email for patches, suggestions, or bug reports: <a href="mailto:kpumuk@kpumuk.info">kpumuk@kpumuk.info</a>.
+Feel free to check them out, make your changes and send me patches or pull requests. Promise, I will apply every patch (of course, if they add a value to the product). Email for patches, suggestions, or bug reports: [kpumuk@kpumuk.info](mailto:kpumuk@kpumuk.info).
+
+If you're interested in translating CodeColorer to your language, please check out the [translation page](https://translate.wordpress.org/projects/wp-plugins/codecolorer) for the plugin.
 
 == Customization ==
 
