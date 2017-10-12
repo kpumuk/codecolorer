@@ -4,7 +4,7 @@ code.codecolorer { padding: 2px; }
 .codecolorer-container { margin-bottom: 10px; text-align: left; }
 .codecolorer, .codecolorer *, .codecolorer-container, .codecolorer-container * { font: 13px/1.4em Monaco, Lucida Console, monospace }
 
-.codecolorer-container table { border: 0px; margin: 0px; }
+.codecolorer-container table { border: 0px; margin: 0px; width: 100%; }
 .codecolorer-container table td { margin: 0px; padding: 0px; border: 0px; }
 .codecolorer-container table td.line-numbers { padding: 5px; text-align: right; }
 .codecolorer-container table td.line-numbers div { width: 23px; }
@@ -37,7 +37,7 @@ code.codecolorer { padding: 2px; }
 /* Constant */
 .twitlight .xml .re0 { color: #0080A0; }
 /* Highlight lines */
-.codecolorer .ln-xtra { background-color: #ffff66; }
+.codecolorer .ln-xtra { background-color: #ffff66; display: block; }
 
 /* "Twitlight" color scheme */
 .twitlight, .twitlight .codecolorer { color: #F8F8F8; background-color: #141414; }
@@ -66,6 +66,7 @@ code.codecolorer { padding: 2px; }
 	{ color: #F8F8F8; }
 .twitlight .xml .re1 { color: #F9EE98; }
 .twitlight .xml .re0 { color: #CF6A4C; }
+.twitlight .codecolorer .ln-xtra { background-color: #636338; }
 
 /* "Dawn" color scheme */
 .dawn, .dawn .codecolorer { color: #080808; background-color: #F9F9F9; }
@@ -124,6 +125,7 @@ code.codecolorer { padding: 2px; }
 	{ color: #F8F8F8; }
 .blackboard .xml .re1 { color: #FBDE2D; }
 .blackboard .xml .re0 { color: #D8FA3C; }
+.blackboard .codecolorer .ln-xtra { background-color: #636338; }
 
 /* "Mac Classic" color scheme */
 .mac-classic, .mac-classic .codecolorer { color: #000000; background-color: #FFFFFF; }
@@ -182,6 +184,7 @@ code.codecolorer { padding: 2px; }
 	{ color: #FFFFFF; }
 .vibrant .xml .re1 { color: #FFCC00; }
 .vibrant .xml .re0 { color: #339999; }
+.vibrant .codecolorer .ln-xtra { background-color: #636338; }
 
 /* Railscasts theme */
 .railscasts, .railscasts .codecolorer { color: #E6E1DC; background-color: #2B2B2B; }
@@ -208,6 +211,7 @@ code.codecolorer { padding: 2px; }
 	{ color: #6E9CBE; }
 .railscasts .xml .re0
 	{ color: #6D9CBE; }
+.railscasts .codecolorer .ln-xtra { background-color: #CC7833; }
 
 /* Solarized (Dark) */
 .solarized-dark, .solarized-dark .codecolorer { color: #839496; background-color: #002b36; }
@@ -235,6 +239,7 @@ code.codecolorer { padding: 2px; }
 .solarized-dark .xml .re0
 	{ color: #6D9CBE; }
 
+.solarized-dark .codecolorer .ln-xtra { background-color: #FDF6E3; }
 .codecolorer-container.solarized-dark table td.line-numbers
   { color: #839496; background-color: #073642; border-right-color: #001B26; }
 
