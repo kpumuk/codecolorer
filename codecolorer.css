@@ -221,7 +221,7 @@ code.codecolorer { padding: 2px; }
 	code.railscasts.xml .re1, code.railscasts.xsl .re1, code.railscasts.xml .re2, code.railscasts.xsl .re2
 	{ color: #FFCC00; }
 .railscasts .codecolorer.xml .re0, code.railscasts.xml .re0 { color: #6E9CBE; }
-.railscasts .codecolorer .ln-xtra { background-color: #CC7833; }
+.railscasts .codecolorer .ln-xtra { background-color: #636338; }
 
 /* Solarized (Dark) */
 .solarized-dark, .solarized-dark .codecolorer { color: #839496; background-color: #002b36; }
