@@ -32,10 +32,10 @@ code.codecolorer { padding: 2px; }
 .codecolorer .re0, .codecolorer .re1 { color: #A08000; }
 /* Global color */
 .codecolorer .br0, .codecolorer .sy0 { color: #000000; }
-/* Storage */
-.twitlight .xml .re1 { color: #008080; }
-/* Constant */
-.twitlight .xml .re0 { color: #0080A0; }
+/* XML tag */
+.codecolorer.xml .re1, .codecolorer.xsl .re1, .codecolorer.xml .re2, .codecolorer.xsl .re2 { color: #008080; }
+/* XML attribute */
+.codecolorer.xml .re0 { color: #2060A0; }
 /* Highlight lines */
 .codecolorer .ln-xtra { background-color: #ffff66; display: block; }
 
@@ -64,8 +64,10 @@ code.codecolorer { padding: 2px; }
 .twitlight .codecolorer .br0, .twitlight .codecolorer .sy0,
 	code.twitlight .br0, code.twitlight .sy0
 	{ color: #F8F8F8; }
-.twitlight .xml .re1 { color: #F9EE98; }
-.twitlight .xml .re0 { color: #CF6A4C; }
+.twitlight .codecolorer.xml .re1, .twitlight .codecolorer.xsl .re1, .twitlight .codecolorer.xml .re2, .twitlight .codecolorer.xsl .re2,
+	code.twitlight.xml .re1, code.twitlight.xsl .re1, code.twitlight.xml .re2, code.twitlight.xsl .re2
+	{ color: #F9EE98; }
+.twitlight .codecolorer.xml .re0, code.twitlight.xml .re0 { color: #CDA869; }
 .twitlight .codecolorer .ln-xtra { background-color: #636338; }
 
 /* "Dawn" color scheme */
@@ -94,8 +96,10 @@ code.codecolorer { padding: 2px; }
 .dawn .codecolorer .br0, .dawn .codecolorer .sy0,
 	code.dawn .br0, code.dawn .sy0
 	{ color: #080808; }
-.dawn .xml .re1 { color: #A71D5D; }
-.dawn .xml .re0 { color: #811F24; }
+.dawn .codecolorer.xml .re1, .dawn .codecolorer.xsl .re1, .dawn .codecolorer.xml .re2, .dawn .codecolorer.xsl .re2,
+	code.dawn.xml .re1, code.dawn.xsl .re1, code.dawn.xml .re2, code.dawn.xsl .re2
+	{ color: #A71D5D; }
+.dawn .codecolorer.xml .re0, code.dawn.xml .re0 { color: #794938; }
 
 /* "Blackboard" color scheme */
 .blackboard, .blackboard .codecolorer { color: #F8F8F8; background-color: #0C1021; }
@@ -123,8 +127,10 @@ code.codecolorer { padding: 2px; }
 .blackboard .codecolorer .br0, .blackboard .codecolorer .sy0,
 	code.blackboard .br0, code.blackboard .sy0
 	{ color: #F8F8F8; }
-.blackboard .xml .re1 { color: #FBDE2D; }
-.blackboard .xml .re0 { color: #D8FA3C; }
+.blackboard .codecolorer.xml .re1, .blackboard .codecolorer.xsl .re1, .blackboard .codecolorer.xml .re2, .blackboard .codecolorer.xsl .re2,
+	code.blackboard.xml .re1, code.blackboard.xsl .re1, code.blackboard.xml .re2, code.blackboard.xsl .re2
+	{ color: #FBDE2D; }
+.blackboard .codecolorer.xml .re0, code.blackboard.xml .re0 { color: #D8FA3C; }
 .blackboard .codecolorer .ln-xtra { background-color: #636338; }
 
 /* "Mac Classic" color scheme */
@@ -153,8 +159,10 @@ code.codecolorer { padding: 2px; }
 .mac-classic .codecolorer .br0, .mac-classic .codecolorer .sy0,
 	code.mac-classic .br0, code.mac-classic .sy0
 	{ color: #000000; }
-.mac-classic .xml .re1 { color: #0000FF; }
-.mac-classic .xml .re0 { color: #0000CD; }
+.mac-classic .codecolorer.xml .re1, .mac-classic .codecolorer.xsl .re1, .mac-classic .codecolorer.xml .re2, .mac-classic .codecolorer.xsl .re2,
+	code.mac-classic.xml .re1, code.mac-classic.xsl .re1, code.mac-classic.xml .re2, code.mac-classic.xsl .re2
+	{ color: #0000FF; }
+.mac-classic .codecolorer.xml .re0, code.mac-classic.xml .re0 { color: #0000CD; }
 
 /* "Vibrant Ink" color scheme */
 .vibrant, .vibrant .codecolorer { color: #FFFFFF; background-color: #000000; }
@@ -182,8 +190,10 @@ code.codecolorer { padding: 2px; }
 .vibrant .codecolorer .br0, .vibrant .codecolorer .sy0,
 	code.vibrant .br0, code.vibrant .sy0
 	{ color: #FFFFFF; }
-.vibrant .xml .re1 { color: #FFCC00; }
-.vibrant .xml .re0 { color: #339999; }
+.vibrant .codecolorer.xml .re1, .vibrant .codecolorer.xsl .re1, .vibrant .codecolorer.xml .re2, .vibrant .codecolorer.xsl .re2,
+	code.vibrant.xml .re1, code.vibrant.xsl .re1, code.vibrant.xml .re2, code.vibrant.xsl .re2
+	{ color: #FFCC00; }
+.vibrant .codecolorer.xml .re0, code.vibrant.xml .re0 { color: #339999; }
 .vibrant .codecolorer .ln-xtra { background-color: #636338; }
 
 /* Railscasts theme */
@@ -207,10 +217,10 @@ code.codecolorer { padding: 2px; }
 	{ color: #D0D0FF; }
 .railscasts .codecolorer .br0,  .railscasts .codecolorer .sy0
 	{ color: #E6E1DC; }
-.railscasts .xml .re1
-	{ color: #6E9CBE; }
-.railscasts .xml .re0
-	{ color: #6D9CBE; }
+.railscasts .codecolorer.xml .re1, .railscasts .codecolorer.xsl .re1, .railscasts .codecolorer.xml .re2, .railscasts .codecolorer.xsl .re2,
+	code.railscasts.xml .re1, code.railscasts.xsl .re1, code.railscasts.xml .re2, code.railscasts.xsl .re2
+	{ color: #FFCC00; }
+.railscasts .codecolorer.xml .re0, code.railscasts.xml .re0 { color: #6E9CBE; }
 .railscasts .codecolorer .ln-xtra { background-color: #CC7833; }
 
 /* Solarized (Dark) */
@@ -234,11 +244,10 @@ code.codecolorer { padding: 2px; }
 	{ color: #268BD2; }
 .solarized-dark .codecolorer .br0,  .solarized-dark .codecolorer .sy0
 	{ color: #D01F1E; }
-.solarized-dark .xml .re1
-	{ color: #6E9CBE; }
-.solarized-dark .xml .re0
-	{ color: #6D9CBE; }
-
+.solarized-dark .codecolorer.xml .re1, .solarized-dark .codecolorer.xsl .re1, .solarized-dark .codecolorer.xml .re2, .solarized-dark .codecolorer.xsl .re2,
+	code.solarized-dark.xml .re1, code.solarized-dark.xsl .re1, code.solarized-dark.xml .re2, code.solarized-dark.xsl .re2
+	{ color: #A57800; }
+.solarized-dark .codecolorer.xml .re0, code.solarized-dark.xml .re0 { color: #859900; }
 .solarized-dark .codecolorer .ln-xtra { background-color: #FDF6E3; }
 .codecolorer-container.solarized-dark table td.line-numbers
   { color: #839496; background-color: #073642; border-right-color: #001B26; }
@@ -264,10 +273,9 @@ code.codecolorer { padding: 2px; }
 	{ color: #4EB1F6; }
 .solarized-light .codecolorer .br0,  .solarized-light .codecolorer .sy0
 	{ color: #D01F1E; }
-.solarized-light .xml .re1
-	{ color: #6E9CBE; }
-.solarized-light .xml .re0
-	{ color: #6D9CBE; }
-
+.solarized-light .codecolorer.xml .re1, .solarized-light .codecolorer.xsl .re1, .solarized-light .codecolorer.xml .re2, .solarized-light .codecolorer.xsl .re2,
+	code.solarized-light.xml .re1, code.solarized-light.xsl .re1, code.solarized-light.xml .re2, code.solarized-light.xsl .re2
+	{ color: #A57800; }
+.solarized-light .codecolorer.xml .re0, code.solarized-light.xml .re0 { color: #748B00; }
 .codecolorer-container.solarized-light table td.line-numbers
   { color: #839496; background-color: #EEE8D5; border-right-color: #CEC8B5; }
