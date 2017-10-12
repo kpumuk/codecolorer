@@ -3,7 +3,7 @@ Contributors: kpumuk
 Tags: code, snippet, syntax, highlight, highlighting, color, geshi
 Requires at least: 4.0
 Tested up to: 4.8.1
-Stable tag: 0.9.11
+Stable tag: 0.9.12
 
 CodeColorer is a syntax highlighting plugin which allows inserting code snippets into blog posts. The plugin supports color themes, code samples in RSS, comments.
 
@@ -163,6 +163,12 @@ This snippet will insert code from the UPLOADS_DIR/test_project/main.rb file.
 4. Settings page.
 
 == Changelog ==
+
+= 0.9.12 (October 12, 2017)
+* Fixed XML syntax highlighting colors.
+* Fixed line highlighting color for dark themes.
+* Added support for TablePress plugin.
+* Line highlighting affects the whole block width, not only the code text.
 
 = 0.9.11 (August 8, 2017) =
 * Fixed an issue with TinyMCE when CodeColorer options were removed in the editor (thanks to [Jonathan Stassen](https://github.com/TheBox193) for the suggestion).
