@@ -105,6 +105,10 @@ class CodeColorerLoader
         add_filter('pre_comment_content', array('CodeColorerLoader', 'callBeforeProtectComment'), -1000);
         add_filter('pre_comment_content', array('CodeColorerLoader', 'callAfterProtectComment'), 1000);
 
+        // TablePress support
+        add_filter('tablepress_cell_content', array('CodeColorerLoader', 'callBeforeHighlightCodeBlock'), -1000, 1);
+        add_filter('tablepress_cell_content', array('CodeColorerLoader', 'callAfterHighlightCodeBlock'), 1000, 1);
+
         return true;
     }
 
