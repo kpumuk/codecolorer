@@ -198,7 +198,7 @@ class CodeColorerLoader
         
         if (!wp_script_is('quicktags')) {
             return;
-        }    
+        }
         
         wp_enqueue_script('jquery');
         $url = plugins_url(basename(dirname(__FILE__)) . '/js/quicktags.js');
