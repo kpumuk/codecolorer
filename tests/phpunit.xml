@@ -11,15 +11,14 @@
         </testsuite>
     </testsuites>
     <logging>
-        <log type="junit" target="tests/phpunit/build/logs/junit.xml" logIncompleteSkipped="false"/>
+        <log type="junit" target="junit.xml" logIncompleteSkipped="false"/>
     </logging>
   <filter>
     <whitelist processUncoveredFilesFromWhitelist="true">
-      <directory suffix=".php">.</directory>
-      <exclude>
-        <directory suffix=".php">lib</directory>
-        <directory suffix=".php">tests</directory>
-      </exclude>
+      <file>codecolorer.php</file>
+      <file>codecolorer-core.php</file>
+      <file>codecolorer-options.php</file>
+      <file>codecolorer-admin.php</file>
     </whitelist>
   </filter>
 </phpunit>

@@ -48,6 +48,7 @@ shared_build_steps: &shared_build_steps
       command: |
         vendor/bin/phpunit --version
         vendor/bin/phpunit --coverage-clover clover.xml --configuration tests/phpunit.xml tests
+        cat clover.xml
 
   - run:
       name: Formatting Coverage
@@ -62,33 +63,6 @@ shared_build_steps: &shared_build_steps
 
 jobs:
   
-  build-php56:
-    docker:
-      - image: circleci/php:5.6-apache-node
-        environment:
-          PHP_VERSION: 5.6
-          PHPUNIT_VERSION: 5.7
-    working_directory: ~/codecolorer/php56
-    steps: *shared_build_steps
-  
-  build-php70:
-    docker:
-      - image: circleci/php:7.0-apache-node
-        environment:
-          PHP_VERSION: 7.0
-          PHPUNIT_VERSION: 6.2
-    working_directory: ~/codecolorer/php70
-    steps: *shared_build_steps
-  
-  build-php71:
-    docker:
-      - image: circleci/php:7.1-apache-node
-        environment:
-          PHP_VERSION: 7.1
-          PHPUNIT_VERSION: 6.2
-    working_directory: ~/codecolorer/php71
-    steps: *shared_build_steps
-  
   build-php72:
     docker:
       - image: circleci/php:7.2-apache-node
@@ -101,7 +75,7 @@ jobs:
 
   upload-coverage:
     docker:
-      - image: circleci/php:7.2-apache-node
+      - image: circleci/slim-base
         environment:
           CC_TEST_REPORTER_ID: c905307dfede8f3280ee4209d836ef7035981e83a62a7d256b249c9e7ea35484
     steps:
@@ -112,18 +86,13 @@ jobs:
           name: Uploading Code Coverage
           command: |
             cd /tmp/workspace/php72
+            cat coverage/codeclimate.coverage.json
             ./cc-test-reporter upload-coverage --input coverage/codeclimate.coverage.json || true
 
 workflows:
   version: 2
   test:
     jobs:
-      
-      - build-php56
-      
-      - build-php70
-      
-      - build-php71
       
       - build-php72
       
