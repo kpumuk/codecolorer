@@ -1,0 +1,133 @@
+# To update the build configuration, edit the "builds" array below and run:
+#
+#   erb .circleci/config.yml.erb > .circleci/config.yml
+#
+
+
+version: 2
+
+shared_build_steps: &shared_build_steps
+  - checkout
+
+  - attach_workspace:
+      at: /tmp/workspace
+
+  - run:
+      name: Downloading CodeClimate Test Reporter
+      command: |
+        curl -sL https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+        chmod +x ./cc-test-reporter
+
+  - run:
+      name: Storing PHP Version
+      command: |
+        echo "$PHP_VERSION/$PHPUNIT_VERSION" > PHP_VERSION
+        cat PHP_VERSION
+
+  # Download and cache dependencies
+  - restore_cache:
+      keys:
+      - dependencies-{{ .Environment.CACHE_VERSION }}-{{ checksum "PHP_VERSION" }}
+
+  - run:
+      name: Installing Dependencies
+      command: |
+        composer require --dev --no-update phpunit/phpunit "~$PHPUNIT_VERSION"
+        composer require --dev --no-update doctrine/instantiator "1.0.5"
+        composer install --no-interaction --ignore-platform-reqs
+
+  - save_cache:
+      paths:
+        - vendor
+        - composer.json
+      key: dependencies-{{ .Environment.CACHE_VERSION }}-{{ checksum "PHP_VERSION" }}
+
+  # run tests!
+  - run:
+      name: Running Tests
+      command: |
+        vendor/bin/phpunit --version
+        vendor/bin/phpunit --coverage-clover clover.xml --configuration tests/phpunit.xml tests
+
+  - run:
+      name: Formatting Coverage
+      command: |
+        ./cc-test-reporter format-coverage --input-type clover --output coverage/codeclimate.coverage.json
+
+  - persist_to_workspace:
+      root: ~/codecolorer
+      paths:
+        - "*/coverage/codeclimate.coverage.json"
+        - "*/cc-test-reporter"
+
+jobs:
+  
+  build-php56:
+    docker:
+      - image: circleci/php:5.6-apache-node
+        environment:
+          PHP_VERSION: 5.6
+          PHPUNIT_VERSION: 5.7
+    working_directory: ~/codecolorer/php56
+    steps: *shared_build_steps
+  
+  build-php70:
+    docker:
+      - image: circleci/php:7.0-apache-node
+        environment:
+          PHP_VERSION: 7.0
+          PHPUNIT_VERSION: 6.2
+    working_directory: ~/codecolorer/php70
+    steps: *shared_build_steps
+  
+  build-php71:
+    docker:
+      - image: circleci/php:7.1-apache-node
+        environment:
+          PHP_VERSION: 7.1
+          PHPUNIT_VERSION: 6.2
+    working_directory: ~/codecolorer/php71
+    steps: *shared_build_steps
+  
+  build-php72:
+    docker:
+      - image: circleci/php:7.2-apache-node
+        environment:
+          PHP_VERSION: 7.2
+          PHPUNIT_VERSION: 6.2
+    working_directory: ~/codecolorer/php72
+    steps: *shared_build_steps
+  
+
+  upload-coverage:
+    docker:
+      - image: circleci/php:7.2-apache-node
+        environment:
+          CC_TEST_REPORTER_ID: c905307dfede8f3280ee4209d836ef7035981e83a62a7d256b249c9e7ea35484
+    steps:
+      - attach_workspace:
+          at: /tmp/workspace
+
+      - run:
+          name: Uploading Code Coverage
+          command: |
+            cd /tmp/workspace/php72
+            ./cc-test-reporter upload-coverage --input coverage/codeclimate.coverage.json || true
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      
+      - build-php56
+      
+      - build-php70
+      
+      - build-php71
+      
+      - build-php72
+      
+
+      - upload-coverage:
+          requires:
+            - build-php72

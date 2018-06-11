@@ -1,0 +1,110 @@
+# To update the build configuration, edit the "builds" array below and run:
+#
+#   erb .circleci/config.yml.erb > .circleci/config.yml
+#
+<%
+  # Format: PHP_VERSION, PHPUNIT_VERSION
+  builds = [
+    ['5.6', '5.7'],
+    ['7.0', '6.2'],
+    ['7.1', '6.2'],
+    ['7.2', '6.2', true],
+  ]
+
+  cc_build = builds.find { |_, _, submit_cc| submit_cc }
+%>
+
+version: 2
+
+shared_build_steps: &shared_build_steps
+  - checkout
+
+  - attach_workspace:
+      at: /tmp/workspace
+
+  - run:
+      name: Downloading CodeClimate Test Reporter
+      command: |
+        curl -sL https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+        chmod +x ./cc-test-reporter
+
+  - run:
+      name: Storing PHP Version
+      command: |
+        echo "$PHP_VERSION/$PHPUNIT_VERSION" > PHP_VERSION
+        cat PHP_VERSION
+
+  # Download and cache dependencies
+  - restore_cache:
+      keys:
+      - dependencies-{{ .Environment.CACHE_VERSION }}-{{ checksum "PHP_VERSION" }}
+
+  - run:
+      name: Installing Dependencies
+      command: |
+        composer require --dev --no-update phpunit/phpunit "~$PHPUNIT_VERSION"
+        composer require --dev --no-update doctrine/instantiator "1.0.5"
+        composer install --no-interaction --ignore-platform-reqs
+
+  - save_cache:
+      paths:
+        - vendor
+        - composer.json
+      key: dependencies-{{ .Environment.CACHE_VERSION }}-{{ checksum "PHP_VERSION" }}
+
+  # run tests!
+  - run:
+      name: Running Tests
+      command: |
+        vendor/bin/phpunit --version
+        vendor/bin/phpunit --coverage-clover clover.xml --configuration tests/phpunit.xml tests
+
+  - run:
+      name: Formatting Coverage
+      command: |
+        ./cc-test-reporter format-coverage --input-type clover --output coverage/codeclimate.coverage.json
+
+  - persist_to_workspace:
+      root: ~/codecolorer
+      paths:
+        - "*/coverage/codeclimate.coverage.json"
+        - "*/cc-test-reporter"
+
+jobs:
+  <% builds.each do |php_version, phpunit_version, submit_cc| %>
+  build-php<%= php_version.tr('.', '') %>:
+    docker:
+      - image: circleci/php:<%= php_version %>-apache-node
+        environment:
+          PHP_VERSION: <%= php_version %>
+          PHPUNIT_VERSION: <%= phpunit_version %>
+    working_directory: ~/codecolorer/php<%= php_version.tr('.', '') %>
+    steps: *shared_build_steps
+  <% end %>
+
+  upload-coverage:
+    docker:
+      - image: circleci/php:<%= cc_build[0] %>-apache-node
+        environment:
+          CC_TEST_REPORTER_ID: c905307dfede8f3280ee4209d836ef7035981e83a62a7d256b249c9e7ea35484
+    steps:
+      - attach_workspace:
+          at: /tmp/workspace
+
+      - run:
+          name: Uploading Code Coverage
+          command: |
+            cd /tmp/workspace/php<%= cc_build[0].tr('.', '') %>
+            ./cc-test-reporter upload-coverage --input coverage/codeclimate.coverage.json || true
+
+workflows:
+  version: 2
+  test:
+    jobs:
+      <% builds.each do |php_version, _| %>
+      - build-php<%= php_version.tr('.', '') %>
+      <% end %>
+
+      - upload-coverage:
+          requires:
+            - build-php<%= cc_build[0].tr('.', '') %>
