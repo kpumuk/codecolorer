@@ -62,12 +62,39 @@ shared_build_steps: &shared_build_steps
 
 jobs:
   
+  build-php56:
+    docker:
+      - image: circleci/php:5.6-apache-node
+        environment:
+          PHP_VERSION: 5.6
+          PHPUNIT_VERSION: 5
+    working_directory: ~/codecolorer/php56
+    steps: *shared_build_steps
+  
+  build-php70:
+    docker:
+      - image: circleci/php:7.0-apache-node
+        environment:
+          PHP_VERSION: 7.0
+          PHPUNIT_VERSION: 6
+    working_directory: ~/codecolorer/php70
+    steps: *shared_build_steps
+  
+  build-php71:
+    docker:
+      - image: circleci/php:7.1-apache-node
+        environment:
+          PHP_VERSION: 7.1
+          PHPUNIT_VERSION: 7
+    working_directory: ~/codecolorer/php71
+    steps: *shared_build_steps
+  
   build-php72:
     docker:
       - image: circleci/php:7.2-apache-node
         environment:
           PHP_VERSION: 7.2
-          PHPUNIT_VERSION: 6.2
+          PHPUNIT_VERSION: 7
     working_directory: ~/codecolorer/php72
     steps: *shared_build_steps
   
@@ -91,6 +118,12 @@ workflows:
   version: 2
   test:
     jobs:
+      
+      - build-php56
+      
+      - build-php70
+      
+      - build-php71
       
       - build-php72
       

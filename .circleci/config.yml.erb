@@ -5,10 +5,10 @@
 <%
   # Format: PHP_VERSION, PHPUNIT_VERSION
   builds = [
-    # ['5.6', '5.7'],
-    # ['7.0', '6.2'],
-    # ['7.1', '6.2'],
-    ['7.2', '6.2', true],
+    ['5.6', '5'],
+    ['7.0', '6'],
+    ['7.1', '7'],
+    ['7.2', '7', true],
   ]
 
   cc_build = builds.find { |_, _, submit_cc| submit_cc }
