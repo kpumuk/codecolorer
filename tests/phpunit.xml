@@ -15,10 +15,12 @@
     </logging>
   <filter>
     <whitelist processUncoveredFilesFromWhitelist="true">
-      <file>codecolorer.php</file>
-      <file>codecolorer-core.php</file>
-      <file>codecolorer-options.php</file>
-      <file>codecolorer-admin.php</file>
+      <directory suffix=".php">./..</directory>
+      <exclude>
+        <directory suffix=".php">./../lib</directory>
+        <directory suffix=".php">./../tests</directory>
+        <directory suffix=".php">./../vendor</directory>
+      </exclude>
     </whitelist>
   </filter>
 </phpunit>

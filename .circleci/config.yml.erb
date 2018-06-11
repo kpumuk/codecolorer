@@ -58,7 +58,6 @@ shared_build_steps: &shared_build_steps
       command: |
         vendor/bin/phpunit --version
         vendor/bin/phpunit --coverage-clover clover.xml --configuration tests/phpunit.xml tests
-        cat clover.xml
 
   - run:
       name: Formatting Coverage
@@ -96,7 +95,6 @@ jobs:
           name: Uploading Code Coverage
           command: |
             cd /tmp/workspace/php<%= cc_build[0].tr('.', '') %>
-            cat coverage/codeclimate.coverage.json
             ./cc-test-reporter upload-coverage --input coverage/codeclimate.coverage.json || true
 
 workflows:
