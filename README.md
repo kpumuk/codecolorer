@@ -1,6 +1,6 @@
 # CodeColorer
 
-[![Build Status](https://travis-ci.org/kpumuk/codecolorer.svg?branch=master)](https://travis-ci.org/kpumuk/codecolorer)
+[![CircleCI](https://circleci.com/gh/kpumuk/codecolorer.svg?style=shield)](https://circleci.com/gh/kpumuk/codecolorer)
 [![Maintainability](https://api.codeclimate.com/v1/badges/38191b47e77c9344e9c4/maintainability)](https://codeclimate.com/github/kpumuk/codecolorer/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/38191b47e77c9344e9c4/test_coverage)](https://codeclimate.com/github/kpumuk/codecolorer/test_coverage)
 [![WordPress Plug-In Version](https://img.shields.io/wordpress/plugin/v/codecolorer.svg)](https://wordpress.org/plugins/codecolorer/)
