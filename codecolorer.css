@@ -2,7 +2,7 @@
 .codecolorer { padding: 5px; text-align: left; }
 code.codecolorer { padding: 2px; }
 .codecolorer-container { margin-bottom: 10px; text-align: left; }
-.codecolorer, .codecolorer *, .codecolorer-container, .codecolorer-container * { font: 13px/1.4em Monaco, Lucida Console, monospace }
+.codecolorer, .codecolorer *, .codecolorer-container, .codecolorer-container * { font: 1rem/1.4rem Monaco, Lucida Console, monospace; -webkit-text-size-adjust: 100% }
 
 .codecolorer-container table { border: 0px; margin: 0px; width: 100%; direction: ltr; }
 .codecolorer-container table td { margin: 0px; padding: 0px; border: 0px; width: auto; }
