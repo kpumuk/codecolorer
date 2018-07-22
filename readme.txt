@@ -155,6 +155,10 @@ You can upload this file using WordPress upload or put it somewhere in uploads f
 
 This snippet will insert code from the UPLOADS_DIR/test_project/main.rb file.
 
+= Google Website Translator breaks my code blocks
+
+The solution is to add `notranslate` class to the list of "Custom CSS Classes" on the admin plugin settings page.
+
 = Is this plugin GDPR Compliant?
 
 Yes. We do not store or process any user information.
