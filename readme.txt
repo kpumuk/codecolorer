@@ -155,6 +155,10 @@ You can upload this file using WordPress upload or put it somewhere in uploads f
 
 This snippet will insert code from the UPLOADS_DIR/test_project/main.rb file.
 
+= Is this plugin GDPR Compliant?
+
+Yes. We do not store or process any user information.
+
 == Screenshots ==
 
 1. Ruby syntax highlighting without scrollbars (Vibrant theme).
