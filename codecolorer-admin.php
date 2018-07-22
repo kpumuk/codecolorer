@@ -85,7 +85,7 @@ class CodeColorerAdmin
                     <tr valign="top">
                         <th scope="row"><label for="codecolorer_width"><?php _e('Width', 'codecolorer') ?>:</label></th>
                         <td>
-                            <input name="codecolorer_width" type="number" class="small-text" size="60" id="codecolorer_width" value="<?php echo get_option('codecolorer_width') ?>"/>
+                            <input name="codecolorer_width" type="string" class="small-text" size="60" id="codecolorer_width" value="<?php echo get_option('codecolorer_width') ?>"/>
                             <p class="description"><?php _e('Default code block width. Integer means pixels, also you can specify <tt>em</tt> or <tt>%</tt> suffix. Could be omitted to use whole width.', 'codecolorer') ?></p>
                         </td>
                     </tr>
