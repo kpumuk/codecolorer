@@ -109,6 +109,10 @@ class CodeColorerLoader
         add_filter('tablepress_cell_content', array('CodeColorerLoader', 'callBeforeHighlightCodeBlock'), -1000, 1);
         add_filter('tablepress_cell_content', array('CodeColorerLoader', 'callAfterHighlightCodeBlock'), 1000, 1);
 
+        // Simple Download Monitor
+        add_filter('sdm_downloads_description', array('CodeColorerLoader', 'callBeforeHighlightCodeBlock'), -1000, 1);
+        add_filter('sdm_downloads_description', array('CodeColorerLoader', 'callAfterHighlightCodeBlock'), 1000, 1);
+
         return true;
     }
 
