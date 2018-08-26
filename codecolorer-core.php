@@ -273,11 +273,11 @@ class CodeColorer
             } else {
                 $table .= 'class="line-numbers"';
             }
-            $table .= '><div>';
+            $table .= '><ol>';
             for ($i = 0, $count = substr_count($result, '<br />') + 1; $i < $count; $i++) {
-                $table .= ($i + $options['first_line']) . '<br />';
+                $table .= '<li>&nbsp;</li>';
             }
-            $result = $table . '</div></td><td>' . $result . '</td></tr></tbody></table>';
+            $result = $table . '</ol></td><td>' . $result . '</td></tr></tbody></table>';
         }
 
         return $result;
