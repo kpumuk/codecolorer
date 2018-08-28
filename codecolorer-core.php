@@ -273,7 +273,7 @@ class CodeColorer
             } else {
                 $table .= 'class="line-numbers"';
             }
-            $table .= ( isset( $options['first_line'] ) )
+            $table .= (isset($options['first_line']))
                 ? '><ol start="' . (int) $options['first_line'] . '">'
                 : '><ol>';
             for ($i = 0, $count = substr_count($result, '<br />') + 1; $i < $count; $i++) {
