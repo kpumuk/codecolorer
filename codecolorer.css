@@ -7,7 +7,7 @@ code.codecolorer { padding: 2px; }
 .codecolorer-container table { border: 0px; margin: 0px; width: 100%; direction: ltr; }
 .codecolorer-container table td { margin: 0px; padding: 0px; border: 0px; width: auto; }
 .codecolorer-container table td.line-numbers { direction: ltr; line-height: 1.3rem; padding: 5px 0; text-align: right; width: 1%; vertical-align: middle; }
-.codecolorer-container table td.line-numbers ol { list-style-position: inside; list-style-type: decimal; margin: 0; margin-right: -1em; padding: 0; }
+.codecolorer-container table td.line-numbers ol { list-style-position: inside; list-style-type: decimal; margin: 0; padding: 0; }
 .codecolorer-container table td.line-numbers li { height: 1.3rem; margin: 0; padding: 0; padding-left: 0.5em; }
 .codecolorer-container table td.line-numbers li:nth-child(even) { background-color: #DDD; }
 
