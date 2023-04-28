@@ -33,7 +33,7 @@ shared_build_steps: &shared_build_steps
       name: Installing Dependencies
       command: |
         composer require --dev --no-update phpunit/phpunit "~$PHPUNIT_VERSION"
-        composer require --dev --no-update doctrine/instantiator "1.0.5"
+        composer require --dev --no-update doctrine/instantiator "^2.0"
         composer install --no-interaction --ignore-platform-reqs
 
   - save_cache:
@@ -47,7 +47,7 @@ shared_build_steps: &shared_build_steps
       name: Running Tests
       command: |
         vendor/bin/phpunit --version
-        vendor/bin/phpunit --coverage-clover clover.xml --configuration tests/phpunit.xml tests
+        vendor/bin/phpunit --coverage-clover clover.xml --configuration tests/phpunit.xml --display-deprecations tests
 
   - run:
       name: Formatting Coverage
@@ -62,40 +62,40 @@ shared_build_steps: &shared_build_steps
 
 jobs:
   
-  build-php56:
+  build-php74:
     docker:
-      - image: circleci/php:5.6-apache-node
+      - image: circleci/php:7.4-apache-node
         environment:
-          PHP_VERSION: 5.6
-          PHPUNIT_VERSION: 5
-    working_directory: ~/codecolorer/php56
-    steps: *shared_build_steps
-  
-  build-php70:
-    docker:
-      - image: circleci/php:7.0-apache-node
-        environment:
-          PHP_VERSION: 7.0
-          PHPUNIT_VERSION: 6
-    working_directory: ~/codecolorer/php70
-    steps: *shared_build_steps
-  
-  build-php71:
-    docker:
-      - image: circleci/php:7.1-apache-node
-        environment:
-          PHP_VERSION: 7.1
+          PHP_VERSION: 7.4
           PHPUNIT_VERSION: 7
-    working_directory: ~/codecolorer/php71
+    working_directory: ~/codecolorer/php74
     steps: *shared_build_steps
   
-  build-php72:
+  build-php80:
     docker:
-      - image: circleci/php:7.2-apache-node
+      - image: circleci/php:8.0-apache-node
         environment:
-          PHP_VERSION: 7.2
-          PHPUNIT_VERSION: 7
-    working_directory: ~/codecolorer/php72
+          PHP_VERSION: 8.0
+          PHPUNIT_VERSION: 10.1
+    working_directory: ~/codecolorer/php80
+    steps: *shared_build_steps
+  
+  build-php81:
+    docker:
+      - image: circleci/php:8.1-apache-node
+        environment:
+          PHP_VERSION: 8.1
+          PHPUNIT_VERSION: 10.1
+    working_directory: ~/codecolorer/php81
+    steps: *shared_build_steps
+  
+  build-php82:
+    docker:
+      - image: circleci/php:8.2-apache-node
+        environment:
+          PHP_VERSION: 8.2
+          PHPUNIT_VERSION: 10.1
+    working_directory: ~/codecolorer/php82
     steps: *shared_build_steps
   
 
@@ -111,7 +111,7 @@ jobs:
       - run:
           name: Uploading Code Coverage
           command: |
-            cd /tmp/workspace/php72
+            cd /tmp/workspace/php74
             ./cc-test-reporter upload-coverage --input coverage/codeclimate.coverage.json || true
 
 workflows:
@@ -119,15 +119,15 @@ workflows:
   test:
     jobs:
       
-      - build-php56
+      - build-php74
       
-      - build-php70
+      - build-php80
       
-      - build-php71
+      - build-php81
       
-      - build-php72
+      - build-php82
       
 
       - upload-coverage:
           requires:
-            - build-php72
+            - build-php74
