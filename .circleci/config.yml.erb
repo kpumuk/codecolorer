@@ -5,10 +5,10 @@
 <%
   # Format: PHP_VERSION, PHPUNIT_VERSION
   builds = [
-    ['5.6', '5'],
-    ['7.0', '6'],
-    ['7.1', '7'],
-    ['7.2', '7', true],
+    ['7.4', '7', true],
+    ['8.0', '10.1'],
+    ['8.1', '10.1'],
+    ['8.2', '10.1'],
   ]
 
   cc_build = builds.find { |_, _, submit_cc| submit_cc }
@@ -43,7 +43,7 @@ shared_build_steps: &shared_build_steps
       name: Installing Dependencies
       command: |
         composer require --dev --no-update phpunit/phpunit "~$PHPUNIT_VERSION"
-        composer require --dev --no-update doctrine/instantiator "1.0.5"
+        composer require --dev --no-update doctrine/instantiator "^2.0"
         composer install --no-interaction --ignore-platform-reqs
 
   - save_cache:
@@ -57,7 +57,7 @@ shared_build_steps: &shared_build_steps
       name: Running Tests
       command: |
         vendor/bin/phpunit --version
-        vendor/bin/phpunit --coverage-clover clover.xml --configuration tests/phpunit.xml tests
+        vendor/bin/phpunit --coverage-clover clover.xml --configuration tests/phpunit.xml --display-deprecations tests
 
   - run:
       name: Formatting Coverage
