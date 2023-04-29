@@ -72,7 +72,7 @@ class CodeColorerOptions
 
         $options = self::populateDefaultValues($options);
 
-        @list($modes, $lang) = explode('_', $suffix, 2);
+        list($modes, $lang) = array_pad(explode('_', $suffix, 2), 2, null);
         if (null !== ($mode = self::parseMode($modes, 'i'))) {
             $options['inline'] = $mode;
         }
