@@ -32,8 +32,10 @@ shared_build_steps: &shared_build_steps
   - run:
       name: Installing Dependencies
       command: |
+        sudo -E install-php-extensions xdebug-$XDEBUG_VERSION
+        sudo docker-php-ext-enable xdebug
         composer require --dev --no-update phpunit/phpunit "~$PHPUNIT_VERSION"
-        composer require --dev --no-update doctrine/instantiator "1.0.5"
+        composer require --dev --no-update doctrine/instantiator "$DOCTRINE_VERSION"
         composer install --no-interaction --ignore-platform-reqs
 
   - save_cache:
@@ -47,7 +49,9 @@ shared_build_steps: &shared_build_steps
       name: Running Tests
       command: |
         vendor/bin/phpunit --version
-        vendor/bin/phpunit --coverage-clover clover.xml --configuration tests/phpunit.xml tests
+        vendor/bin/phpunit --coverage-clover clover.xml --configuration tests/phpunit${PHPUNIT_VERSION}.xml tests
+      environment:
+        XDEBUG_MODE: coverage
 
   - run:
       name: Formatting Coverage
@@ -62,46 +66,54 @@ shared_build_steps: &shared_build_steps
 
 jobs:
   
-  build-php56:
+  build-php74:
     docker:
-      - image: circleci/php:5.6-apache-node
+      - image: cimg/php:7.4
         environment:
-          PHP_VERSION: 5.6
-          PHPUNIT_VERSION: 5
-    working_directory: ~/codecolorer/php56
+          PHP_VERSION: 7.4
+          PHPUNIT_VERSION: 9
+          DOCTRINE_VERSION: ^1.5.0
+          XDEBUG_VERSION: 3.1.5
+    working_directory: ~/codecolorer/php74
     steps: *shared_build_steps
   
-  build-php70:
+  build-php80:
     docker:
-      - image: circleci/php:7.0-apache-node
+      - image: cimg/php:8.0
         environment:
-          PHP_VERSION: 7.0
-          PHPUNIT_VERSION: 6
-    working_directory: ~/codecolorer/php70
+          PHP_VERSION: 8.0
+          PHPUNIT_VERSION: 9
+          DOCTRINE_VERSION: ^1.5.0
+          XDEBUG_VERSION: 3.2.1
+    working_directory: ~/codecolorer/php80
     steps: *shared_build_steps
   
-  build-php71:
+  build-php81:
     docker:
-      - image: circleci/php:7.1-apache-node
+      - image: cimg/php:8.1
         environment:
-          PHP_VERSION: 7.1
-          PHPUNIT_VERSION: 7
-    working_directory: ~/codecolorer/php71
+          PHP_VERSION: 8.1
+          PHPUNIT_VERSION: 10
+          DOCTRINE_VERSION: ^2.0
+          XDEBUG_VERSION: 3.2.1
+    working_directory: ~/codecolorer/php81
     steps: *shared_build_steps
   
-  build-php72:
+  build-php82:
     docker:
-      - image: circleci/php:7.2-apache-node
+      - image: cimg/php:8.2
         environment:
-          PHP_VERSION: 7.2
-          PHPUNIT_VERSION: 7
-    working_directory: ~/codecolorer/php72
+          PHP_VERSION: 8.2
+          PHPUNIT_VERSION: 10
+          DOCTRINE_VERSION: ^2.0
+          XDEBUG_VERSION: 3.2.1
+    working_directory: ~/codecolorer/php82
     steps: *shared_build_steps
   
 
   upload-coverage:
     docker:
-      - image: circleci/slim-base
+      - image: cimg/base:2023.04
         environment:
           CC_TEST_REPORTER_ID: c905307dfede8f3280ee4209d836ef7035981e83a62a7d256b249c9e7ea35484
     steps:
@@ -111,7 +123,7 @@ jobs:
       - run:
           name: Uploading Code Coverage
           command: |
-            cd /tmp/workspace/php72
+            cd /tmp/workspace/php74
             ./cc-test-reporter upload-coverage --input coverage/codeclimate.coverage.json || true
 
 workflows:
@@ -119,15 +131,15 @@ workflows:
   test:
     jobs:
       
-      - build-php56
+      - build-php74
       
-      - build-php70
+      - build-php80
       
-      - build-php71
+      - build-php81
       
-      - build-php72
+      - build-php82
       
 
       - upload-coverage:
           requires:
-            - build-php72
+            - build-php74

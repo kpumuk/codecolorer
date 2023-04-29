@@ -3,15 +3,15 @@
 #   erb .circleci/config.yml.erb > .circleci/config.yml
 #
 <%
-  # Format: PHP_VERSION, PHPUNIT_VERSION
+  # Format: PHP_VERSION, PHPUNIT_VERSION, DOCTRINE_VERSION, XDEBUG_VERSION
   builds = [
-    ['5.6', '5'],
-    ['7.0', '6'],
-    ['7.1', '7'],
-    ['7.2', '7', true],
+    ['7.4', '9', '^1.5.0', '3.1.5'],
+    ['8.0', '9', '^1.5.0', '3.2.1'],
+    ['8.1', '10', '^2.0', '3.2.1'],
+    ['8.2', '10', '^2.0', '3.2.1', true],
   ]
 
-  cc_build = builds.find { |_, _, submit_cc| submit_cc }
+  cc_build = builds.find { |_, _, _, submit_cc| submit_cc }
 %>
 
 version: 2
@@ -42,8 +42,10 @@ shared_build_steps: &shared_build_steps
   - run:
       name: Installing Dependencies
       command: |
+        sudo -E install-php-extensions xdebug-$XDEBUG_VERSION
+        sudo docker-php-ext-enable xdebug
         composer require --dev --no-update phpunit/phpunit "~$PHPUNIT_VERSION"
-        composer require --dev --no-update doctrine/instantiator "1.0.5"
+        composer require --dev --no-update doctrine/instantiator "$DOCTRINE_VERSION"
         composer install --no-interaction --ignore-platform-reqs
 
   - save_cache:
@@ -57,7 +59,9 @@ shared_build_steps: &shared_build_steps
       name: Running Tests
       command: |
         vendor/bin/phpunit --version
-        vendor/bin/phpunit --coverage-clover clover.xml --configuration tests/phpunit.xml tests
+        vendor/bin/phpunit --coverage-clover clover.xml --configuration tests/phpunit${PHPUNIT_VERSION}.xml tests
+      environment:
+        XDEBUG_MODE: coverage
 
   - run:
       name: Formatting Coverage
@@ -71,20 +75,22 @@ shared_build_steps: &shared_build_steps
         - "*/cc-test-reporter"
 
 jobs:
-  <% builds.each do |php_version, phpunit_version, submit_cc| %>
+  <% builds.each do |php_version, phpunit_version, doctrine_version, xdebug_version, submit_cc| %>
   build-php<%= php_version.tr('.', '') %>:
     docker:
-      - image: circleci/php:<%= php_version %>-apache-node
+      - image: cimg/php:<%= php_version %>
         environment:
           PHP_VERSION: <%= php_version %>
           PHPUNIT_VERSION: <%= phpunit_version %>
+          DOCTRINE_VERSION: <%= doctrine_version %>
+          XDEBUG_VERSION: <%= xdebug_version %>
     working_directory: ~/codecolorer/php<%= php_version.tr('.', '') %>
     steps: *shared_build_steps
   <% end %>
 
   upload-coverage:
     docker:
-      - image: circleci/slim-base
+      - image: cimg/base:2023.04
         environment:
           CC_TEST_REPORTER_ID: c905307dfede8f3280ee4209d836ef7035981e83a62a7d256b249c9e7ea35484
     steps:

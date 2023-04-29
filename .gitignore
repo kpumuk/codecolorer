@@ -3,3 +3,7 @@ support
 vendor/
 composer.json
 composer.lock
+
+tests/.phpunit.*
+tests/junit.xml
+clover.xml
