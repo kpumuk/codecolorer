@@ -3,7 +3,7 @@
  * Plugin Name: CodeColorer
  * Plugin URI: https://kpumuk.info/projects/wordpress-plugins/codecolorer/
  * Description: This plugin allows you to insert code snippets to your posts with nice syntax highlighting powered by <a href="http://qbnz.com/highlighter/">GeSHi</a> library. After enabling this plugin visit <a href="options-general.php?page=codecolorer.php">the options page</a> to configure code style.
- * Version: 0.9.16
+ * Version: 0.10.0
  * Author: Dmytro Shteflyuk
  * Author URI: https://kpumuk.info/
  * Text Domain: codecolorer
@@ -27,13 +27,13 @@
 */
 
 /**
- * Doesn't work if PHP version is not 4.0.6 or higher
+ * Doesn't work if PHP version is not 7.3.0 or higher
  */
-if (version_compare(phpversion(), '4.0.6', '<')) {
+if (version_compare(phpversion(), '7.3.0', '<')) {
     return;
 }
 
-define('CODECOLORER_VERSION', '0.9.16');
+define('CODECOLORER_VERSION', '0.10.0');
 
 /**
  * Loader class for the CodeColorer plugin
