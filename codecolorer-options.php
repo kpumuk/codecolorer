@@ -278,7 +278,7 @@ class CodeColorerOptions
      */
     protected static function wpOption($name)
     {
-        return get_option($name);
+        return wp_strip_all_tags(get_option($name));
     }
 
     public static function feedOverallStyle()
