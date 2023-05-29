@@ -18,5 +18,10 @@ function add_filter($name, $func, $priority = 0, $arity = 0) { array_push($GLOBA
 function get_option($name) { return $GLOBALS['wp_options'][$name]; }
 function plugin_basename($file) { return 'codecolorer'; }
 function is_feed() { return $GLOBALS['wp_is_feed']; }
+function wp_strip_all_tags($text) {
+    $text = preg_replace('@<(script|style)[^>]*?>.*?</\\1>@si', '', $text);
+	$text = strip_tags($text);
+    return $text;
+}
 
 require_once 'codecolorer.php';
