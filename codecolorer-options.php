@@ -23,6 +23,8 @@ https://kpumuk.info/projects/wordpress-plugins/codecolorer
 
 class CodeColorerOptions
 {
+    const SAFE_DIMENSION_PATTERN = '/^\d+(?:\.\d+)?(?:%|em|rem|px|vh|vw)?$/';
+
     public static function getThemes()
     {
         return array(
@@ -96,7 +98,7 @@ class CodeColorerOptions
         }
 
         if (!empty($lang)) {
-            $options['lang'] = self::filterLanguage($lang);
+            $options['lang'] = self::normalizeLanguage(self::filterLanguage($lang));
         }
 
         return $options;
@@ -114,7 +116,7 @@ class CodeColorerOptions
         if (!isset($options['lang'])) {
             $options['lang'] = 'text';
         }
-        $options['lang'] = self::filterLanguage($options['lang']);
+        $options['lang'] = self::normalizeLanguage(self::filterLanguage($options['lang']));
 
         // Whether CodeColorer should be enabled (bool)
         if (isset($options['enabled'])) {
@@ -231,7 +233,7 @@ class CodeColorerOptions
             $options['inline_theme'] = '';
         }
 
-        return $options;
+        return self::normalizeDisplayOptions($options);
     }
 
     protected static function parseBoolean($val)
@@ -271,6 +273,77 @@ class CodeColorerOptions
         }
 
         return $lang;
+    }
+
+    public static function normalizeLanguage($lang, $fallback = 'text')
+    {
+        $lang = strtolower(trim((string) $lang));
+        if (empty($lang)) {
+            return $fallback;
+        }
+
+        $sanitized = sanitize_key($lang);
+        if (empty($sanitized) || $sanitized !== $lang) {
+            return $fallback;
+        }
+
+        return $sanitized;
+    }
+
+    public static function normalizeTheme($theme)
+    {
+        return self::normalizeLanguage($theme, 'default');
+    }
+
+    public static function normalizeCustomClassList($classList)
+    {
+        $parts = preg_split('/\s+/', trim((string) $classList));
+        $classes = array();
+
+        foreach ($parts as $part) {
+            $sanitized = sanitize_html_class($part, '');
+            if (!empty($sanitized) && $sanitized === $part) {
+                $classes[] = $sanitized;
+            }
+        }
+
+        return implode(' ', array_unique($classes));
+    }
+
+    public static function normalizeDimension($value)
+    {
+        if (is_null($value)) {
+            return '';
+        }
+
+        $value = sanitize_text_field($value);
+        if (empty($value)) {
+            return '';
+        }
+
+        if (!preg_match(self::SAFE_DIMENSION_PATTERN, $value)) {
+            return '';
+        }
+
+        return $value;
+    }
+
+    protected static function normalizeDisplayOptions($options)
+    {
+        $options['width'] = self::normalizeDimension($options['width']);
+        $options['height'] = self::normalizeDimension($options['height']);
+        $options['rss_width'] = self::normalizeDimension($options['rss_width']);
+        $options['class'] = self::normalizeCustomClassList($options['class']);
+
+        if (!empty($options['theme'])) {
+            $options['theme'] = self::normalizeTheme($options['theme']);
+        }
+
+        if (!empty($options['inline_theme'])) {
+            $options['inline_theme'] = self::normalizeTheme($options['inline_theme']);
+        }
+
+        return $options;
     }
 
     /**
