@@ -11,6 +11,7 @@
 .wp-env.override.json
 
 README.md
+AGENTS.md
 clover.xml
 composer.json
 composer.lock
