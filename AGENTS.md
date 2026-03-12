@@ -11,6 +11,8 @@ Mature WordPress plugin. GeSHi syntax highlighter. Supports posts, inline code, 
 - `tests/test_helper.php`: fake WP funcs + test helpers
 - `tests/wpunit/*`: real WordPress integration tests
 - `bin/install-wp-tests.sh`: official-style WordPress test suite installer
+- `bin/release-wordpress-org.sh`: WordPress.org SVN release script
+- `.wordpress-org/assets/`: WordPress.org plugin-directory assets
 
 ## How it works
 
@@ -45,3 +47,5 @@ Mature WordPress plugin. GeSHi syntax highlighter. Supports posts, inline code, 
 - Package manager is `pnpm`, not `npm`
 - CI is GitHub Actions, not CircleCI
 - `.distignore` excludes dev files from plugin zip
+- Releases are tag-driven: plain tags like `0.10.2`
+- WordPress.org SVN is a deploy target, not the source of truth

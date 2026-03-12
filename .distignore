@@ -9,6 +9,7 @@
 .wp-env.json
 .wp-env-debug.log
 .wp-env.override.json
+.wordpress-org
 
 README.md
 AGENTS.md
