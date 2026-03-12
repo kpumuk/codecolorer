@@ -7,13 +7,8 @@ https://kpumuk.info/projects/wordpress-plugins/codecolorer
 require_once 'test_helper.php';
 
 class HighlightTest extends CodeColorerTestCase {
-  private $shtag;
-  private $ehtag;
-
-  protected function setUp(): void {
-    $this->shtag = "<span class=\"xtra ln-xtra\">";
-    $this->ehtag = "</span>";
-  }
+  private $shtag = "<span class=\"xtra ln-xtra\">";
+  private $ehtag = "</span>";
 
   public function testHighlightOneLine() {
     $this->assertMatchesRegexCompat("#hello<br />\n{$this->shtag}world<br />{$this->ehtag}!#", codecolorer_highlight("[cc highlight=\"2\"]hello\nworld\n![/cc]"));
