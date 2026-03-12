@@ -7,3 +7,7 @@ composer.lock
 tests/.phpunit.*
 tests/junit.xml
 clover.xml
+node_modules/
+.wp-env/
+.wp-env-debug.log
+.wp-env.override.json
