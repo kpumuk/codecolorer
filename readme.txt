@@ -1,12 +1,14 @@
 === CodeColorer ===
 Contributors: kpumuk
-Tags: code, snippet, syntax, highlight, highlighting, color, geshi
+Tags: code, snippet, syntax, highlighting, comments
 Requires at least: 4.0
 Requires PHP: 7.0
 Tested up to: 6.9.4
 Stable tag: 0.10.2
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-CodeColorer is a syntax highlighting plugin which allows inserting code snippets into blog posts. The plugin supports color themes, code samples in RSS, comments.
+Syntax highlighting for code snippets in posts, comments, and RSS, with inline code, themes, and line numbers.
 
 == Description ==
 

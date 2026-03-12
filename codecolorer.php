@@ -8,6 +8,8 @@
  * Author URI: https://kpumuk.info/
  * Text Domain: codecolorer
  * Requires PHP: 7.0
+ * License: GPL-2.0-or-later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
 /*
     Copyright 2006 - 2017  Dmytro Shteflyuk <kpumuk@kpumuk.info>
