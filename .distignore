@@ -19,6 +19,7 @@ mise.toml
 package.json
 pnpm-lock.yaml
 
+bin
 node_modules
 tests
 vendor

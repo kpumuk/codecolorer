@@ -9,7 +9,8 @@
     failOnWarning="true">
     <testsuites>
         <testsuite name="default">
-            <directory>tests</directory>
+            <directory suffix="Test.php">.</directory>
+            <exclude>./wpunit</exclude>
         </testsuite>
     </testsuites>
 

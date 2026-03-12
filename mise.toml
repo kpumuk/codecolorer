@@ -10,7 +10,11 @@ run = "composer install && pnpm install"
 
 [tasks.test]
 description = "Run the local PHPUnit suite"
-run = "vendor/bin/phpunit --configuration tests/phpunit9.xml tests"
+run = "vendor/bin/phpunit --configuration tests/phpunit9.xml"
+
+[tasks.test-wp]
+description = "Run WordPress integration tests (requires WP test suite + MySQL)"
+run = "vendor/bin/phpunit --configuration tests/phpunit-wp.xml"
 
 [tasks.wp-start]
 description = "Start the local WordPress environment"

@@ -24,8 +24,11 @@ mise install
 composer install
 pnpm install
 mise run test
+bin/install-wp-tests.sh codecolorer_test root root localhost 6.9
+mise run test-wp
 pnpm run wp-env:start
 ```
 
-The PHPUnit suite is a lightweight unit harness and does not require a full WordPress install.
+`mise run test` runs the fast PHP-only suite.
+`mise run test-wp` runs WordPress integration tests against the official WordPress test suite after `bin/install-wp-tests.sh` has set up WordPress core/tests and a MySQL database.
 The `wp-env` setup provides a local WordPress instance for plugin development and manual testing.

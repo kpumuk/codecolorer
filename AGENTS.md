@@ -9,6 +9,8 @@ Mature WordPress plugin. GeSHi syntax highlighter. Supports posts, inline code, 
 - `codecolorer-options.php`: shortcode/admin options, defaults, normalize
 - `codecolorer-admin.php`: settings UI
 - `tests/test_helper.php`: fake WP funcs + test helpers
+- `tests/wpunit/*`: real WordPress integration tests
+- `bin/install-wp-tests.sh`: official-style WordPress test suite installer
 
 ## How it works
 
@@ -30,8 +32,11 @@ Mature WordPress plugin. GeSHi syntax highlighter. Supports posts, inline code, 
 ## Tests
 
 - Main: `mise run test`
-- Direct: `vendor/bin/phpunit --configuration tests/phpunit9.xml tests`
+- WP integration: `mise run test-wp`
+- Direct unit: `vendor/bin/phpunit --configuration tests/phpunit9.xml`
+- Direct WP: `vendor/bin/phpunit --configuration tests/phpunit-wp.xml`
 - Old PHP check: GH Actions matrix tests every minor `7.0` to `8.5`
+- WP CI check: GitHub Actions tests WordPress `6.7`, `6.8`, `6.9` on real WP core
 - Local old PHP smoke: Docker `php:7.0-cli` + PHPUnit 6.5.14
 
 ## Notes

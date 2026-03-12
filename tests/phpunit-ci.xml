@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit>
+    <testsuites>
+        <testsuite name="default">
+            <directory suffix="Test.php">.</directory>
+            <exclude>./wpunit</exclude>
+        </testsuite>
+    </testsuites>
+</phpunit>
