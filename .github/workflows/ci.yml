@@ -57,4 +57,55 @@ jobs:
           phpunit --version
 
       - name: Run PHPUnit
-        run: phpunit tests
+        run: phpunit --configuration tests/phpunit-ci.xml
+
+  wordpress:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        wordpress:
+          - "6.7"
+          - "6.8"
+          - "6.9"
+
+    name: WordPress ${{ matrix.wordpress }}
+
+    services:
+      mysql:
+        image: mariadb:10.11
+        env:
+          MARIADB_ROOT_PASSWORD: root
+        ports:
+          - 3306/tcp
+        options: >-
+          --health-cmd="mariadb-admin ping --host=127.0.0.1 --user=root --password=root"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=6
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.2"
+          coverage: none
+          extensions: dom, mbstring, mysqli, xml, xmlwriter
+
+      - name: Install Composer dependencies
+        run: composer install --no-interaction --prefer-dist
+
+      - name: Install MySQL client
+        run: sudo apt-get update && sudo apt-get install -y default-mysql-client
+
+      - name: Install WordPress test suite
+        env:
+          WP_INSTALL_TESTS_SKIP_UPDATE_CHECK: "true"
+        run: |
+          bin/install-wp-tests.sh codecolorer_test root root 127.0.0.1:${{ job.services.mysql.ports['3306'] }} ${{ matrix.wordpress }}
+
+      - name: Run WordPress integration tests
+        run: vendor/bin/phpunit --configuration tests/phpunit-wp.xml

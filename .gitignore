@@ -1,8 +1,6 @@
 .DS_Store
 support
 vendor/
-composer.json
-composer.lock
 
 tests/.phpunit.*
 tests/junit.xml
