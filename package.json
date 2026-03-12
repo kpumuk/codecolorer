@@ -1,0 +1,17 @@
+{
+  "name": "codecolorer",
+  "private": true,
+  "packageManager": "pnpm@10.32.1",
+  "devDependencies": {
+    "@wordpress/env": "11.1.0"
+  },
+  "scripts": {
+    "wp-env:start": "wp-env start",
+    "wp-env:stop": "wp-env stop",
+    "wp-env:destroy": "wp-env destroy",
+    "wp-env:update": "wp-env start --update",
+    "wp-env:xdebug": "wp-env start --xdebug",
+    "wp-env:php": "wp-env run cli --env-cwd=wp-content/plugins/codecolorer php -v",
+    "wp-env:phpunit": "wp-env run cli --env-cwd=wp-content/plugins/codecolorer phpunit"
+  }
+}

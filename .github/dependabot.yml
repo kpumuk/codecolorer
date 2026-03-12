@@ -1,0 +1,22 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "09:00"
+      timezone: America/Toronto
+    labels:
+      - dependencies
+      - javascript
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "09:00"
+      timezone: America/Toronto
+    labels:
+      - dependencies
+      - github-actions

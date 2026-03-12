@@ -2,6 +2,7 @@
 Contributors: kpumuk
 Tags: code, snippet, syntax, highlight, highlighting, color, geshi
 Requires at least: 4.0
+Requires PHP: 7.0
 Tested up to: 6.2.2
 Stable tag: 0.10.1
 

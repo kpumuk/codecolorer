@@ -1,0 +1,29 @@
+[tools]
+php = "8.2"
+composer = "2.8.12"
+node = "22.18.0"
+pnpm = "10.32.1"
+
+[tasks.bootstrap]
+description = "Install PHP and Node dependencies for local development"
+run = "composer install && pnpm install"
+
+[tasks.test]
+description = "Run the local PHPUnit suite"
+run = "vendor/bin/phpunit --configuration tests/phpunit9.xml tests"
+
+[tasks.wp-start]
+description = "Start the local WordPress environment"
+run = "pnpm run wp-env:start"
+
+[tasks.wp-stop]
+description = "Stop the local WordPress environment"
+run = "pnpm run wp-env:stop"
+
+[tasks.wp-destroy]
+description = "Destroy the local WordPress environment"
+run = "pnpm run wp-env:destroy"
+
+[tasks.wp-update]
+description = "Rebuild the local WordPress environment with updated sources"
+run = "pnpm run wp-env:update"

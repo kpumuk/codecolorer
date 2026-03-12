@@ -7,6 +7,7 @@
  * Author: Dmytro Shteflyuk
  * Author URI: https://kpumuk.info/
  * Text Domain: codecolorer
+ * Requires PHP: 7.0
  */
 /*
     Copyright 2006 - 2017  Dmytro Shteflyuk <kpumuk@kpumuk.info>
@@ -27,9 +28,9 @@
 */
 
 /**
- * Doesn't work if PHP version is not 7.3.0 or higher
+ * Doesn't work if PHP version is not 7.0.0 or higher
  */
-if (version_compare(phpversion(), '7.3.0', '<')) {
+if (version_compare(phpversion(), '7.0.0', '<')) {
     return;
 }
 

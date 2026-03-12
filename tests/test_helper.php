@@ -24,4 +24,17 @@ function wp_strip_all_tags($text) {
     return $text;
 }
 
+abstract class CodeColorerTestCase extends TestCase
+{
+    protected function assertMatchesRegexCompat($pattern, $subject, $message = '')
+    {
+        if (method_exists($this, 'assertMatchesRegularExpression')) {
+            $this->assertMatchesRegularExpression($pattern, $subject, $message);
+            return;
+        }
+
+        $this->assertRegExp($pattern, $subject, $message);
+    }
+}
+
 require_once 'codecolorer.php';
