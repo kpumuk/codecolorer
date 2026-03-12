@@ -1,0 +1,70 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "*.*.*"
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Plain release tag, for example 0.10.2
+        required: true
+        type: string
+      perform_deploy:
+        description: Commit to WordPress.org SVN after preflight
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+env:
+  RELEASE_TAG: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.tag || github.ref_name }}
+  DEPLOY_RELEASE: ${{ github.event_name == 'push' || github.event.inputs.perform_deploy == 'true' }}
+
+concurrency:
+  group: release-${{ github.event_name == 'workflow_dispatch' && github.event.inputs.tag || github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Install release dependencies
+        run: sudo apt-get update && sudo apt-get install -y rsync subversion
+
+      - name: Show release input
+        run: |
+          echo "Tag: ${RELEASE_TAG}"
+          echo "Deploy: ${DEPLOY_RELEASE}"
+
+      - name: Preflight WordPress.org release
+        run: DRY_RUN=1 bin/release-wordpress-org.sh "${RELEASE_TAG}"
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: preflight
+    if: github.event_name == 'push' || github.event.inputs.perform_deploy == 'true'
+    environment: wordpress-org
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Install release dependencies
+        run: sudo apt-get update && sudo apt-get install -y rsync subversion
+
+      - name: Deploy to WordPress.org SVN
+        env:
+          WPORG_USERNAME: ${{ secrets.WPORG_USERNAME }}
+          WPORG_PASSWORD: ${{ secrets.WPORG_PASSWORD }}
+        run: bin/release-wordpress-org.sh "${RELEASE_TAG}"

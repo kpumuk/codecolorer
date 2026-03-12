@@ -173,10 +173,10 @@ Yes. We do not store or process any user information.
 
 == Changelog ==
 
-= trunk =
-* Fixed stored XSS in shortcode attributes by sanitizing shortcode options and escaping rendered wrapper attributes.
-* Escaped the `no_cc` fallback output so disabled highlighting still renders code safely.
-* Added regression coverage for comment rendering and verified the plugin on WordPress 6.9.4.
+= 0.10.2 =
+* Fixed stored XSS in shortcode attributes, including comment-rendered shortcodes.
+* Improved compatibility coverage across supported PHP and WordPress versions with real WordPress integration tests.
+* Modernized local development, CI, and release tooling for more reliable maintenance.
 
 = 0.10.1 (May 28, 2023) =
 * Addressed a script injection in custom CSS classes and custom CSS block.
