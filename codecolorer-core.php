@@ -168,7 +168,7 @@ class CodeColorer
         $result = '';
         // Check if CodeColorer has been disabled for this particular block
         if (!$options['enabled']) {
-            $result = '<code>' . $text . '</code>';
+            $result = '<code>' . esc_html($text) . '</code>';
         } else {
           // See if we should force a height
             $numLines = count(explode("\n", $text));
@@ -285,15 +285,18 @@ class CodeColorer
 
     private function addContainer($html, $options, $numLines)
     {
+        $lang = $options['lang'];
         $customCSSClass = empty($options['class']) ? '' : ' ' . $options['class'];
+
         if ($options['inline']) {
             $theme = empty($options['inline_theme']) ? 'default' : $options['inline_theme'];
-            $result  = '<code class="codecolorer ' . $options['lang'] . ' ' . $theme . $customCSSClass . '">';
-            $result .= '<span class="' . $options['lang'] . '">' . $html . '</span>';
+            $cssClass = 'codecolorer ' . $lang . ' ' . $theme . $customCSSClass;
+            $result  = '<code class="' . esc_attr($cssClass) . '">';
+            $result .= '<span class="' . esc_attr($lang) . '">' . $html . '</span>';
             $result .= '</code>';
         } else {
             $theme = empty($options['theme']) ? 'default' : $options['theme'];
-            $style = 'style="';
+            $style = '';
             if ($options['nowrap']) {
                 $style .= 'overflow:auto;white-space:nowrap;';
             }
@@ -304,14 +307,14 @@ class CodeColorer
             if ($numLines > $options['lines'] && $options['lines'] > 0) {
                 $style .= $this->getDimensionRule('height', $options['height']);
             }
-            $style .= '"';
 
-            $cssClass = 'codecolorer-container ' . $options['lang'] . ' ' . $theme . $customCSSClass;
+            $cssClass = 'codecolorer-container ' . $lang . ' ' . $theme . $customCSSClass;
             if ($options['noborder']) {
                 $cssClass .= ' codecolorer-noborder';
             }
-            $result = '<div class="' . $cssClass . '" ' . $style . '>' . $html . '</div>';
+            $result = '<div class="' . esc_attr($cssClass) . '" style="' . esc_attr($style) . '">' . $html . '</div>';
         }
+
         return $result;
     }
 
