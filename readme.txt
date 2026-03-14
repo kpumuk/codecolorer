@@ -177,12 +177,12 @@ Yes. We do not store or process any user information.
 
 == Changelog ==
 
-= 0.11.0 =
+= 0.11.0 (March 13, 2026) =
 * Fixed comment protection for suffixed shortcodes such as `[cc_php]` and `[cci_php]`.
 * Modernized admin asset loading and hardening around settings sanitization, nonce-protected dismissals, and direct-access guards.
 * Improved documentation and release metadata, including clearer usage docs and safer WordPress.org asset publishing.
 
-= 0.10.2 =
+= 0.10.2 (March 12, 2026) =
 * Fixed stored XSS in shortcode attributes, including comment-rendered shortcodes.
 * Improved compatibility coverage across supported PHP and WordPress versions with real WordPress integration tests.
 * Modernized local development, CI, and release tooling for more reliable maintenance.
