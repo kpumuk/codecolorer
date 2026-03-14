@@ -47,5 +47,6 @@ Mature WordPress plugin. GeSHi syntax highlighter. Supports posts, inline code, 
 - Package manager is `pnpm`, not `npm`
 - CI is GitHub Actions, not CircleCI
 - `.distignore` excludes dev files from plugin zip
-- Releases are tag-driven: plain tags like `0.10.2`
+- Releases are tag-driven: plain tags like `0.11.0`
 - WordPress.org SVN is a deploy target, not the source of truth
+- Release version touchpoints: `codecolorer.php` plugin header + `CODECOLORER_VERSION`, `readme.txt` stable tag + changelog, `README.md` release example, `js/tinymce_plugin.js` metadata, `bin/release-wordpress-org.sh` tag example/error text

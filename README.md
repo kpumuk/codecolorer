@@ -71,7 +71,7 @@ The `wp-env` setup provides a local WordPress instance for plugin development an
 
 ## Releases
 
-WordPress.org releases are tag-driven. Create a plain Git tag such as `0.10.2`; do not use a `v` prefix.
+WordPress.org releases are tag-driven. Create a plain Git tag such as `0.11.0`; do not use a `v` prefix.
 
 The GitHub release workflow builds from the tag, applies [`.distignore`](.distignore),
 publishes the plugin to WordPress.org SVN `trunk/`, and creates the matching SVN

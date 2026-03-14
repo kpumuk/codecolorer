@@ -80,7 +80,7 @@ TAG="${1:-${TAG:-}}"
     exit 1
 }
 
-[[ "$TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || fail "Tag must look like 0.10.2"
+[[ "$TAG" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || fail "Tag must look like 0.11.0"
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SVN_URL="${SVN_URL:-https://plugins.svn.wordpress.org/codecolorer}"
