@@ -49,6 +49,11 @@ class CodeColorerLoader
 {
     private static $optionsPageHookSuffix = '';
 
+    private static function currentUserCanEditContent()
+    {
+        return current_user_can('edit_posts') || current_user_can('edit_pages');
+    }
+
     /**
      * Enables the CodeColorer plugin with registering all required hooks.
      */
@@ -148,7 +153,7 @@ class CodeColorerLoader
         register_setting('codecolorer', 'codecolorer_theme', array('CodeColorerOptions', 'sanitizeThemeOption'));
         register_setting('codecolorer', 'codecolorer_inline_theme', array('CodeColorerOptions', 'sanitizeThemeOption'));
 
-        if (current_user_can('edit_posts') || current_user_can('edit_pages')) {
+        if (self::currentUserCanEditContent()) {
             // TinyMCE
             // temporarily disabled
             // if (get_user_option('rich_editing') == 'true') {
@@ -240,7 +245,7 @@ class CodeColorerLoader
             self::enqueueStyles();
         }
 
-        if (current_user_can('edit_posts') || current_user_can('edit_pages')) {
+        if (self::currentUserCanEditContent()) {
             self::registerQuicktag();
         }
     }
