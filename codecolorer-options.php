@@ -4,7 +4,7 @@ CodeColorer plugin options part
 https://kpumuk.info/projects/wordpress-plugins/codecolorer
 */
 /*
-    Copyright 2006 - 2017  Dmytro Shteflyuk <kpumuk@kpumuk.info>
+    Copyright 2006 - 2026  Dmytro Shteflyuk <kpumuk@kpumuk.info>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -20,6 +20,10 @@ https://kpumuk.info/projects/wordpress-plugins/codecolorer
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
+
+if (!defined('ABSPATH')) {
+    exit;
+}
 
 class CodeColorerOptions
 {
@@ -254,7 +258,59 @@ class CodeColorerOptions
 
     public static function sanitizeBoolean($val)
     {
-        return $val == '1';
+        return self::parseBoolean($val);
+    }
+
+    public static function sanitizeLinesToScroll($value)
+    {
+        $value = intval($value);
+        if ($value < -1) {
+            return -1;
+        }
+
+        return $value;
+    }
+
+    public static function sanitizeTabSize($value)
+    {
+        $value = intval($value);
+        if ($value < 1) {
+            return 4;
+        }
+
+        return $value;
+    }
+
+    public static function sanitizeDimensionOption($value)
+    {
+        return self::normalizeDimension($value);
+    }
+
+    public static function sanitizeThemeOption($theme)
+    {
+        $theme = self::normalizeTheme($theme);
+        if ('default' === $theme || !array_key_exists($theme, self::getThemes())) {
+            return '';
+        }
+
+        return $theme;
+    }
+
+    public static function sanitizeCustomClassOption($classList)
+    {
+        return self::normalizeCustomClassList($classList);
+    }
+
+    public static function sanitizeCssStyle($style)
+    {
+        if (function_exists('sanitize_textarea_field')) {
+            return trim(sanitize_textarea_field($style));
+        }
+
+        $style = wp_strip_all_tags((string) $style);
+        $style = preg_replace('|%[a-fA-F0-9][a-fA-F0-9]|', '', $style);
+
+        return trim($style);
     }
 
     /**

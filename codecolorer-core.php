@@ -4,7 +4,7 @@ CodeColorer plugin core part
 https://kpumuk.info/projects/wordpress-plugins/codecolorer
 */
 /*
-    Copyright 2006 - 2017  Dmytro Shteflyuk <kpumuk@kpumuk.info>
+    Copyright 2006 - 2026  Dmytro Shteflyuk <kpumuk@kpumuk.info>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -20,6 +20,10 @@ https://kpumuk.info/projects/wordpress-plugins/codecolorer
     along with this program; if not, write to the Free Software
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
+
+if (!defined('ABSPATH')) {
+    exit;
+}
 
 class CodeColorer
 {
@@ -351,14 +355,24 @@ class CodeColorer
 
     public function showWarning($type, $title, $message)
     {
-        $disable = ' <a href="options-general.php?page=codecolorer.php&amp;disable=' . $type . '">' . __('Close', 'codecolorer') . '</a>';
-        echo '<div id="codecolorer-' . $type . '" class="updated fade"><p><strong>' . $title . "</strong> " . $message . $disable . "</p></div>\n";
+        $type = sanitize_key($type);
+        $dismissUrl = CodeColorerLoader::getDismissNoticeUrl($type);
+
+        echo '<div id="codecolorer-' . esc_attr($type) . '" class="notice notice-warning"><p><strong>' .
+            esc_html($title) .
+            '</strong> ' .
+            wp_kses($message, array('a' => array('href' => array()))) .
+            ' <a href="' .
+            esc_url($dismissUrl) .
+            '">' .
+            esc_html__('Close', 'codecolorer') .
+            "</a></p></div>\n";
     }
 
     public function showGeshiWarning()
     {
         if ($this->geshiExternal) {
-            $this->showWarning('concurrent', __('CodeColorer has detected a problem.', 'codecolorer'), sprintf(__('We found another plugin based on GeSHi library in your system. CodeColorer will work, but our version of GeSHi contain some patches, so we can\'t guarantee an ideal code highlighting now. Please review your <a href="%1$s">plugins</a>, maybe you don\'t need them all.', 'codecolorer'), "plugins.php"));
+            $this->showWarning('concurrent', __('CodeColorer has detected a problem.', 'codecolorer'), sprintf(__('We found another plugin based on GeSHi library in your system. CodeColorer will work, but our version of GeSHi contain some patches, so we can\'t guarantee an ideal code highlighting now. Please review your <a href="%1$s">plugins</a>, maybe you don\'t need them all.', 'codecolorer'), admin_url('plugins.php')));
         }
     }
 

@@ -6,6 +6,10 @@ https://kpumuk.info/projects/wordpress-plugins/codecolorer
 
 use PHPUnit\Framework\TestCase;
 
+if (!defined('ABSPATH')) {
+    define('ABSPATH', dirname(__DIR__) . '/');
+}
+
 /* WordPress method stubs */
 $GLOBALS['wp_options'] = array();
 $GLOBALS['wp_actions'] = array();
@@ -38,9 +42,14 @@ function sanitize_text_field($text) {
     $text = preg_replace('/[\r\n\t ]+/', ' ', $text);
     return trim($text);
 }
+function sanitize_textarea_field($text) {
+    $text = wp_strip_all_tags((string) $text);
+    $text = preg_replace('|%[a-fA-F0-9][a-fA-F0-9]|', '', $text);
+    return trim($text);
+}
 function wp_strip_all_tags($text) {
     $text = preg_replace('@<(script|style)[^>]*?>.*?</\\1>@si', '', $text);
-	$text = strip_tags($text);
+		$text = strip_tags($text);
     return $text;
 }
 

@@ -12,7 +12,7 @@
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
 /*
-    Copyright 2006 - 2017  Dmytro Shteflyuk <kpumuk@kpumuk.info>
+    Copyright 2006 - 2026  Dmytro Shteflyuk <kpumuk@kpumuk.info>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -29,6 +29,10 @@
     Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
+if (!defined('ABSPATH')) {
+    exit;
+}
+
 /**
  * Doesn't work if PHP version is not 7.0.0 or higher
  */
@@ -43,6 +47,8 @@ define('CODECOLORER_VERSION', '0.10.2');
  */
 class CodeColorerLoader
 {
+    private static $optionsPageHookSuffix = '';
+
     /**
      * Enables the CodeColorer plugin with registering all required hooks.
      */
@@ -77,16 +83,17 @@ class CodeColorerLoader
         // Add plugin options page
         add_action('admin_menu', array('CodeColorerLoader', 'addPluginOptionsPage'));
 
-        // Load CodeColorer styles on admin pages
-        add_action('admin_print_styles', array('CodeColorerLoader', 'loadStyles'));
+        // Handle notice dismissals
+        add_action('admin_post_codecolorer_dismiss_notice', array('CodeColorerLoader', 'dismissNotice'));
+
+        // Load CodeColorer assets
+        add_action('admin_enqueue_scripts', array('CodeColorerLoader', 'enqueueAdminAssets'));
+        add_action('wp_enqueue_scripts', array('CodeColorerLoader', 'enqueueFrontendAssets'));
 
         // Show notice when another GeSHi library found
         if (get_option('codecolorer_concurrent_notification')) {
             add_action('admin_notices', array('CodeColorerLoader', 'callShowGeshiWarning'));
         }
-
-        // Load CodeColorer styles on regular pages
-        add_action('wp_print_styles', array('CodeColorerLoader', 'loadStyles'));
 
         // Add action links
         add_action('plugin_action_links_' . plugin_basename(__FILE__), array('CodeColorerLoader', 'addPluginActions'));
@@ -124,32 +131,24 @@ class CodeColorerLoader
         $pluginDir = basename(dirname(__FILE__));
         load_plugin_textdomain('codecolorer', false, "$pluginDir/languages");
 
-        if (!class_exists('CodeColorerOptions')) {
-            $path = dirname(__FILE__);
-            if (!file_exists("$path/codecolorer-options.php")) {
-                return false;
-            }
-            require_once("$path/codecolorer-options.php");
+        if (!self::loadOptionsClass()) {
+            return false;
         }
 
-        // Register out options so WordPress knows about them
-        register_setting('codecolorer', 'codecolorer_css_style', '');
-        register_setting('codecolorer', 'codecolorer_css_class', '');
-        register_setting('codecolorer', 'codecolorer_lines_to_scroll', 'intval');
-        register_setting('codecolorer', 'codecolorer_width', '');
-        register_setting('codecolorer', 'codecolorer_height', '');
-        register_setting('codecolorer', 'codecolorer_rss_width', '');
-        register_setting('codecolorer', 'codecolorer_line_numbers', '');
+        // Register our options so WordPress knows about them
+        register_setting('codecolorer', 'codecolorer_css_style', array('CodeColorerOptions', 'sanitizeCssStyle'));
+        register_setting('codecolorer', 'codecolorer_css_class', array('CodeColorerOptions', 'sanitizeCustomClassOption'));
+        register_setting('codecolorer', 'codecolorer_lines_to_scroll', array('CodeColorerOptions', 'sanitizeLinesToScroll'));
+        register_setting('codecolorer', 'codecolorer_width', array('CodeColorerOptions', 'sanitizeDimensionOption'));
+        register_setting('codecolorer', 'codecolorer_height', array('CodeColorerOptions', 'sanitizeDimensionOption'));
+        register_setting('codecolorer', 'codecolorer_rss_width', array('CodeColorerOptions', 'sanitizeDimensionOption'));
+        register_setting('codecolorer', 'codecolorer_line_numbers', array('CodeColorerOptions', 'sanitizeBoolean'));
         register_setting('codecolorer', 'codecolorer_disable_keyword_linking', array('CodeColorerOptions', 'sanitizeBoolean'));
-        register_setting('codecolorer', 'codecolorer_tab_size', 'intval');
-        register_setting('codecolorer', 'codecolorer_theme', '');
-        register_setting('codecolorer', 'codecolorer_inline_theme', '');
+        register_setting('codecolorer', 'codecolorer_tab_size', array('CodeColorerOptions', 'sanitizeTabSize'));
+        register_setting('codecolorer', 'codecolorer_theme', array('CodeColorerOptions', 'sanitizeThemeOption'));
+        register_setting('codecolorer', 'codecolorer_inline_theme', array('CodeColorerOptions', 'sanitizeThemeOption'));
 
-        // Scripts
         if (current_user_can('edit_posts') || current_user_can('edit_pages')) {
-            // Quick tags
-            add_action('wp_print_scripts', array('CodeColorerLoader', 'registerQuicktag'));
-
             // TinyMCE
             // temporarily disabled
             // if (get_user_option('rich_editing') == 'true') {
@@ -161,21 +160,119 @@ class CodeColorerLoader
         }
     }
 
-    public static function loadStyles()
+    private static function loadOptionsClass()
     {
-        $cssUrl = plugins_url(basename(dirname(__FILE__)) . '/codecolorer.css');
+        if (class_exists('CodeColorerOptions')) {
+            return true;
+        }
+
+        $path = dirname(__FILE__);
+        if (!file_exists("$path/codecolorer-options.php")) {
+            return false;
+        }
+
+        require_once("$path/codecolorer-options.php");
+
+        return class_exists('CodeColorerOptions');
+    }
+
+    private static function isNoticeTypeAllowed($type)
+    {
+        return in_array($type, array('concurrent', 'language'), true);
+    }
+
+    public static function getSettingsPageUrl()
+    {
+        return admin_url('options-general.php?page=codecolorer.php');
+    }
+
+    public static function getDismissNoticeUrl($type)
+    {
+        $type = sanitize_key($type);
+        if (!self::isNoticeTypeAllowed($type)) {
+            return self::getSettingsPageUrl();
+        }
+
+        return wp_nonce_url(
+            add_query_arg(
+                array(
+                    'action' => 'codecolorer_dismiss_notice',
+                    'type'   => $type,
+                ),
+                admin_url('admin-post.php')
+            ),
+            'codecolorer_dismiss_notice_' . $type
+        );
+    }
+
+    public static function dismissNotice()
+    {
+        if (!current_user_can('manage_options')) {
+            wp_die(__('You are not allowed to manage CodeColorer notifications.', 'codecolorer'));
+        }
+
+        $type = isset($_GET['type']) ? sanitize_key(wp_unslash($_GET['type'])) : '';
+        if (!self::isNoticeTypeAllowed($type)) {
+            wp_die(__('Invalid CodeColorer notification type.', 'codecolorer'));
+        }
+
+        check_admin_referer('codecolorer_dismiss_notice_' . $type);
+
+        update_option('codecolorer_' . $type . '_notification', false);
+
+        $redirect = wp_get_referer();
+        if (empty($redirect)) {
+            $redirect = self::getSettingsPageUrl();
+        }
+
+        wp_safe_redirect($redirect);
+        exit;
+    }
+
+    public static function enqueueFrontendAssets()
+    {
+        self::enqueueStyles();
+    }
+
+    public static function enqueueAdminAssets($hookSuffix)
+    {
+        if ($hookSuffix === self::$optionsPageHookSuffix) {
+            self::enqueueStyles();
+        }
+
+        if (current_user_can('edit_posts') || current_user_can('edit_pages')) {
+            self::registerQuicktag();
+        }
+    }
+
+    public static function enqueueStyles()
+    {
+        $cssUrl = plugins_url('codecolorer.css', __FILE__);
         wp_register_style('codecolorer', $cssUrl, array(), CODECOLORER_VERSION, 'screen');
         wp_enqueue_style('codecolorer');
-        $styles = trim(wp_strip_all_tags(get_option('codecolorer_css_style')));
+
+        $styles = trim((string) get_option('codecolorer_css_style'));
+        if (self::loadOptionsClass()) {
+            $styles = CodeColorerOptions::sanitizeCssStyle($styles);
+        } else {
+            $styles = trim(wp_strip_all_tags($styles));
+        }
+
         if (!empty($styles)) {
-            echo "<style type=\"text/css\">$styles</style>\n";
+            wp_add_inline_style('codecolorer', $styles);
         }
     }
 
     public static function addPluginOptionsPage()
     {
         if (function_exists('add_options_page')) {
-            add_options_page('CodeColorer', 'CodeColorer', 'manage_options', 'codecolorer.php', array('CodeColorerLoader', 'callShowOptionsPage'));
+            self::$optionsPageHookSuffix = add_options_page(
+                'CodeColorer',
+                'CodeColorer',
+                'manage_options',
+                'codecolorer.php',
+                array('CodeColorerLoader', 'callShowOptionsPage')
+            );
         }
     }
 
@@ -183,7 +280,7 @@ class CodeColorerLoader
     {
         $newLinks = array();
 
-        $newLinks[] = '<a href="options-general.php?page=codecolorer.php">' . __('Settings', 'codecolorer') . '</a>';
+        $newLinks[] = '<a href="' . esc_url(self::getSettingsPageUrl()) . '">' . __('Settings', 'codecolorer') . '</a>';
 
         return array_merge($newLinks, $links);
     }
@@ -199,19 +296,15 @@ class CodeColorerLoader
 
     public static function registerQuicktag()
     {
-        if (!is_admin()) {
+        if (!wp_script_is('quicktags', 'registered')) {
             return;
         }
 
-        if (!wp_script_is('quicktags')) {
-            return;
-        }
-
-        wp_enqueue_script('jquery');
-        $url = plugins_url(basename(dirname(__FILE__)) . '/js/quicktags.js');
-        wp_enqueue_script('codecolorer', $url, array('jquery'), CODECOLORER_VERSION, true);
+        wp_enqueue_script('quicktags');
+        $url = plugins_url('js/quicktags.js', __FILE__);
+        wp_enqueue_script('codecolorer-quicktags', $url, array('jquery', 'quicktags'), CODECOLORER_VERSION, true);
         wp_localize_script(
-            'codecolorer',
+            'codecolorer-quicktags',
             'codeColorerL10n',
             array(
                 'enterLanguage' => __('Enter Language')
@@ -227,7 +320,7 @@ class CodeColorerLoader
 
     public static function addTinyMCEPlugin($plugins)
     {
-        $url = plugins_url(basename(dirname(__FILE__)) . '/js/tinymce_plugin.js');
+        $url = plugins_url('js/tinymce_plugin.js', __FILE__);
         $plugins['codecolorer'] = $url;
         return $plugins;
     }
