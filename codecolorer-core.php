@@ -93,9 +93,9 @@ class CodeColorer
     {
         $helper = $this;
         $content = preg_replace_callback(
-            '#(\s*)(\[cc[^\s\]_]*(?:_[^\s\]]*)?[^\]]*\].*?\[/cc\1\])(\s*)#si',
+            '#(\s*)(\[cc([^\s\]_]*(?:_[^\s\]]*)?)[^\]]*\].*?\[/cc\3\])(\s*)#si',
             function ($matches) use ($helper, $content) {
-                return $helper->performProtectComment($matches[2], $content, $matches[1], $matches[3]);
+                return $helper->performProtectComment($matches[2], $content, $matches[1], $matches[4]);
             },
             $content
         );

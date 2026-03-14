@@ -11,6 +11,7 @@ $GLOBALS['wp_options'] = array();
 $GLOBALS['wp_actions'] = array();
 $GLOBALS['wp_filters'] = array();
 $GLOBALS['wp_is_feed'] = false;
+$GLOBALS['wp_upload_basedir'] = sys_get_temp_dir() . '/codecolorer-test-uploads';
 
 function add_option($name, $value) { $GLOBALS['wp_options'][$name] = $value; }
 function add_action($name, $func) { array_push($GLOBALS['wp_actions'], $name); }
@@ -18,6 +19,8 @@ function add_filter($name, $func, $priority = 0, $arity = 0) { array_push($GLOBA
 function get_option($name) { return $GLOBALS['wp_options'][$name]; }
 function plugin_basename($file) { return 'codecolorer'; }
 function is_feed() { return $GLOBALS['wp_is_feed']; }
+function wp_upload_dir() { return array('basedir' => $GLOBALS['wp_upload_basedir']); }
+function path_join($base, $path) { return rtrim((string) $base, '/\\') . '/' . ltrim((string) $path, '/\\'); }
 function esc_html($text) { return htmlspecialchars((string) $text, ENT_QUOTES, 'UTF-8'); }
 function esc_attr($text) { return htmlspecialchars((string) $text, ENT_QUOTES, 'UTF-8'); }
 function sanitize_key($key) { return preg_replace('/[^a-z0-9_-]/', '', strtolower((string) $key)); }
