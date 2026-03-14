@@ -12,7 +12,9 @@ Syntax highlighting for code snippets in posts, comments, and RSS, with inline c
 
 == Description ==
 
-CodeColorer is the plugin which allows you to insert code snippets into the post with nice syntax highlighting.
+CodeColorer lets you insert syntax-highlighted code snippets into posts, comments, and feeds.
+
+CodeColorer currently bundles GeSHi 1.0.9.0 from the upstream 1.0.x line, with a small set of project-local maintenance patches for current PHP and WordPress compatibility.
 
 Plugin based on GeSHi library, which supports most languages. CodeColorer has various nice features:
 
@@ -28,7 +30,7 @@ Plugin based on GeSHi library, which supports most languages. CodeColorer has va
 
 = Support =
 
-If you have any suggestions, found a bug, wanted to contribute a translation to your language, or just wanted to say "thank you",– feel free to email me [kpumuk@kpumuk.info](mailto:kpumuk@kpumuk.info). Promise, I will answer every email I received.
+If you have any suggestions, found a bug, wanted to contribute a translation to your language, or just wanted to say "thank you", feel free to email me [kpumuk@kpumuk.info](mailto:kpumuk@kpumuk.info). I will try my best to answer you.
 
 If you want to contribute your code, see the *Development* section under the *Other Notes* tab.
 
@@ -36,13 +38,13 @@ If you want to contribute your code, see the *Development* section under the *Ot
 
 1. Download and unpack plugin files to **wp-content/plugins/codecolorer** directory.
 2. Enable **CodeColorer** plugin on your *Plugins* page in *Site Admin*.
-3. Go to the *Options/CodeColorer* page in *Site Admin* and change plugin's options as you wish.
-4. Use `[cc lang="lang"]code[/cc]` or `<code lang="lang">code</cc>` syntax to insert a code snippet into the post (you could skip `lang="lang"`, in this case code would be in CodeColorer's code block, but without syntax highlighting). Also you can use `[cci lang="lang"]code[/cci]` to format inline code (see the "inline" option description).
+3. Go to the *Settings > CodeColorer* page in *Site Admin* and change the plugin options as you wish.
+4. Use `[cc lang="lang"]code[/cc]` or `<code lang="lang">code</code>` syntax to insert a code snippet into the post (you can skip `lang="lang"` if you want a plain CodeColorer block without syntax highlighting). You can also use `[cci lang="lang"]code[/cci]` to format inline code (see the "inline" option description).
 5. Have fun!
 
 = Syntax =
 
-To insert a code snippet into your post (or comment) you would use `[cc lang="lang"]code[/cc]` or `<code lang="lang">code</cc>` syntax. Starting from version 0.6.0 you could specify additional CodeColorer options inside `[cc]` tag:
+To insert a code snippet into your post (or comment) you can use `[cc lang="lang"]code[/cc]` or `<code lang="lang">code</code>` syntax. Starting from version 0.6.0 you can specify additional CodeColorer options inside the `[cc]` tag:
 
     [cc lang="php" tab_size="2" lines="40"]
     // some code
@@ -50,9 +52,9 @@ To insert a code snippet into your post (or comment) you would use `[cc lang="la
 
 Note: You should always use double quotes or single quotes around the parameter value. Boolean values could be passed using string *true* or *false*, *on* or *off*, number *1* or *0*.
 
-= Short codes =
+= Shortcodes =
 
-Starting from CodeColorer 0.8.6 you can use short codes to insert code snippets. The short code in common looks like `[ccM_LANG]`, where **LANG** is your programming language, and **M** is the one or more of following modes:
+Starting from CodeColorer 0.8.6 you can use shortcodes to insert code snippets. The general form looks like `[ccM_LANG]`, where **LANG** is your programming language, and **M** is one or more of the following modes:
 
 * **i** – *inline*
 * **e** – *escaped*
@@ -88,7 +90,7 @@ More examples could be found on the [CodeColorer Examples](https://kpumuk.info/p
 * **tab_size** (*integer*) – how many spaces would represent TAB symbol.
 * **lines** (*integer*) – how many lines would be block height without scroll; could be set to *-1* to remove vertical scrollbar.
 * **width** (*integer* or *string*) – block width.
-* **height** (*integer* or *string*) – height in pixels; used when lines number is greater then "lines" value.
+* **height** (*integer* or *string*) – height in pixels; used when the number of lines is greater than the "lines" value.
 * **rss_width** (*integer* or *string*) – block width in RSS feeds.
 * **theme** (*string*) – color theme (default, blackboard, dawn, mac-classic, twitlight, vibrant, geshi, railscasts, solarized-light, solarized-dark).
 * **first_line** (*integer*) – a number of the first line in the block.
@@ -110,7 +112,7 @@ You can use special tag `[cci]` instead of `[cc]` to force inline mode:
 
 Most of these parameters could be configured via the CodeColorer options page.
 
-To insert example of CodeColorer short codes you can use something like this:
+To insert an example of CodeColorer shortcodes you can use something like this:
 
     [cce_bash]
     &amp;#91;cc lang="html"]
@@ -120,23 +122,23 @@ To insert example of CodeColorer short codes you can use something like this:
 
 == Frequently Asked Questions ==
 
-= How do I can customize CodeColorer CSS rules? =
+= How can I customize CodeColorer CSS rules? =
 
-Go to the *Options/CodeColorer* page in <em>Site Admin</em> and change the "Custom CSS Styles" option.
+Go to the *Settings > CodeColorer* page in <em>Site Admin</em> and change the "Custom CSS Styles" option.
 
 = I see &amp;lt; instead of &lt; (or other HTML entities like &gt;, &amp;, &quot;) in my code. =
 
 You should use `[cc escaped="true"]` or `[cce]` in the visual editor when inserting code into the post.
 
-= Does it highlights my code on server or client side? =
+= Does it highlight my code on the server or client side? =
 
 CodeColorer performs code highlighting on the server; you could see HTML of the highlighted code in the page source.
 
-= Is it produces valid XHTML source? =
+= Does it produce valid XHTML source? =
 
 Yes, resulting XHTML is completely valid.
 
-= Could my visitors insert their code snippets in comments? =
+= Could my visitors insert code snippets in comments? =
 
 Yes, CodeColorer supports code highlighting in comments using the same syntax, as you use in your blog posts.
 
@@ -150,19 +152,19 @@ Use `<code no_cc="true">` option for your code block.
 
 Remove all files from the **wp-content/plugins/codecolorer** folder and unpack an archive with plugin again (thanks to [Anatoliy 'TLK' Kolesnick](http://blog.t-l-k.com/)).
 
-= How to insert code from an external file?
+= How do I insert code from an external file? =
 
-You can upload this file using WordPress upload or put it somewhere in uploads folder, and the specify relative path using `file="relative/path/to/file"` attribute:
+You can upload this file with the WordPress uploader or put it somewhere in the uploads folder, and then specify the relative path with the `file="relative/path/to/file"` attribute:
 
     [cc_ruby file="test_project/main.rb"][/cc_ruby]
 
 This snippet will insert code from the UPLOADS_DIR/test_project/main.rb file.
 
-= Google Website Translator breaks my code blocks
+= Google Website Translator breaks my code blocks =
 
 The solution is to add `notranslate` class to the list of "Custom CSS Classes" on the admin plugin settings page.
 
-= Is this plugin GDPR Compliant?
+= Is this plugin GDPR compliant? =
 
 Yes. We do not store or process any user information.
 
@@ -226,7 +228,7 @@ You can find complete changelog on the [CodeColorer history](https://kpumuk.info
 
 == Supported languages ==
 
-Here is list of supported by CodeColorer languages: 4cs, 6502acme, 6502kickass, 6502tasm, 68000devpac, abap, actionscript, actionscript3, ada, aimms, algol68, apache, applescript, apt_sources, arm, asm, asp, asymptote, autoconf, autohotkey, autoit, avisynth, awk, bascomavr, bash, basic4gl, batch, bf, biblatex, bibtex, blitzbasic, bnf, boo, c, c_loadrunner, c_mac, c_winapi, caddcl, cadlisp, ceylon, cfdg, cfm, chaiscript, chapel, cil, clojure, cmake, cobol, coffeescript, cpp-qt, cpp-winapi, cpp, csharp, css, cuesheet, d, dart, dcl, dcpu16, dcs, delphi, diff, div, dos, dot, e, ecmascript, eiffel, email, epc, erlang, euphoria, ezt, f1, falcon, fo, fortran, freebasic, freeswitch, fsharp, gambas, gdb, genero, genie, gettext, glsl, gml, gnuplot, go, groovy, gwbasic, haskell, haxe, hicest, hq9plus, html4strict, html5, icon, idl, ini, inno, intercal, io, ispfpanel, j, java, java5, javascript, jcl, jquery, julia, julia, kixtart, klonec, klonecpp, kotlin, latex, lb, ldif, lisp, llvm, locobasic, logtalk, lolcode, lotusformulas, lotusscript, lscript, lsl2, lua, m68k, magiksf, make, mapbasic, mathematica, matlab, mercury, metapost, mirc, mk-61, mmix, modula2, modula3, mpasm, mxml, mysql, nagios, netrexx, newlisp, nginx, nimrod, nsis, oberon2, objc, objeck, ocaml-brief, ocaml, octave, oobas, oorexx, oracle11, oracle8, oxygene, oz, parasail, parigp, pascal, pcre, per, perl, perl6, pf, phix, php-brief, php, pic16, pike, pixelbender, pli, plsql, postgresql, postscript, povray, powerbuilder, powershell, proftpd, progress, prolog, properties, providex, purebasic, pycon, pys60, python, q, qbasic, qml, racket, rails, rbs, rebol, reg, rexx, robots, rpmspec, rsplus, ruby, rust, sas, sass, scala, scheme, scilab, scl, sdlbasic, smalltalk, smarty, spark, sparql, sql, standardml, stonescript, swift, systemverilog, tcl, tclegg, teraterm, texgraph, text, thinbasic, tsql, twig, typoscript, unicon, upc, urbi, uscript, vala, vb, vbnet, vbscript, vedit, verilog, vhdl, vim, visualfoxpro, visualprolog, whitespace, whois, winbatch, xbasic, xml, xojo, xorg_conf, xpp, xyscript, yaml, z80, zxbasic.
+Here is the list of languages supported by CodeColorer: 4cs, 6502acme, 6502kickass, 6502tasm, 68000devpac, abap, actionscript, actionscript3, ada, aimms, algol68, apache, applescript, apt_sources, arm, asm, asp, asymptote, autoconf, autohotkey, autoit, avisynth, awk, bascomavr, bash, basic4gl, batch, bf, biblatex, bibtex, blitzbasic, bnf, boo, c, c_loadrunner, c_mac, c_winapi, caddcl, cadlisp, ceylon, cfdg, cfm, chaiscript, chapel, cil, clojure, cmake, cobol, coffeescript, cpp-qt, cpp-winapi, cpp, csharp, css, cuesheet, d, dart, dcl, dcpu16, dcs, delphi, diff, div, dos, dot, e, ecmascript, eiffel, email, epc, erlang, euphoria, ezt, f1, falcon, fo, fortran, freebasic, freeswitch, fsharp, gambas, gdb, genero, genie, gettext, glsl, gml, gnuplot, go, groovy, gwbasic, haskell, haxe, hicest, hq9plus, html4strict, icon, idl, ini, inno, intercal, io, ispfpanel, j, java, java5, javascript, jcl, jquery, julia, kixtart, klonec, klonecpp, kotlin, latex, lb, ldif, lisp, llvm, locobasic, logtalk, lolcode, lotusformulas, lotusscript, lscript, lsl2, lua, m68k, magiksf, make, mapbasic, mathematica, matlab, mercury, metapost, mirc, mk-61, mmix, modula2, modula3, mpasm, mxml, mysql, nagios, netrexx, newlisp, nginx, nimrod, nsis, oberon2, objc, objeck, ocaml-brief, ocaml, octave, oobas, oorexx, oracle11, oracle8, oxygene, oz, parasail, parigp, pascal, pcre, per, perl, perl6, pf, phix, php-brief, php, pic16, pike, pixelbender, pli, plsql, postgresql, postscript, povray, powerbuilder, powershell, proftpd, progress, prolog, properties, providex, purebasic, pycon, pys60, python, q, qbasic, qml, racket, rails, rbs, rebol, reg, rexx, robots, rpmspec, rsplus, ruby, rust, sas, sass, scala, scheme, scilab, scl, sdlbasic, smalltalk, smarty, spark, sparql, sql, standardml, stonescript, swift, systemverilog, tcl, tclegg, teraterm, texgraph, text, thinbasic, tsql, twig, typoscript, unicon, upc, urbi, uscript, vala, vb, vbnet, vbscript, vedit, verilog, vhdl, vim, visualfoxpro, visualprolog, whitespace, whois, winbatch, xbasic, xml, xojo, xorg_conf, xpp, xyscript, yaml, z80, zxbasic.
 
 == Development ==
 
@@ -250,7 +252,7 @@ If you're interested in translating CodeColorer to your language, please check o
 
 Syntax coloring is highly customizable: you could change the  color scheme for all languages or a specific language. You could find CodeColorer CSS in **wp-content/plugins/codecolorer/codecolorer.css** file. To change colors for all languages edit lines below *Color scheme* section.
 
-There is simple mapping exists between Textmate color themes and CodeColorer ones:
+There is a simple mapping between TextMate color themes and CodeColorer ones:
 
     /* "Slush & Poppies" color scheme (default) */
     .codecolorer-container, .codecolorer { color: #000000; background-color: #F1F1F1; }

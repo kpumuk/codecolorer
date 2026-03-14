@@ -44,10 +44,10 @@
     getInfo: function () {
       return {
         longname: "CodeColorer plugin",
-        author: "Dmytro Shtefluk",
+        author: "Dmytro Shteflyuk",
         authorurl: "https://kpumuk.info/",
         infourl: "https://kpumuk.info/projects/wordpress-plugins/codecolorer/",
-        version: "0.10.1",
+        version: "0.10.2",
       };
     },
   });

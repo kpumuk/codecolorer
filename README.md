@@ -9,10 +9,46 @@
 
 ![](https://ps.w.org/codecolorer/assets/banner-1544x500.png)
 
-CodeColorer is a syntax highlighting plug-in which allows inserting code snippets
-into blog posts. The plug-in supports color themes, code samples in RSS, comments.
+CodeColorer highlights code snippets in posts, comments, and RSS feeds with the
+bundled GeSHi syntax highlighter. It supports block and inline code, themes,
+line numbers, and comment-safe shortcode handling.
 
-Please check our WordPress page https://wordpress.org/plugins/codecolorer/
+See the plugin page on [WordPress.org](https://wordpress.org/plugins/codecolorer/).
+
+## Usage
+
+Use `[cc]...[/cc]` for block code, `[cci]...[/cci]` for inline code, or
+`<code>...</code>` for compatibility with existing content.
+
+```text
+[cc lang="php" line_numbers="true"]
+<?php
+echo "Hello, world!";
+?>
+[/cc]
+
+Inline example: [cci lang="php"]$answer = 42;[/cci]
+```
+
+You can also use suffix shortcodes such as `[cc_php]...[/cc_php]` or
+`[cci_javascript]...[/cci_javascript]`.
+
+## Common Attributes
+
+* `lang`: language slug such as `php`, `javascript`, `ruby`, or `css`.
+* `line_numbers`: show or hide line numbers.
+* `tab_size`: spaces per tab character.
+* `lines` and `height`: control when vertical scrolling starts.
+* `width` and `rss_width`: set block width on the site and in feeds.
+* `theme`: choose a bundled theme such as `blackboard` or `solarized-dark`.
+* `highlight`: highlight specific lines or ranges such as `1,5,8-11`.
+* `escaped`: decode HTML entities before highlighting.
+* `class`: append custom CSS classes to the wrapper element.
+* `file`: load code from a path relative to the WordPress uploads directory for trusted content.
+
+Always quote attribute values. Boolean attributes accept `true`/`false`,
+`on`/`off`, or `1`/`0`. See [readme.txt](readme.txt) for the full parameter
+reference and WordPress.org readme content.
 
 ## Development
 
@@ -37,8 +73,19 @@ The `wp-env` setup provides a local WordPress instance for plugin development an
 
 WordPress.org releases are tag-driven. Create a plain Git tag such as `0.10.2`; do not use a `v` prefix.
 
-The GitHub release workflow builds from the tag, applies [`.distignore`](/Users/dmytro/work/github/codecolorer/.distignore), publishes the plugin to WordPress.org SVN `trunk/`, and creates the matching SVN tag.
+The GitHub release workflow builds from the tag, applies [`.distignore`](.distignore),
+publishes the plugin to WordPress.org SVN `trunk/`, and creates the matching SVN
+tag.
 
 Manual `workflow_dispatch` runs preflight by default. Set `perform_deploy` only when you want the workflow to commit to WordPress.org SVN.
 
-Plugin-directory assets live in [`.wordpress-org/assets`](/Users/dmytro/work/github/codecolorer/.wordpress-org/assets) and are synced to WordPress.org SVN `assets/` during a release. Treat Git as the source of truth and avoid manual SVN edits except for emergency recovery.
+Plugin-directory assets live in [`.wordpress-org/assets`](.wordpress-org/assets/)
+and are synced to WordPress.org SVN `assets/` during a release. Source PSD files
+stay in Git for editing, but are not published to WordPress.org SVN.
+
+## Bundled GeSHi
+
+CodeColorer vendors GeSHi `1.0.9.0` in [`lib/geshi.php`](lib/geshi.php)
+(`GESHI_VERSION`). Repository history records the `1.0.9` vendor refresh and a
+later PHP 8 compatibility backport, so treat `lib/geshi/` as upstream GeSHi
+plus a small set of project-local maintenance patches.

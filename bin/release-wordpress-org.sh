@@ -152,7 +152,8 @@ svn checkout --depth immediates "${SVN_AUTH_ARGS[@]}" "$SVN_URL" "$SVN_DIR" >/de
 svn update --set-depth infinity "${SVN_AUTH_ARGS[@]}" "$SVN_DIR/trunk" "$SVN_DIR/assets" >/dev/null
 
 rsync -a --delete --exclude '.svn/' "$DIST_DIR"/ "$SVN_DIR/trunk"/
-rsync -a --delete --exclude '.svn/' "$ASSETS_DIR"/ "$SVN_DIR/assets"/
+# Keep editable source files in Git, but do not publish them to WordPress.org SVN.
+rsync -a --delete --exclude '.svn/' --exclude '*.psd' "$ASSETS_DIR"/ "$SVN_DIR/assets"/
 
 svn_status_sync "$SVN_DIR"
 
