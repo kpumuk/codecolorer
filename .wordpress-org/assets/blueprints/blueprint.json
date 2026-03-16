@@ -26,6 +26,5 @@
     "php": "8.3",
     "wp": "latest"
   },
-  "features": {},
   "login": true
 }
