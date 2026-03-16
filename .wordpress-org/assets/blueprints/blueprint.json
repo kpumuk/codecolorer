@@ -1,5 +1,5 @@
 {
-  "landingPage": "/wp-admin/options-general.php?page=codecolorer.php",
+  "landingPage": "/?p=1",
   "plugins": ["codecolorer"],
   "steps": [
     {
