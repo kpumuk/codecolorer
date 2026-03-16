@@ -1,0 +1,31 @@
+{
+  "landingPage": "/wp-admin/options-general.php?page=codecolorer.php",
+  "plugins": ["codecolorer"],
+  "steps": [
+    {
+      "step": "setSiteOptions",
+      "options": {
+        "codecolorer_line_numbers": "true",
+        "codecolorer_width": "",
+        "codecolorer_disable_keyword_linking": "true"
+      }
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php\nrequire '/wordpress/wp-load.php';\n\n$posts = get_posts(array(\n    'numberposts' => -1,\n    'post_type' => array('post', 'page'),\n    'post_status' => 'any'\n));\n\nforeach ($posts as $post) {\n    wp_delete_post($post->ID, true);\n}"
+    },
+    {
+      "step": "importWxr",
+      "file": {
+        "resource": "url",
+        "url": "https://github.com/kpumuk/codecolorer/raw/refs/heads/blueprint/.wordpress-org/assets/blueprints/content/codecolorer-plugin-demo.xml"
+      }
+    }
+  ],
+  "preferredVersions": {
+    "php": "8.3",
+    "wp": "latest"
+  },
+  "features": {},
+  "login": true
+}

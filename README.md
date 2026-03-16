@@ -80,8 +80,10 @@ tag.
 Manual `workflow_dispatch` runs preflight by default. Set `perform_deploy` only when you want the workflow to commit to WordPress.org SVN.
 
 Plugin-directory assets live in [`.wordpress-org/assets`](.wordpress-org/assets/)
-and are synced to WordPress.org SVN `assets/` during a release. Source PSD files
-stay in Git for editing, but are not published to WordPress.org SVN.
+and are synced from `main` to WordPress.org SVN `assets/` whenever
+[`.wordpress-org/`](.wordpress-org/) changes land on `main`. Release runs only
+publish `trunk/` and the matching SVN tag. Source PSD files stay in Git for
+editing, but are not published to WordPress.org SVN.
 
 ## Bundled GeSHi
 

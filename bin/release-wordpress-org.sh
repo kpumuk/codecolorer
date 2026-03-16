@@ -88,7 +88,6 @@ DRY_RUN="${DRY_RUN:-0}"
 WPORG_USERNAME="${WPORG_USERNAME:-}"
 WPORG_PASSWORD="${WPORG_PASSWORD:-}"
 DISTIGNORE_FILE="$ROOT/.distignore"
-ASSETS_DIR="$ROOT/.wordpress-org/assets"
 
 require_command git
 require_command rsync
@@ -96,7 +95,6 @@ require_command svn
 require_command tar
 
 require_path "$DISTIGNORE_FILE" file
-require_path "$ASSETS_DIR" dir
 
 git -C "$ROOT" rev-parse -q --verify "refs/tags/$TAG^{commit}" >/dev/null \
     || fail "Tag $TAG does not exist locally"
@@ -149,11 +147,9 @@ for forbidden_path in .wordpress-org tests .github; do
 done
 
 svn checkout --depth immediates "${SVN_AUTH_ARGS[@]}" "$SVN_URL" "$SVN_DIR" >/dev/null
-svn update --set-depth infinity "${SVN_AUTH_ARGS[@]}" "$SVN_DIR/trunk" "$SVN_DIR/assets" >/dev/null
+svn update --set-depth infinity "${SVN_AUTH_ARGS[@]}" "$SVN_DIR/trunk" >/dev/null
 
 rsync -a --delete --exclude '.svn/' "$DIST_DIR"/ "$SVN_DIR/trunk"/
-# Keep editable source files in Git, but do not publish them to WordPress.org SVN.
-rsync -a --delete --exclude '.svn/' --exclude '*.psd' "$ASSETS_DIR"/ "$SVN_DIR/assets"/
 
 svn_status_sync "$SVN_DIR"
 
