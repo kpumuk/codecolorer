@@ -18,7 +18,7 @@
       "step": "importWxr",
       "file": {
         "resource": "url",
-        "url": "https://github.com/kpumuk/codecolorer/raw/refs/heads/blueprint/.wordpress-org/assets/blueprints/content/codecolorer-plugin-demo.xml"
+        "url": "https://raw.githubusercontent.com/kpumuk/codecolorer/refs/heads/main/.wordpress-org/assets/blueprints/content/codecolorer-plugin-demo.xml"
       }
     }
   ],
