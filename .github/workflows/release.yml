@@ -29,13 +29,15 @@ concurrency:
 
 jobs:
   preflight:
+    name: Preflight Release
     runs-on: ubuntu-latest
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Install release dependencies
         run: sudo apt-get update && sudo apt-get install -y rsync subversion
@@ -49,6 +51,7 @@ jobs:
         run: DRY_RUN=1 bin/release-wordpress-org.sh "${RELEASE_TAG}"
 
   deploy:
+    name: Deploy Release
     runs-on: ubuntu-latest
     needs: preflight
     if: github.event_name == 'push' || github.event.inputs.perform_deploy == 'true'
@@ -56,9 +59,10 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Install release dependencies
         run: sudo apt-get update && sudo apt-get install -y rsync subversion
