@@ -7,7 +7,31 @@ on:
   pull_request:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
+  zizmor:
+    name: GitHub Actions Security
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Run zizmor
+        uses: zizmorcore/zizmor-action@b1d7e1fb5de872772f31590499237e7cce841e8e # v0.5.3
+        with:
+          advanced-security: false
+          annotations: true
+          persona: pedantic
+
   phpunit:
     runs-on: ubuntu-latest
     strategy:
@@ -41,10 +65,12 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
 
       - name: Set up PHP
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@accd6127cb78bee3e8082180cb391013d204ef9f # v2
         with:
           php-version: ${{ matrix.php }}
           coverage: none
@@ -73,7 +99,7 @@ jobs:
 
     services:
       mysql:
-        image: mariadb:10.11
+        image: mariadb:10.11@sha256:407fccb51e710f34752c1a3ef9b936d1f55f38d4ac7fa043b3759742d266fd9a
         env:
           MARIADB_ROOT_PASSWORD: root
         ports:
@@ -86,10 +112,12 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
 
       - name: Set up PHP
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@accd6127cb78bee3e8082180cb391013d204ef9f # v2
         with:
           php-version: "8.2"
           coverage: none
@@ -103,9 +131,11 @@ jobs:
 
       - name: Install WordPress test suite
         env:
+          MYSQL_PORT: ${{ job.services.mysql.ports['3306'] }}
+          WORDPRESS_VERSION: ${{ matrix.wordpress }}
           WP_INSTALL_TESTS_SKIP_UPDATE_CHECK: "true"
         run: |
-          bin/install-wp-tests.sh codecolorer_test root root 127.0.0.1:${{ job.services.mysql.ports['3306'] }} ${{ matrix.wordpress }}
+          bin/install-wp-tests.sh codecolorer_test root root "127.0.0.1:${MYSQL_PORT}" "${WORDPRESS_VERSION}"
 
       - name: Run WordPress integration tests
         run: vendor/bin/phpunit --configuration tests/phpunit-wp.xml

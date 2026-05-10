@@ -7,6 +7,8 @@ updates:
       day: monday
       time: "09:00"
       timezone: America/Toronto
+    cooldown:
+      default-days: 7
     labels:
       - dependencies
       - javascript
@@ -17,6 +19,8 @@ updates:
       day: monday
       time: "09:00"
       timezone: America/Toronto
+    cooldown:
+      default-days: 7
     labels:
       - dependencies
       - github-actions
