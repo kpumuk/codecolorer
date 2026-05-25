@@ -38,7 +38,7 @@ Mature WordPress plugin. GeSHi syntax highlighter. Supports posts, inline code, 
 - Direct unit: `vendor/bin/phpunit --configuration tests/phpunit9.xml`
 - Direct WP: `vendor/bin/phpunit --configuration tests/phpunit-wp.xml`
 - Old PHP check: GH Actions matrix tests every minor `7.0` to `8.5`
-- WP CI check: GitHub Actions tests WordPress `6.7`, `6.8`, `6.9` on real WP core
+- WP CI check: GitHub Actions tests WordPress `6.7`, `6.8`, `6.9`, `7.0` on real WP core
 - Local old PHP smoke: Docker `php:7.0-cli` + PHPUnit 6.5.14
 
 ## Notes
