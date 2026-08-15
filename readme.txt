@@ -3,8 +3,8 @@ Contributors: kpumuk
 Tags: code, snippet, syntax, highlighting, comments
 Requires at least: 4.0
 Requires PHP: 7.0
-Tested up to: 7.0
-Stable tag: 0.11.0
+Tested up to: 7.1
+Stable tag: 0.12.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -176,6 +176,11 @@ Yes. We do not store or process any user information.
 4. Settings page.
 
 == Changelog ==
+
+= 0.12.0 (August 14, 2026) =
+* Added a WordPress Playground demo with sample highlighted content.
+* Added dedicated publishing for WordPress.org plugin-directory assets.
+* Expanded real WordPress compatibility coverage through WordPress 7.1 and refreshed development tooling.
 
 = 0.11.0 (March 13, 2026) =
 * Fixed comment protection for suffixed shortcodes such as `[cc_php]` and `[cci_php]`.

@@ -60,7 +60,7 @@ mise install
 composer install
 pnpm install
 mise run test
-bin/install-wp-tests.sh codecolorer_test root root localhost 7.0
+bin/install-wp-tests.sh codecolorer_test root root localhost 7.1-RC2
 mise run test-wp
 pnpm run wp-env:start
 ```
@@ -71,7 +71,7 @@ The `wp-env` setup provides a local WordPress instance for plugin development an
 
 ## Releases
 
-WordPress.org releases are tag-driven. Create a plain Git tag such as `0.11.0`; do not use a `v` prefix.
+WordPress.org releases are tag-driven. Create a plain Git tag such as `0.12.0`; do not use a `v` prefix.
 
 The GitHub release workflow builds from the tag, applies [`.distignore`](.distignore),
 publishes the plugin to WordPress.org SVN `trunk/`, and creates the matching SVN
