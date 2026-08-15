@@ -60,7 +60,7 @@ mise install
 composer install
 pnpm install
 mise run test
-bin/install-wp-tests.sh codecolorer_test root root localhost 7.0
+bin/install-wp-tests.sh codecolorer_test root root localhost 7.1-RC2
 mise run test-wp
 pnpm run wp-env:start
 ```
