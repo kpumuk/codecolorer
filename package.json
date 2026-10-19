@@ -5,7 +5,18 @@
   "devDependencies": {
     "@wordpress/env": "11.17.0"
   },
+  "pnpm": {
+    "overrides": {
+      "@wordpress/env>simple-git": "4.0.2",
+      "@wordpress/env>js-yaml": "4.3.2",
+      "express>qs": "6.16.1"
+    },
+    "patchedDependencies": {
+      "@wordpress/env@11.17.0": "patches/@wordpress__env@11.17.0.patch"
+    }
+  },
   "scripts": {
+    "test:dependencies": "node --test tests/dependencies.test.cjs",
     "wp-env:start": "wp-env start",
     "wp-env:stop": "wp-env stop",
     "wp-env:destroy": "wp-env destroy",

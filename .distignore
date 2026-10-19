@@ -22,5 +22,6 @@ pnpm-lock.yaml
 
 bin
 node_modules
+patches
 tests
 vendor

@@ -1,0 +1,39 @@
+diff --git a/lib/download-sources.js b/lib/download-sources.js
+index 79f7b3c7a4bf6fa857ecb8a1f9502e96a233cb90..17b02004b662e433981a4ac2bb242779fedb215d 100644
+--- a/lib/download-sources.js
++++ b/lib/download-sources.js
+@@ -5,7 +5,7 @@ const util = require( 'util' );
+ const pipeline = util.promisify( require( 'stream' ).pipeline );
+ const got = require( 'got' );
+ const AdmZip = require( 'adm-zip' );
+-const SimpleGit = require( 'simple-git' );
++const { simpleGit: SimpleGit } = require( 'simple-git' );
+ const { rimraf } = require( 'rimraf' );
+ 
+ /**
+diff --git a/lib/runtime/docker/download-wp-phpunit.js b/lib/runtime/docker/download-wp-phpunit.js
+index 5f60f0dfacaa7f1cd3036d34f7c8927bef0636fd..42a910c5e20bd6cff4a0eb94a10a0fc5170b27f3 100644
+--- a/lib/runtime/docker/download-wp-phpunit.js
++++ b/lib/runtime/docker/download-wp-phpunit.js
+@@ -1,7 +1,7 @@
+ 'use strict';
+ const fs = require( 'fs' );
+ const path = require( 'path' );
+-const SimpleGit = require( 'simple-git' );
++const { simpleGit: SimpleGit } = require( 'simple-git' );
+ 
+ /**
+  * @typedef {import('./config').WPConfig} WPConfig
+diff --git a/lib/runtime/docker/missing-images.js b/lib/runtime/docker/missing-images.js
+index 31dbc7f7c047b18f52225e4b5f7cf7fddf2aeae1..48248e1bb9e998c2ca6bc98917370661367cca86 100644
+--- a/lib/runtime/docker/missing-images.js
++++ b/lib/runtime/docker/missing-images.js
+@@ -61,7 +61,7 @@ async function findMissingImages(
+ 	dockerComposeConfigPath,
+ 	isCached = isImageCached
+ ) {
+-	const dockerComposeConfig = yaml.safeLoad(
++	const dockerComposeConfig = yaml.load(
+ 		await readFile( dockerComposeConfigPath, 'utf8' )
+ 	);
+ 
