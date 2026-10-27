@@ -14,6 +14,10 @@ const { simpleGit, GitPluginError } = envRequire('simple-git');
 const playgroundRequire = createRequire(envRequire.resolve('@wp-playground/cli'));
 const expressRequire = createRequire(playgroundRequire.resolve('express'));
 const qs = expressRequire('qs');
+const blueprintsRequire = createRequire(playgroundRequire.resolve('@wp-playground/blueprints'));
+const Ajv = blueprintsRequire('ajv');
+const ajvRequire = createRequire(blueprintsRequire.resolve('ajv'));
+const uri = ajvRequire('fast-uri');
 const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'codecolorer-dependencies-'));
 after(() => fs.rmSync(directory, { recursive: true, force: true }));
 
@@ -106,4 +110,78 @@ test('qs safely round-trips a query containing constructor.isBuffer', () => {
   const input = 'x%5Bconstructor%5D%5BisBuffer%5D=y';
   assert.equal(qs.stringify(qs.parse(input, { plainObjects: true })), input);
   assert.equal(qs.stringify(qs.parse('name=CodeColorer')), 'name=CodeColorer');
+});
+
+test('body-parser finishes compressed JSON with trailing bytes without crashing or dropping consumers', () => {
+  // Isolate the old parser's unhandled decompression error from the test runner.
+  execFileSync(process.execPath, ['--eval', `
+    const assert = require('node:assert/strict');
+    const { PassThrough } = require('node:stream');
+    const { createHash } = require('node:crypto');
+    const { deflateSync, gzipSync } = require('node:zlib');
+    const express = require(process.argv[1]);
+    async function check(encoding, compress) {
+      const request = new PassThrough();
+      const first = Buffer.concat([compress('{"name":"CodeColorer"}'), Buffer.from([0])]);
+      const trailing = Buffer.alloc(1024, 0x58);
+      request.headers = {
+        'content-type': 'application/json',
+        'content-encoding': encoding,
+        'content-length': String(first.length + trailing.length),
+      };
+      const hash = createHash('sha256');
+      request.pipe(hash);
+      await new Promise((resolve, reject) => {
+        const timer = setTimeout(() => reject(new Error('Request did not finish')), 2000);
+        hash.on('finish', () => {
+          clearTimeout(timer);
+          try {
+            assert.deepEqual(request.body, { name: 'CodeColorer' });
+            assert.equal(hash.read().toString('hex'),
+              createHash('sha256').update(first).update(trailing).digest('hex'));
+            resolve();
+          } catch (error) { reject(error); }
+        });
+        express.json()(request, {}, (error) => {
+          if (error) { clearTimeout(timer); reject(error); return; }
+          request.end(trailing);
+        });
+        request.write(first);
+      });
+    }
+    (async () => {
+      await check('deflate', deflateSync);
+      await check('gzip', gzipSync);
+    })().catch((error) => { console.error(error); process.exitCode = 1; });
+  `, playgroundRequire.resolve('express')], { timeout: 10000, stdio: 'pipe' });
+});
+
+test('fast-uri rejects encoded schemes and ambiguous hosts', () => {
+  for (const input of ['%6Aavascript:alert(1)', '%u006Aavascript:alert(1)',
+    'http://a@b@evil.example/', 'http://exa\tmple.com/', 'http://exa\nmple.com/']) {
+    assert.ok(uri.parse(input).error, input);
+  }
+  assert.equal(uri.normalize('https://example.com/a'), 'https://example.com/a');
+});
+
+test('fast-uri preserves relative-reference resolution and escapes suffix colons', () => {
+  const base = 'https://example.com/one/two/';
+  for (const reference of ['../x', 'a/../b']) {
+    assert.equal(uri.resolve(base, uri.normalize(reference)), uri.resolve(base, reference));
+  }
+  assert.equal(uri.equal('../x', 'x'), false);
+  assert.equal(uri.serialize({ path: 'javascript:alert(1)' }, { reference: 'suffix' }),
+    'javascript%3Aalert(1)');
+});
+
+test('Ajv still resolves relative schema references and validates ordinary data', () => {
+  const ajv = new Ajv();
+  ajv.addSchema({ $id: 'https://example.com/schemas/count.json', type: 'integer', minimum: 1 });
+  const validate = ajv.compile({
+    $id: 'https://example.com/schemas/plugin.json',
+    type: 'object', required: ['count'], properties: { count: { $ref: 'count.json' } },
+  });
+  assert.equal(validate({ count: 2 }), true);
+  assert.equal(validate({ count: 0 }), false);
+  assert.equal(validate({ count: '2' }), false);
 });
