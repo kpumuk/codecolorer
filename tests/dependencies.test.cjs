@@ -18,6 +18,9 @@ const blueprintsRequire = createRequire(playgroundRequire.resolve('@wp-playgroun
 const Ajv = blueprintsRequire('ajv');
 const ajvRequire = createRequire(blueprintsRequire.resolve('ajv'));
 const uri = ajvRequire('fast-uri');
+const rimrafRequire = createRequire(envRequire.resolve('rimraf'));
+const { glob } = rimrafRequire('glob');
+const { Minimatch } = createRequire(rimrafRequire.resolve('glob'))('minimatch');
 const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'codecolorer-dependencies-'));
 after(() => fs.rmSync(directory, { recursive: true, force: true }));
 
@@ -26,6 +29,59 @@ function git(cwd, ...args) {
     cwd, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'],
   }).trim();
 }
+
+test('minimatch bounds globstar-parent pattern amplification', () => {
+  for (const count of [7, 8]) {
+    const pattern = Array(count).fill('**/../a/b').join('/');
+    assert.equal(new Minimatch(pattern, {
+      optimizationLevel: 2, braceExpandMax: 64,
+    }).set.length, 64);
+  }
+  const matcher = new Minimatch('**/../a/b/**/../c/d', { optimizationLevel: 2 });
+  assert.equal(matcher.match('../a/b/../c/d'), true);
+  assert.equal(matcher.match('x/a/b/y/c/d'), true);
+  assert.equal(matcher.match('unrelated.txt'), false);
+});
+
+test('glob stops filesystem traversal after cancellation', async () => {
+  const root = path.join(directory, 'glob-abort');
+  fs.mkdirSync(path.join(root, 'one/two/three'), { recursive: true });
+  const controller = new AbortController();
+  const reason = new Error('cancel traversal');
+  let reads = 0;
+  const filesystem = {
+    ...fs,
+    readdir(...args) {
+      reads++;
+      if (reads === 1) controller.abort(reason);
+      return fs.readdir(...args);
+    },
+  };
+  await assert.rejects(glob('**', {
+    cwd: root, signal: controller.signal, fs: filesystem,
+  }), (error) => error === reason);
+  await new Promise((resolve) => setTimeout(resolve, 100));
+  assert.equal(reads, 1);
+  await assert.rejects(glob('**/*', {
+    cwd: root, signal: controller.signal, fs: filesystem,
+  }), (error) => error === reason);
+  assert.equal(reads, 1);
+});
+
+test('wp-env rimraf preserves literal paths and explicit glob cleanup', async () => {
+  const { rimraf } = envRequire('rimraf');
+  const root = path.join(directory, 'rimraf');
+  const literal = path.join(root, '[plugin]');
+  fs.mkdirSync(literal, { recursive: true });
+  fs.writeFileSync(path.join(literal, 'plugin.php'), '<?php');
+  fs.writeFileSync(path.join(root, 'remove.tmp'), 'temporary');
+  fs.writeFileSync(path.join(root, 'keep.php'), '<?php');
+  assert.equal(await rimraf(literal), true);
+  assert.equal(fs.existsSync(literal), false);
+  assert.equal(await rimraf(path.join(root, '*.tmp'), { glob: true }), true);
+  assert.equal(fs.existsSync(path.join(root, 'remove.tmp')), false);
+  assert.equal(fs.existsSync(path.join(root, 'keep.php')), true);
+});
 
 test('wp-env clones and updates a Git source with simple-git 4', async () => {
   const { downloadGitSource } = require(path.join(envRoot, 'lib/download-sources'));
