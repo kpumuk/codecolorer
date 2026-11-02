@@ -9,7 +9,8 @@
     "overrides": {
       "@wordpress/env>simple-git": "4.0.2",
       "@wordpress/env>js-yaml": "4.3.2",
-      "express>qs": "6.16.1"
+      "express>qs": "6.16.1",
+      "rimraf>glob": "14.0.2"
     },
     "patchedDependencies": {
       "@wordpress/env@11.17.0": "patches/@wordpress__env@11.17.0.patch"
