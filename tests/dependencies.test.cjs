@@ -7,6 +7,7 @@ const { createRequire } = require('node:module');
 const os = require('node:os');
 const path = require('node:path');
 const { after, test } = require('node:test');
+const { pathToFileURL } = require('node:url');
 
 const envRoot = path.dirname(require.resolve('@wordpress/env/package.json'));
 const envRequire = createRequire(path.join(envRoot, 'package.json'));
@@ -14,6 +15,8 @@ const { simpleGit, GitPluginError } = envRequire('simple-git');
 const playgroundRequire = createRequire(envRequire.resolve('@wp-playground/cli'));
 const expressRequire = createRequire(playgroundRequire.resolve('express'));
 const qs = expressRequire('qs');
+const storageRequire = createRequire(playgroundRequire.resolve('@wp-playground/storage'));
+const isomorphicGit = storageRequire('isomorphic-git');
 const blueprintsRequire = createRequire(playgroundRequire.resolve('@wp-playground/blueprints'));
 const Ajv = blueprintsRequire('ajv');
 const ajvRequire = createRequire(blueprintsRequire.resolve('ajv'));
@@ -103,6 +106,87 @@ test('wp-env clones and updates a Git source with simple-git 4', async () => {
   await downloadGitSource(source, options);
   assert.equal(git(clonePath, 'rev-parse', 'HEAD'), git(origin, 'rev-parse', 'HEAD'));
   assert.equal(fs.readFileSync(path.join(clonePath, 'plugin.php'), 'utf8'), 'second');
+});
+
+test('Playground reads Git packs and rejects traversal trees in both module formats', async (t) => {
+  const origin = path.join(directory, 'packed-origin');
+  fs.mkdirSync(path.join(origin, 'src'), { recursive: true });
+  git(origin, 'init', '-b', 'main');
+  const first = 'CodeColorer\n'.repeat(200);
+  const second = `${first}updated\n`;
+  const revisions = [];
+  for (const content of [first, second]) {
+    fs.writeFileSync(path.join(origin, 'src/plugin.php'), content);
+    git(origin, 'add', '.');
+    git(origin, '-c', 'user.name=Test', '-c', 'user.email=test@example.com', 'commit', '-m', 'update');
+    revisions.push(git(origin, 'rev-parse', 'HEAD'));
+  }
+  const safePack = execFileSync('git', ['pack-objects', '--stdout', '--all'], { cwd: origin });
+  const unsafeTree = execFileSync('git', ['hash-object', '-t', 'tree', '--literally', '-w', '--stdin'], {
+    cwd: origin, encoding: 'utf8', input: Buffer.concat([
+      Buffer.from('40000 ..\0'), Buffer.from(git(origin, 'rev-parse', 'HEAD:src'), 'hex'),
+    ]),
+  }).trim();
+  const unsafeCommit = git(origin, '-c', 'user.name=Test', '-c', 'user.email=test@example.com',
+    'commit-tree', unsafeTree, '-m', 'unsafe');
+  git(origin, 'update-ref', 'refs/heads/unsafe', unsafeCommit);
+  const unsafePack = execFileSync('git', ['pack-objects', '--stdout', '--all'], { cwd: origin });
+  let pack;
+  t.mock.method(globalThis, 'fetch', async () => {
+    const payload = Buffer.concat([Buffer.from([1]), pack]);
+    return new Response(Buffer.concat([
+      Buffer.from('0008NAK\n'), Buffer.from((payload.length + 4).toString(16).padStart(4, '0')),
+      payload, Buffer.from('0000'),
+    ]));
+  });
+  const storagePath = playgroundRequire.resolve('@wp-playground/storage');
+  for (const storage of [
+    playgroundRequire('@wp-playground/storage'),
+    await import(pathToFileURL(path.join(path.dirname(storagePath), 'index.js'))),
+  ]) {
+    pack = safePack;
+    assert.deepEqual(await storage.listGitFiles('https://git.example.test/repo', revisions[1]), [
+      { name: 'src', type: 'folder', children: [{ name: 'plugin.php', type: 'file' }] },
+    ]);
+    for (const [index, content] of [first, second].entries()) {
+      const result = await storage.sparseCheckout('https://git.example.test/repo', revisions[index],
+        ['src/plugin.php'], { withObjects: true });
+      assert.equal(Buffer.from(result.files['src/plugin.php']).toString(), content);
+      assert.ok(result.packfiles.every((file) => file.pack.length > 0 && file.index.length > 0));
+      assert.ok(result.objects.some((object) => object.oid === revisions[index] && object.type === 'commit'));
+    }
+    pack = unsafePack;
+    await assert.rejects(storage.listGitFiles('https://git.example.test/repo', unsafeCommit), {
+      code: 'UnsafeFilepathError',
+    });
+  }
+});
+
+test('isomorphic-git checkout refuses writes through a leading directory symlink', async () => {
+  const dir = path.join(directory, 'symlink-checkout');
+  const outside = path.join(directory, 'symlink-outside');
+  fs.mkdirSync(path.join(dir, 'src'), { recursive: true });
+  fs.mkdirSync(outside);
+  fs.writeFileSync(path.join(outside, 'plugin.php'), 'keep outside');
+  git(dir, 'init', '-b', 'main');
+  fs.writeFileSync(path.join(dir, 'src/plugin.php'), 'original');
+  git(dir, 'add', '.');
+  git(dir, '-c', 'user.name=Test', '-c', 'user.email=test@example.com', 'commit', '-m', 'original');
+  const original = git(dir, 'rev-parse', 'HEAD');
+  fs.writeFileSync(path.join(dir, 'src/plugin.php'), 'untrusted content');
+  git(dir, 'add', '.');
+  git(dir, '-c', 'user.name=Test', '-c', 'user.email=test@example.com', 'commit', '-m', 'add source');
+  git(dir, 'checkout', '--detach', original);
+  fs.rmSync(path.join(dir, 'src'), { recursive: true });
+  fs.symlinkSync(outside, path.join(dir, 'src'), 'dir');
+  await assert.rejects(isomorphicGit.checkout({ fs, dir, ref: 'main', force: true }),
+    (error) => (error.errors || [error]).some((inner) => inner.code === 'UnsafeFilepathError'));
+  assert.equal(fs.readFileSync(path.join(outside, 'plugin.php'), 'utf8'), 'keep outside');
+  fs.unlinkSync(path.join(dir, 'src'));
+  fs.mkdirSync(path.join(dir, 'src'));
+  fs.writeFileSync(path.join(dir, 'src/plugin.php'), 'original');
+  await isomorphicGit.checkout({ fs, dir, ref: 'main', force: true });
+  assert.equal(fs.readFileSync(path.join(dir, 'src/plugin.php'), 'utf8'), 'untrusted content');
 });
 
 test('wp-env reads generated Docker YAML and checks cached images with js-yaml 4', async () => {

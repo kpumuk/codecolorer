@@ -7,6 +7,7 @@ settings:
 overrides:
   '@wordpress/env>simple-git': 4.0.2
   '@wordpress/env>js-yaml': 4.3.2
+  '@wp-playground/storage>isomorphic-git': 1.38.6
   express>qs: 6.16.1
   rimraf>glob: 14.0.2
 
@@ -14,6 +15,9 @@ patchedDependencies:
   '@wordpress/env@11.17.0':
     hash: 496c5537a1835f75b86027b4c381fb1859fa2d158afc63696d98b280c0922b9d
     path: patches/@wordpress__env@11.17.0.patch
+  '@wp-playground/storage@3.1.58':
+    hash: 6d0a02fc503a23a10c788514e20917f136923033827f131caf993964abfc3329
+    path: patches/@wp-playground__storage@3.1.58.patch
 
 importers:
 
@@ -889,8 +893,8 @@ packages:
   isexe@2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
 
-  isomorphic-git@1.37.6:
-    resolution: {integrity: sha512-qr1NFCPsVTZ6YGqTXw0CzamnsHyH9QQ1OTEfeXIweSljRUMzuHFCJdUn0wc6OcjtTDns6knxjPb7N6LmJeftOA==}
+  isomorphic-git@1.38.6:
+    resolution: {integrity: sha512-lCmZ1m2R0LqbZ4QATtLCxhwNBQPNJc74R81dfyF90yLqP8xs2DZLedcnkVuRj6th/L2HYoIvWP5lBpS1ooAagw==}
     engines: {node: '>=14.17'}
     hasBin: true
 
@@ -1851,7 +1855,7 @@ snapshots:
       '@php-wasm/util': 3.1.58
       '@php-wasm/web-service-worker': 3.1.58
       '@wp-playground/common': 3.1.58
-      '@wp-playground/storage': 3.1.58
+      '@wp-playground/storage': 3.1.58(patch_hash=6d0a02fc503a23a10c788514e20917f136923033827f131caf993964abfc3329)
       '@wp-playground/wordpress': 3.1.58
       ajv: 8.18.0
 
@@ -1866,7 +1870,7 @@ snapshots:
       '@php-wasm/xdebug-bridge': 3.1.58
       '@wp-playground/blueprints': 3.1.58
       '@wp-playground/common': 3.1.58
-      '@wp-playground/storage': 3.1.58
+      '@wp-playground/storage': 3.1.58(patch_hash=6d0a02fc503a23a10c788514e20917f136923033827f131caf993964abfc3329)
       '@wp-playground/tools': 3.1.58
       '@wp-playground/wordpress': 3.1.58
       express: 4.22.2
@@ -1884,13 +1888,13 @@ snapshots:
       '@php-wasm/universal': 3.1.58
       '@php-wasm/util': 3.1.58
 
-  '@wp-playground/storage@3.1.58':
+  '@wp-playground/storage@3.1.58(patch_hash=6d0a02fc503a23a10c788514e20917f136923033827f131caf993964abfc3329)':
     dependencies:
       '@php-wasm/stream-compression': 3.1.58
       '@php-wasm/universal': 3.1.58
       '@php-wasm/util': 3.1.58
       '@zip.js/zip.js': 2.7.57
-      isomorphic-git: 1.37.6
+      isomorphic-git: 1.38.6
       octokit: 3.1.2
       pako: 1.0.11
       sha.js: 2.4.12
@@ -2384,7 +2388,7 @@ snapshots:
 
   isexe@2.0.0: {}
 
-  isomorphic-git@1.37.6:
+  isomorphic-git@1.38.6:
     dependencies:
       async-lock: 1.4.1
       clean-git-ref: 2.0.1

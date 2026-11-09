@@ -9,11 +9,13 @@
     "overrides": {
       "@wordpress/env>simple-git": "4.0.2",
       "@wordpress/env>js-yaml": "4.3.2",
+      "@wp-playground/storage>isomorphic-git": "1.38.6",
       "express>qs": "6.16.1",
       "rimraf>glob": "14.0.2"
     },
     "patchedDependencies": {
-      "@wordpress/env@11.17.0": "patches/@wordpress__env@11.17.0.patch"
+      "@wordpress/env@11.17.0": "patches/@wordpress__env@11.17.0.patch",
+      "@wp-playground/storage@3.1.58": "patches/@wp-playground__storage@3.1.58.patch"
     }
   },
   "scripts": {
