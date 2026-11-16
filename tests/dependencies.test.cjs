@@ -17,6 +17,8 @@ const expressRequire = createRequire(playgroundRequire.resolve('express'));
 const qs = expressRequire('qs');
 const storageRequire = createRequire(playgroundRequire.resolve('@wp-playground/storage'));
 const isomorphicGit = storageRequire('isomorphic-git');
+const cliUtilRequire = createRequire(playgroundRequire.resolve('@php-wasm/cli-util'));
+const { XMLParser } = cliUtilRequire('fast-xml-parser');
 const blueprintsRequire = createRequire(playgroundRequire.resolve('@wp-playground/blueprints'));
 const Ajv = blueprintsRequire('ajv');
 const ajvRequire = createRequire(blueprintsRequire.resolve('ajv'));
@@ -294,6 +296,32 @@ test('body-parser finishes compressed JSON with trailing bytes without crashing 
       await check('gzip', gzipSync);
     })().catch((error) => { console.error(error); process.exitCode = 1; });
   `, playgroundRequire.resolve('express')], { timeout: 10000, stdio: 'pipe' });
+});
+
+test('fast-xml-parser rejects unterminated stop-node tags without quadratic rescans', () => {
+  const parser = new XMLParser({ stopNodes: ['root.stop'] });
+  const started = process.hrtime.bigint();
+  assert.throws(() => parser.parse(`<root><stop>${'<a '.repeat(80000)}`), /Unexpected end of stop/);
+  assert.ok(Number(process.hrtime.bigint() - started) / 1e6 < 1000);
+  assert.deepEqual(parser.parse('<root><stop><a href="x">b</a></stop></root>'), {
+    root: { stop: '<a href="x">b</a>' },
+  });
+});
+
+test('Playground still merges Xdebug servers into PhpStorm workspace XML', () => {
+  const xml = playgroundRequire('@php-wasm/cli-util').updatePhpStormWorkspaceConfig([
+    '<?xml version="1.0" encoding="UTF-8"?>', '<project version="4">',
+    '  <component name="ChangeListManager">',
+    '    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />', '  </component>', '</project>', '',
+  ].join('\r\n'), {
+    name: 'CodeColorer', host: 'localhost', port: 8888, projectDir: '/project', ideKey: 'PHPSTORM',
+    pathMappings: [{ hostPath: '/project', vfsPath: '/wordpress/wp-content/plugins/codecolorer' }],
+  });
+  assert.match(xml, /<option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true">/);
+  assert.match(xml, /<server name="CodeColorer" host="localhost:8888" use_path_mappings="true">/);
+  assert.match(xml,
+    /<mapping local-root="\$PROJECT_DIR\$\/" remote-root="\/wordpress\/wp-content\/plugins\/codecolorer">/);
+  assert.match(xml, /server_name="CodeColorer" session_id="PHPSTORM"/);
 });
 
 test('fast-uri rejects encoded schemes and ambiguous hosts', () => {
