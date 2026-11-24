@@ -111,7 +111,7 @@ class CodeColorerLoader
         add_filter('the_content', array('CodeColorerLoader', 'callAfterHighlightCodeBlock'), 1000);
         add_filter('the_excerpt', array('CodeColorerLoader', 'callBeforeHighlightCodeBlock'), -1000);
         add_filter('the_excerpt', array('CodeColorerLoader', 'callAfterHighlightCodeBlock'), 1000);
-        add_filter('comment_text', array('CodeColorerLoader', 'callBeforeHighlightCodeBlock'), -1000);
+        add_filter('comment_text', array('CodeColorerLoader', 'callBeforeHighlightComment'), -1000, 2);
         add_filter('comment_text', array('CodeColorerLoader', 'callAfterHighlightCodeBlock'), 1000);
         add_filter('book_review', array('CodeColorerLoader', 'callBeforeHighlightCodeBlock'), -1000);
         add_filter('book_review', array('CodeColorerLoader', 'callAfterHighlightCodeBlock'), 1000);
@@ -364,6 +364,15 @@ class CodeColorerLoader
         $codecolorer = &CodeColorer::getInstance();
         if (null !== $codecolorer) {
             return $codecolorer->beforeHighlightCodeBlock($content);
+        }
+        return $content;
+    }
+
+    public static function callBeforeHighlightComment($content, $comment = null)
+    {
+        $codecolorer = &CodeColorer::getInstance();
+        if (null !== $codecolorer) {
+            return $codecolorer->beforeHighlightComment($content, $comment);
         }
         return $content;
     }

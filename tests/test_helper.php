@@ -46,6 +46,11 @@ function sanitize_text_field($text) {
     $text = preg_replace('/[\r\n\t ]+/', ' ', $text);
     return trim($text);
 }
+function user_can($user, $capability) { return false; }
+function wp_kses_post($text) { return $text; }
+function apply_filters($name, $value) { return $value; }
+function wp_kses_allowed_html($context = '') { return array('a' => array('href' => true, 'title' => true), 'b' => array(), 'code' => array()); }
+function wp_kses($text, $allowed) { return strip_tags($text, '<' . implode('><', array_keys($allowed)) . '>'); }
 function wp_strip_all_tags($text) {
     $text = preg_replace('@<(script|style)[^>]*?>.*?</\\1>@si', '', $text);
     $text = strip_tags($text);
@@ -98,7 +103,7 @@ function codecolorer_simulate_comment_submission($content)
 function codecolorer_render_comment($content)
 {
     return CodeColorerLoader::callAfterHighlightCodeBlock(
-        CodeColorerLoader::callBeforeHighlightCodeBlock($content)
+        CodeColorerLoader::callBeforeHighlightComment($content)
     );
 }
 
