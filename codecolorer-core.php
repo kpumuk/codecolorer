@@ -86,6 +86,80 @@ class CodeColorer
         return $content;
     }
 
+    /**
+     * Filter comment HTML outside code blocks when it is displayed: with the
+     * post allowlist when the author may post unfiltered HTML, otherwise with
+     * the comment allowlist.
+     */
+    public function beforeHighlightComment($content, $comment = null)
+    {
+        $content = $this->beforeHighlightCodeBlock($content);
+
+        if (is_object($comment) && !empty($comment->user_id) && user_can($comment->user_id, 'unfiltered_html')) {
+            return $this->finishCommentTags(wp_kses_post($content), false);
+        }
+
+        $allowed = wp_kses_allowed_html('pre_comment_content');
+        // WordPress 7.1 allows class on span in comments, but keeps only note
+        // mention classes.
+        $mentionClasses = isset($allowed['span']['class']);
+
+        /**
+         * Filters the HTML allowed outside code blocks when a comment is displayed.
+         *
+         * @param array           $allowed Allowed tags and attributes, as for wp_kses().
+         * @param WP_Comment|null $comment The comment being displayed.
+         */
+        $allowed = (array) apply_filters('codecolorer_comment_allowed_html', $allowed, $comment);
+
+        // Keep the code block placeholders, and rel, which is set below.
+        if (!isset($allowed['div'])) {
+            $allowed['div'] = array();
+        }
+        if (!isset($allowed['span'])) {
+            $allowed['span'] = array();
+        }
+        if (isset($allowed['a'])) {
+            $allowed['a']['rel'] = true;
+        }
+
+        return $this->finishCommentTags(wp_kses($content, $allowed), $mentionClasses);
+    }
+
+    /**
+     * Apply WordPress's comment link and span rules: add `nofollow ugc` to
+     * links, and optionally reduce span classes to note mentions.
+     */
+    private function finishCommentTags($content, $mentionClasses)
+    {
+        if (!class_exists('WP_HTML_Tag_Processor')) {
+            return $content;
+        }
+
+        $processor = new WP_HTML_Tag_Processor($content);
+        while ($processor->next_tag()) {
+            $tag = $processor->get_tag();
+            if ('A' === $tag) {
+                $href = $processor->get_attribute('href');
+                $add = (is_string($href) && wp_is_internal_link($href)) ? array('ugc') : array('nofollow', 'ugc');
+                $rel = $processor->get_attribute('rel');
+                $tokens = is_string($rel) ? preg_split('/\s+/', trim($rel), -1, PREG_SPLIT_NO_EMPTY) : array();
+                $merged = array_values(array_unique(array_merge($tokens, $add)));
+                if ($merged !== $tokens) {
+                    $processor->set_attribute('rel', implode(' ', $merged));
+                }
+            } elseif ('SPAN' === $tag && $mentionClasses) {
+                foreach ($processor->class_list() as $token) {
+                    if ('wp-note-mention' !== $token && !preg_match('/^user-[1-9][0-9]*$/', $token)) {
+                        $processor->remove_class($token);
+                    }
+                }
+            }
+        }
+
+        return $processor->get_updated_html();
+    }
+
     public function afterHighlightCodeBlock($content)
     {
         $content = str_replace(array_keys($this->blocks), array_values($this->blocks), $content);

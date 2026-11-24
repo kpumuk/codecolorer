@@ -3,7 +3,7 @@
  * Plugin Name: CodeColorer
  * Plugin URI: https://kpumuk.info/projects/wordpress-plugins/codecolorer/
  * Description: This plugin allows you to insert code snippets to your posts with nice syntax highlighting powered by <a href="http://qbnz.com/highlighter/">GeSHi</a> library. After enabling this plugin visit <a href="options-general.php?page=codecolorer.php">the options page</a> to configure code style.
- * Version: 0.12.0
+ * Version: 0.12.1
  * Author: Dmytro Shteflyuk
  * Author URI: https://kpumuk.info/
  * Text Domain: codecolorer
@@ -40,7 +40,7 @@ if (version_compare(phpversion(), '7.0.0', '<')) {
     return;
 }
 
-define('CODECOLORER_VERSION', '0.12.0');
+define('CODECOLORER_VERSION', '0.12.1');
 
 /**
  * Loader class for the CodeColorer plugin
@@ -111,7 +111,7 @@ class CodeColorerLoader
         add_filter('the_content', array('CodeColorerLoader', 'callAfterHighlightCodeBlock'), 1000);
         add_filter('the_excerpt', array('CodeColorerLoader', 'callBeforeHighlightCodeBlock'), -1000);
         add_filter('the_excerpt', array('CodeColorerLoader', 'callAfterHighlightCodeBlock'), 1000);
-        add_filter('comment_text', array('CodeColorerLoader', 'callBeforeHighlightCodeBlock'), -1000);
+        add_filter('comment_text', array('CodeColorerLoader', 'callBeforeHighlightComment'), -1000, 2);
         add_filter('comment_text', array('CodeColorerLoader', 'callAfterHighlightCodeBlock'), 1000);
         add_filter('book_review', array('CodeColorerLoader', 'callBeforeHighlightCodeBlock'), -1000);
         add_filter('book_review', array('CodeColorerLoader', 'callAfterHighlightCodeBlock'), 1000);
@@ -364,6 +364,15 @@ class CodeColorerLoader
         $codecolorer = &CodeColorer::getInstance();
         if (null !== $codecolorer) {
             return $codecolorer->beforeHighlightCodeBlock($content);
+        }
+        return $content;
+    }
+
+    public static function callBeforeHighlightComment($content, $comment = null)
+    {
+        $codecolorer = &CodeColorer::getInstance();
+        if (null !== $codecolorer) {
+            return $codecolorer->beforeHighlightComment($content, $comment);
         }
         return $content;
     }

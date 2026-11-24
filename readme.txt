@@ -4,7 +4,7 @@ Tags: code, snippet, syntax, highlighting, comments
 Requires at least: 4.0
 Requires PHP: 7.0
 Tested up to: 7.1
-Stable tag: 0.12.0
+Stable tag: 0.12.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -142,6 +142,22 @@ Yes, resulting XHTML is completely valid.
 
 Yes, CodeColorer supports code highlighting in comments using the same syntax, as you use in your blog posts.
 
+= Why did images or other HTML disappear from some comments? =
+
+When a comment is displayed, CodeColorer filters the HTML outside its code blocks with the same rules WordPress uses for comments. Comments by users who can post unfiltered HTML, such as administrators, keep everything WordPress allows in posts. All other comments keep only the HTML WordPress allows in comments, so markup that imports or other plugins stored in comments, such as images, paragraphs, or lists, is removed.
+
+To allow more HTML in those comments, add tags and their attributes with the `codecolorer_comment_allowed_html` filter, for example in your theme's **functions.php**. It receives the list of allowed tags in the format `wp_kses()` uses, and the comment being displayed:
+
+    add_filter('codecolorer_comment_allowed_html', function ($allowed, $comment) {
+        $allowed['img'] = array('src' => true, 'alt' => true, 'width' => true, 'height' => true);
+        $allowed['p'] = array();
+        return $allowed;
+    }, 10, 2);
+
+On WordPress 7.1 and later, `span` elements keep only the classes WordPress uses for note mentions, even if the filter allows `class` on them.
+
+Allow only tags and attributes you trust, because anyone who can comment can use them. Do not allow event handler attributes such as `onclick` or `onerror`.
+
 = How can I disable syntax highlighting for a particular `<code>` block? =
 
 Use `<code no_cc="true">` option for your code block.
@@ -176,6 +192,10 @@ Yes. We do not store or process any user information.
 4. Settings page.
 
 == Changelog ==
+
+= 0.12.1 (November 24, 2026) =
+* Improved filtering of HTML in comments.
+* Added the `codecolorer_comment_allowed_html` filter to customize the HTML allowed in comments.
 
 = 0.12.0 (August 14, 2026) =
 * Added a WordPress Playground demo with sample highlighted content.
