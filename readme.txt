@@ -4,7 +4,7 @@ Tags: code, snippet, syntax, highlighting, comments
 Requires at least: 4.0
 Requires PHP: 7.0
 Tested up to: 7.1
-Stable tag: 0.12.0
+Stable tag: 0.12.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -192,6 +192,10 @@ Yes. We do not store or process any user information.
 4. Settings page.
 
 == Changelog ==
+
+= 0.12.1 (November 24, 2026) =
+* Improved filtering of HTML in comments.
+* Added the `codecolorer_comment_allowed_html` filter to customize the HTML allowed in comments.
 
 = 0.12.0 (August 14, 2026) =
 * Added a WordPress Playground demo with sample highlighted content.
