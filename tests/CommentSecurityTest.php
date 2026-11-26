@@ -112,6 +112,12 @@ class CommentSecurityTest extends CodeColorerTestCase {
         });
     }
 
+    public function testKsesCannotSynthesizeShortcodeAroundProtectedCode() {
+        $rendered = codecolorer_simulate_comment_render('[c<x>c]text <code>[/cc]<img src=x onerror="alert(1)"></code>');
+
+        $this->assertStringNotContainsCompat('<img', $rendered);
+    }
+
     public function testDimensionAttributeCannotBreakContainerStyle() {
         $rendered = codecolorer_highlight($this->widthPayload);
 
