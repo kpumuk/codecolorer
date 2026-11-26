@@ -194,7 +194,7 @@ Yes. We do not store or process any user information.
 == Changelog ==
 
 = 0.12.1 (November 24, 2026) =
-* Improved filtering of HTML in comments.
+* Security: fixed unauthenticated stored cross-site scripting via comment content (CVE-2026-135651). Comment HTML outside code blocks is now filtered when the comment is displayed.
 * Added the `codecolorer_comment_allowed_html` filter to customize the HTML allowed in comments.
 
 = 0.12.0 (August 14, 2026) =
